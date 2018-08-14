@@ -1,46 +1,12 @@
 .header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   box-shadow: 0 1px 8px rgba(0,0,0,.3);
   z-index: 2;
-  ::ng-deep .searchbar {
-    background: white;
-    width: 100%;
-    height: 48px;
-    margin: 0px 32px;
-    box-sizing: border-box;
-    border-radius: 2px;
-     .prefix {
-       color: rgba(0,0,0,.56);
-       margin-left: 16px;
-       margin-top: 1px;
-     }
-    .autocomplete {
-      width: 100%;
-      z-index: 10;
-      color: rgba(0,0,0,.56);
-      font-size: 16px;
-      padding: 6px 16px 0px 10px;
-      .mat-form-field-underline {
-        display: none;
-      }
-    }
-  }
 }
 
-.sidenav-container {
-  position: absolute;
-  top: 64px;
-  bottom: 00px;
-  left: 0;
-  right: 0;
-  .sidenav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 232px;
-    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 1px 3px 0 rgba(0,0,0,.12)!important;
-  }
+.spacer {
+  flex: 1 1 auto;
 }

@@ -1,0 +1,66 @@
+.sidenav-wrapper {
+  .pure-sidenav {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    min-width: 64px;
+    max-width: 64px;
+    width: 64px;
+    overflow: hidden;
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,.35);
+    transition: width .1s ease-in-out, max-width .1s ease-in-out, min-width .1s ease-in-out;
+    z-index: 9999;
+    &:hover {
+      min-width: 288px;
+      max-width: 288px;
+      width: 288px;
+      .toolbar {
+        .menu-button {
+          opacity: 1;
+          visibility: visible;
+          transition: visibility .2s, opacity .25s ease-in;
+        }
+      }
+    }
+    .toolbar {
+      .menu-button {
+        visibility: hidden;
+        opacity: 0;
+      }
+    }
+  }
+  .menu-wrapper {
+    position: absolute;
+    top: 64px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: white;
+  }
+  .pure-sidenav-content {
+    background: white;
+    position: absolute;
+    left: 64px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+  }
+  .pure-sidenav-content-small-screen{
+    left: 0px;
+  }
+  .pure-sidenav-pushed {
+    min-width: 288px;
+    max-width: 288px;
+    width: 288px;
+  }
+
+  .pure-sidenav-content-pushed {
+    left: 288px;
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

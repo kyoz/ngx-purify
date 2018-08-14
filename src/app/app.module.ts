@@ -21,12 +21,21 @@ import {
   MatOptionModule,
   MatTooltipModule
 } from '@angular/material';
+
+// Pure Components
 import { HomeComponent } from './home/home.component';
+import { PureSidenav} from './shared/pure-sidenav/pure-sidenav.component';
+
+// Pure Services 
+import { PureSidenavService } from './shared/pure-sidenav/pure-sidenav.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+
+    // Pure Components
+    HomeComponent,
+    PureSidenav,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +59,7 @@ import { HomeComponent } from './home/home.component';
     MatToolbarModule,
     MatTooltipModule
   ],
-  providers: [],
+  providers: [PureSidenavService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

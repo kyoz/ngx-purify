@@ -1,31 +1,10 @@
-<ng-container>
+<pure-sidenav class="sidenav-container">
   <mat-toolbar class="header" color="primary">
-    <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button> 
-    <span>PURE</span>
-    <div class="searchbar" fxLayoutAlign="space-between center">
-      <mat-icon class="prefix">search</mat-icon>
-      <mat-form-field class="autocomplete" floatLabel="never">
-        <input type="text" placeholder="Search for some feature" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-            {{option}}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
-    </div>
+    <button mat-icon-button *ngIf="!_sidenav.isFullWidth"><mat-icon>menu</mat-icon></button> 
+    <button mat-icon-button><mat-icon>settings</mat-icon></button>
+    <div class="spacer"></div>
     <button mat-icon-button><mat-icon>fullscreen</mat-icon></button>
     <button mat-icon-button><mat-icon matBadge="10" matBadgeColor="warn">notifications</mat-icon></button>
     <button mat-icon-button><mat-icon>settings</mat-icon></button>
   </mat-toolbar>
-
-  <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #sidenav mode="side" opened class="sidenav">
-      Menu
-    </mat-sidenav>
-
-    <mat-sidenav-content>
-      Content
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-
-</ng-container>
+</pure-sidenav>
