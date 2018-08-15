@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 // Angular Flex Layout
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-// Angular Material
+// Angular Material Modules
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatAutocompleteModule,
@@ -49,7 +49,7 @@ import { PureSideMenuService } from './core/pure-side-menu/pure-side-menu.servic
     // Angular Flex Layout
     FlexLayoutModule,
 
-    // Angular Material
+    // Angular Material Modules
     BrowserAnimationsModule,
 
     MatAutocompleteModule,
