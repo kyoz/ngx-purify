@@ -11,6 +11,12 @@
   box-shadow: 0 2px 8px 0 rgba(0,0,0,.35);
   transition: width .1s ease-in-out, max-width .1s ease-in-out, min-width .1s ease-in-out;
   z-index: 9999;
+  .toolbar {
+    .menu-button {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
   &:hover {
     min-width: 288px;
     max-width: 288px;
@@ -21,12 +27,6 @@
         visibility: visible;
         transition: visibility .2s, opacity .25s ease-in;
       }
-    }
-  }
-  .toolbar {
-    .menu-button {
-      visibility: hidden;
-      opacity: 0;
     }
   }
   .pure-menu-wrapper {
@@ -43,4 +43,8 @@
   min-width: 288px;
   max-width: 288px;
   width: 288px;
+  .menu-button {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
 }
