@@ -22,20 +22,24 @@ import {
   MatTooltipModule
 } from '@angular/material';
 
-// Pure Components
-import { HomeComponent } from './home/home.component';
-import { PureSidenav} from './core/pure-sidenav/pure-sidenav.component';
+// Pure Core Components
+import { PureContainer} from './core/pure-container/pure-container.component';
+import { PureSideMenu } from './core/pure-side-menu/pure-side-menu.component';
 
-// Pure Services 
-import { PureSidenavService } from './core/pure-sidenav/pure-sidenav.service';
+// Pure Core Services 
+import { PureSideMenuService } from './core/pure-side-menu/pure-side-menu.service';
+
+// Pure Components
 
 @NgModule({
   declarations: [
     AppComponent,
 
+    // Pure Core Components
+    PureContainer,
+    PureSideMenu,
+
     // Pure Components
-    HomeComponent,
-    PureSidenav,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +63,10 @@ import { PureSidenavService } from './core/pure-sidenav/pure-sidenav.service';
     MatToolbarModule,
     MatTooltipModule
   ],
-  providers: [PureSidenavService],
+  providers: [
+    // Pure Core Services
+    PureSideMenuService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

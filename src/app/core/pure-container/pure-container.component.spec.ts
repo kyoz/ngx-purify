@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PureSidenavComponent } from './pure-sidenav.component';
+import { PureContainer } from './pure-container.component';
 
-describe('PureSidenavComponent', () => {
-  let component: PureSidenavComponent;
-  let fixture: ComponentFixture<PureSidenavComponent>;
+describe('PureContainer', () => {
+  let component: PureContainer;
+  let fixture: ComponentFixture<PureContainer>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PureSidenavComponent ]
+      declarations: [ PureContainer ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PureSidenavComponent);
+    fixture = TestBed.createComponent(PureContainer);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

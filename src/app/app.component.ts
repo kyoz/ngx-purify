@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PureSideMenuService } from './core/pure-side-menu/pure-side-menu.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'pure-dashboard';
+  constructor(
+    public _menu: PureSideMenuService
+  ) {
+
+  }
 }

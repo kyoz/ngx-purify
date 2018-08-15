@@ -1,0 +1,8 @@
+<div class="pure-container-wrapper">
+  <pure-side-menu></pure-side-menu>
+  <div class="pure-side-menu-content" [ngClass]="{ 
+    'pure-side-menu-content-small-screen' : !_menu.isFullWidth,
+    'pure-side-menu-content-pushed' : _menu.getMode() === 'push'}">
+    <ng-content></ng-content>
+  </div>
+</div>

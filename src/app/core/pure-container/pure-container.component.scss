@@ -1,0 +1,20 @@
+.pure-container-wrapper {
+  .pure-side-menu-content {
+    background: white;
+    position: absolute;
+    left: 64px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+  }
+  .pure-side-menu-content-small-screen{
+    left: 0px;
+  }
+  .pure-side-menu-content-pushed {
+    left: 288px;
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

@@ -1,1 +1,10 @@
-<app-home></app-home>
+<pure-container class="app-container">
+  <mat-toolbar class="header" color="primary">
+    <button mat-icon-button *ngIf="!_menu.isFullWidth"><mat-icon>menu</mat-icon></button> 
+    <button mat-icon-button><mat-icon>settings</mat-icon></button>
+    <div class="pure-spacer"></div>
+    <button mat-icon-button><mat-icon>fullscreen</mat-icon></button>
+    <button mat-icon-button><mat-icon matBadge="10" matBadgeColor="warn">notifications</mat-icon></button>
+    <button mat-icon-button><mat-icon>settings</mat-icon></button>
+  </mat-toolbar>
+</pure-container>

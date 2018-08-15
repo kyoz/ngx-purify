@@ -1,0 +1,12 @@
+<div class="pure-side-menu" *ngIf="_menu.isFullWidth" [ngClass]="{ 'pure-side-menu-pushed' : _menu.getMode() === 'push' }">
+  <mat-toolbar color="primary" class="toolbar">
+    <span>P</span>
+    <div class="pure-spacer"></div>
+    <button mat-icon-button class="menu-button" (click)="_menu.toggleMode()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+  <div class="pure-menu-wrapper">
+
+  </div>
+</div>
