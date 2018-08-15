@@ -1,6 +1,11 @@
 import { Component, OnInit, HostListener, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { PureSidenavService } from './pure-sidenav.service';
 
+const SCREEN = {
+  SMALL: 640,
+  NORMAL: 1200
+};
+
 @Component({
   selector: 'pure-sidenav',
   templateUrl: './pure-sidenav.component.html',
@@ -10,7 +15,7 @@ import { PureSidenavService } from './pure-sidenav.service';
 export class PureSidenav implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    this._sidenav.isFullWidth = window.innerWidth >= 1280 ? true : false;
+    this._sidenav.isFullWidth = window.innerWidth >= SCREEN.NORMAL ? true : false;
   }
 
   constructor(

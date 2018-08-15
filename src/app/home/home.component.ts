@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PureSidenavService } from '../shared/pure-sidenav/pure-sidenav.service';
+import { PureSidenavService } from '../core/pure-sidenav/pure-sidenav.service';
 
 @Component({
   selector: 'app-home',

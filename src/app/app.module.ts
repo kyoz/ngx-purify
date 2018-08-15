@@ -24,10 +24,10 @@ import {
 
 // Pure Components
 import { HomeComponent } from './home/home.component';
-import { PureSidenav} from './shared/pure-sidenav/pure-sidenav.component';
+import { PureSidenav} from './core/pure-sidenav/pure-sidenav.component';
 
 // Pure Services 
-import { PureSidenavService } from './shared/pure-sidenav/pure-sidenav.service';
+import { PureSidenavService } from './core/pure-sidenav/pure-sidenav.service';
 
 @NgModule({
   declarations: [
