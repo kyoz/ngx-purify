@@ -1,6 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 
@@ -15,6 +16,7 @@ import {
   MatButtonModule,
   MatIconModule,
   MatInputModule,
+  MatIconRegistry,
   MatToolbarModule,
   MatSidenavModule,
   MatFormFieldModule,
@@ -45,6 +47,7 @@ import { PureSideMenuService } from './core/pure-side-menu/pure-side-menu.servic
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
 
     // Angular Flex Layout
     FlexLayoutModule,
@@ -69,4 +72,9 @@ import { PureSideMenuService } from './core/pure-side-menu/pure-side-menu.servic
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(_matIconRegistry: MatIconRegistry, _domSanitizer: DomSanitizer) {
+    // Register to use more material design icons in https://materialdesignicons.com/
+    _matIconRegistry.addSvgIconSet(_domSanitizer.bypassSecurityTrustResourceUrl('./assets/icons/material-design-icons.svg'));
+  }
+}

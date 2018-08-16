@@ -5,17 +5,13 @@ import { RESPONSIVE_BREAKPOINTS } from '../configs';
 export class PureSideMenuService {
 
   public isFullWidth: boolean = false;
-  public mode: 'push' | 'over' = 'over';
+  public mode: 'over' | 'fixed' = 'over';
 
   constructor() {
     this.isFullWidth = window.innerWidth >= RESPONSIVE_BREAKPOINTS.NORMAL ? true : false;
   }
 
-  public getMode() {
-    return this.mode;
-  }
-
   public toggleMode() {
-    this.mode = this.mode === 'over' ? 'push' : 'over';
+    this.mode = this.mode === 'over' ? 'fixed' : 'over';
   }
 }

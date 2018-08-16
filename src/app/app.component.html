@@ -1,6 +1,6 @@
 <pure-container class="app-container">
   <mat-toolbar class="header" color="primary">
-    <button mat-icon-button *ngIf="!_menu.isFullWidth"><mat-icon>menu</mat-icon></button> 
+    <button mat-icon-button *ngIf="!_menu.isFullWidth" (click)="_menu.toggleMode()"><mat-icon>menu</mat-icon></button> 
     <button mat-icon-button><mat-icon>settings</mat-icon></button>
     <div class="pure-spacer"></div>
     <button mat-icon-button><mat-icon>fullscreen</mat-icon></button>
