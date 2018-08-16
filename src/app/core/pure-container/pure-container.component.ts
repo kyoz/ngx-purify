@@ -11,6 +11,7 @@ export class PureContainer implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize() {
     this._menu.isFullWidth = window.innerWidth >= RESPONSIVE_BREAKPOINTS.NORMAL ? true : false;
+    this._menu.init();
   }
 
   constructor(

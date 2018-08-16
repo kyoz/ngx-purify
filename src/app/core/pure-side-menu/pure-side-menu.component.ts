@@ -14,5 +14,4 @@ export class PureSideMenu implements OnInit {
 
   ngOnInit() {
   }
-
 }

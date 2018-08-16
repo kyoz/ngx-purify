@@ -1,5 +1,10 @@
-<div class="pure-side-menu" *ngIf="_menu.isFullWidth"
-  [ngClass]="{ 'pure-side-menu-pushed' : _menu.mode === 'fixed' }">
+<div id="pure.sidemenu" class="pure-side-menu"
+  [ngClass]="{ 
+    'pure-side-menu-can-hover' : _menu.canHover,
+    'pure-side-menu-fullwidth' : _menu.isFullWidth,
+    'pure-side-menu-non-fullwidth' : !_menu.isFullWidth,
+    'pure-side-menu-opened' : _menu.isOpened(),
+    'pure-side-menu-closed' : _menu.isClosed() }">
   <mat-toolbar color="primary" class="toolbar">
     <span>P</span>
     <div class="pure-spacer"></div>

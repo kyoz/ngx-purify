@@ -3,32 +3,13 @@
   left: 0px;
   top: 0px;
   bottom: 0px;
-  min-width: 64px;
-  max-width: 64px;
-  width: 64px;
+  min-width: 0px;
+  max-width: 0px;
+  width: 0px;
   overflow: hidden;
   box-sizing: border-box;
-  box-shadow: 0 2px 8px 0 rgba(0,0,0,.35);
-  transition: width .1s ease-in-out, max-width .1s ease-in-out, min-width .1s ease-in-out;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
   z-index: 9999;
-  .toolbar {
-    .menu-button {
-      visibility: hidden;
-      opacity: 0;
-    }
-  }
-  &:hover {
-    min-width: 288px;
-    max-width: 288px;
-    width: 288px;
-    .toolbar {
-      .menu-button {
-        opacity: 1;
-        visibility: visible;
-        transition: visibility .2s, opacity .25s ease-in;
-      }
-    }
-  }
   .pure-menu-wrapper {
     position: absolute;
     top: 64px;
@@ -39,12 +20,63 @@
   }
 }
 
-.pure-side-menu-pushed {
+.pure-side-menu-fullwidth {
+  min-width: 64px;
+  max-width: 64px;
+  width: 64px;
+  transition: width .2s ease-in-out, max-width .2s ease-in-out, min-width .2s ease-in-out;
+  .toolbar {
+    .menu-button {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+}
+
+.pure-side-menu-non-full-width {
+  min-width: 0px;
+  max-width: 0px;
+  width: 0px;
+}
+
+.pure-side-menu-closed.pure-side-menu-non-full-width {
+  min-width: 0px;
+  max-width: 0px;
+  width: 0px;
+}
+
+.pure-side-menu-closed.pure-side-menu-full-width {
+  min-width: 64px;
+  max-width: 64px;
+  width: 64px;
+}
+
+.pure-side-menu-closed.pure-side-menu-can-hover {
+  &:hover {
+    min-width: 288px;
+    max-width: 288px;
+    width: 288px;
+    transition: width .2s ease-in-out, max-width .2s ease-in-out, min-width .2s ease-in-out;
+    .toolbar>.menu-button {
+      opacity: 1;
+      visibility: visible;
+      transition: visibility .2s, opacity .25s ease-in;
+    }
+  }
+}
+
+.pure-side-menu-opened {
   min-width: 288px;
   max-width: 288px;
   width: 288px;
-  .menu-button {
-    opacity: 1 !important;
-    visibility: visible !important;
+  transition: width .2s ease-in-out, max-width .2s ease-in-out, min-width .2s ease-in-out;
+  .toolbar>.menu-button {
+    opacity: 1;
+    visibility: visible;
+    transition: visibility .3s, opacity .25s ease-in;
   }
+}
+
+.pure-side-menu-closed {
+  transition: width .2s ease-in-out, max-width .2s ease-in-out, min-width .2s ease-in-out;
 }
