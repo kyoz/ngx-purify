@@ -10,7 +10,7 @@
     <div class="pure-spacer"></div>
     <button mat-icon-button class="menu-button"
       (click)="_menu.toggleMode()">
-      <mat-icon>menu</mat-icon>
+      <mat-icon>{{ _menu.isOpened() ? 'arrow_back' : 'menu' }}</mat-icon>
     </button>
   </mat-toolbar>
   <div class="pure-menu-wrapper">
