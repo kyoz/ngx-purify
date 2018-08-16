@@ -1,17 +1,30 @@
 .pure-container-wrapper {
-  .pure-side-menu-content {
+  .pure-container-content {
     background: white;
     position: absolute;
     left: 64px;
-    right: 0px;
+    right: 64px;
     top: 0px;
     bottom: 0px;
     transition: left .2s ease-in-out;
   }
+
   .pure-side-menu-content-small-screen {
     left: 0px;
   }
-  .pure-side-menu-content-pushed {
+  .pure-side-menu-content-opened {
     left: 288px;
   }
+  .pure-side-chatbox-content-small-screen {
+    right: 0px;
+  }
+}
+.pure-container-backdrop {
+  z-index: 999;
+  background: rgba(black, .3);
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
 }

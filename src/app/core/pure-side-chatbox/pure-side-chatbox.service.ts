@@ -2,23 +2,14 @@ import { Injectable } from '@angular/core';
 import { RESPONSIVE_BREAKPOINTS } from '../configs';
 
 @Injectable()
-export class PureSideMenuService {
+export class PureSideChatboxService {
 
   public isFullWidth: boolean = false;
-  public state: 'opened' | 'closed' = 'opened';
+  public state: 'opened' | 'closed' = 'closed';
   public canHover: boolean = true;
 
   constructor() {
     this.isFullWidth = window.innerWidth >= RESPONSIVE_BREAKPOINTS.NORMAL ? true : false;
-    this.init();
-  }
-
-  public init() {
-    if (this.isFullWidth) {
-      this.state = 'opened';
-    } else {
-      this.state = 'closed';
-    }
   }
 
   public isOpened() {
@@ -35,13 +26,5 @@ export class PureSideMenuService {
 
   public toggle() {
     this.state = this.state === 'opened' ? 'closed' : 'opened';
-
-    // To close side menu when toggle
-    if (this.state === 'closed') {
-      this.canHover = false;
-      setTimeout(() => {
-        this.canHover = true;
-      }, 300);
-    }
   }
 }

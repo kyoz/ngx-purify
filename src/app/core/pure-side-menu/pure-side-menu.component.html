@@ -1,4 +1,4 @@
-<div id="pure.sidemenu" class="pure-side-menu"
+<div id="pure.side-menu" class="pure-side-menu"
   [ngClass]="{ 
     'pure-side-menu-can-hover' : _menu.canHover,
     'pure-side-menu-fullwidth' : _menu.isFullWidth,
@@ -6,10 +6,10 @@
     'pure-side-menu-opened' : _menu.isOpened(),
     'pure-side-menu-closed' : _menu.isClosed() }">
   <mat-toolbar color="primary" class="toolbar">
-    <span>P</span>
+    <span (click)="_menu.toggle()">PURE</span>
     <div class="pure-spacer"></div>
     <button mat-icon-button class="menu-button"
-      (click)="_menu.toggleMode()">
+      (click)="_menu.toggle()">
       <mat-icon>{{ _menu.isOpened() ? 'arrow_back' : 'menu' }}</mat-icon>
     </button>
   </mat-toolbar>

@@ -27,9 +27,11 @@ import {
 // Pure Core Components
 import { PureContainer} from './core/pure-container/pure-container.component';
 import { PureSideMenu } from './core/pure-side-menu/pure-side-menu.component';
+import { PureSideChatbox } from './core/pure-side-chatbox/pure-side-chatbox.component';
 
 // Pure Core Services 
 import { PureSideMenuService } from './core/pure-side-menu/pure-side-menu.service';
+import { PureSideChatboxService } from './core/pure-side-chatbox/pure-side-chatbox.service';
 
 // Pure Components
 
@@ -40,6 +42,7 @@ import { PureSideMenuService } from './core/pure-side-menu/pure-side-menu.servic
     // Pure Core Components
     PureContainer,
     PureSideMenu,
+    PureSideChatbox,
 
     // Pure Components
   ],
@@ -68,7 +71,8 @@ import { PureSideMenuService } from './core/pure-side-menu/pure-side-menu.servic
   ],
   providers: [
     // Pure Core Services
-    PureSideMenuService
+    PureSideMenuService,
+    PureSideChatboxService
   ],
   bootstrap: [AppComponent]
 })

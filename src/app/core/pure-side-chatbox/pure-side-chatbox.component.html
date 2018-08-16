@@ -1,0 +1,16 @@
+<div id="pure.side-chatbox" class="pure-side-chatbox"
+  [ngClass]="{ 
+    'pure-side-chatbox-fullwidth' : _chatbox.isFullWidth,
+    'pure-side-chatbox-non-fullwidth' : !_chatbox.isFullWidth,
+    'pure-side-chatbox-opened' : _chatbox.isOpened(),
+    'pure-side-chatbox-closed' : _chatbox.isClosed() }">
+  <mat-toolbar color="primary" class="toolbar">
+    <button mat-icon-button class="chatbox-button"
+      (click)="_chatbox.toggle()">
+      <mat-icon>{{ _chatbox.isOpened() ? 'arrow_forward' : 'menu' }}</mat-icon>
+    </button>
+  </mat-toolbar>
+  <div class="pure-chatbox-wrapper">
+    hihi
+  </div>
+</div>
