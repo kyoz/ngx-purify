@@ -31,6 +31,8 @@ import { PureSharedModule } from '../shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+
+    // Pure Modules
     PureSharedModule
   ],
   exports: [
