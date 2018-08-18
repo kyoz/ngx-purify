@@ -20,7 +20,7 @@ export class PureSideChatbox implements OnInit {
 
   registerHammer() {
     const hammer = new Hammer(this.pureSideChatbox.nativeElement, {});
-    hammer.on('panright', ev => {
+    hammer.on('swiperight', ev => {
       this._chatbox.close();
     });
   }

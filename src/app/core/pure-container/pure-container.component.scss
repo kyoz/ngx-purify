@@ -8,7 +8,6 @@
     bottom: 0px;
     transition: left .2s ease-in-out;
   }
-
   .pure-side-menu-content-small-screen {
     left: 0px;
   }
@@ -19,12 +18,25 @@
     right: 0px;
   }
 }
+
 .pure-container-backdrop {
   z-index: 999;
-  background: rgba(black, .3);
+  background: rgba(black, 0);
   position: absolute;
   left: 0px;
   top: 0px;
   bottom: 0px;
   right: 0px;
+  animation-name: pure-container-backdrop-anim;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes pure-container-backdrop-anim {
+  from {
+    background: rgba(black, .0)
+  }
+  to {
+    background: rgba(black, .6)
+  }
 }

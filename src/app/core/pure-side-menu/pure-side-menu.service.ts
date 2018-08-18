@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { RESPONSIVE_BREAKPOINTS } from '../configs';
+import { RESPONSIVE_BREAKPOINTS } from '../pure-utils/pure-configs';
 
 @Injectable()
 export class PureSideMenuService {

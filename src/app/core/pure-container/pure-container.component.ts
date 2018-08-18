@@ -1,7 +1,8 @@
 import { Component, OnInit, HostListener, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { PureSideMenuService } from '../pure-side-menu/pure-side-menu.service';
 import { PureSideChatboxService } from '../pure-side-chatbox/pure-side-chatbox.service';
-import { RESPONSIVE_BREAKPOINTS } from '../configs';
+import { PureSideNotificationService } from '../pure-side-notification/pure-side-notification.service';
+import { RESPONSIVE_BREAKPOINTS } from '../pure-utils/pure-configs';
 
 @Component({
   selector: 'pure-container',
@@ -18,7 +19,8 @@ export class PureContainer implements OnInit {
 
   constructor(
     public _menu: PureSideMenuService,
-    public _chatbox: PureSideChatboxService
+    public _chatbox: PureSideChatboxService,
+    public _notification: PureSideNotificationService
   ) { }
 
   ngOnInit() {

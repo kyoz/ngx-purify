@@ -1,0 +1,50 @@
+<div #pure_side_notification class="pure-side-notification"
+  [ngClass]="{ 
+    'pure-side-notification-opened' : _notification.isOpened(),
+    'pure-side-notification-closed' : _notification.isClosed() }">
+  <div class="pure-notification-wrapper">
+    <mat-list>
+      <h3 mat-subheader>Today</h3>
+      <mat-list-item class="today-top">
+        <div class="date">{{today.dayOfWeek}}</div><br>
+      </mat-list-item>
+      <mat-list-item class="today-bottom">
+        <div class="date">{{today.month}} {{today.day}}<sup>{{today.daySuffix}}</sup></div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <h3 mat-subheader>Events</h3>
+      <mat-list-item *ngFor="let event of events">
+        <mat-icon mat-list-icon>events</mat-icon>
+        <h4 mat-line class="main-line">{{event.name}}</h4>
+        <p mat-line class="sub-line"> {{event.time}} {{event.place ? ' - ' : ''}} {{event.place}}</p>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <h3 mat-subheader>Notes</h3>
+      <mat-list-item *ngFor="let note of notes">
+        <mat-icon mat-list-icon>event_available</mat-icon>
+        <h4 mat-line class="main-line">{{note.name}}</h4>
+        <p mat-line class="sub-line"> {{note.createdTime}} </p>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <h3 mat-subheader>Settings</h3>
+      <mat-list-item>
+        <mat-icon mat-list-icon>notifications</mat-icon>
+        <span style="padding-left: 16px">Get Notification</span>
+        <span class="pure-spacer"></span>
+        <mat-slide-toggle color="primary" checked="true"></mat-slide-toggle>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon style="transform: rotate(130deg)">brightness_3</mat-icon>
+        <span style="padding-left: 16px">Do Not Disturb</span>
+        <span class="pure-spacer"></span>
+        <mat-slide-toggle color="accent"></mat-slide-toggle>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>sync</mat-icon>
+        <span style="padding-left: 16px">Auto Sync</span>
+        <span class="pure-spacer"></span>
+        <mat-slide-toggle color="warn"></mat-slide-toggle>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>

@@ -6,12 +6,14 @@ import {
   MatAutocompleteModule,
   MatBadgeModule,
   MatButtonModule,
+  MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatToolbarModule,
-  MatSidenavModule,
-  MatFormFieldModule,
+  MatListModule,
   MatOptionModule,
+  MatSidenavModule,
+  MatSlideToggleModule,
+  MatToolbarModule,
   MatTooltipModule
 } from '@angular/material';
 
@@ -29,8 +31,10 @@ import {
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MatListModule,
     MatOptionModule,
     MatSidenavModule,
+    MatSlideToggleModule,
     MatToolbarModule,
     MatTooltipModule
   ],
@@ -41,8 +45,10 @@ import {
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MatListModule,
     MatOptionModule,
     MatSidenavModule,
+    MatSlideToggleModule,
     MatToolbarModule,
     MatTooltipModule
   ],

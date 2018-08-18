@@ -9,10 +9,12 @@ import { MatIconRegistry } from '@angular/material';
 import { PureContainer } from './pure-container/pure-container.component';
 import { PureSideMenu } from './pure-side-menu/pure-side-menu.component';
 import { PureSideChatbox } from './pure-side-chatbox/pure-side-chatbox.component';
+import { PureSideNotification } from './pure-side-notification/pure-side-notification.component';
 
 // Pure Core Services 
 import { PureSideMenuService } from './pure-side-menu/pure-side-menu.service';
 import { PureSideChatboxService } from './pure-side-chatbox/pure-side-chatbox.service';
+import { PureSideNotificationService } from './pure-side-notification/pure-side-notification.service';
 
 // Pure Modules 
 import { PureSharedModule } from '../shared/shared.module';
@@ -23,6 +25,7 @@ import { PureSharedModule } from '../shared/shared.module';
     PureContainer,
     PureSideMenu,
     PureSideChatbox,
+    PureSideNotification
 
     // Pure Components
   ],
@@ -38,12 +41,14 @@ import { PureSharedModule } from '../shared/shared.module';
   exports: [
     PureContainer,
     PureSideMenu,
-    PureSideChatbox
+    PureSideChatbox,
+    PureSideNotification
   ],
   providers: [
     // Pure Core Services
     PureSideMenuService,
-    PureSideChatboxService
+    PureSideChatboxService,
+    PureSideNotificationService
   ],
 })
 export class PureCoreModule {

@@ -1,6 +1,7 @@
 <div class="pure-container-wrapper">
   <pure-side-menu></pure-side-menu>
   <pure-side-chatbox></pure-side-chatbox>
+  <pure-side-notification></pure-side-notification>
   <div class="pure-container-content" [ngClass]="{
     'pure-side-menu-content-small-screen' : !_menu.isFullWidth,
     'pure-side-menu-content-opened' : _menu.isFullWidth && _menu.isOpened(),
@@ -9,5 +10,5 @@
   </div>
 </div>
 <div class="pure-container-backdrop"
-  [hidden]="!((_menu.isOpened() && !_menu.isFullWidth) || (_chatbox.isOpened() && !_chatbox.isFullWidth))"
-  (click)="_menu.close(); _chatbox.close()"></div>
+  [hidden]="!((_menu.isOpened() && !_menu.isFullWidth) || (_chatbox.isOpened() && !_chatbox.isFullWidth) || _notification.isOpened())"
+  (click)="_menu.close(); _chatbox.close(); _notification.close()"></div>
