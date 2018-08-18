@@ -1,28 +1,18 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PureSharedModule } from './shared/shared.module';
 
 // Pure Components
 import { PureContainer } from './core/pure-container/pure-container.component';
 import { PureSideMenu } from './core/pure-side-menu/pure-side-menu.component';
+import { PureSideChatbox } from './core/pure-side-chatbox/pure-side-chatbox.component';
+import { PureSideNotification } from './core/pure-side-notification/pure-side-notification.component';
 
 // Pure Services
 import { PureSideMenuService } from './core/pure-side-menu/pure-side-menu.service';
-
-// Angular Material Modules
-import {
-  MatAutocompleteModule,
-  MatBadgeModule,
-  MatButtonModule,
-  MatIconModule,
-  MatInputModule,
-  MatToolbarModule,
-  MatSidenavModule,
-  MatFormFieldModule,
-  MatOptionModule,
-  MatTooltipModule
-} from '@angular/material';
+import { PureSideChatboxService } from './core/pure-side-chatbox/pure-side-chatbox.service';
+import { PureSideNotificationService } from './core/pure-side-notification/pure-side-notification.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -32,27 +22,19 @@ describe('AppComponent', () => {
 
         // Pure Components
         PureContainer,
-        PureSideMenu
+        PureSideMenu,
+        PureSideChatbox,
+        PureSideNotification
       ],
       imports: [
         FormsModule,
         ReactiveFormsModule,
-
-        // Angular Material Modules 
-        BrowserAnimationsModule,
-        MatAutocompleteModule,
-        MatBadgeModule,
-        MatButtonModule,
-        MatIconModule,
-        MatInputModule,
-        MatToolbarModule,
-        MatSidenavModule,
-        MatFormFieldModule,
-        MatOptionModule,
-        MatTooltipModule
+        PureSharedModule
       ],
       providers: [
-        PureSideMenuService
+        PureSideMenuService,
+        PureSideChatboxService,
+        PureSideNotificationService
       ]
     }).compileComponents();
   }));

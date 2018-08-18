@@ -1,20 +1,23 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { PureSharedModule } from '../../shared/shared.module';
+import { PureSideChatbox } from './pure-side-chatbox.component';
+import { PureSideChatboxService } from './pure-side-chatbox.service';
 
-import { PureSideChatboxComponent } from './pure-side-chatbox.component';
-
-describe('PureSideChatboxComponent', () => {
-  let component: PureSideChatboxComponent;
-  let fixture: ComponentFixture<PureSideChatboxComponent>;
+describe('PureSideChatbox', () => {
+  let component: PureSideChatbox;
+  let fixture: ComponentFixture<PureSideChatbox>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PureSideChatboxComponent ]
+      imports: [PureSharedModule],
+      declarations: [PureSideChatbox],
+      providers: [PureSideChatboxService]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PureSideChatboxComponent);
+    fixture = TestBed.createComponent(PureSideChatbox);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
