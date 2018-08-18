@@ -67,3 +67,9 @@
 .pure-side-chatbox-closed {
   transition: width .2s ease-in-out, max-width .2s ease-in-out, min-width .2s ease-in-out;
 }
+
+@media only screen and (max-width: 600px) {
+  .pure-side-chatbox > .pure-chatbox-wrapper {
+    top: 56px;
+  }  
+}
