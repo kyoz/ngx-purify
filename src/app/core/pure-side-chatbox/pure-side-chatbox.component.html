@@ -4,10 +4,14 @@
     'pure-side-chatbox-non-fullwidth' : !_chatbox.isFullWidth,
     'pure-side-chatbox-opened' : _chatbox.isOpened(),
     'pure-side-chatbox-closed' : _chatbox.isClosed() }">
-  <mat-toolbar color="primary" class="toolbar">
-    <button mat-icon-button class="chatbox-button"
-      (click)="_chatbox.toggle()">
-      <mat-icon>{{ _chatbox.isOpened() ? 'arrow_forward' : 'menu' }}</mat-icon>
+  <mat-toolbar color="primary" class="toolbar" (click)="_chatbox.toggle()">
+    <mat-icon matBadge="12" matBadgeColor="warn" class="chatbox-icon">
+      chat
+    </mat-icon>
+    <span class="content" style="margin-left: 16px; font-weight: normal">Mini Chatbox</span>
+    <div class="pure-spacer"></div>
+    <button mat-icon-button class="content">
+      <mat-icon>close</mat-icon>
     </button>
   </mat-toolbar>
   <div class="pure-chatbox-wrapper">
