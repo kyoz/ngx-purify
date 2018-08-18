@@ -11,6 +11,9 @@
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
   z-index: 9999;
   transition: width .2s ease-in-out, max-width .2s ease-in-out, min-width .2s ease-in-out;
+  mat-icon {
+    color: rgba(0,0,0,.54);
+  }
   .today-top {
     font-size: 36px;
     height: 36px;
