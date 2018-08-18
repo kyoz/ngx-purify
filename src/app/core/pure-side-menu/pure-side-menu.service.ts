@@ -21,12 +21,8 @@ export class PureSideMenuService {
     }
   }
 
-  public isOpened() {
-    return this.state === 'opened';
-  }
-
-  public isClosed() {
-    return this.state === 'closed';
+  public open() {
+    this.state = "opened";
   }
 
   public close() {
@@ -44,4 +40,13 @@ export class PureSideMenuService {
       }, 300);
     }
   }
+
+  public isOpened() {
+    return this.state === 'opened';
+  }
+
+  public isClosed() {
+    return this.state === 'closed';
+  }
+
 }

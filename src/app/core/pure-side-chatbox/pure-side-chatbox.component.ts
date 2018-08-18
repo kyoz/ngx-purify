@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { PureSideChatboxService } from './pure-side-chatbox.service';
+import * as Hammer from 'hammerjs';
 
 @Component({
   selector: 'pure-side-chatbox',
@@ -7,12 +8,20 @@ import { PureSideChatboxService } from './pure-side-chatbox.service';
   styleUrls: ['./pure-side-chatbox.component.scss']
 })
 export class PureSideChatbox implements OnInit {
+  @ViewChild('puresidechatbox') pureSideChatbox: ElementRef;
 
   constructor(
-    public _chatbox: PureSideChatboxService
-  ) { }
-
-  ngOnInit() {
+    public _chatbox: PureSideChatboxService) {
   }
 
+  ngOnInit() {
+    this.registerHammer();
+  }
+
+  registerHammer() {
+    const hammer = new Hammer(this.pureSideChatbox.nativeElement, {});
+    hammer.on('panright', ev => {
+      this._chatbox.close();
+    });
+  }
 }

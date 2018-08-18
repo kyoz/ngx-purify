@@ -12,12 +12,8 @@ export class PureSideChatboxService {
     this.isFullWidth = window.innerWidth >= RESPONSIVE_BREAKPOINTS.NORMAL ? true : false;
   }
 
-  public isOpened() {
-    return this.state === 'opened';
-  }
-
-  public isClosed() {
-    return this.state === 'closed';
+  public open() {
+    this.state = "opened";
   }
 
   public close() {
@@ -26,5 +22,13 @@ export class PureSideChatboxService {
 
   public toggle() {
     this.state = this.state === 'opened' ? 'closed' : 'opened';
+  }
+
+  public isOpened() {
+    return this.state === 'opened';
+  }
+
+  public isClosed() {
+    return this.state === 'closed';
   }
 }
