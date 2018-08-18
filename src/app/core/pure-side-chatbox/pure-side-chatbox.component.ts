@@ -8,7 +8,7 @@ import * as Hammer from 'hammerjs';
   styleUrls: ['./pure-side-chatbox.component.scss']
 })
 export class PureSideChatbox implements OnInit {
-  @ViewChild('puresidechatbox') pureSideChatbox: ElementRef;
+  @ViewChild('pure_side_chatbox') pureSideChatbox: ElementRef;
 
   constructor(
     public _chatbox: PureSideChatboxService) {
