@@ -26,4 +26,11 @@ export class PureContainer implements OnInit {
   ngOnInit() {
   }
 
+  closeBackdrop() {
+    if (!this._menu.isFullWidth) {
+      this._menu.close();
+    }
+    this._chatbox.close();
+    this._notification.close()
+  }
 }
