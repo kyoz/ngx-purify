@@ -1,27 +1,27 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { PureSharedModule } from '../../shared/shared.module';
-import { PureSideChatbox } from './pure-side-chatbox.component';
-import { PureSideChatboxService } from './pure-side-chatbox.service';
-import { PureChatbox } from './pure-chatbox/pure-chatbox.component';
+import { PureSharedModule } from '../../../shared/shared.module';
+import { PureChatboxContainer } from './pure-chatbox-container.component';
+import { PureChatboxContainerService } from './pure-chatbox-container.service';
+import { PureChatbox } from '../../pure-components/pure-chatbox/pure-chatbox.component';
 
-describe('PureSideChatbox', () => {
-  let component: PureSideChatbox;
-  let fixture: ComponentFixture<PureSideChatbox>;
+describe('PureChatboxContainer', () => {
+  let component: PureChatboxContainer;
+  let fixture: ComponentFixture<PureChatboxContainer>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [PureSharedModule],
       declarations: [
-        PureSideChatbox,
+        PureChatboxContainer,
         PureChatbox
       ],
-      providers: [PureSideChatboxService]
+      providers: [PureChatboxContainerService]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PureSideChatbox);
+    fixture = TestBed.createComponent(PureChatboxContainer);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

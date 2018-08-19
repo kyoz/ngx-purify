@@ -4,16 +4,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PureSharedModule } from './shared/shared.module';
 
 // Pure Components
-import { PureContainer } from './core/pure-container/pure-container.component';
-import { PureSideMenu } from './core/pure-side-menu/pure-side-menu.component';
-import { PureSideChatbox } from './core/pure-side-chatbox/pure-side-chatbox.component';
-import { PureSideNotification } from './core/pure-side-notification/pure-side-notification.component';
+import { PureMainContainer } from './core/pure-containers/pure-main-container/pure-main-container.component';
+import { PureMenuContainer } from './core/pure-containers/pure-menu-container/pure-menu-container.component';
+import { PureChatboxContainer } from './core/pure-containers/pure-chatbox-container/pure-chatbox-container.component';
+import { PureNotificationContainer } from './core/pure-containers/pure-notification-container/pure-notification-container.component';
 
 // Pure Services
-import { PureSideMenuService } from './core/pure-side-menu/pure-side-menu.service';
-import { PureSideChatboxService } from './core/pure-side-chatbox/pure-side-chatbox.service';
-import { PureSideNotificationService } from './core/pure-side-notification/pure-side-notification.service';
-import { PureChatbox } from './core/pure-side-chatbox/pure-chatbox/pure-chatbox.component';
+import { PureMenuContainerService } from './core/pure-containers/pure-menu-container/pure-menu-container.service';
+import { PureChatboxContainerService } from './core/pure-containers/pure-chatbox-container/pure-chatbox-container.service';
+import { PureNotificationContainerService } from './core/pure-containers/pure-notification-container/pure-notification-container.service';
+import { PureChatbox } from './core/pure-components/pure-chatbox/pure-chatbox.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -22,10 +22,10 @@ describe('AppComponent', () => {
         AppComponent,
 
         // Pure Components
-        PureContainer,
-        PureSideMenu,
-        PureSideChatbox,
-        PureSideNotification,
+        PureMainContainer,
+        PureMenuContainer,
+        PureChatboxContainer,
+        PureNotificationContainer,
         PureChatbox
       ],
       imports: [
@@ -34,9 +34,9 @@ describe('AppComponent', () => {
         PureSharedModule
       ],
       providers: [
-        PureSideMenuService,
-        PureSideChatboxService,
-        PureSideNotificationService
+        PureMenuContainerService,
+        PureChatboxContainerService,
+        PureNotificationContainerService
       ]
     }).compileComponents();
   }));
