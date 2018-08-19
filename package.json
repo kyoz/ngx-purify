@@ -1,6 +1,11 @@
 {
   "name": "pure-dashboard",
   "version": "0.0.0",
+  "description": "Pure Angular 6+ Material Design Admin Template",
+  "author": {
+    "name": "Kyoz",
+    "email": "banminkyoz@gmail.com"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -51,6 +56,6 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.0.1"
+    "typescript": "2.9.2"
   }
 }
