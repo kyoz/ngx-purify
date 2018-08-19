@@ -78,6 +78,9 @@
   .pure-side-chatbox>.pure-chatbox-wrapper {
     top: 56px;
   }
+}
+
+@media only screen and (max-width: 400px) {
   .pure-side-chatbox-opened {
     min-width: 100vw;
     max-width: 100vw;

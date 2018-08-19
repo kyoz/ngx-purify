@@ -4,17 +4,17 @@
     'pure-side-chatbox-non-fullwidth' : !_chatbox.isFullWidth,
     'pure-side-chatbox-opened' : _chatbox.isOpened(),
     'pure-side-chatbox-closed' : _chatbox.isClosed() }">
-  <mat-toolbar color="primary" class="toolbar" (click)="_chatbox.toggle()">
+  <mat-toolbar color="primary" class="toolbar" (click)="openChatbox($event)">
     <mat-icon matBadge="12" matBadgeColor="warn" class="chatbox-icon">
       chat
     </mat-icon>
     <span class="content" style="margin-left: 16px; font-weight: normal">Chatbox</span>
     <div class="pure-spacer"></div>
-    <button mat-icon-button class="content">
+    <button mat-icon-button class="content" (click)="closeChatbox($event)">
       <mat-icon>close</mat-icon>
     </button>
   </mat-toolbar>
   <div class="pure-chatbox-wrapper">
-    hihi
+    <pure-chatbox></pure-chatbox> 
   </div>
 </div>

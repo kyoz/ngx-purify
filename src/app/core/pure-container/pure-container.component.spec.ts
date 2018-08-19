@@ -11,6 +11,7 @@ import { PureSideNotification } from '../pure-side-notification/pure-side-notifi
 import { PureSideMenuService } from '../pure-side-menu/pure-side-menu.service';
 import { PureSideChatboxService } from '../pure-side-chatbox/pure-side-chatbox.service';
 import { PureSideNotificationService } from '../pure-side-notification/pure-side-notification.service';
+import { PureChatbox } from '../pure-side-chatbox/pure-chatbox/pure-chatbox.component';
 
 describe('PureContainer', () => {
   let component: PureContainer;
@@ -25,7 +26,8 @@ describe('PureContainer', () => {
         PureContainer,
         PureSideMenu,
         PureSideChatbox,
-        PureSideNotification
+        PureSideNotification,
+        PureChatbox
       ],
       providers: [
         PureSideMenuService,

@@ -24,4 +24,16 @@ export class PureSideChatbox implements OnInit {
       this._chatbox.close();
     });
   }
+
+  openChatbox() {
+    if (this._chatbox.isClosed()) {
+      this._chatbox.open(); 
+    }
+  }
+
+  closeChatbox(event) {
+    this._chatbox.close();
+    event.preventDefault();
+    event.stopPropagation();
+  }
 }

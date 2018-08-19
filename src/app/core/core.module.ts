@@ -5,11 +5,23 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconRegistry } from '@angular/material';
 
+// Perfect Scrollbar
+import { 
+  PerfectScrollbarModule,
+  PerfectScrollbarConfigInterface,
+  PERFECT_SCROLLBAR_CONFIG
+} from 'ngx-perfect-scrollbar';
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  wheelPropagation: true
+};
+
 // Pure Core Components
 import { PureContainer } from './pure-container/pure-container.component';
 import { PureSideMenu } from './pure-side-menu/pure-side-menu.component';
 import { PureSideChatbox } from './pure-side-chatbox/pure-side-chatbox.component';
 import { PureSideNotification } from './pure-side-notification/pure-side-notification.component';
+import { PureChatbox } from './pure-side-chatbox/pure-chatbox/pure-chatbox.component';
 
 // Pure Core Services 
 import { PureSideMenuService } from './pure-side-menu/pure-side-menu.service';
@@ -25,7 +37,8 @@ import { PureSharedModule } from '../shared/shared.module';
     PureContainer,
     PureSideMenu,
     PureSideChatbox,
-    PureSideNotification
+    PureSideNotification,
+    PureChatbox
 
     // Pure Components
   ],
@@ -34,6 +47,9 @@ import { PureSharedModule } from '../shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+
+    // Perfect Scrollbar
+    PerfectScrollbarModule,
 
     // Pure Modules
     PureSharedModule
@@ -45,6 +61,12 @@ import { PureSharedModule } from '../shared/shared.module';
     PureSideNotification
   ],
   providers: [
+    // Perfect Scrollbar
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    },
+
     // Pure Core Services
     PureSideMenuService,
     PureSideChatboxService,

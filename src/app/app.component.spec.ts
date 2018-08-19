@@ -13,6 +13,7 @@ import { PureSideNotification } from './core/pure-side-notification/pure-side-no
 import { PureSideMenuService } from './core/pure-side-menu/pure-side-menu.service';
 import { PureSideChatboxService } from './core/pure-side-chatbox/pure-side-chatbox.service';
 import { PureSideNotificationService } from './core/pure-side-notification/pure-side-notification.service';
+import { PureChatbox } from './core/pure-side-chatbox/pure-chatbox/pure-chatbox.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -24,7 +25,8 @@ describe('AppComponent', () => {
         PureContainer,
         PureSideMenu,
         PureSideChatbox,
-        PureSideNotification
+        PureSideNotification,
+        PureChatbox
       ],
       imports: [
         FormsModule,

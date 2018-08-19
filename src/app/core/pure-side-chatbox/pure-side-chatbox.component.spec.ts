@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PureSharedModule } from '../../shared/shared.module';
 import { PureSideChatbox } from './pure-side-chatbox.component';
 import { PureSideChatboxService } from './pure-side-chatbox.service';
+import { PureChatbox } from './pure-chatbox/pure-chatbox.component';
 
 describe('PureSideChatbox', () => {
   let component: PureSideChatbox;
@@ -10,7 +11,10 @@ describe('PureSideChatbox', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [PureSharedModule],
-      declarations: [PureSideChatbox],
+      declarations: [
+        PureSideChatbox,
+        PureChatbox
+      ],
       providers: [PureSideChatboxService]
     })
     .compileComponents();

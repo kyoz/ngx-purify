@@ -1,0 +1,44 @@
+.chatbox-container {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  .chatbox-contacts {
+    position: relative;
+    .contact-item:first-child {
+      margin-top: 8px;
+    }
+    .contact-item {
+      position: relative;
+      width: 100%;
+      min-width: 64px;
+      max-width: 64px;
+      height: 64px;
+      padding: 0px;
+      .mat-badge-content {
+        margin-right: -8px;
+        margin-bottom: -8px;
+      }
+      .contact-image {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        box-sizing: border-box;
+      }
+      .contact-status {
+        position: absolute;
+        height: 8px;
+        width: 8px;
+        border-radius: 8px;
+        border: 2px solid white;
+        background: rgb(78, 219, 78);
+        right: 9px;
+        bottom: 13px;
+      }
+    }
+  }
+  .chatbox {
+    box-shadow: -1px 0 2px 0 rgba(0,0,0,.25);
+  }
+}
