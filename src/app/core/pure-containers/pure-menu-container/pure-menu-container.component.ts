@@ -1,17 +1,17 @@
 import { Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef } from '@angular/core';
-import { PureSideMenuService } from './pure-side-menu.service';
+import { PureMenuContainerService } from './pure-menu-container.service';
 import * as Hammer from 'hammerjs';
 
 @Component({
-  selector: 'pure-side-menu',
-  templateUrl: './pure-side-menu.component.html',
-  styleUrls: ['./pure-side-menu.component.scss'],
+  selector: 'pure-menu-container',
+  templateUrl: './pure-menu-container.component.html',
+  styleUrls: ['./pure-menu-container.component.scss'],
 })
-export class PureSideMenu implements OnInit {
+export class PureMenuContainer implements OnInit {
   @ViewChild('pure_side_menu') pureSideMenu: ElementRef;
 
   constructor(
-    public _menu: PureSideMenuService
+    public _menu: PureMenuContainerService
   ) { }
 
   ngOnInit() {

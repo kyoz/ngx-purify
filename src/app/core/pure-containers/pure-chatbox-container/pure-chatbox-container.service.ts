@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { RESPONSIVE_BREAKPOINTS } from '../pure-utils/pure-configs';
+import { RESPONSIVE_BREAKPOINTS } from '../../pure-utils/pure-configs';
 
 @Injectable()
-export class PureSideChatboxService {
+export class PureChatboxContainerService {
 
   public isFullWidth: boolean = false;
   public state: 'opened' | 'closed' = 'closed';

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { PureSideMenuService } from './core/pure-side-menu/pure-side-menu.service';
-import { PureSideChatboxService } from './core/pure-side-chatbox/pure-side-chatbox.service';
-import { PureSideNotificationService } from './core/pure-side-notification/pure-side-notification.service';
+import { PureMenuContainerService } from './core/pure-containers/pure-menu-container/pure-menu-container.service';
+import { PureChatboxContainerService } from './core/pure-containers/pure-chatbox-container/pure-chatbox-container.service';
+import { PureNotificationContainerService } from './core/pure-containers/pure-notification-container/pure-notification-container.service';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +10,9 @@ import { PureSideNotificationService } from './core/pure-side-notification/pure-
 })
 export class AppComponent {
   constructor(
-    public _menu: PureSideMenuService,
-    public _chatbox: PureSideChatboxService,
-    public _notification: PureSideNotificationService
+    public _menu: PureMenuContainerService,
+    public _chatbox: PureChatboxContainerService,
+    public _notification: PureNotificationContainerService
   ) {
 
   }

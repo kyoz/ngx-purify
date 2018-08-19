@@ -1,14 +1,14 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { PureSideNotificationService } from './pure-side-notification.service';
-import { getToday } from '../pure-utils/pure-date';
+import { PureNotificationContainerService } from './pure-notification-container.service';
+import { getToday } from '../../pure-utils/pure-date';
 import * as Hammer from 'hammerjs';
 
 @Component({
-  selector: 'pure-side-notification',
-  templateUrl: './pure-side-notification.component.html',
-  styleUrls: ['./pure-side-notification.component.scss']
+  selector: 'pure-notification-container',
+  templateUrl: './pure-notification-container.component.html',
+  styleUrls: ['./pure-notification-container.component.scss']
 })
-export class PureSideNotification implements OnInit {
+export class PureNotificationContainer implements OnInit {
   @ViewChild('pure_side_notification') pureSideNotification: ElementRef;
 
   events: any[] = [
@@ -42,7 +42,7 @@ export class PureSideNotification implements OnInit {
 
   today = getToday();
 
-  constructor(public _notification: PureSideNotificationService) { }
+  constructor(public _notification: PureNotificationContainerService) { }
 
   ngOnInit() {
     this.registerHammer();

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class PureSideNotificationService {
+export class PureNotificationContainerService {
 
   public state: 'opened' | 'closed' = 'closed';
 

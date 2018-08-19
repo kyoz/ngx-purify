@@ -1,17 +1,17 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { PureSideChatboxService } from './pure-side-chatbox.service';
+import { PureChatboxContainerService } from './pure-chatbox-container.service';
 import * as Hammer from 'hammerjs';
 
 @Component({
-  selector: 'pure-side-chatbox',
-  templateUrl: './pure-side-chatbox.component.html',
-  styleUrls: ['./pure-side-chatbox.component.scss']
+  selector: 'pure-chatbox-container',
+  templateUrl: './pure-chatbox-container.component.html',
+  styleUrls: ['./pure-chatbox-container.component.scss']
 })
-export class PureSideChatbox implements OnInit {
+export class PureChatboxContainer implements OnInit {
   @ViewChild('pure_side_chatbox') pureSideChatbox: ElementRef;
 
   constructor(
-    public _chatbox: PureSideChatboxService) {
+    public _chatbox: PureChatboxContainerService) {
   }
 
   ngOnInit() {

@@ -17,16 +17,16 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 };
 
 // Pure Core Components
-import { PureContainer } from './pure-container/pure-container.component';
-import { PureSideMenu } from './pure-side-menu/pure-side-menu.component';
-import { PureSideChatbox } from './pure-side-chatbox/pure-side-chatbox.component';
-import { PureSideNotification } from './pure-side-notification/pure-side-notification.component';
-import { PureChatbox } from './pure-side-chatbox/pure-chatbox/pure-chatbox.component';
+import { PureMainContainer } from './pure-containers/pure-main-container/pure-main-container.component';
+import { PureMenuContainer } from './pure-containers/pure-menu-container/pure-menu-container.component';
+import { PureChatboxContainer } from './pure-containers/pure-chatbox-container/pure-chatbox-container.component';
+import { PureNotificationContainer } from './pure-containers/pure-notification-container/pure-notification-container.component';
+import { PureChatbox } from './pure-components/pure-chatbox/pure-chatbox.component';
 
 // Pure Core Services 
-import { PureSideMenuService } from './pure-side-menu/pure-side-menu.service';
-import { PureSideChatboxService } from './pure-side-chatbox/pure-side-chatbox.service';
-import { PureSideNotificationService } from './pure-side-notification/pure-side-notification.service';
+import { PureMenuContainerService } from './pure-containers/pure-menu-container/pure-menu-container.service';
+import { PureChatboxContainerService } from './pure-containers/pure-chatbox-container/pure-chatbox-container.service';
+import { PureNotificationContainerService } from './pure-containers/pure-notification-container/pure-notification-container.service';
 
 // Pure Modules 
 import { PureSharedModule } from '../shared/shared.module';
@@ -34,10 +34,10 @@ import { PureSharedModule } from '../shared/shared.module';
 @NgModule({
   declarations: [
     // Pure Core Components
-    PureContainer,
-    PureSideMenu,
-    PureSideChatbox,
-    PureSideNotification,
+    PureMainContainer,
+    PureMenuContainer,
+    PureChatboxContainer,
+    PureNotificationContainer,
     PureChatbox
 
     // Pure Components
@@ -55,10 +55,10 @@ import { PureSharedModule } from '../shared/shared.module';
     PureSharedModule
   ],
   exports: [
-    PureContainer,
-    PureSideMenu,
-    PureSideChatbox,
-    PureSideNotification
+    PureMainContainer,
+    PureMenuContainer,
+    PureChatboxContainer,
+    PureNotificationContainer
   ],
   providers: [
     // Perfect Scrollbar
@@ -68,9 +68,9 @@ import { PureSharedModule } from '../shared/shared.module';
     },
 
     // Pure Core Services
-    PureSideMenuService,
-    PureSideChatboxService,
-    PureSideNotificationService
+    PureMenuContainerService,
+    PureChatboxContainerService,
+    PureNotificationContainerService
   ],
 })
 export class PureCoreModule {

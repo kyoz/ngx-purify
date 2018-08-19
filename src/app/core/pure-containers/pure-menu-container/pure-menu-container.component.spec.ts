@@ -1,23 +1,27 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PureSharedModule } from '../../shared/shared.module';
-import { PureSideNotification } from './pure-side-notification.component';
-import { PureSideNotificationService } from './pure-side-notification.service';
 
-describe('PureSideNotification', () => {
-  let component: PureSideNotification;
-  let fixture: ComponentFixture<PureSideNotification>;
+// Pure Components
+import { PureSideMenu } from './pure-menu-container.component';
+
+// Pure Services
+import { PureSideMenuService } from './pure-menu-container.service';
+
+describe('PureSideMenu', () => {
+  let component: PureSideMenu;
+  let fixture: ComponentFixture<PureSideMenu>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [PureSharedModule],
-      declarations: [PureSideNotification],
-      providers: [PureSideNotificationService]
+      declarations: [PureSideMenu],
+      providers: [PureSideMenuService]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PureSideNotification);
+    fixture = TestBed.createComponent(PureSideMenu);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

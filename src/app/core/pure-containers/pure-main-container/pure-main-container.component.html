@@ -1,7 +1,7 @@
 <div class="pure-container-wrapper">
-  <pure-side-menu></pure-side-menu>
-  <pure-side-chatbox></pure-side-chatbox>
-  <pure-side-notification></pure-side-notification>
+  <pure-menu-container></pure-menu-container>
+  <pure-chatbox-container></pure-chatbox-container>
+  <pure-notification-container></pure-notification-container>
   <div class="pure-container-content" [ngClass]="{
     'pure-side-menu-content-small-screen' : !_menu.isFullWidth,
     'pure-side-menu-content-opened' : _menu.isFullWidth && _menu.isOpened(),
