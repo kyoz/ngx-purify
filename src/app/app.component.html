@@ -8,7 +8,7 @@
     <button mat-icon-button><mat-icon>fullscreen</mat-icon></button>
     <button mat-icon-button><mat-icon>settings</mat-icon></button>
     <button mat-icon-button *ngIf="_chatbox.isClosed() && !_chatbox.isFullWidth" (click)="_chatbox.toggle()">
-      <mat-icon matBadge="12" matBadgeColor="warn">chat</mat-icon>
+      <mat-icon>chat</mat-icon>
     </button>
     <button mat-icon-button (click)="_notification.toggle()">
       <mat-icon matBadge="10" matBadgeColor="warn">notifications</mat-icon>

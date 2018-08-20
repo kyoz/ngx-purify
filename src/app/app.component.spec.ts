@@ -14,6 +14,7 @@ import { PureMenuContainerService } from './core/pure-containers/pure-menu-conta
 import { PureChatboxContainerService } from './core/pure-containers/pure-chatbox-container/pure-chatbox-container.service';
 import { PureNotificationContainerService } from './core/pure-containers/pure-notification-container/pure-notification-container.service';
 import { PureChatbox } from './core/pure-components/pure-chatbox/pure-chatbox.component';
+import { PureMockApiService } from './core/pure-mock-api/pure-mock-api.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -36,7 +37,8 @@ describe('AppComponent', () => {
       providers: [
         PureMenuContainerService,
         PureChatboxContainerService,
-        PureNotificationContainerService
+        PureNotificationContainerService,
+        PureMockApiService
       ]
     }).compileComponents();
   }));

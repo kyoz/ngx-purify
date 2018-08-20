@@ -12,6 +12,7 @@ import { PureMenuContainerService } from '../pure-menu-container/pure-menu-conta
 import { PureChatboxContainerService } from '../pure-chatbox-container/pure-chatbox-container.service';
 import { PureNotificationContainerService } from '../pure-notification-container/pure-notification-container.service';
 import { PureChatbox } from '../../pure-components/pure-chatbox/pure-chatbox.component';
+import { PureMockApiService } from '../../pure-mock-api/pure-mock-api.service';
 
 describe('PureMainContainer', () => {
   let component: PureMainContainer;
@@ -32,7 +33,8 @@ describe('PureMainContainer', () => {
       providers: [
         PureMenuContainerService,
         PureChatboxContainerService,
-        PureNotificationContainerService
+        PureNotificationContainerService,
+        PureMockApiService
       ]
     })
     .compileComponents();

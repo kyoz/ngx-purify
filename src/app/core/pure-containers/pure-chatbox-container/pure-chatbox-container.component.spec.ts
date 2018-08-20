@@ -3,6 +3,7 @@ import { PureSharedModule } from '../../../shared/shared.module';
 import { PureChatboxContainer } from './pure-chatbox-container.component';
 import { PureChatboxContainerService } from './pure-chatbox-container.service';
 import { PureChatbox } from '../../pure-components/pure-chatbox/pure-chatbox.component';
+import { PureMockApiService } from '../../pure-mock-api/pure-mock-api.service';
 
 describe('PureChatboxContainer', () => {
   let component: PureChatboxContainer;
@@ -15,7 +16,10 @@ describe('PureChatboxContainer', () => {
         PureChatboxContainer,
         PureChatbox
       ],
-      providers: [PureChatboxContainerService]
+      providers: [
+        PureChatboxContainerService,
+        PureMockApiService
+      ]
     })
     .compileComponents();
   }));
