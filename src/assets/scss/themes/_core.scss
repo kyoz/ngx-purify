@@ -1,0 +1,18 @@
+
+// Themes
+@import "assets/scss/themes/_pure-default";
+@import "assets/scss/themes/_pure-dark";
+
+@mixin pure-themes-init {
+  @include mat-core();
+
+  .pure-default-theme {
+    @include angular-material-theme($pure-default-theme);
+    @include pure-colors-grabber($pure-default-theme);
+  }
+
+  .pure-dark-theme {
+    @include angular-material-theme($pure-dark-theme);
+    @include pure-colors-grabber($pure-dark-theme);
+  }
+}

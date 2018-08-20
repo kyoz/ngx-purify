@@ -11,6 +11,9 @@
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
   z-index: 9000;
   .toolbar {
+    position: relative;
+    z-index: 9001;
+    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.15), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
     .chatbox-icon {
       margin-bottom: -3px;
       margin-left: 2px;
@@ -22,12 +25,12 @@
   }
   .pure-chatbox-wrapper {
     position: absolute;
+    z-index: 9000;
     top: 64px;
     right: 0px;
     left: 0px;
     bottom: 0px;
     background: white;
-    z-index: 9999;
   }
 }
 

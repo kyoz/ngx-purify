@@ -4,9 +4,18 @@
   left: 0;
   right: 0;
   bottom: 0px;
-  box-shadow: 0 1px 8px rgba(0,0,0,.3);
-  z-index: 2;
-  .header {
+  .app-header {
+    z-index: 2;
+    position: relative;
     box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.15), 0 1px 3px 0 rgba(0,0,0,.12);
+  }
+  .app-content-container {
+    z-index: 1;
+    position: absolute;
+    top: 64px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background: #eeeeee;
   }
 }

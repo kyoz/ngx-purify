@@ -1,0 +1,31 @@
+@import '~@angular/material/theming';
+
+@mixin pure-colors-grabber($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  // Color
+  .pure-primary-color {
+    color: mat-color($primary);
+  }
+  .pure-accent-color {
+    color: mat-color($accent);
+  }
+  .pure-warn-color {
+    color: mat-color($warn);
+  }
+  // Background
+  .pure-primary-bg {
+    background-color: mat-color($primary);
+  }
+  .pure-accent-bg {
+    background-color: mat-color($accent);
+  }
+  .pure-warn-bg {
+    background-color: mat-color($warn);
+  }
+}
+
+.pure-spacer {
+  flex: 1 1 auto;
+}

@@ -2,8 +2,16 @@
   <div fxFlex="64px" class="chatbox-contacts" perfectScrollbar>
     <button mat-button color="primary" class="contact-item" fxLayoutAlign="center center"
       *ngFor="let contact of contacts">
-      <img class="contact-image" src="assets/avatars/mock-avatar-10.jpeg">
-      <span class="contact-status"></span>
+      <img class="contact-image" [src]="contact.avatar" matTooltip="{{contact.name}}" matTooltipPosition="before">
+      <span class="contact-status" [ngClass]="{
+        'online' : contact.status === 'online',
+        'offline' : contact.status === 'offline',
+        'busy' : contact.status === 'busy',
+        'do-not-disturb' : contact.status === 'do-not-disturb'
+      }"></span>
+      <span class="contact-unread-count pure-primary-bg" *ngIf="contact.unreadCount > 0">
+        {{ contact.unreadCount >= 100 ? '99+' : contact.unreadCount }}
+      </span>
     </button>
   </div>
   <div fxFlex class="chatbox">ha</div>

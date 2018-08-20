@@ -30,6 +30,7 @@ import { PureNotificationContainerService } from './pure-containers/pure-notific
 
 // Pure Modules 
 import { PureSharedModule } from '../shared/shared.module';
+import { PureMockApiService } from './pure-mock-api/pure-mock-api.service';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { PureSharedModule } from '../shared/shared.module';
     // Pure Core Services
     PureMenuContainerService,
     PureChatboxContainerService,
-    PureNotificationContainerService
+    PureNotificationContainerService,
+    PureMockApiService
   ],
 })
 export class PureCoreModule {

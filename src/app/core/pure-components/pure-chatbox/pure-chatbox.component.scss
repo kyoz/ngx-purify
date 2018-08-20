@@ -21,20 +21,50 @@
         margin-bottom: -8px;
       }
       .contact-image {
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
         border-radius: 20px;
         box-sizing: border-box;
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,.35)
+
       }
       .contact-status {
         position: absolute;
-        height: 8px;
-        width: 8px;
+        height: 9px;
+        width: 9px;
         border-radius: 8px;
         border: 2px solid white;
-        background: rgb(78, 219, 78);
-        right: 9px;
-        bottom: 13px;
+        right: 10px;
+        bottom: 11px;
+      }
+      .online {
+        background: #00E676;
+      }
+      .offline {
+        background: #E0E0E0;
+      }
+      .busy {
+        background: #FFEB3B;
+      }
+      .do-not-disturb {
+        background: #F44336;
+      }
+      .contact-unread-count {
+        position: absolute;
+        padding: 0px 5px;
+        font-size: 11px;
+        font-weight: normal;
+        color: #fff;
+        top: 12px;
+        left: 10px;
+        line-height: 16px;
+        height: 16px;
+        border-radius: 12px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,.35)
       }
     }
   }

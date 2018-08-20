@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PureMockApiService } from '../../pure-mock-api/pure-mock-api.service';
 
 @Component({
   selector: 'pure-chatbox',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PureChatbox implements OnInit {
 
-  contacts = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
+  contacts = [];
 
-  constructor() { }
+  constructor(private _mockApi: PureMockApiService) {
+    this.contacts = this._mockApi.chatboxContacts;
+  }
 
   ngOnInit() {
   }
