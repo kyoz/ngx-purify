@@ -28,6 +28,7 @@ import { PureNotification } from './pure-components/pure-notification/pure-notif
 import { PureMenuContainerService } from './pure-containers/pure-menu-container/pure-menu-container.service';
 import { PureChatboxContainerService } from './pure-containers/pure-chatbox-container/pure-chatbox-container.service';
 import { PureNotificationContainerService } from './pure-containers/pure-notification-container/pure-notification-container.service';
+import { PureSideChatboxService } from './pure-components/pure-side-chatbox/pure-side-chatbox.service';
 
 // Pure Modules 
 import { PureSharedModule } from '../shared/shared.module';
@@ -71,10 +72,11 @@ import { PureMockApiService } from './pure-mock-api/pure-mock-api.service';
     },
 
     // Pure Core Services
+    PureMockApiService,
     PureMenuContainerService,
     PureChatboxContainerService,
     PureNotificationContainerService,
-    PureMockApiService
+    PureSideChatboxService
   ],
 })
 export class PureCoreModule {

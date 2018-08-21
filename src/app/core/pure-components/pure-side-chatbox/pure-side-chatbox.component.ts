@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PureMockApiService } from '../../pure-mock-api/pure-mock-api.service';
+import { PureSideChatboxService } from './pure-side-chatbox.service';
 
 @Component({
   selector: 'pure-side-chatbox',
@@ -8,10 +8,8 @@ import { PureMockApiService } from '../../pure-mock-api/pure-mock-api.service';
 })
 export class PureSideChatbox implements OnInit {
 
-  contacts = [];
-
-  constructor(private _mockApi: PureMockApiService) {
-    this.contacts = this._mockApi.chatboxContacts;
+  constructor(public _sideChatbox: PureSideChatboxService) {
+    this._sideChatbox.getContacts();
   }
 
   ngOnInit() {

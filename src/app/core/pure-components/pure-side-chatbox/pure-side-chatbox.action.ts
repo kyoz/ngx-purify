@@ -1,15 +1,15 @@
 import { Action } from '@ngrx/store';
 
-export const SIDE_CHATBOX_GET_DATA = '[Side Chatbox] Get Data';
-export const SIDE_CHATBOX_FETCH_DATA = '[Side Chatbox] Fetch Data';
+export const PURE_SIDE_CHATBOX_GET_CONTACTS = '[Side Chatbox] Get Contacts';
+export const PURE_SIDE_CHATBOX_FETCH_CONTACTS = '[Side Chatbox] Fetch Contacts';
 
-export class getData implements Action {
-  readonly type = SIDE_CHATBOX_GET_DATA;
+export class GetContacts implements Action {
+  readonly type = PURE_SIDE_CHATBOX_GET_CONTACTS;
 }
 
-export class fetchData implements Action {
-  readonly type = SIDE_CHATBOX_FETCH_DATA;
+export class FetchContacts implements Action {
+  readonly type = PURE_SIDE_CHATBOX_FETCH_CONTACTS;
   constructor(public payload: any) {}
 }
 
-export type All = getData | fetchData;
+export type All = GetContacts | FetchContacts;

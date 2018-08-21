@@ -8,6 +8,12 @@ import { PureSharedModule } from './shared/shared.module';
 // Components
 import { AppComponent } from './app.component';
 
+// Ngrx Redux Modules
+import { EffectsModule } from '@ngrx/effects';
+import { AppStateModule } from './app-state.module';
+import { PureSideChatboxEffects } from './core/pure-components/pure-side-chatbox/pure-side-chatbox.effect';
+
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -15,7 +21,13 @@ import { AppComponent } from './app.component';
 
     // Pure Modules
     PureCoreModule,
-    PureSharedModule
+    PureSharedModule,
+
+    // Ngrx Redux Modules
+    AppStateModule,
+    EffectsModule.forRoot([
+      PureSideChatboxEffects
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
