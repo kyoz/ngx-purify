@@ -1,6 +1,7 @@
 <div class="chatbox-container" fxLayout="row" fxLayoutAlign="space-between stretch">
   <div fxFlex="64px" class="chatbox-contacts" perfectScrollbar>
     <button mat-button color="primary" class="contact-item" fxLayoutAlign="center center"
+      (click)="_sideChatbox.chooseContact(contact.id)"
       *ngFor="let contact of _sideChatbox.contacts$ | async">
       <img class="contact-image" [src]="contact.avatar" matTooltip="{{contact.name}}" matTooltipPosition="before">
       <span class="contact-status" [ngClass]="{

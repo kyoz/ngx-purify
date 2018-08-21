@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { flatMap } from 'rxjs/operators';
+import { map, flatMap } from 'rxjs/operators';
 import * as SideChatBoxActions from './pure-side-chatbox.action';
 import { PureMockApiService } from '../../pure-mock-api/pure-mock-api.service';
 
@@ -9,9 +9,19 @@ import { PureMockApiService } from '../../pure-mock-api/pure-mock-api.service';
 export class PureSideChatboxEffects {
 
   @Effect()
-  loadList$ = this._actions$
+  getContacts$ = this._actions$
     .ofType(SideChatBoxActions.PURE_SIDE_CHATBOX_GET_CONTACTS)
-    .pipe(flatMap(() => of(new SideChatBoxActions.FetchContacts(this._mockApi.chatboxContacts))));
+    .pipe(
+      flatMap(() => of(new SideChatBoxActions.FetchContacts(this._mockApi.getChatboxContacts())))
+    );
+
+  @Effect()
+  getConversation$ = this._actions$
+    .ofType(SideChatBoxActions.PURE_SIDE_CHATBOX_GET_CONTACT_MESSAGES)
+    .pipe(
+      map(action => action['payload']),
+      flatMap((contactId) => of(new SideChatBoxActions.FetchContactMessage(this._mockApi.getChatboxContactMessages(contactId))))
+    );
 
   constructor(
     private _actions$: Actions,

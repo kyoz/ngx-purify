@@ -8,3 +8,9 @@ export function getContacts(): AppSelector<IAppState, IPureSideChatBoxState> {
     map(state => state.sideChatbox.get('contacts')),
     distinctUntilChanged());
 }
+
+export function getCurrentConversation(): AppSelector<IAppState, IPureSideChatBoxState> {
+  return state$ => state$.pipe(
+    map(state => state.sideChatbox.get('currentConversation')),
+    distinctUntilChanged());
+}

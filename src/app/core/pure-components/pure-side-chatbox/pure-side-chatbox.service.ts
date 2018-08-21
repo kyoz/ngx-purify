@@ -16,4 +16,8 @@ export class PureSideChatboxService {
   public getContacts() {
     this._store.dispatch(new SideChatboxActions.GetContacts());
   }
+
+  public chooseContact(contactId: number) {
+    this._store.dispatch(new SideChatboxActions.GetContactMessage(contactId));
+  }
 }

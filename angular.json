@@ -3,17 +3,17 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pure-dashboard": {
+    "pure-admin-dashboard": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
       "schematics": {},
-      "targets": {
+      "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/pure-dashboard",
+            "outputPath": "dist/pure-admin-dashboard",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "pure-dashboard:build"
+            "browserTarget": "pure-admin-dashboard:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "pure-dashboard:build:production"
+              "browserTarget": "pure-admin-dashboard:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pure-dashboard:build"
+            "browserTarget": "pure-admin-dashboard:build"
           }
         },
         "test": {
@@ -95,19 +95,19 @@
         }
       }
     },
-    "pure-dashboard-e2e": {
+    "pure-admin-dashboard-e2e": {
       "root": "e2e/",
       "projectType": "application",
-      "targets": {
+      "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "pure-dashboard:serve"
+            "devServerTarget": "pure-admin-dashboard:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "pure-dashboard:serve:production"
+              "devServerTarget": "pure-admin-dashboard:serve:production"
             }
           }
         },
@@ -123,5 +123,5 @@
       }
     }
   },
-  "defaultProject": "pure-dashboard"
+  "defaultProject": "pure-admin-dashboard"
 }

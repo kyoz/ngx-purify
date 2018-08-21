@@ -1,3 +1,5 @@
+import { IChatboxContact, IChatBoxConversation } from "../interface/chatbox";
+
 /**
  * NOTE
  * By default, I do use id 0 to represent the current user (me), for easy create some mock data
@@ -5,27 +7,7 @@
  * and modified everything you want
  */
 
-export interface ChatboxContact {
-  id: number,
-  name: string,
-  status: string,
-  unreadCount: number,
-  avatar: string
-}
-
-export interface ChatBoxConversations {
-  owner: number,
-  withContact: number,
-  messages: ChatBoxMessage[]
-}
-
-export interface ChatBoxMessage {
-  sender: number,
-  message: string,
-  createAt: Date
-}
-
-export const CHATBOX_CONTACTS: ChatboxContact[] = [
+export const CHATBOX_CONTACTS: IChatboxContact[] = [
   { id: 1, name: 'Tom', status: 'online', unreadCount: 100, avatar: 'https://i.imgur.com/5oO1dCG.jpg' },
   { id: 2, name: 'John', status: 'offline', unreadCount: 23, avatar: 'https://i.imgur.com/CfIDiL7.jpg' },
   { id: 3, name: 'Anna', status: 'online', unreadCount: 10, avatar: 'https://i.imgur.com/1VWLPeN.jpg' },
@@ -48,7 +30,7 @@ export const CHATBOX_CONTACTS: ChatboxContact[] = [
   { id: 20, name: 'Zoe', status: 'online', unreadCount: 0, avatar: 'https://i.imgur.com/gEAkS2t.jpg' },
 ];
 
-export const CHATBOX_CONVERSASIONS: ChatBoxConversations[] = [
+export const CHATBOX_CONVERSASIONS: IChatBoxConversation[] = [
   {
     owner: 0,
     withContact: 1,
@@ -76,9 +58,6 @@ export const CHATBOX_CONVERSASIONS: ChatBoxConversations[] = [
       { sender: 2, message: 'Hello', createAt: new Date('2012-04-23T18:25:43.511Z') },
       { sender: 0, message: 'Hello', createAt: new Date('2012-04-23T18:25:43.511Z') },
       { sender: 0, message: 'Hello', createAt: new Date('2012-04-23T18:25:43.511Z') },
-      { sender: 0, message: 'Hello', createAt: new Date('2012-04-23T18:25:43.511Z') },
-      { sender: 0, message: 'Hello', createAt: new Date('2012-04-23T18:25:43.511Z') },
-      { sender: 2, message: 'Hello', createAt: new Date('2012-04-23T18:25:43.511Z') },
     ]
   }
 ];
