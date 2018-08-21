@@ -6,12 +6,13 @@ import { PureMainContainer } from './pure-main-container.component';
 import { PureMenuContainer } from '../pure-menu-container/pure-menu-container.component';
 import { PureChatboxContainer } from '../pure-chatbox-container/pure-chatbox-container.component';
 import { PureNotificationContainer } from '../pure-notification-container/pure-notification-container.component';
+import { PureSideChatbox } from '../../pure-components/pure-side-chatbox/pure-side-chatbox.component';
+import { PureNotification } from '../../pure-components/pure-notification/pure-notification.component';
 
 // Pure Services
 import { PureMenuContainerService } from '../pure-menu-container/pure-menu-container.service';
 import { PureChatboxContainerService } from '../pure-chatbox-container/pure-chatbox-container.service';
 import { PureNotificationContainerService } from '../pure-notification-container/pure-notification-container.service';
-import { PureChatbox } from '../../pure-components/pure-chatbox/pure-chatbox.component';
 import { PureMockApiService } from '../../pure-mock-api/pure-mock-api.service';
 
 describe('PureMainContainer', () => {
@@ -28,7 +29,8 @@ describe('PureMainContainer', () => {
         PureMenuContainer,
         PureChatboxContainer,
         PureNotificationContainer,
-        PureChatbox
+        PureSideChatbox,
+        PureNotification
       ],
       providers: [
         PureMenuContainerService,

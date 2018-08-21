@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { PureMockApiService } from '../../pure-mock-api/pure-mock-api.service';
 
 @Component({
-  selector: 'pure-chatbox',
-  templateUrl: './pure-chatbox.component.html',
-  styleUrls: ['./pure-chatbox.component.scss']
+  selector: 'pure-side-chatbox',
+  templateUrl: './pure-side-chatbox.component.html',
+  styleUrls: ['./pure-side-chatbox.component.scss']
 })
-export class PureChatbox implements OnInit {
+export class PureSideChatbox implements OnInit {
 
   contacts = [];
 

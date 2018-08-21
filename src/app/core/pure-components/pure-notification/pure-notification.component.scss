@@ -1,0 +1,28 @@
+.pure-notification-container {
+  .today-top {
+    font-size: 36px;
+    height: 36px;
+    padding-left: 44px;
+  }
+  .today-bottom {
+    font-size: 26px;
+    margin-bottom: 20px;
+    padding-left: 44px;
+  }
+  .date {
+    color: rgba(0, 0, 0, .54);
+  }
+  mat-icon {
+    color: rgba(0, 0, 0, .54);
+  }
+  mat-list-item {
+    font-family: Roboto, sans-serif;
+    .main-line {
+      font-size: 16px;
+    }
+    .sub-line {
+      padding-top: 4px;
+      color: rgba(0, 0, 0, .42);
+    }
+  }
+}

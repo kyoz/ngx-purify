@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PureSharedModule } from '../../../shared/shared.module';
 import { PureChatboxContainer } from './pure-chatbox-container.component';
 import { PureChatboxContainerService } from './pure-chatbox-container.service';
-import { PureChatbox } from '../../pure-components/pure-chatbox/pure-chatbox.component';
+import { PureSideChatbox } from '../../pure-components/pure-side-chatbox/pure-side-chatbox.component';
 import { PureMockApiService } from '../../pure-mock-api/pure-mock-api.service';
 
 describe('PureChatboxContainer', () => {
@@ -14,7 +14,7 @@ describe('PureChatboxContainer', () => {
       imports: [PureSharedModule],
       declarations: [
         PureChatboxContainer,
-        PureChatbox
+        PureSideChatbox
       ],
       providers: [
         PureChatboxContainerService,

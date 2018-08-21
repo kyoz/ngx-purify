@@ -8,12 +8,13 @@ import { PureMainContainer } from './core/pure-containers/pure-main-container/pu
 import { PureMenuContainer } from './core/pure-containers/pure-menu-container/pure-menu-container.component';
 import { PureChatboxContainer } from './core/pure-containers/pure-chatbox-container/pure-chatbox-container.component';
 import { PureNotificationContainer } from './core/pure-containers/pure-notification-container/pure-notification-container.component';
+import { PureSideChatbox } from './core/pure-components/pure-side-chatbox/pure-side-chatbox.component';
+import { PureNotification } from './core/pure-components/pure-notification/pure-notification.component';
 
 // Pure Services
 import { PureMenuContainerService } from './core/pure-containers/pure-menu-container/pure-menu-container.service';
 import { PureChatboxContainerService } from './core/pure-containers/pure-chatbox-container/pure-chatbox-container.service';
 import { PureNotificationContainerService } from './core/pure-containers/pure-notification-container/pure-notification-container.service';
-import { PureChatbox } from './core/pure-components/pure-chatbox/pure-chatbox.component';
 import { PureMockApiService } from './core/pure-mock-api/pure-mock-api.service';
 
 describe('AppComponent', () => {
@@ -27,7 +28,8 @@ describe('AppComponent', () => {
         PureMenuContainer,
         PureChatboxContainer,
         PureNotificationContainer,
-        PureChatbox
+        PureSideChatbox,
+        PureNotification
       ],
       imports: [
         FormsModule,

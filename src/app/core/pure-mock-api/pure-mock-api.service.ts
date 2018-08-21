@@ -3,7 +3,9 @@ import { CHATBOX_CONTACTS, CHATBOX_CONVERSASIONS } from './data/chatbox';
 
 @Injectable()
 export class PureMockApiService {
-
+  /**
+   * Chatbox Mock Data
+   */
   public get chatboxContacts() {
     return CHATBOX_CONTACTS;
   }

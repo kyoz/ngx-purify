@@ -11,19 +11,7 @@
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
   z-index: 9999;
   transition: width .2s ease-in-out, max-width .2s ease-in-out, min-width .2s ease-in-out;
-  mat-icon {
-    color: rgba(0,0,0,.54);
-  }
-  .today-top {
-    font-size: 36px;
-    height: 36px;
-    padding-left: 44px;
-  }
-  .today-bottom {
-    font-size: 26px;
-    margin-bottom: 20px;
-    padding-left: 44px;
-  }
+
   .pure-notification-wrapper {
     position: absolute;
     top: 0px;
@@ -33,20 +21,6 @@
     background: white;
     z-index: 9999;
     overflow: auto;
-    .date {
-      color: rgba(0,0,0,.54);
-    }
-    mat-list-item {
-      font-family: Roboto, sans-serif;
-      .main-line {
-        font-size: 16px;
-      }
-
-      .sub-line {
-        padding-top: 4px;
-        color: rgba(0,0,0,.42);
-      }
-    }
   }
 }
 
