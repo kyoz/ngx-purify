@@ -4,6 +4,7 @@ import { of } from 'rxjs';
 import { map, flatMap } from 'rxjs/operators';
 import * as SideChatBoxActions from './pure-side-chatbox.action';
 import { PureMockApiService } from '../../pure-mock-api/pure-mock-api.service';
+import { IChatboxContact, IChatBoxMessage } from '../../pure-mock-api/interface/chatbox';
 
 @Injectable()
 export class PureSideChatboxEffects {
@@ -12,7 +13,8 @@ export class PureSideChatboxEffects {
   getContacts$ = this._actions$
     .ofType(SideChatBoxActions.PURE_SIDE_CHATBOX_GET_CONTACTS)
     .pipe(
-      flatMap(() => of(new SideChatBoxActions.FetchContacts(this._mockApi.chatbox.getChatboxContacts())))
+      flatMap(() => this._mockApi.chatbox.getChatboxContacts()),
+      map((contacts: IChatboxContact[]) => new SideChatBoxActions.FetchContacts(contacts))
     );
 
   @Effect()
@@ -20,7 +22,8 @@ export class PureSideChatboxEffects {
     .ofType(SideChatBoxActions.PURE_SIDE_CHATBOX_GET_CONTACT_MESSAGES)
     .pipe(
       map(action => action['payload']),
-      flatMap((contactId) => of(new SideChatBoxActions.FetchContactMessage(this._mockApi.chatbox.getChatboxContactMessages(contactId))))
+      flatMap((contactId) => this._mockApi.chatbox.getChatboxContactMessages(contactId)),
+      map((messages: IChatBoxMessage[]) => new SideChatBoxActions.FetchContactMessage(messages))
     );
 
   constructor(
