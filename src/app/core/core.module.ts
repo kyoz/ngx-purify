@@ -32,7 +32,8 @@ import { PureSideChatboxService } from './pure-components/pure-side-chatbox/pure
 
 // Pure Modules 
 import { PureSharedModule } from '../shared/shared.module';
-import { PureMockApiService } from './pure-mock-api/pure-mock-api.service';
+import { PureMockApiModule } from '../core/pure-mock-api/pure-mock-api.module';
+
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { PureMockApiService } from './pure-mock-api/pure-mock-api.service';
     PerfectScrollbarModule,
 
     // Pure Modules
-    PureSharedModule
+    PureSharedModule,
+    PureMockApiModule
   ],
   exports: [
     PureMainContainer,
@@ -72,7 +74,6 @@ import { PureMockApiService } from './pure-mock-api/pure-mock-api.service';
     },
 
     // Pure Core Services
-    PureMockApiService,
     PureMenuContainerService,
     PureChatboxContainerService,
     PureNotificationContainerService,

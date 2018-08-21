@@ -12,7 +12,7 @@ export class PureSideChatboxEffects {
   getContacts$ = this._actions$
     .ofType(SideChatBoxActions.PURE_SIDE_CHATBOX_GET_CONTACTS)
     .pipe(
-      flatMap(() => of(new SideChatBoxActions.FetchContacts(this._mockApi.getChatboxContacts())))
+      flatMap(() => of(new SideChatBoxActions.FetchContacts(this._mockApi.chatbox.getChatboxContacts())))
     );
 
   @Effect()
@@ -20,7 +20,7 @@ export class PureSideChatboxEffects {
     .ofType(SideChatBoxActions.PURE_SIDE_CHATBOX_GET_CONTACT_MESSAGES)
     .pipe(
       map(action => action['payload']),
-      flatMap((contactId) => of(new SideChatBoxActions.FetchContactMessage(this._mockApi.getChatboxContactMessages(contactId))))
+      flatMap((contactId) => of(new SideChatBoxActions.FetchContactMessage(this._mockApi.chatbox.getChatboxContactMessages(contactId))))
     );
 
   constructor(
