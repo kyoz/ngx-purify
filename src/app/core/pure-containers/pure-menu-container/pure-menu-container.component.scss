@@ -30,6 +30,12 @@
       visibility: hidden;
       opacity: 0;
     }
+    .title {
+      padding-left: 16px;
+      margin-bottom: -2px;
+      font-weight: 200;
+      display: hidden;
+    }
   }
 }
 
@@ -77,11 +83,16 @@
   max-width: 288px;
   width: 288px;
   transition: width .2s ease-in-out, max-width .2s ease-in-out, min-width .2s ease-in-out;
-  .toolbar>.menu-button {
-    opacity: 1;
-    visibility: visible;
-    transition: visibility .3s, opacity .25s ease-in;
-  }
+  .toolbar {
+    .menu-button {
+      opacity: 1;
+      visibility: visible;
+      transition: visibility .3s, opacity .25s ease-in;
+    }
+    .title {
+      display: inline-block;
+    }
+  } 
 }
 
 .pure-side-menu-closed {

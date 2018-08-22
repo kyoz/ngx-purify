@@ -19,11 +19,11 @@ export class PureNotificationContainerService {
     this.state = this.state === 'opened' ? 'closed' : 'opened';
   }
 
-  public isOpened() {
+  public get isOpened() {
     return this.state === 'opened';
   }
 
-  public isClosed() {
+  public get isClosed() {
     return this.state === 'closed';
   }
 }

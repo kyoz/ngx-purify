@@ -7,7 +7,7 @@
     <div class="pure-spacer"></div>
     <button mat-icon-button><mat-icon>fullscreen</mat-icon></button>
     <button mat-icon-button><mat-icon>settings</mat-icon></button>
-    <button mat-icon-button *ngIf="_chatbox.isClosed() && !_chatbox.isFullWidth" (click)="_chatbox.toggle()">
+    <button mat-icon-button *ngIf="_chatbox.isClosed && !_chatbox.isFullWidth" (click)="_chatbox.toggle()">
       <mat-icon>chat</mat-icon>
     </button>
     <button mat-icon-button (click)="_notification.toggle()">

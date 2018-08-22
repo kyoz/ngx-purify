@@ -41,11 +41,11 @@ export class PureMenuContainerService {
     }
   }
 
-  public isOpened() {
+  public get isOpened() {
     return this.state === 'opened';
   }
 
-  public isClosed() {
+  public get isClosed() {
     return this.state === 'closed';
   }
 

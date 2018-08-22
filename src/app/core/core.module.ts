@@ -88,6 +88,6 @@ export class PureCoreModule {
     }
 
     // Register to use more material design icons in https://materialdesignicons.com/
-    _matIconRegistry.addSvgIconSet(_domSanitizer.bypassSecurityTrustResourceUrl('./assets/icons/material-design-icons.svg'));
+    _matIconRegistry.addSvgIconSet(_domSanitizer.bypassSecurityTrustResourceUrl('./assets/icon/material-design-icons.svg'));
   }
 }
