@@ -10,9 +10,9 @@ import { PureNotificationContainerService } from './core/pure-containers/pure-no
 })
 export class AppComponent {
   constructor(
-    public _menu: PureMenuContainerService,
-    public _chatbox: PureChatboxContainerService,
-    public _notification: PureNotificationContainerService
+    public _menuContainer: PureMenuContainerService,
+    public _chatboxContainer: PureChatboxContainerService,
+    public _notificationContainer: PureNotificationContainerService
   ) {
 
   }

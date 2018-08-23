@@ -6,21 +6,23 @@ export type SideChatBoxActions = SideChatBoxActions.All;
 
 const defaultState = Map({
   contacts: [],
-  currentChat: {
-    contact: {},
+  currentConversation: {
+    contactInfo: undefined,
     messages: []
-  }
+  } 
 });
 
 export function sideChatBoxReducer(state: IPureSideChatBoxState = defaultState, action: SideChatBoxActions) {
   switch(action.type) {
     case SideChatBoxActions.PURE_SIDE_CHATBOX_FETCH_CONTACTS:
       return state.set('contacts', action.payload);
-    case SideChatBoxActions.PURE_SIDE_CHATBOX_FETCH_CONTACT_MESSAGES:
-    console.log(action.payload)
-      return state.set('currentChat', {
-        contact: 1,
-        messages: action.payload
+    case SideChatBoxActions.PURE_SIDE_CHATBOX_FETCH_CONVERSATION:
+      console.log(action.payload);
+      return state.set('currentConversation', action.payload);
+    case SideChatBoxActions.PURE_SIDE_CHATBOX_CLEAR_CONVERSATION:
+      return state.set('currentConversation', {
+        contactInfo: undefined,
+        messages: []
       });
     default:
       return state;

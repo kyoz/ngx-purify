@@ -70,7 +70,7 @@
   }
   .chatbox {
     box-shadow: -1px 0 2px 0 rgba(0,0,0,.25);
-    .non-contact-selected {
+    .no-conversation-selected {
       mat-icon {
         font-size: 8em;
         width: 124px;
@@ -83,6 +83,14 @@
       line-height: 23px;
       text-align: center;
       color: #bdbdbd;
+    }
+    .have-conversation {
+      .messages {
+
+      }
+      .message-input {
+        
+      }
     }
   }
 }

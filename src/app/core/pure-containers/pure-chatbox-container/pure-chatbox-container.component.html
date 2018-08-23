@@ -1,14 +1,20 @@
 <div #pure_side_chatbox class="pure-side-chatbox"
   [ngClass]="{ 
-    'pure-side-chatbox-fullwidth' : _chatbox.isFullWidth,
-    'pure-side-chatbox-non-fullwidth' : !_chatbox.isFullWidth,
-    'pure-side-chatbox-opened' : _chatbox.isOpened,
-    'pure-side-chatbox-closed' : _chatbox.isClosed }">
-  <mat-toolbar color="primary" class="toolbar" (click)="openChatbox()">
-    <mat-icon class="chatbox-icon">
+    'pure-side-chatbox-fullwidth' : _chatboxContainer.isFullWidth,
+    'pure-side-chatbox-non-fullwidth' : !_chatboxContainer.isFullWidth,
+    'pure-side-chatbox-opened' : _chatboxContainer.isOpened,
+    'pure-side-chatbox-closed' : _chatboxContainer.isClosed }">
+  <mat-toolbar color="primary" class="toolbar" (click)="openChatbox()" [ngSwitch]="_sideChatbox.inConversation">
+    <mat-icon class="chatbox-icon" *ngSwitchCase="false">
       chat
     </mat-icon>
-    <span class="content" style="margin-left: 16px; font-weight: normal">Chatbox</span>
+    <span class="content">
+      <span *ngSwitchCase="false" style="margin-left: 16px; font-weight: normal">Chatbox</span>
+      <div *ngSwitchCase="true" class="user-info" fxLayout="row" fxLayoutAlign="start center">
+        <img class="avatar" [src]="_sideChatbox.currentConversation.contactInfo.avatar" width="36px">
+        <span style="padding-left: 14px;">{{ _sideChatbox.currentConversation.contactInfo.name }}</span>
+      </div>
+    </span>
     <div class="pure-spacer"></div>
     <button mat-icon-button class="content" (click)="closeChatbox($event)">
       <mat-icon>close</mat-icon>

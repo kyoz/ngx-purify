@@ -17,3 +17,8 @@ export interface IChatBoxMessage {
   message: string,
   createAt: Date
 }
+
+export interface ICurrentConversation {
+  contactInfo: IChatboxContact,
+  messages: IChatBoxMessage[]
+}

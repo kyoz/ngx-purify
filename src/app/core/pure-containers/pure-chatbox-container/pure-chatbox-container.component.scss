@@ -21,6 +21,13 @@
     .content {
       opacity: 0;
       margin-right: -8px;
+      .user-info {
+        .avatar {
+          border-radius: 20px;
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.35);
+          margin-left: -2px;
+        }
+      }
     }
   }
   .pure-chatbox-wrapper {

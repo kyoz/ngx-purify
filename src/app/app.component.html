@@ -1,16 +1,16 @@
 <pure-main-container class="app-container">
   <mat-toolbar class="app-header" color="primary">
-    <button mat-icon-button *ngIf="!_menu.isFullWidth" (click)="_menu.toggle()">
+    <button mat-icon-button *ngIf="!_menuContainer.isFullWidth" (click)="_menuContainer.toggle()">
       <mat-icon>menu</mat-icon>
     </button> 
     <button mat-icon-button><mat-icon>settings</mat-icon></button>
     <div class="pure-spacer"></div>
     <button mat-icon-button><mat-icon>fullscreen</mat-icon></button>
     <button mat-icon-button><mat-icon>settings</mat-icon></button>
-    <button mat-icon-button *ngIf="_chatbox.isClosed && !_chatbox.isFullWidth" (click)="_chatbox.toggle()">
+    <button mat-icon-button *ngIf="_chatboxContainer.isClosed && !_chatboxContainer.isFullWidth" (click)="_chatboxContainer.toggle()">
       <mat-icon>chat</mat-icon>
     </button>
-    <button mat-icon-button (click)="_notification.toggle()">
+    <button mat-icon-button (click)="_notificationContainer.toggle()">
       <mat-icon matBadge="10" matBadgeColor="warn">notifications</mat-icon>
     </button>
   </mat-toolbar>

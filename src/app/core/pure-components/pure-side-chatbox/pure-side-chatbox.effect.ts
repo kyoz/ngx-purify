@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
-import { of } from 'rxjs';
-import { map, flatMap } from 'rxjs/operators';
+import { of, Observable } from 'rxjs';
+import { map, flatMap, pluck } from 'rxjs/operators';
 import * as SideChatBoxActions from './pure-side-chatbox.action';
 import { PureMockApiService } from '../../pure-mock-api/pure-mock-api.service';
-import { IChatboxContact, IChatBoxMessage } from '../../pure-mock-api/interface/chatbox';
+import { IChatboxContact, IChatBoxMessage, ICurrentConversation } from '../../pure-mock-api/interface/chatbox';
 
 @Injectable()
 export class PureSideChatboxEffects {
@@ -19,11 +19,13 @@ export class PureSideChatboxEffects {
 
   @Effect()
   getConversation$ = this._actions$
-    .ofType(SideChatBoxActions.PURE_SIDE_CHATBOX_GET_CONTACT_MESSAGES)
+    .ofType(SideChatBoxActions.PURE_SIDE_CHATBOX_GET_CONVERSATION)
     .pipe(
-      map(action => action['payload']),
-      flatMap((contactId) => this._mockApi.chatbox.getChatboxContactMessages(contactId)),
-      map((messages: IChatBoxMessage[]) => new SideChatBoxActions.FetchContactMessage(messages))
+      pluck('payload'),
+      flatMap((contactId): Observable<ICurrentConversation> => {
+        return this._mockApi.chatbox.getConversationByContact(contactId);
+      }),
+      map((conversation: IChatBoxMessage[]) => new SideChatBoxActions.FetchConversation(conversation))
     );
 
   constructor(

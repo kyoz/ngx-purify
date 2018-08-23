@@ -15,4 +15,8 @@ export class PureSideChatbox implements OnInit {
   ngOnInit() {
   }
 
+  startConversation(contact) {
+    this._sideChatbox.chooseContact(contact.id)
+  }
+
 }
