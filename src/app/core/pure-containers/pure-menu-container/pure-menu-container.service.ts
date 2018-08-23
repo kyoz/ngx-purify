@@ -22,11 +22,11 @@ export class PureMenuContainerService {
   }
 
   public open() {
-    this.state = "opened";
+    this.state = 'opened';
   }
 
   public close() {
-    this.state = "closed";
+    this.state = 'closed';
   }
 
   public toggle() {

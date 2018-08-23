@@ -12,12 +12,16 @@ export class PureChatboxContainerService {
     this.isFullWidth = window.innerWidth >= RESPONSIVE_BREAKPOINTS.NORMAL ? true : false;
   }
 
+  public init() {
+    this.state = 'closed';
+  }
+
   public open() {
-    this.state = "opened";
+    this.state = 'opened';
   }
 
   public close() {
-    this.state = "closed";
+    this.state = 'closed';
   }
 
   public toggle() {

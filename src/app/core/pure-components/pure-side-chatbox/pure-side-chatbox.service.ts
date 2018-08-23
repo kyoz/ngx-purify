@@ -19,8 +19,10 @@ export class PureSideChatboxService {
     this.currentConversation$ = this._store.pipe(getCurrentConversation());
 
     this.currentConversation$.subscribe(currentConversation => {
-      this._chatboxContainer.open();
       this.currentConversation = currentConversation;
+      if (this.inConversation) {
+        this._chatboxContainer.open();
+      }
     })
   }
 

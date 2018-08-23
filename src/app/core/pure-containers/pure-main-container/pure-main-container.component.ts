@@ -15,6 +15,8 @@ export class PureMainContainer implements OnInit {
     // Init for side menu & chatbox
     this._menuContainer.isFullWidth = this._chatboxContainer.isFullWidth = window.innerWidth >= RESPONSIVE_BREAKPOINTS.NORMAL ? true : false;
     this._menuContainer.init();
+    this._chatboxContainer.init();
+    this._notificationContainer.init();
   }
 
   constructor(
