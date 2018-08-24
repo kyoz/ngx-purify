@@ -8,7 +8,7 @@ import * as Hammer from 'hammerjs';
   styleUrls: ['./pure-menu-container.component.scss'],
 })
 export class PureMenuContainer implements OnInit {
-  @ViewChild('pure_side_menu') pureSideMenu: ElementRef;
+  @ViewChild('pure_menu_container') pureSideMenu: ElementRef;
 
   constructor(
     public _menu: PureMenuContainerService

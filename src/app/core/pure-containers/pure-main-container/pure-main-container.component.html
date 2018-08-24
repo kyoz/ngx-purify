@@ -1,15 +1,15 @@
-<div class="pure-container-wrapper">
+<div class="pure-main-container">
   <pure-menu-container></pure-menu-container>
   <pure-chatbox-container></pure-chatbox-container>
   <pure-notification-container></pure-notification-container>
-  <div class="pure-container-content" [ngClass]="{
-    'pure-side-menu-content-small-screen' : !_menuContainer.isFullWidth,
-    'pure-side-menu-content-opened' : _menuContainer.isFullWidth && _menuContainer.isOpened,
-    'pure-side-chatbox-content-small-screen' : !_chatboxContainer.isFullWidth }">
+  <div class="content" [ngClass]="{
+    'menu-content-small-screen' : !_menuContainer.isFullWidth,
+    'menu-content-opened' : _menuContainer.isFullWidth && _menuContainer.isOpened,
+    'chatbox-content-small-screen' : !_chatboxContainer.isFullWidth }">
     <ng-content></ng-content>
   </div>
 </div>
-<div class="pure-container-backdrop" [ngStyle]="{'z-index': _notificationContainer.isOpened ? '9900' : '999'}"
+<div class="pure-main-container-backdrop" [ngStyle]="{'z-index': _notificationContainer.isOpened ? '9900' : '999'}"
   [hidden]="!((_menuContainer.isOpened && !_menuContainer.isFullWidth) || 
     (_chatboxContainer.isOpened && !_chatboxContainer.isFullWidth) || 
     _notificationContainer.isOpened)"

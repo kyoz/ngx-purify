@@ -9,7 +9,7 @@ import * as Hammer from 'hammerjs';
   styleUrls: ['./pure-chatbox-container.component.scss']
 })
 export class PureChatboxContainer implements OnInit {
-  @ViewChild('pure_side_chatbox') pureSideChatbox: ElementRef;
+  @ViewChild('pure_chatbox_container') pureChatboxContainer: ElementRef;
 
   constructor(
     public _chatboxContainer: PureChatboxContainerService,
@@ -21,7 +21,7 @@ export class PureChatboxContainer implements OnInit {
   }
 
   registerHammer() {
-    const hammer = new Hammer(this.pureSideChatbox.nativeElement, {});
+    const hammer = new Hammer(this.pureChatboxContainer.nativeElement, {});
     hammer.on('swiperight', ev => {
       this._chatboxContainer.close();
     });

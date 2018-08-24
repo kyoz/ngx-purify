@@ -1,4 +1,4 @@
-.pure-side-menu {
+.pure-menu-container {
   position: absolute;
   left: 0px;
   top: 0px;
@@ -10,7 +10,7 @@
   box-sizing: border-box;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
   z-index: 9000;
-  .pure-menu-wrapper {
+  .menu-wrapper {
     position: absolute;
     top: 64px;
     left: 0px;
@@ -20,7 +20,7 @@
   }
 }
 
-.pure-side-menu-fullwidth {
+.menu-fullwidth {
   min-width: 64px;
   max-width: 64px;
   width: 64px;
@@ -39,19 +39,19 @@
   }
 }
 
-.pure-side-menu-non-full-width {
+.menu-non-full-width {
   min-width: 0px;
   max-width: 0px;
   width: 0px;
 }
 
-.pure-side-menu-closed.pure-side-menu-non-full-width {
+.menu-closed.menu-non-full-width {
   min-width: 0px;
   max-width: 0px;
   width: 0px;
 }
 
-.pure-side-menu-closed.pure-side-menu-full-width {
+.menu-closed.menu-full-width {
   min-width: 64px;
   max-width: 64px;
   width: 64px;
@@ -59,7 +59,7 @@
 
 // This to prevent hover unexpect behavior on mobile devices
 @media (hover:hover) {
-  .pure-side-menu-closed.pure-side-menu-can-hover {
+  .menu-closed.menu-can-hover {
     &:hover {
       min-width: 288px;
       max-width: 288px;
@@ -74,11 +74,11 @@
   }
 }
 
-.pure-side-menu-closed.pure-side-menu-cant-hover {
+.menu-closed.menu-cant-hover {
   pointer-events: none;
 }
 
-.pure-side-menu-opened {
+.menu-opened {
   min-width: 288px;
   max-width: 288px;
   width: 288px;
@@ -95,18 +95,18 @@
   } 
 }
 
-.pure-side-menu-closed {
+.menu-closed {
   transition: width .2s ease-in-out, max-width .2s ease-in-out, min-width .2s ease-in-out;
 }
 
 @media only screen and (max-width: 600px) {
-  .pure-side-menu> .pure-menu-wrapper {
+  .menu> .pure-menu-wrapper {
     top: 56px;
   }  
 }
 
 @media only screen and (max-width: 400px) {
-  .pure-side-menu-opened {
+  .menu-opened {
     min-width: 100vw;
     max-width: 100vw;
     width: 100vw;

@@ -1,9 +1,9 @@
-<div #pure_side_chatbox class="pure-side-chatbox"
+<div #pure_chatbox_container class="pure-chatbox-container"
   [ngClass]="{ 
-    'pure-side-chatbox-fullwidth' : _chatboxContainer.isFullWidth,
-    'pure-side-chatbox-non-fullwidth' : !_chatboxContainer.isFullWidth,
-    'pure-side-chatbox-opened' : _chatboxContainer.isOpened,
-    'pure-side-chatbox-closed' : _chatboxContainer.isClosed }">
+    'chatbox-fullwidth' : _chatboxContainer.isFullWidth,
+    'chatbox-non-fullwidth' : !_chatboxContainer.isFullWidth,
+    'chatbox-opened' : _chatboxContainer.isOpened,
+    'chatbox-closed' : _chatboxContainer.isClosed }">
   <mat-toolbar color="primary" class="toolbar" (click)="openChatbox()" [ngSwitch]="_sideChatbox.inConversation">
     <mat-icon class="chatbox-icon" *ngSwitchCase="false">
       chat
@@ -20,7 +20,7 @@
       <mat-icon>close</mat-icon>
     </button>
   </mat-toolbar>
-  <div class="pure-chatbox-wrapper">
+  <div class="chatbox-wrapper">
     <pure-side-chatbox></pure-side-chatbox> 
   </div>
 </div>

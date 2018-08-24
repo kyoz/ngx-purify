@@ -20,7 +20,7 @@ export class PureNotificationContainerService {
 
     // Scroll the notification to top when closed
     setTimeout(() => {
-      const pureNotification = document.getElementsByClassName('pure-notification-container ps ps--active-y');
+      const pureNotification = document.getElementsByClassName('notification-wrapper ps ps--active-y');
       if(pureNotification && pureNotification[0]) {
         pureNotification[0].scrollTop = 0;
       }

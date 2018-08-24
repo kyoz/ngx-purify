@@ -8,7 +8,7 @@ import * as Hammer from 'hammerjs';
   styleUrls: ['./pure-notification-container.component.scss']
 })
 export class PureNotificationContainer implements OnInit {
-  @ViewChild('pure_side_notification') pureSideNotification: ElementRef;
+  @ViewChild('pure_notification_container') pureSideNotification: ElementRef;
 
   constructor(public _notification: PureNotificationContainerService) { }
 
