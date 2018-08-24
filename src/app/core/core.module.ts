@@ -5,80 +5,32 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconRegistry } from '@angular/material';
 
-// Perfect Scrollbar
-import { 
-  PerfectScrollbarModule,
-  PerfectScrollbarConfigInterface,
-  PERFECT_SCROLLBAR_CONFIG
-} from 'ngx-perfect-scrollbar';
-
-const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
-  wheelPropagation: true
-};
-
-// Pure Core Components
-import { PureMainContainer } from './pure-containers/pure-main-container/pure-main-container.component';
-import { PureMenuContainer } from './pure-containers/pure-menu-container/pure-menu-container.component';
-import { PureChatboxContainer } from './pure-containers/pure-chatbox-container/pure-chatbox-container.component';
-import { PureNotificationContainer } from './pure-containers/pure-notification-container/pure-notification-container.component';
-import { PureSideChatbox } from './pure-components/pure-side-chatbox/pure-side-chatbox.component';
-import { PureNotification } from './pure-components/pure-notification/pure-notification.component';
-
-// Pure Core Services 
-import { PureMenuContainerService } from './pure-containers/pure-menu-container/pure-menu-container.service';
-import { PureChatboxContainerService } from './pure-containers/pure-chatbox-container/pure-chatbox-container.service';
-import { PureNotificationContainerService } from './pure-containers/pure-notification-container/pure-notification-container.service';
-import { PureSideChatboxService } from './pure-components/pure-side-chatbox/pure-side-chatbox.service';
-
 // Pure Modules 
 import { PureSharedModule } from '../shared/shared.module';
 import { PureMockApiModule } from '../core/pure-mock-api/pure-mock-api.module';
-
+import { PureComponentsModule } from './pure-components/pure-components.module';
+import { PureContainersModule } from './pure-containers/pure-containers.module';
 
 @NgModule({
   declarations: [
-    // Pure Core Components
-    PureMainContainer,
-    PureMenuContainer,
-    PureChatboxContainer,
-    PureNotificationContainer,
-    PureSideChatbox,
-    PureNotification
-
-    // Pure Components
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-
-    // Perfect Scrollbar
-    PerfectScrollbarModule,
-
+ 
     // Pure Modules
     PureSharedModule,
-    PureMockApiModule
+    PureMockApiModule,
+    PureComponentsModule,
+    PureContainersModule
   ],
   exports: [
-    PureMainContainer,
-    PureMenuContainer,
-    PureChatboxContainer,
-    PureNotificationContainer
+    PureComponentsModule,
+    PureContainersModule
   ],
-  providers: [
-    // Perfect Scrollbar
-    {
-      provide: PERFECT_SCROLLBAR_CONFIG,
-      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    },
-
-    // Pure Core Services
-    PureMenuContainerService,
-    PureChatboxContainerService,
-    PureNotificationContainerService,
-    PureSideChatboxService
-  ],
+  providers: [],
 })
 export class PureCoreModule {
   constructor(
