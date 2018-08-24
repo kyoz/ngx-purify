@@ -17,6 +17,14 @@ export class PureNotificationContainerService {
 
   public close() {
     this.state = 'closed';
+
+    // Scroll the notification to top when closed
+    setTimeout(() => {
+      const pureNotification = document.getElementsByClassName('pure-notification-container ps ps--active-y');
+      if(pureNotification && pureNotification[0]) {
+        pureNotification[0].scrollTop = 0;
+      }
+    }, 100);
   }
 
   public toggle() {
