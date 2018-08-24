@@ -9,10 +9,10 @@
       chat
     </mat-icon>
     <span class="content">
-      <span *ngSwitchCase="false" style="margin-left: 16px; font-weight: normal">Chatbox</span>
+      <span *ngSwitchCase="false" class="title">Chatbox</span>
       <div *ngSwitchCase="true" class="user-info" fxLayout="row" fxLayoutAlign="start center">
         <img class="avatar" [src]="_sideChatbox.currentConversation.contactInfo.avatar" width="36px">
-        <span style="padding-left: 14px;">{{ _sideChatbox.currentConversation.contactInfo.name }}</span>
+        <span class="name">{{ _sideChatbox.currentConversation.contactInfo.name }}</span>
       </div>
     </span>
     <div class="pure-spacer"></div>
