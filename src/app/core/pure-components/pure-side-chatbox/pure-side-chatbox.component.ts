@@ -18,5 +18,4 @@ export class PureSideChatbox implements OnInit {
   startConversation(contact) {
     this._sideChatbox.chooseContact(contact.id)
   }
-
 }

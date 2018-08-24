@@ -3,9 +3,9 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { IAppState } from '../../../types/app-state';
 import { getContacts, getCurrentConversation } from './pure-side-chatbox.selector';
-import * as SideChatboxActions from './pure-side-chatbox.action';
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
 import { ICurrentConversation } from '../../pure-mock-api/interface/chatbox';
+import * as SideChatboxActions from './pure-side-chatbox.action';
 
 @Injectable()
 export class PureSideChatboxService {
