@@ -34,7 +34,6 @@ export class PureChatboxContainer implements OnInit {
   }
 
   closeChatbox(event) {
-    this._sideChatbox.clearConversation();
     this._chatboxContainer.close();
     event.preventDefault();
     event.stopPropagation();

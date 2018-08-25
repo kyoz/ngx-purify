@@ -4,7 +4,7 @@
     'chatbox-non-fullwidth' : !_chatboxContainer.isFullWidth,
     'chatbox-opened' : _chatboxContainer.isOpened,
     'chatbox-closed' : _chatboxContainer.isClosed }">
-  <mat-toolbar color="primary" class="toolbar" (click)="openChatbox()" [ngSwitch]="_sideChatbox.inConversation">
+  <mat-toolbar color="primary" class="toolbar" (click)="openChatbox()" [ngSwitch]="_sideChatbox.inConversation && _chatboxContainer.isOpened">
     <mat-icon class="chatbox-icon" *ngSwitchCase="false">
       chat
     </mat-icon>
