@@ -30,6 +30,10 @@ export class PureSideChatboxService {
     return this.currentConversation.contactInfo !== undefined;
   }
 
+  public get conversationContact() {
+    return this.currentConversation.contactInfo ? this.currentConversation.contactInfo.id : '';
+  }
+
   /**
    * Dispatch Functions
    */

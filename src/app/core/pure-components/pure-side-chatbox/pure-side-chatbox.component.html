@@ -3,6 +3,7 @@
     <button mat-button color="primary" class="contact-item" fxLayoutAlign="center center"
       (click)="startConversation(contact)"
       *ngFor="let contact of _sideChatbox.contacts$ | async">
+      <span class="selected" *ngIf="contact.id === _sideChatbox.conversationContact"></span>
       <img class="contact-image" [src]="contact.avatar" matTooltip="{{contact.name}}" matTooltipPosition="before">
       <span class="contact-status" [ngClass]="{
         'online' : contact.status === 'online',
