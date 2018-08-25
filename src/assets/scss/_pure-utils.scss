@@ -18,6 +18,9 @@
   .pure-primary-bg {
     background-color: mat-color($primary);
   }
+  .pure-primary-bg-50 {
+    background-color: mat-color($primary, 50);
+  }
   .pure-accent-bg {
     background-color: mat-color($accent);
   }
