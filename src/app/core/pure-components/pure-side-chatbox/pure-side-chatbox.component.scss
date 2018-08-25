@@ -120,26 +120,31 @@
         left: 0px;
         right: 0px;
         bottom: 0px;
-        height: 56px;
+        background: white;
+        min-height: 56px;
+        max-height: 228px;
         border-top: 1px solid #e0e0e0;
         padding-left: 16px;
         padding-right: 16px;
         .message-input {
           font-size: 16px;
+          line-height: 22px;
           color: rgba(0,0,0,.78);
           width: calc(100% - 36px);
-          height: 100%;
           border: none;
           outline: none;
+          resize: none;
+          overflow: hidden;
+          padding-top: 18px;
           &::placeholder{
             color: rgba(0,0,0,.28);
           }
         }
-        .message-send-btn {
-          position: absolute;
-          right: 8px;
-          top: 8px;
-        }
+      }
+      .message-send-btn {
+        position: absolute;
+        right: 8px;
+        bottom: 8px;
       }
     }
   }

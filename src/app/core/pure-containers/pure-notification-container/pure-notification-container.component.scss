@@ -26,7 +26,7 @@
 
 .notification-opened {
   min-width: 288px;
-  max-width: 288px;
   width: 288px;
+  max-width: calc(100vw);
   transition: width .2s ease-in-out, max-width .2s ease-in-out, min-width .2s ease-in-out;
 }

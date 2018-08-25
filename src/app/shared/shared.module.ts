@@ -9,6 +9,7 @@ import {
   PerfectScrollbarConfigInterface,
   PERFECT_SCROLLBAR_CONFIG
 } from 'ngx-perfect-scrollbar';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true
@@ -18,15 +19,17 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   declarations: [],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
     FlexLayoutModule,
-
-    // Perfect Scrollbar
     PerfectScrollbarModule,
 
   ],
   exports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
     FlexLayoutModule,
     PerfectScrollbarModule

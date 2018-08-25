@@ -32,7 +32,7 @@
         }
         .name {
           padding-left: 14px;
-          width: 228px;
+          width: 216px;
           white-space: nowrap;
           text-overflow: ellipsis;
           overflow: hidden;
@@ -95,7 +95,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .chatbox>.chatbox-wrapper {
+  .pure-chatbox-container > .chatbox-wrapper {
     top: 56px;
   }
 }

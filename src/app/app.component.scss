@@ -18,4 +18,10 @@
     left: 0px;
     background: #eeeeee;
   }
+  @media only screen and (max-width: 600px) {
+    .app-content-container {
+      top: 56px;
+    }
+  }
 }
+
