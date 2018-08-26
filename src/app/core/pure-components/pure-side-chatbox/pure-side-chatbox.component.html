@@ -37,10 +37,10 @@
           }">
           <img class="avatar" *ngIf="message.sender !== 0" [src]="_sideChatbox.currentConversation.contactInfo.avatar" width="36">
           <div class="message pure-primary-bg">
-            {{ message.message }} {{ i }}
+            {{ message.message }}
           </div>
           <div class="time">
-            {{ message.createAt }}
+            {{ message.createAt | date: 'MM/dd/yy - hh:mm aa' }}
           </div>
         </div>
       </div>
