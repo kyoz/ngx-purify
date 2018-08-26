@@ -27,7 +27,7 @@
       Select a contact to start<br>a conversation
     </div>
     <div class="have-conversation" fxLayout="column" fxLayoutAlign="space-between stretch" *ngSwitchCase="true">
-      <div class="messages" perfectScrollbar>
+      <div #messages_content=ngxPerfectScrollbar class="messages" perfectScrollbar>
         <div class="message-row" *ngFor="let message of _sideChatbox.currentConversation.messages; let i = index"
           [ngClass]="{
             'mine' : message.sender === 0,

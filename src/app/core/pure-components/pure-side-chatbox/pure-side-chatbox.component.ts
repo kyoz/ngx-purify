@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { PureSideChatboxService } from './pure-side-chatbox.service';
+import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 
 @Component({
   selector: 'pure-side-chatbox',
@@ -7,15 +8,23 @@ import { PureSideChatboxService } from './pure-side-chatbox.service';
   styleUrls: ['./pure-side-chatbox.component.scss']
 })
 export class PureSideChatbox implements OnInit {
-  @ViewChild('message_input') messageInputElement: ElementRef;
+  @ViewChild('message_input') messageInputRef: ElementRef;
+  @ViewChild('messages_content') messagesContentRef?: PerfectScrollbarDirective;
 
   messageInput;
 
-  constructor(public _sideChatbox: PureSideChatboxService) {
+  constructor(
+    private _changeDetectionRef: ChangeDetectorRef,
+    public _sideChatbox: PureSideChatboxService) {
     this._sideChatbox.getContacts();
   }
 
   ngOnInit() {
+    this._sideChatbox.currentConversation$.subscribe(() => {
+      if (this._sideChatbox.inConversation) {
+        this.scrollChatboxToBottom();
+      }
+    });
   }
 
   startConversation(contact) {
@@ -29,20 +38,29 @@ export class PureSideChatbox implements OnInit {
 
   clearMessageInput() {
     this.messageInput = '';
-    if (this.messageInputElement) {
-      this.messageInputElement.nativeElement.style.height = '22px';
+    if (this.messageInputRef) {
+      this.messageInputRef.nativeElement.style.height = '22px';
     }
   }
 
   resizeMessageInput() {
-    this.messageInputElement.nativeElement.style.height = '22px';
-    if (this.messageInputElement.nativeElement.scrollHeight > 58) {
-      this.messageInputElement.nativeElement.style.height = this.messageInputElement.nativeElement.scrollHeight + 'px';
+    this.messageInputRef.nativeElement.style.height = '22px';
+    if (this.messageInputRef.nativeElement.scrollHeight > 58) {
+      this.messageInputRef.nativeElement.style.height = this.messageInputRef.nativeElement.scrollHeight + 'px';
     }
   }
 
   preventEnterKey(event) {
     event.preventDefault();
+  }
+
+  scrollChatboxToBottom() {
+    this._changeDetectionRef.detectChanges();
+
+    if (this.messagesContentRef) {
+      this.messagesContentRef.update();
+      this.messagesContentRef.scrollToBottom();
+    }
   }
 
   isFirstOfGroup(index, message, messageList) {
