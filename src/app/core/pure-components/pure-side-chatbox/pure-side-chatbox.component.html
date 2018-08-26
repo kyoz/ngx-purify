@@ -28,7 +28,21 @@
     </div>
     <div class="have-conversation" fxLayout="column" fxLayoutAlign="space-between stretch" *ngSwitchCase="true">
       <div class="messages" perfectScrollbar>
-        <div style="height: 60px" *ngFor="let i of [1,2,3,4,5,6,7,8,8,9,8,7,6,2,5,4,4,4,5,6,7,8,8]">hello</div>
+        <div class="message-row" *ngFor="let message of _sideChatbox.currentConversation.messages; let i = index"
+          [ngClass]="{
+            'mine' : message.sender === 0,
+            'their' : message.sender !== 0,
+            'first-of-group': isFirstOfGroup(i, message, _sideChatbox.currentConversation.messages), 
+            'last-of-group': isLastOfGroup(i, message, _sideChatbox.currentConversation.messages)
+          }">
+          <img class="avatar" *ngIf="message.sender !== 0" [src]="_sideChatbox.currentConversation.contactInfo.avatar" width="36">
+          <div class="message pure-primary-bg">
+            {{ message.message }} {{ i }}
+          </div>
+          <div class="time">
+            {{ message.createAt | date: 'MM/dd/yy - hh:mm aa' }}
+          </div>
+        </div>
       </div>
       <div class="message-input-wrapper" perfectScrollbar>
         <textarea #message_input class="message-input" placeholder="Type a message" rows="1" 

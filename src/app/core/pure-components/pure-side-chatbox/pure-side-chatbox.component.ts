@@ -44,4 +44,16 @@ export class PureSideChatbox implements OnInit {
   preventEnterKey(event) {
     event.preventDefault();
   }
+
+  isFirstOfGroup(index, message, messageList) {
+    if (index === 0) return true;
+    if (message.sender !== messageList[index - 1].sender) return true;
+    return false;
+  }
+
+  isLastOfGroup(index, message, messageList) {
+    if (index === messageList.length - 1) return true;
+    if (message.sender !== messageList[index + 1].sender) return true;
+    return false;
+  }
 }
