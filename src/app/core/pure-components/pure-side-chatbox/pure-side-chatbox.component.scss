@@ -104,6 +104,21 @@
       text-align: center;
       color: #bdbdbd;
     }
+    .no-messages {
+      height: calc(100vh - 120px);
+      mat-icon {
+        font-size: 8em;
+        width: 124px;
+        height: 124px;
+        min-width: 124px;
+        min-height: 124px;
+        opacity: .2;
+      }
+      font-weight: 200;
+      line-height: 23px;
+      text-align: center;
+      color: #bdbdbd;
+    }
     .have-conversation {
       position: relative;
       width: 100%;

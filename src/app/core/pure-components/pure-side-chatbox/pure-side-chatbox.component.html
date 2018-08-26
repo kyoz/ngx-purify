@@ -44,6 +44,13 @@
           </div>
         </div>
       </div>
+      <div *ngIf="_sideChatbox.currentConversation.messages.length === 0" class="no-messages" 
+        fxLayout="column" fxLayoutAlign="center center">
+        <div>
+          <mat-icon>chat_bubble_outline</mat-icon>
+        </div>
+        You haven't have any message<br> with {{ _sideChatbox.currentConversation.contactInfo.name }}
+      </div>
       <div class="message-input-wrapper" perfectScrollbar>
         <textarea #message_input class="message-input" placeholder="Type a message" rows="1" 
           [(ngModel)]="messageInput"
