@@ -91,6 +91,8 @@
     z-index: 9001;
     box-shadow: -1px 0 2px 0 rgba(0, 0, 0, .25);
     .no-conversation-selected {
+      position: absolute;
+      margin-top: -28px;
       mat-icon {
         font-size: 8em;
         width: 124px;
@@ -131,6 +133,7 @@
         bottom: 56px;
         font-size: 14px;
         padding: 16px 16px 0px 20px;
+        // Transition to make chatbox open more smoother
         visibility: hidden;
         opacity: 0;
         transition: visibility 0s, opacity 0s linear;
@@ -251,6 +254,7 @@
   }
   .chatbox.chatbox-opened {
     .have-conversation>.messages {
+      // Transition to make chatbox open more smoother
       visibility: visible;
       opacity: 1;
       transition: visibility 0s, opacity .2s linear;

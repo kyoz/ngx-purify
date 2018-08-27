@@ -19,16 +19,17 @@
       </button>
     </div>
   </div>
-  <div class="chatbox" fxFlex fxLayoutAlign="center center" [ngSwitch]="_sideChatbox.inConversation" [ngClass]="{
+  <div class="chatbox" fxFlex fxLayoutAlign="center center" [ngClass]="{
       'chatbox-opened': _chatboxContainer.isOpened
   }">
-    <div class="no-conversation-selected" *ngSwitchCase="false">
+    <div class="no-conversation-selected" *ngIf="!_sideChatbox.inConversation && _chatboxContainer.isOpened">
       <div>
         <mat-icon>chat</mat-icon>
       </div>
       Select a contact to start<br>a conversation
     </div>
-    <div class="have-conversation" fxLayout="column" fxLayoutAlign="space-between stretch" *ngSwitchCase="true">
+    <div class="have-conversation" fxLayout="column" fxLayoutAlign="space-between stretch"
+      [hidden]="!(_sideChatbox.inConversation && _sideChatbox.currentConversation.messages.length > 0)">
       <div #messages_content=ngxPerfectScrollbar class="messages" perfectScrollbar>
         <div class="message-row" *ngFor="let message of _sideChatbox.currentConversation.messages; let i = index"
           [ngClass]="{
@@ -46,21 +47,24 @@
           </div>
         </div>
       </div>
-      <div *ngIf="_sideChatbox.currentConversation.messages.length === 0" class="no-messages" 
-        fxLayout="column" fxLayoutAlign="center center">
+      <div class="no-messages" fxLayout="column" fxLayoutAlign="center center"
+        *ngIf="_sideChatbox.inConversation && 
+          _sideChatbox.currentConversation.messages.length === 0 &&
+          _chatboxContainer.isOpened">
         <div>
           <mat-icon>chat_bubble_outline</mat-icon>
         </div>
         You haven't have any message<br> with {{ _sideChatbox.currentConversation.contactInfo.name }}
       </div>
-      <div class="message-input-wrapper" perfectScrollbar>
+      <div class="message-input-wrapper" perfectScrollbar *ngIf="_sideChatbox.inConversation">
         <textarea #message_input class="message-input" placeholder="Type a message" rows="1" 
           [(ngModel)]="messageInput"
           (ngModelChange)="resizeMessageInput()"
           (keydown.enter)="preventEnterKey($event)"
           (keyup.enter)="sendMessage()"></textarea>
       </div>
-      <button mat-icon-button color="primary" class="message-send-btn" (click)="sendMessage()">
+      <button mat-icon-button color="primary" class="message-send-btn" (click)="sendMessage()"
+        *ngIf="_sideChatbox.inConversation">
         <mat-icon>
           send
         </mat-icon>
