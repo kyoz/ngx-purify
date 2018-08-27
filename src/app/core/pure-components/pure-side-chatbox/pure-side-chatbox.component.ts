@@ -18,7 +18,7 @@ export class PureSideChatbox implements OnInit {
     private _changeDetectionRef: ChangeDetectorRef,
     public _sideChatbox: PureSideChatboxService,
     public _chatboxContainer: PureChatboxContainerService) {
-    this._sideChatbox.getContacts();
+      this._sideChatbox.getContacts();
   }
 
   ngOnInit() {
