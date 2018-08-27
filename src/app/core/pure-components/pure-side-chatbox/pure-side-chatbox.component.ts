@@ -75,7 +75,7 @@ export class PureSideChatbox implements OnInit {
 
     if (this.messagesContentRef) {
       this.messagesContentRef.update();
-      this.messagesContentRef.scrollToBottom(undefined, 200);
+      this.messagesContentRef.scrollToBottom();
     }
   }
 
