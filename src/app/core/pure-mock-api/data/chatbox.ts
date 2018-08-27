@@ -35,29 +35,60 @@ export const CHATBOX_CONVERSASIONS: IChatBoxConversation[] = [
     owner: 0,
     withContact: 1,
     messages: [
-      { sender: 1, message: `How's going bro ? How's going bro ? How's going bro ?`, createAt: new Date('2018-04-11T10:20:30Z') },
-      { sender: 0, message: `Not too bad How's going bro ? How's going bro ? How's going bro ?`, createAt: new Date('2018-04-11T10:20:30Z') },
-      { sender: 1, message: `Are you free this weekend ? How's going bro ? How's going bro ? How's going bro ?`, createAt: new Date('2018-04-11T10:20:30Z') },
-      { sender: 1, message: `I do have some cool project for us How's going bro ? How's going bro ? How's going bro ?`, createAt: new Date('2018-04-11T10:20:30Z') },
-      { sender: 1, message: `You'll definitely like it, haha`, createAt: new Date('2018-04-11T10:20:30Z') },
-      { sender: 0, message: `Well, sound interesting How's going bro ? How's going bro ? How's going bro ?`, createAt: new Date('2018-04-11T10:20:30Z') },
-      { sender: 0, message: `But i do have sdfdsf How's going bro ? How's going bro ?`, createAt: new Date('2018-04-11T10:20:30Z') },
-      { sender: 0, message: `sfsdfsdfsdfsfd' How's going bro ? How's going bro ?`, createAt: new Date('2018-04-11T10:20:30Z') },
-      { sender: 0, message: 'ssssssssssfffffffff fffffffff', createAt: new Date('2018-04-11T10:20:30Z') },
-      { sender: 1, message: 'sdfffffffffffffffff', createAt: new Date('2018-04-11T10:20:30Z') },
+      { sender: 1, message: `Ey`, createAt: new Date() },
+      { sender: 0, message: `Yo :)`, createAt: new Date() },
+      { sender: 1, message: `How's going bro ?`, createAt: new Date() },
+      { sender: 0, message: `Not bad at all`, createAt: new Date() },
+      { sender: 0, message: `How are you ?`, createAt: new Date() },
+      { sender: 1, message: `Just fine :))`, createAt: new Date() },
+      { sender: 1, message: `Are you free this weekend ?`, createAt: new Date() },
+      { sender: 1, message: `I do have something interesting for you`, createAt: new Date() },
+      { sender: 1, message: ':))', createAt: new Date() },
+      { sender: 0, message: `Sound interesting`, createAt: new Date() },
+      { sender: 0, message: `7:)`, createAt: new Date() },
+      { sender: 1, message: `Oh i have to go now, see youu`, createAt: new Date() },
+      { sender: 0, message: `See you >.<`, createAt: new Date() }
     ]
   },
   {
     owner: 0,
     withContact: 2,
     messages: [
-      { sender: 2, message: 'Hello 1', createAt: new Date('2018-04-11T10:20:30Z') },
-      { sender: 0, message: 'Hello 2', createAt: new Date('2018-04-11T10:20:30Z') },
-      { sender: 2, message: 'Hello 3', createAt: new Date('2018-04-11T10:20:30Z') },
-      { sender: 2, message: 'Hello 4', createAt: new Date('2018-04-11T10:20:30Z') },
-      { sender: 2, message: 'Hello 5', createAt: new Date('2018-04-11T10:20:30Z') },
-      { sender: 0, message: 'Hello 6', createAt: new Date('2018-04-11T10:20:30Z') },
-      { sender: 0, message: 'Hello 7', createAt: new Date('2018-04-11T10:20:30Z') },
+      { sender: 2, message: 'Yo', createAt: new Date() },
+      { sender: 0, message: 'Hi', createAt: new Date() },
+      { sender: 2, message: 'Can you help me solve some problems ?', createAt: new Date() },
+      { sender: 2, message: `I'm stuck :(`, createAt: new Date() },
+      { sender: 0, message: 'Ok bro', createAt: new Date() },
+      { sender: 0, message: `What's your problem ?`, createAt: new Date() },
+      { sender: 2, message: `I don't know, maybe i'm so handsome :(`, createAt: new Date() },
+      { sender: 0, message: `Bye >.<`, createAt: new Date() }
+    ]
+  },
+  {
+    owner: 0,
+    withContact: 3,
+    messages: [
+      { sender: 3, message: 'Hello', createAt: new Date() },
+      { sender: 0, message: 'Hello', createAt: new Date() },
+      { sender: 3, message: '...', createAt: new Date() },
+      { sender: 3, message: `I need your help`, createAt: new Date() },
+      { sender: 0, message: '>.<', createAt: new Date() },
+      { sender: 0, message: `Come on, don't tell me your problem is you are so cute`, createAt: new Date() },
+      { sender: 3, message: `How did you know ? :)`, createAt: new Date() },
+      { sender: 0, message: `>.<`, createAt: new Date() }
+    ]
+  },
+  {
+    owner: 0,
+    withContact: 4,
+    messages: [
+      { sender: 4, message: 'Yo, Kyoz. We have to release new version tomorrow', createAt: new Date() },
+      { sender: 0, message: `Don't worry, i'll handle that :)`, createAt: new Date() },
+      { sender: 4, message: 'Cool', createAt: new Date() },
+      { sender: 4, message: `I'll buy you a coffee :]]`, createAt: new Date() },
+      { sender: 0, message: 'No sugar please :))', createAt: new Date() },
+      { sender: 4, message: `Ok bro :)`, createAt: new Date() },
+      { sender: 0, message: `:)))`, createAt: new Date() }
     ]
   }
 ];
