@@ -32,19 +32,27 @@ export class PureSideChatbox implements OnInit {
   startConversation(contact) {
     this.clearMessageInput();
     this._sideChatbox.chooseContact(contact.id)
+    this.focusMessageInput();
   }
 
   sendMessage() {
-    if (this.messageInput.trim().length === 0) return;
+    if (!this.messageInput || this.messageInput.trim().length === 0) return;
 
     this._sideChatbox.sendMessage(this.messageInput);
     this.clearMessageInput();
+    this.focusMessageInput();
   }
 
   clearMessageInput() {
     this.messageInput = '';
     if (this.messageInputRef) {
       this.messageInputRef.nativeElement.style.height = '22px';
+    }
+  }
+
+  focusMessageInput() {
+    if (this.messageInputRef) {
+      this.messageInputRef.nativeElement.focus();
     }
   }
 

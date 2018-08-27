@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { IAppState } from '../../../types/app-state';
 import { getContacts, getCurrentConversation } from './pure-side-chatbox.selector';
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
 import { ICurrentConversation } from '../../pure-mock-api/interface/chatbox';
 import * as SideChatboxActions from './pure-side-chatbox.action';
+import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
 
 @Injectable()
 export class PureSideChatboxService {
@@ -13,6 +14,9 @@ export class PureSideChatboxService {
   currentConversation$: Observable<any>;
 
   currentConversation: ICurrentConversation;
+
+  // To simulate the other user send message back
+  sendMessageBack$ = new Subject<Date>();
 
   constructor(private _store: Store<IAppState>, private _chatboxContainer: PureChatboxContainerService) {
     this.contacts$ = this._store.pipe(getContacts());
@@ -23,7 +27,11 @@ export class PureSideChatboxService {
       if (this.inConversation) {
         this._chatboxContainer.open();
       }
-    })
+    });
+
+    this.sendMessageBack$.pipe(debounceTime(1000), distinctUntilChanged()).subscribe(() => {
+      this.sendMessageBack();
+    });
   }
 
   public get inConversation() {
@@ -54,6 +62,17 @@ export class PureSideChatboxService {
     this._store.dispatch(new SideChatboxActions.SendMessage({
       sender: 0, // Me
       message,
+      createAt: new Date()
+    }));
+
+    // To simulate the other user send message back
+    this.sendMessageBack$.next(new Date());
+  }
+
+  private sendMessageBack() {
+    this._store.dispatch(new SideChatboxActions.SendMessage({
+      sender: this.currentConversation.contactInfo.id,
+      message: `I am Groot`,
       createAt: new Date()
     }));
   }
