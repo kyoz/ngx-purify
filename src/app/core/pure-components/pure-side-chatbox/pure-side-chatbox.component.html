@@ -64,7 +64,7 @@
           (keyup.enter)="sendMessage()"></textarea>
       </div>
       <button mat-icon-button color="primary" class="message-send-btn" (click)="sendMessage()"
-        *ngIf="_sideChatbox.inConversation">
+        *ngIf="_sideChatbox.inConversation && _chatboxContainer.isOpened">
         <mat-icon>
           send
         </mat-icon>

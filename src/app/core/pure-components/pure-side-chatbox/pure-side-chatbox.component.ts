@@ -51,9 +51,12 @@ export class PureSideChatbox implements OnInit {
   }
 
   focusMessageInput() {
-    if (this.messageInputRef) {
-      this.messageInputRef.nativeElement.focus();
-    }
+    // To make sure chatbox menu has opened
+    setTimeout(() => {
+      if (this.messageInputRef) {
+        this.messageInputRef.nativeElement.focus();
+      }
+    }, 200);
   }
 
   resizeMessageInput() {

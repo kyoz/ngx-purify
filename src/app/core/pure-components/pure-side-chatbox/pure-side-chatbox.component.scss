@@ -90,6 +90,7 @@
   .chatbox {
     z-index: 9001;
     box-shadow: -1px 0 2px 0 rgba(0, 0, 0, .25);
+    text-rendering: optimizeLegibility;
     .no-conversation-selected {
       position: absolute;
       margin-top: -28px;

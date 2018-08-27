@@ -72,7 +72,7 @@ export class PureSideChatboxService {
   private sendMessageBack() {
     this._store.dispatch(new SideChatboxActions.SendMessage({
       sender: this.currentConversation.contactInfo.id,
-      message: `I am Groot`,
+      message: 'I am Grootttt',
       createAt: new Date()
     }));
   }
