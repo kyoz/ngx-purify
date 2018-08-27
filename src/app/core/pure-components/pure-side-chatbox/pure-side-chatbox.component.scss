@@ -131,6 +131,10 @@
         bottom: 56px;
         font-size: 14px;
         padding: 16px 16px 0px 20px;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility .15s, opacity .1s linear;
+        transition-delay: 0s;
         .message-row {
           width: 100%;
           height: auto;
@@ -159,7 +163,7 @@
           }
         }
         .message-row:after {
-          content: " "; 
+          content: " ";
           display: block;
           clear: both;
         }
@@ -180,7 +184,7 @@
             color: #fff;
           }
         }
-        .message-row.mine.first-of-group > .message {
+        .message-row.mine.first-of-group>.message {
           border-top-right-radius: 20px;
         }
         .message-row.mine.last-of-group {
@@ -191,7 +195,7 @@
             right: 14px;
           }
         }
-        .message-row.their.first-of-group > .message {
+        .message-row.their.first-of-group>.message {
           border-top-left-radius: 20px;
         }
         .message-row.their.last-of-group {
@@ -200,7 +204,7 @@
           }
           .message {
             border-bottom-left-radius: 20px;
-          } 
+          }
           .time {
             left: 52px;
           }
@@ -245,7 +249,12 @@
       }
     }
   }
-  .chatbox-opened {
-    
+  .chatbox.chatbox-opened {
+    .have-conversation>.messages {
+      visibility: visible;
+      opacity: 1;
+      transition: visibility 0s, opacity .2s linear;
+      transition-delay: .2s;
+    }
   }
 }

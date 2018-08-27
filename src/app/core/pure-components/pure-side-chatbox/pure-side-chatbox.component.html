@@ -19,9 +19,8 @@
       </button>
     </div>
   </div>
-  <div fxFlex class="chatbox" fxLayoutAlign="center center" [ngSwitch]="_sideChatbox.inConversation" [ngClass]="{
-      'chatbox-opened': _chatboxContainer.isOpened,
-      'chatbox-closed': _chatboxContainer.isClosed
+  <div class="chatbox" fxFlex fxLayoutAlign="center center" [ngSwitch]="_sideChatbox.inConversation" [ngClass]="{
+      'chatbox-opened': _chatboxContainer.isOpened
   }">
     <div class="no-conversation-selected" *ngSwitchCase="false">
       <div>
