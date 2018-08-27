@@ -49,4 +49,12 @@ export class PureSideChatboxService {
   public clearConversation() {
     this._store.dispatch(new SideChatboxActions.ClearConversation());
   }
+
+  public sendMessage(message) {
+    this._store.dispatch(new SideChatboxActions.SendMessage({
+      sender: 0, // Me
+      message,
+      createAt: new Date()
+    }));
+  }
 }

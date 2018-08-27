@@ -35,6 +35,9 @@ export class PureSideChatbox implements OnInit {
   }
 
   sendMessage() {
+    if (this.messageInput.trim().length === 0) return;
+
+    this._sideChatbox.sendMessage(this.messageInput);
     this.clearMessageInput();
   }
 

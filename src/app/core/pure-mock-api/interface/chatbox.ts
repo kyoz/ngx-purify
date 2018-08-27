@@ -13,7 +13,6 @@ export interface IChatBoxConversation {
 }
 
 export interface IChatBoxMessage {
-  id: number,
   sender: number,
   message: string,
   createAt: Date
