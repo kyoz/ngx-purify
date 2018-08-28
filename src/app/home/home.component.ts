@@ -27,4 +27,17 @@ export class HomeComponent {
       }
     }, 100);
   }
+
+  requestFullscreen() {
+    const demo: any = document.getElementById('pure-admin-dashboard');
+    if (demo.requestFullscreen) {
+      demo.requestFullscreen();
+    } else if (demo.mozRequestFullScreen) { /* Firefox */
+      demo.mozRequestFullScreen();
+    } else if (demo.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+      demo.webkitRequestFullscreen();
+    } else if (demo.msRequestFullscreen) { /* IE/Edge */
+      demo.msRequestFullscreen();
+    }
+  }
 }
