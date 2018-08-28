@@ -10,6 +10,7 @@ import { PureSharedModule } from '../shared/shared.module';
 import { PureMockApiModule } from '../core/pure-mock-api/pure-mock-api.module';
 import { PureComponentsModule } from './pure-components/pure-components.module';
 import { PureContainersModule } from './pure-containers/pure-containers.module';
+import { PureDirectivesModule } from './pure-directives/pure-directives.module';
 
 @NgModule({
   declarations: [
@@ -24,11 +25,13 @@ import { PureContainersModule } from './pure-containers/pure-containers.module';
     PureSharedModule,
     PureMockApiModule,
     PureComponentsModule,
-    PureContainersModule
+    PureContainersModule,
+    PureDirectivesModule
   ],
   exports: [
     PureComponentsModule,
-    PureContainersModule
+    PureContainersModule,
+    PureDirectivesModule
   ],
   providers: [],
 })

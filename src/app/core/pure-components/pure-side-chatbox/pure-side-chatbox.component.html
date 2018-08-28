@@ -57,7 +57,7 @@
         You haven't have any message<br> with {{ _sideChatbox.currentConversation.contactInfo.name }}
       </div>
       <div class="message-input-wrapper" perfectScrollbar *ngIf="_sideChatbox.inConversation">
-        <textarea #message_input class="message-input" placeholder="Type a message" rows="1" 
+        <textarea #message_input class="message-input" placeholder="Type a message" rows="1"
           [(ngModel)]="messageInput"
           (ngModelChange)="resizeMessageInput()"
           (keydown.enter)="preventEnterKey($event)"

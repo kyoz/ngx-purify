@@ -20,7 +20,7 @@
     </button>
     <div class="search" *ngIf="isSearching" fxLayout="row" fxLayoutAlign="space-between center" >
       <mat-icon>search</mat-icon>
-      <input #search_input type="text" class="search-input">
+      <input #search_input type="text" class="search-input" pureAutofocus>
       <button mat-icon-button (click)="toggleSearch()">
         <mat-icon>close</mat-icon>
       </button>
