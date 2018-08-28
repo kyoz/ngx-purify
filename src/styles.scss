@@ -1,8 +1,7 @@
-@import '~@angular/material/theming';
 @import "assets/scss/_pure-utils.scss";
 @import "assets/scss/_pure-perfect-scrollbar.scss";
 // Theming
-@import "assets/scss/themes/_core.scss";
+@import "assets/scss/theming/_core.scss";
 @include pure-themes-init();
 
 /* Global styles */

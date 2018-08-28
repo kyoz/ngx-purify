@@ -1,33 +1,8 @@
-@import '~@angular/material/theming';
+/**
+* Contain some useful class that can use across the app
+*/
 
-@mixin pure-colors-grabber($theme) {
-  $primary: map-get($theme, primary);
-  $accent: map-get($theme, accent);
-  $warn: map-get($theme, warn);
-  // Color
-  .pure-primary-color {
-    color: mat-color($primary);
-  }
-  .pure-accent-color {
-    color: mat-color($accent);
-  }
-  .pure-warn-color {
-    color: mat-color($warn);
-  }
-  // Background
-  .pure-primary-bg {
-    background-color: mat-color($primary);
-  }
-  .pure-primary-bg-50 {
-    background-color: mat-color($primary, 50);
-  }
-  .pure-accent-bg {
-    background-color: mat-color($accent);
-  }
-  .pure-warn-bg {
-    background-color: mat-color($warn);
-  }
-}
+@import '~@angular/material/theming';
 
 .pure-spacer {
   flex: 1 1 auto;

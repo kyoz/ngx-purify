@@ -105,7 +105,6 @@
       font-weight: 200;
       line-height: 23px;
       text-align: center;
-      color: #bdbdbd;
     }
     .no-messages {
       height: calc(100vh - 120px);
@@ -120,7 +119,6 @@
       font-weight: 200;
       line-height: 23px;
       text-align: center;
-      color: #bdbdbd;
     }
     .have-conversation {
       position: relative;
@@ -163,7 +161,6 @@
             display: none;
             position: absolute;
             bottom: 16px;
-            color: rgba(0, 0, 0, .48);
           }
         }
         .message-row:after {
@@ -176,8 +173,8 @@
             border-top-left-radius: 20px;
             border-bottom-left-radius: 20px;
             float: right;
-            background: #e2e2e2;
             color: rgba(0, 0, 0, .78);
+            background: #d8d8d8;
           }
         }
         .message-row.their {
@@ -185,7 +182,6 @@
             border-top-right-radius: 20px;
             border-bottom-right-radius: 20px;
             float: left;
-            color: #fff;
           }
         }
         .message-row.mine.first-of-group>.message {

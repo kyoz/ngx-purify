@@ -1,0 +1,5 @@
+@import '../../../app/core/pure-components/pure-side-chatbox/pure-side-chatbox-theme';
+
+@mixin pure-theme($theme) {
+  @include pure-side-chatbox-theme($theme);
+}

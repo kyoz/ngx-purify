@@ -1,8 +1,8 @@
 <div class="pure-side-chatbox" fxLayout="row" fxLayoutAlign="space-between stretch">
   <div fxFlex="64px" class="chatbox-contacts" perfectScrollbar>
     <div class="contact-item-wrapper" *ngFor="let contact of _sideChatbox.contacts$ | async">
-      <span class="contact-item-selected pure-primary-bg-50" *ngIf="contact.id === _sideChatbox.conversationContact">
-        <span class="indicator pure-primary-bg"></span>
+      <span class="contact-item-selected" *ngIf="contact.id === _sideChatbox.conversationContact">
+        <span class="indicator"></span>
       </span>
       <button mat-button color="primary" class="contact-item" fxLayoutAlign="center center"
         (click)="startConversation(contact)">
@@ -13,7 +13,7 @@
           'busy' : contact.status === 'busy',
           'do-not-disturb' : contact.status === 'do-not-disturb'
         }"></span>
-        <span class="contact-unread-count pure-primary-bg" *ngIf="contact.unreadCount > 0">
+        <span class="contact-unread-count" *ngIf="contact.unreadCount > 0">
           {{ contact.unreadCount >= 100 ? '99+' : contact.unreadCount }}
         </span>
       </button>
@@ -39,7 +39,7 @@
             'last-of-group': isLastOfGroup(i, message, _sideChatbox.currentConversation.messages)
           }">
           <img class="avatar" *ngIf="message.sender !== 0" [src]="_sideChatbox.currentConversation.contactInfo.avatar" width="36">
-          <div class="message pure-primary-bg">
+          <div class="message">
             {{ message.message }}
           </div>
           <div class="time">
