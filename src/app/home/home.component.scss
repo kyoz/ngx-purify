@@ -1,0 +1,69 @@
+.app-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  .app-header {
+    z-index: 2;
+    position: relative;
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.15), 0 1px 3px 0 rgba(0,0,0,.12);
+    padding-right: 0px;
+    .button {
+      width: 63px;
+      min-width: 63px;
+      height: 100%;
+      padding: 0px;
+      border-left: 1px solid rgba(white,.15);
+    }
+    .search {
+      position: absolute;
+      left: 0px;
+      right: 0px;
+      top: 0px;
+      bottom: 0px;
+      background: inherit;
+      color: inherit;
+      padding: 0px 16px 0px 24px;
+      .search-input {
+        outline: none;
+        border: none;
+        font-size: 16px;
+        flex: 1 auto;
+        margin: 0 16px -2px 16px;
+        background: inherit;
+        color: inherit;
+      }
+    }
+  }
+  .app-content-container {
+    z-index: 1;
+    position: absolute;
+    top: 64px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background: #eeeeee;
+  }
+
+  /**
+  * RESPONSIVE
+  */
+  @media only screen and (max-width: 600px) {
+    .app-content-container {
+      top: 56px;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    .fullscreen-btn, .language-btn {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 350px) {
+    .userinfo-btn {
+      display: none;
+    }
+  }
+}
