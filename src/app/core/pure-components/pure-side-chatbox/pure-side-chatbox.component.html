@@ -6,7 +6,7 @@
       </span>
       <button mat-button color="primary" class="contact-item" fxLayoutAlign="center center"
         (click)="startConversation(contact)">
-        <img class="contact-image" [src]="contact.avatar" matTooltip="{{contact.name}}" matTooltipPosition="before">
+        <img class="contact-image" src="assets/image/avatar/{{contact.avatar}}" matTooltip="{{contact.name}}" matTooltipPosition="before">
         <span class="contact-status" [ngClass]="{
           'online' : contact.status === 'online',
           'offline' : contact.status === 'offline',
@@ -38,7 +38,8 @@
             'first-of-group': isFirstOfGroup(i, message, _sideChatbox.currentConversation.messages), 
             'last-of-group': isLastOfGroup(i, message, _sideChatbox.currentConversation.messages)
           }">
-          <img class="avatar" *ngIf="message.sender !== 0" [src]="_sideChatbox.currentConversation.contactInfo.avatar" width="36">
+          <img class="avatar" *ngIf="message.sender !== 0" 
+            src="assets/image/avatar/{{_sideChatbox.currentConversation.contactInfo.avatar}}" width="36">
           <div class="message">
             {{ message.message }}
           </div>

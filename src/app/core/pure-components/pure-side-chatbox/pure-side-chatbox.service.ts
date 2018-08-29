@@ -29,7 +29,7 @@ export class PureSideChatboxService {
       }
     });
 
-    this.sendMessageBack$.pipe(debounceTime(1000), distinctUntilChanged()).subscribe(() => {
+    this.sendMessageBack$.pipe(debounceTime(500), distinctUntilChanged()).subscribe(() => {
       this.sendMessageBack();
     });
   }
