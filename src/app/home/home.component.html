@@ -1,20 +1,20 @@
 <pure-main-container class="app-container">
   <mat-toolbar class="app-header" color="primary">
-    <button mat-icon-button *ngIf="!_menuContainer.isFullWidth" (click)="_menuContainer.toggle()">
+    <button mat-button class="button left-side" *ngIf="!_menuContainer.isFullWidth" (click)="_menuContainer.toggle()">
       <mat-icon>menu</mat-icon>
     </button> 
     <!--mat-divider currently have issue with mat-header, so i create my own simple divider-->
     <div class="pure-spacer"></div>
-    <button mat-button class="button" (click)="toggleSearch()"><mat-icon>search</mat-icon></button>
-    <button mat-button class="button fullscreen-btn" (click)="requestFullscreen()"><mat-icon>fullscreen</mat-icon></button>
-    <button mat-button class="button language-btn"><mat-icon>languages</mat-icon></button>
-    <button mat-button class="button userinfo-btn" [matMenuTriggerFor]="userInfoMenu">
+    <button mat-button class="button right-side" (click)="toggleSearch()"><mat-icon>search</mat-icon></button>
+    <button mat-button class="button right-side fullscreen-btn" (click)="requestFullscreen()"><mat-icon>fullscreen</mat-icon></button>
+    <button mat-button class="button right-side language-btn"><mat-icon>languages</mat-icon></button>
+    <button mat-button class="button right-side userinfo-btn" [matMenuTriggerFor]="userInfoMenu">
       <mat-icon svgIcon="account"></mat-icon>
     </button>
-    <button mat-button class="button" (click)="_notificationContainer.toggle()">
+    <button mat-button class="button right-side" (click)="_notificationContainer.toggle()">
       <mat-icon>format_list_bulleted</mat-icon>
     </button>
-    <button mat-button class="button" *ngIf="!_chatboxContainer.isFullWidth"
+    <button mat-button class="button right-side" *ngIf="!_chatboxContainer.isFullWidth"
       (click)="_chatboxContainer.toggle()">
       <mat-icon>chat</mat-icon>
     </button>
