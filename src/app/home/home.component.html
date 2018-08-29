@@ -1,16 +1,18 @@
-<pure-main-container class="app-container">
-  <mat-toolbar class="app-header" color="primary">
+<pure-main-container class="home-container">
+  <mat-toolbar class="home-toolbar" color="primary">
     <button mat-button class="button left-side" *ngIf="!_menuContainer.isFullWidth" (click)="_menuContainer.toggle()">
       <mat-icon>menu</mat-icon>
     </button> 
     <!--mat-divider currently have issue with mat-header, so i create my own simple divider-->
     <div class="pure-spacer"></div>
+    <button mat-button class="userinfo-btn" [matMenuTriggerFor]="userInfoMenu">
+      <img class="avatar" src="https://i.imgur.com/5oO1dCG.jpg" width="40px">
+      <span class="username">Ban Min Kyoz</span>
+      <mat-icon class="arrow-icon">keyboard_arrow_down</mat-icon>
+    </button>
     <button mat-button class="button right-side" (click)="toggleSearch()"><mat-icon>search</mat-icon></button>
     <button mat-button class="button right-side fullscreen-btn" (click)="requestFullscreen()"><mat-icon>fullscreen</mat-icon></button>
     <button mat-button class="button right-side language-btn"><mat-icon>languages</mat-icon></button>
-    <button mat-button class="button right-side userinfo-btn" [matMenuTriggerFor]="userInfoMenu">
-      <mat-icon svgIcon="account"></mat-icon>
-    </button>
     <button mat-button class="button right-side" (click)="_notificationContainer.toggle()">
       <mat-icon>format_list_bulleted</mat-icon>
     </button>
@@ -42,7 +44,7 @@
       </button>
     </mat-menu>
   </mat-toolbar>
-  <div id="app_content_container" class="app-content-container" fxLayoutAlign="center center">
+  <div class="home-content-wrapper" fxLayoutAlign="center center">
     Content 
   </div>
 </pure-main-container>
