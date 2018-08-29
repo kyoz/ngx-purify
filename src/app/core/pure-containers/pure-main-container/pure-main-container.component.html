@@ -9,7 +9,8 @@
     <ng-content></ng-content>
   </div>
 </div>
-<div class="pure-main-container-backdrop" [ngStyle]="{'z-index': _notificationContainer.isOpened ? '9900' : '999'}"
+<div class="pure-main-container-backdrop"
+  [ngStyle]="{'z-index': _notificationContainer.isOpened ? '9900' : '999'}"
   [hidden]="!((_menuContainer.isOpened && !_menuContainer.isFullWidth) || 
     (_chatboxContainer.isOpened && !_chatboxContainer.isFullWidth) || 
     _notificationContainer.isOpened)"
