@@ -10,9 +10,15 @@
       <span class="username">Ban Min Kyoz</span>
       <mat-icon class="arrow-icon">keyboard_arrow_down</mat-icon>
     </button>
-    <button mat-button class="button right-side" (click)="toggleSearch()"><mat-icon>search</mat-icon></button>
-    <button mat-button class="button right-side fullscreen-btn" (click)="requestFullscreen()"><mat-icon>fullscreen</mat-icon></button>
-    <button mat-button class="button right-side language-btn"><mat-icon>languages</mat-icon></button>
+    <button mat-button class="button right-side" (click)="toggleSearch()">
+      <mat-icon>search</mat-icon>
+    </button>
+    <button mat-button class="button right-side fullscreen-btn" (click)="requestFullscreen()">
+      <mat-icon>fullscreen</mat-icon>
+    </button>
+    <button mat-button class="button right-side language-btn" [matMenuTriggerFor]="languageMenu">
+      <mat-icon>languages</mat-icon>
+    </button>
     <button mat-button class="button right-side" (click)="_notificationContainer.toggle()">
       <mat-icon>format_list_bulleted</mat-icon>
     </button>
@@ -28,6 +34,7 @@
       </button>
     </div>
 
+    <!--USER MENU-->
     <mat-menu #userInfoMenu="matMenu" xPosition="before" overlapTrigger="false">
       <button mat-menu-item>
         <mat-icon svgIcon="account"></mat-icon>
@@ -43,6 +50,23 @@
         <span>Logout</span>
       </button>
     </mat-menu>
+
+    <!--USER MENU-->
+    <mat-menu #languageMenu="matMenu" xPosition="before" overlapTrigger="false">
+      <button mat-menu-item>
+        <mat-icon svgIcon="pure-flag-usa" style="margin-top: -2px"></mat-icon>
+        <span>English</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon svgIcon="pure-flag-spain" style="margin-top: -2px"></mat-icon>
+        <span>Spain</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon svgIcon="pure-flag-china" style="margin-top: -2px"></mat-icon>
+        <span>China</span>
+      </button>
+    </mat-menu>
+
   </mat-toolbar>
   <div class="home-content-wrapper" fxLayoutAlign="center center">
     Content 
