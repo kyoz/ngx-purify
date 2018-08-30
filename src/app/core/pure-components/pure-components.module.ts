@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PureSharedModule } from '../../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 // Components
 import { PureNotification } from './pure-notification/pure-notification.component';
@@ -16,7 +17,8 @@ import { PureToolbar } from './pure-toolbar/pure-toolbar.component';
     PureSettingButton
   ],
   imports: [
-    PureSharedModule
+    PureSharedModule,
+    RouterModule
   ],
   exports: [
     PureNotification,

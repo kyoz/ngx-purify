@@ -10,7 +10,8 @@ import { PureSharedModule } from './shared/shared.module';
 
 // Components
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import { MainContainer } from './containers/main-container/main-container.component';
+import { MinimalContainer } from './containers/minimal-container/minimal-container.component';
 
 // Ngrx Redux Modules
 import { EffectsModule } from '@ngrx/effects';
@@ -21,7 +22,8 @@ import { PureSideChatboxEffects } from './core/pure-components/pure-side-chatbox
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    MainContainer,
+    MinimalContainer
   ],
   imports: [
     BrowserModule,

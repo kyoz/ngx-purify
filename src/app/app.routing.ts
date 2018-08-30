@@ -1,10 +1,12 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { HomeComponent } from './home/home.component';
+
+import { MainContainer } from './containers/main-container/main-container.component';
+import { MinimalContainer } from './containers/minimal-container/minimal-container.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent},
-  { path: 'pages', component: HomeComponent, loadChildren: './pages/pages.module#PagesModule' }
+  { path: '', component: MainContainer},
+  { path: 'pages', component: MinimalContainer, loadChildren: './pages/pages.module#PagesModule' }
   // { path: '**', component: PageNotFoundComponent },
 ];
 
