@@ -6,7 +6,7 @@ import { MinimalContainer } from './containers/minimal-container/minimal-contain
 
 const routes: Routes = [
   { path: '', component: MainContainer},
-  { path: 'pages', component: MinimalContainer, loadChildren: './pages/pages.module#PagesModule' }
+  { path: 'pages', component: MinimalContainer, loadChildren: './templates/pages/pages.module#PagesModule' }
   // { path: '**', component: PageNotFoundComponent },
 ];
 
