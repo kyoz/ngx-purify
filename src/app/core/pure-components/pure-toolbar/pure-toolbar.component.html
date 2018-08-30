@@ -1,0 +1,75 @@
+<mat-toolbar class="pure-toolbar" color="primary">
+    <button mat-button class="button left-side" *ngIf="!_menuContainer.isFullWidth" (click)="_menuContainer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button> 
+    <!--mat-divider currently have issue with mat-header, so i create my own simple divider-->
+    <div class="pure-spacer"></div>
+    <button mat-button class="userinfo-btn" [matMenuTriggerFor]="userInfoMenu">
+      <img class="avatar" src="assets/image/avatar/kyoz.jpg" width="40px">
+      <span class="username">Ban Min Kyoz</span>
+      <mat-icon class="arrow-icon">keyboard_arrow_down</mat-icon>
+    </button>
+    <button mat-button class="button right-side" (click)="toggleSearch()">
+      <mat-icon>search</mat-icon>
+    </button>
+    <button mat-button class="button right-side fullscreen-btn" (click)="requestFullscreen()">
+      <mat-icon>fullscreen</mat-icon>
+    </button>
+    <button mat-button class="button right-side language-btn" [matMenuTriggerFor]="languageMenu">
+      <mat-icon>languages</mat-icon>
+    </button>
+    <button mat-button class="button right-side" (click)="_notificationContainer.toggle()">
+      <mat-icon>format_list_bulleted</mat-icon>
+    </button>
+    <button mat-button class="button right-side" *ngIf="!_chatboxContainer.isFullWidth"
+      (click)="_chatboxContainer.toggle()">
+      <mat-icon>chat</mat-icon>
+    </button>
+    <div class="search" *ngIf="isSearching" fxLayout="row" fxLayoutAlign="space-between center" >
+      <mat-icon>search</mat-icon>
+      <input #search_input type="text" class="search-input" pureAutofocus>
+      <button mat-icon-button (click)="toggleSearch()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+
+    <!--USER MENU-->
+    <mat-menu #userInfoMenu="matMenu" xPosition="before" overlapTrigger="false">
+      <button mat-menu-item>
+        <mat-icon svgIcon="account"></mat-icon>
+        <span>User Profile</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item>
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+
+    <!--USER MENU-->
+    <mat-menu #languageMenu="matMenu" xPosition="before" overlapTrigger="false">
+      <button mat-menu-item>
+        <span fxLayout="row" fxLayoutAlign="start center">
+          <img src="assets/icon/nations/usa.png" width="24" style="padding-right: 12px">
+          <span>English</span>
+        </span>
+      </button>
+      <button mat-menu-item>
+        <span fxLayout="row" fxLayoutAlign="start center">
+          <img src="assets/icon/nations/spain.png" width="24" style="padding-right: 12px">
+          <span>Spain</span>
+        </span>
+      </button>
+      <button mat-menu-item>
+        <span fxLayout="row" fxLayoutAlign="start center">
+          <img src="assets/icon/nations/china.png" width="24" style="padding-right: 12px">
+          <span>Chinese</span>
+        </span>
+      </button>
+    </mat-menu>
+
+  </mat-toolbar>

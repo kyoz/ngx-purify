@@ -1,0 +1,20 @@
+.pure-setting-btn {
+  position: absolute;
+  right: 0px;
+  bottom: 20vh;
+  height: 48px;
+  width: 48px;
+  min-width: 48px;
+  z-index: 9999;
+  padding: 0px;
+  background: rgba(#212121, .3);
+  color: white;
+  .setting-icon {
+    animation: spin 2s infinite linear;
+  }
+
+  @keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+  }
+}

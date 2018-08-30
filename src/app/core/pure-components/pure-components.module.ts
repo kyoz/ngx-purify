@@ -5,18 +5,24 @@ import { PureSharedModule } from '../../shared/shared.module';
 import { PureNotification } from './pure-notification/pure-notification.component';
 import { PureSideChatbox } from './pure-side-chatbox/pure-side-chatbox.component';
 import { PureSideChatboxService } from './pure-side-chatbox/pure-side-chatbox.service';
+import { PureSettingButton } from './pure-setting-button/pure-setting-button.component';
+import { PureToolbar } from './pure-toolbar/pure-toolbar.component';
 
 @NgModule({
   declarations: [
     PureNotification,
-    PureSideChatbox
+    PureSideChatbox,
+    PureToolbar,
+    PureSettingButton
   ],
   imports: [
     PureSharedModule
   ],
   exports: [
     PureNotification,
-    PureSideChatbox
+    PureSideChatbox,
+    PureToolbar,
+    PureSettingButton
   ],
   providers: [
     PureSideChatboxService

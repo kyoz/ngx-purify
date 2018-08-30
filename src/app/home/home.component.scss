@@ -4,61 +4,7 @@
   left: 0;
   right: 0;
   bottom: 0px;
-  .home-toolbar{
-    z-index: 2;
-    position: relative;
-    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.15), 0 1px 3px 0 rgba(0,0,0,.12);
-    padding: 0px;
-    .button {
-      width: 64px;
-      min-width: 64px;
-      height: 100%;
-      padding: 0px;
-    }
-    .right-side {
-      border-left: 1px solid rgba(white,.15);
-    }
-    .left-side {
-      border-right: 1px solid rgba(white,.15);
-    }
-    .userinfo-btn {
-      height: 100%;
-      .avatar {
-        border-radius: 20px;
-      }
-      .username {
-        font-size: 14px;
-        padding-left: 8px;
-      }
-      .arrow-icon {
-        font-size: 16px;
-        width: 16px;
-        height: 16px;
-        min-width: 16px;
-        min-height: 16px;
-        padding-left: 8px;
-      }
-    }
-    .search {
-      position: absolute;
-      left: 0px;
-      right: 0px;
-      top: 0px;
-      bottom: 0px;
-      background: inherit;
-      color: inherit;
-      padding: 0px 16px 0px 24px;
-      .search-input {
-        outline: none;
-        border: none;
-        font-size: 16px;
-        flex: 1 auto;
-        margin: 0 16px -2px 16px;
-        background: inherit;
-        color: inherit;
-      }
-    }
-  }
+
   .home-content-wrapper{
     z-index: 1;
     position: absolute;
@@ -72,39 +18,9 @@
   /**
   * RESPONSIVE
   */
-  @media only screen and (max-width: 800px) {
-    .fullscreen-btn {
-      display: none;
-    } 
-  }
   @media only screen and (max-width: 600px) {
-    .button {
-      width: 56px;
-      min-width: 56px;
-    }
-    .userinfo-btn {
-      padding: 0px;
-      width: 72px;
-      min-width: 72px;
-      .username, .arrow-icon {
-        display: none;
-        color: red;
-      }
-    }
     .home-content-wrapper {
       top: 56px;
-    }
-  }
-
-  @media only screen and (max-width: 500px) {
-    .language-btn {
-      display: none;
-    }
-  }
-  
-  @media only screen and (max-width: 320px) {
-    .userinfo-btn {
-      display: none;
     }
   }
 }
