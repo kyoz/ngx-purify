@@ -6,7 +6,6 @@ import { PureComponentsModule } from '../pure-components/pure-components.module'
 
 // Components
 import { PureMainContainer } from './pure-main-container/pure-main-container.component';
-import { PureMinimalContainer } from './pure-minimal-container/pure-minimal-container.component';
 import { PureChatboxContainer } from './pure-chatbox-container/pure-chatbox-container.component';
 import { PureMenuContainer } from './pure-menu-container/pure-menu-container.component';
 import { PureNotificationContainer } from './pure-notification-container/pure-notification-container.component';
@@ -21,7 +20,6 @@ import { PureSettingsContainerService } from './pure-settings-container/pure-set
 @NgModule({
   declarations: [
     PureMainContainer,
-    PureMinimalContainer,
     PureChatboxContainer,
     PureMenuContainer,
     PureNotificationContainer,
@@ -33,7 +31,6 @@ import { PureSettingsContainerService } from './pure-settings-container/pure-set
   ],
   exports: [
     PureMainContainer,
-    PureMinimalContainer,
     PureChatboxContainer,
     PureMenuContainer,
     PureNotificationContainer,

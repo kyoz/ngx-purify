@@ -1,19 +1,30 @@
-.pure-main-container{
+.pure-main-container {
   .content {
     background: white;
     position: absolute;
     left: 64px;
     right: 64px;
+    top: 64px;
+    bottom: 0px;
+  }
+
+  .content-minimal {
+    background: white;
+    position: absolute;
+    left: 0px;
+    right: 0px;
     top: 0px;
     bottom: 0px;
-    transition: left .2s ease-in-out;
   }
+
   .menu-content-small-screen {
     left: 0px;
   }
+
   .menu-content-opened {
     left: 288px;
   }
+
   .chatbox-content-small-screen {
     right: 0px;
   }
@@ -36,7 +47,17 @@
   from {
     background: rgba(black, .0)
   }
+
   to {
     background: rgba(black, .6)
+  }
+}
+
+/**
+  * RESPONSIVE
+  */
+@media only screen and (max-width: 600px) {
+  .pure-main-container>.content {
+    top: 56px;
   }
 }

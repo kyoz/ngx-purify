@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, HostListener, ChangeDetectionStrategy, ViewEncapsulation, Input } from '@angular/core';
 import { PureMenuContainerService } from '../pure-menu-container/pure-menu-container.service';
 import { PureChatboxContainerService } from '../pure-chatbox-container/pure-chatbox-container.service';
 import { PureNotificationContainerService } from '../pure-notification-container/pure-notification-container.service';
@@ -10,6 +10,7 @@ import { RESPONSIVE_BREAKPOINTS } from '../../pure-utils/pure-configs';
   styleUrls: ['./pure-main-container.component.scss']
 })
 export class PureMainContainer implements OnInit {
+  @Input() minimalMode = false;
   @HostListener('window:resize', ['$event'])
   onResize() {
     // Init for side menu & chatbox

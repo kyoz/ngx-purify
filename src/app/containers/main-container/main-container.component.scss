@@ -1,26 +1,7 @@
-.home-container {
+.app-container {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0px;
+  left: 0px;
+  right: 0px;
   bottom: 0px;
-
-  .home-content-wrapper{
-    z-index: 1;
-    position: absolute;
-    top: 64px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    background: #eeeeee;
-  }
-
-  /**
-  * RESPONSIVE
-  */
-  @media only screen and (max-width: 600px) {
-    .home-content-wrapper {
-      top: 56px;
-    }
-  }
 }
