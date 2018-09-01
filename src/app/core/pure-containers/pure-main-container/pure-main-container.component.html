@@ -1,17 +1,14 @@
 <div class="pure-main-container">
-  <pure-toolbar *ngIf="!minimalMode"></pure-toolbar>
-  <pure-menu-container *ngIf="!minimalMode"></pure-menu-container>
-  <pure-chatbox-container *ngIf="!minimalMode"></pure-chatbox-container>
-  <pure-notification-container *ngIf="!minimalMode"></pure-notification-container>
   <div class="content" [ngClass]="{
-    'content' : !minimalMode,
-    'minimal-content': 'minimalMode',
     'menu-content-small-screen' : !_menuContainer.isFullWidth,
     'menu-content-opened' : _menuContainer.isFullWidth && _menuContainer.isOpened,
     'chatbox-content-small-screen' : !_chatboxContainer.isFullWidth }">
-    <pure-setting-button></pure-setting-button>
     <ng-content></ng-content>
+    <pure-setting-button></pure-setting-button>
   </div>
+  <pure-menu-container *ngIf="!minimalMode"></pure-menu-container>
+  <pure-chatbox-container *ngIf="!minimalMode"></pure-chatbox-container>
+  <pure-notification-container *ngIf="!minimalMode"></pure-notification-container>
 </div>
 <div class="pure-main-container-backdrop"
   [ngStyle]="{'z-index': _notificationContainer.isOpened ? '9900' : '999'}"

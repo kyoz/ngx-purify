@@ -2,6 +2,9 @@
   <button mat-button class="button left-side" *ngIf="!_menuContainer.isFullWidth" (click)="_menuContainer.toggle()">
     <mat-icon>menu</mat-icon>
   </button> 
+  <button mat-button class="button left-side">
+    <mat-icon>star</mat-icon>
+  </button>
   <!--mat-divider currently have issue with mat-header, so i create my own simple divider-->
   <div class="pure-spacer"></div>
   <button mat-button class="userinfo-btn" [matMenuTriggerFor]="userInfoMenu">

@@ -22,7 +22,7 @@ export class PureMenuContainer implements OnInit {
     const hammer = new Hammer(this.pureSideMenu.nativeElement, {});
     hammer.on('swipeleft', ev => {
       if (!this._menu.isFullWidth) {
-        this._menu.toggle();
+        this._menu.close();
       }
     });
   }

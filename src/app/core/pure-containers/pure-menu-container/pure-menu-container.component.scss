@@ -10,6 +10,7 @@
   box-sizing: border-box;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
   z-index: 9000;
+
   .menu-wrapper {
     position: absolute;
     top: 64px;
@@ -25,11 +26,13 @@
   max-width: 64px;
   width: 64px;
   transition: width .2s ease-in-out, max-width .2s ease-in-out, min-width .2s ease-in-out;
+
   .toolbar {
     .menu-button {
       visibility: hidden;
       opacity: 0;
     }
+
     .title {
       padding-left: 16px;
       margin-bottom: -2px;
@@ -57,19 +60,18 @@
   width: 64px;
 }
 
-// This to prevent hover unexpect behavior on mobile devices
-@media (hover:hover) {
-  .menu-closed.menu-can-hover {
-    &:hover {
-      min-width: 288px;
-      max-width: 288px;
-      width: 288px;
-      transition: width .2s ease-in-out, max-width .2s ease-in-out, min-width .2s ease-in-out;
-      .toolbar>.menu-button {
-        opacity: 1;
-        visibility: visible;
-        transition: visibility .2s, opacity .25s ease-in;
-      }
+// Just can hover to open menu when is in fullwidth mode & menu is closed
+.menu-closed.menu-fullwidth.menu-can-hover {
+  &:hover {
+    min-width: 288px;
+    max-width: 288px;
+    width: 288px;
+    transition: width .2s ease-in-out, max-width .2s ease-in-out, min-width .2s ease-in-out;
+
+    .toolbar>.menu-button {
+      opacity: 1;
+      visibility: visible;
+      transition: visibility .2s, opacity .25s ease-in;
     }
   }
 }
@@ -83,16 +85,18 @@
   max-width: 288px;
   width: 288px;
   transition: width .2s ease-in-out, max-width .2s ease-in-out, min-width .2s ease-in-out;
+
   .toolbar {
     .menu-button {
       opacity: 1;
       visibility: visible;
       transition: visibility .3s, opacity .25s ease-in;
     }
+
     .title {
       display: inline-block;
     }
-  } 
+  }
 }
 
 .menu-closed {
@@ -100,9 +104,9 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .pure-menu-container > .menu-wrapper {
+  .pure-menu-container>.menu-wrapper {
     top: 56px;
-  }  
+  }
 }
 
 @media only screen and (max-width: 400px) {
