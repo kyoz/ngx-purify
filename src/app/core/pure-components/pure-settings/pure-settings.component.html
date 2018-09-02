@@ -1,3 +1,12 @@
-<p>
-  pure-settings works!
-</p>
+<div class="pure-settings">
+  <mat-toolbar class="toolbar" color="primary">
+    <span>Settings</span>
+    <span class="pure-spacer"></span>
+    <button mat-icon-button class="close-btn" (click)="_settingsContainer.close()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar>
+  <div class="content" perfectScrollbar>
+    <div *ngFor="let i of [1,2,3,4,5,6,1,2,3,4,123,12,321,3,213,213,21,321,3,213,21,32]" style="height: 56px">{{ i }}</div>
+  </div>
+</div>

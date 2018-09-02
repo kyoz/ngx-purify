@@ -9,10 +9,14 @@
   <pure-menu-container *ngIf="!minimalMode"></pure-menu-container>
   <pure-chatbox-container *ngIf="!minimalMode"></pure-chatbox-container>
   <pure-notification-container *ngIf="!minimalMode"></pure-notification-container>
+  <pure-settings-container></pure-settings-container>
 </div>
 <div class="pure-main-container-backdrop"
   [ngStyle]="{'z-index': _notificationContainer.isOpened ? '9900' : '999'}"
-  [hidden]="!((_menuContainer.isOpened && !_menuContainer.isFullWidth) || 
-    (_chatboxContainer.isOpened && !_chatboxContainer.isFullWidth) || 
+  [hidden]="!((_menuContainer.isOpened && !_menuContainer.isFullWidth) ||
+    (_chatboxContainer.isOpened && !_chatboxContainer.isFullWidth) ||
     _notificationContainer.isOpened)"
   (click)="closeBackdrop()"></div>
+<div class="pure-settings-backdrop"
+  [hidden]="!_settingsContainer.isOpened"
+  (click)="_settingsContainer.close()"></div>

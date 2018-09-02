@@ -1,0 +1,21 @@
+.pure-settings {
+  .toolbar {
+    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.15), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+    .close-btn {
+      margin-right: -8px;
+    }
+  }
+  .content {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 64px;
+    bottom: 0px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .content {
+      top: 56px;
+    }
+  }
+}
