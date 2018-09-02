@@ -1,7 +1,7 @@
 <div #pure_notification_container class="pure-notification-container"
   [ngClass]="{ 
-    'notification-opened' : _notification.isOpened,
-    'notification-closed' : _notification.isClosed }">
+    'notification-opened' : _notificationContainer.isOpened,
+    'notification-closed' : _notificationContainer.isClosed }">
   <div class="notification-wrapper" perfectScrollbar>
     <pure-notification></pure-notification>
   </div>

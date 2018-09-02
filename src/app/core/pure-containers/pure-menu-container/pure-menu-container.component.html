@@ -1,17 +1,17 @@
 <div #pure_menu_container class="pure-menu-container"
   [ngClass]="{ 
-    'menu-can-hover' : _menu.canHover,
-    'menu-fullwidth' : _menu.isFullWidth,
-    'menu-non-fullwidth' : !_menu.isFullWidth,
-    'menu-opened' : _menu.isOpened,
-    'menu-closed' : _menu.isClosed }">
+    'menu-can-hover' : _menuContainer.canHover,
+    'menu-fullwidth' : _menuContainer.isFullWidth,
+    'menu-non-fullwidth' : !_menuContainer.isFullWidth,
+    'menu-opened' : _menuContainer.isOpened,
+    'menu-closed' : _menuContainer.isClosed }">
   <mat-toolbar color="primary" class="toolbar">
     <img src="assets/logo/pure.png" height="38" class="icon">
-    <span (click)="_menu.toggle()" class="title">PURE</span>
+    <span (click)="_menuContainer.toggle()" class="title">PURE</span>
     <div class="pure-spacer"></div>
     <button mat-icon-button class="menu-button"
-      (click)="_menu.toggle()">
-      <mat-icon>{{ _menu.isOpened ? 'arrow_back' : 'menu' }}</mat-icon>
+      (click)="_menuContainer.toggle()">
+      <mat-icon>{{ _menuContainer.isOpened ? 'arrow_back' : 'menu' }}</mat-icon>
     </button>
   </mat-toolbar>
   <div class="menu-wrapper">

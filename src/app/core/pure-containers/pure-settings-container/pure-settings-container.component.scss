@@ -1,0 +1,32 @@
+.pure-settings-container {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  min-width: 0px;
+  max-width: 0px;
+  width: 0px;
+  overflow: hidden;
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
+  z-index: 9999;
+  transition: width .2s ease-in-out, max-width .2s ease-in-out, min-width .2s ease-in-out;
+
+  .settings-wrapper{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    background: white;
+    z-index: 9999;
+    overflow: auto;
+  }
+}
+
+.settings-opened {
+  min-width: 288px;
+  width: 288px;
+  max-width: calc(100vw);
+  transition: width .2s ease-in-out, max-width .2s ease-in-out, min-width .2s ease-in-out;
+}

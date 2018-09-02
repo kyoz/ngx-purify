@@ -11,7 +11,7 @@ export class PureMenuContainer implements OnInit {
   @ViewChild('pure_menu_container') pureSideMenu: ElementRef;
 
   constructor(
-    public _menu: PureMenuContainerService
+    public _menuContainer: PureMenuContainerService
   ) { }
 
   ngOnInit() {
@@ -21,8 +21,8 @@ export class PureMenuContainer implements OnInit {
   registerHammer() {
     const hammer = new Hammer(this.pureSideMenu.nativeElement, {});
     hammer.on('swipeleft', ev => {
-      if (!this._menu.isFullWidth) {
-        this._menu.close();
+      if (!this._menuContainer.isFullWidth) {
+        this._menuContainer.close();
       }
     });
   }

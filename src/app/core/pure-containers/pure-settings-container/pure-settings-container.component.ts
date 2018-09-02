@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PureSettingsContainerService } from './pure-settings-container.service';
 
 @Component({
   selector: 'pure-settings-container',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./pure-settings-container.component.scss']
 })
 export class PureSettingsContainer {
-  constructor() { }
+  constructor(public _settingsContainer: PureSettingsContainerService) { }
 }
