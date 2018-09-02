@@ -25,8 +25,7 @@
 }
 
 .settings-opened {
-  min-width: 352px;
-  width: 352px;
-  max-width: calc(100vw);
+  width: 256px;
+  min-width: 256px;
   transition: width .2s ease-in-out, max-width .2s ease-in-out, min-width .2s ease-in-out;
 }

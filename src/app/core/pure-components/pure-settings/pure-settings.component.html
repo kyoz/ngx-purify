@@ -8,6 +8,28 @@
     </button>
   </mat-toolbar>
   <div class="content" perfectScrollbar>
-    <div *ngFor="let i of [1,2,3,4,5,6,1,2,3,4,123,12,321,3,213,213,21,321,3,213,21,32]" style="height: 56px">{{ i }}</div>
+    <mat-list class="setting-list">
+      <h3 mat-subheader class="title">Themes</h3>
+      <mat-radio-group [(ngModel)]="theme">
+        <mat-radio-button class="setting" *ngFor="let theme of themes" [value]="theme.id">
+          {{ theme.name }}
+        </mat-radio-button>
+      </mat-radio-group>
+      <mat-divider></mat-divider>
+      <h3 mat-subheader>Languages</h3>
+      <mat-radio-group [(ngModel)]="language">
+        <mat-radio-button class="setting" *ngFor="let lang of ['English', 'Spain', 'Chinese']" [value]="lang">
+          {{ lang }}
+        </mat-radio-button>
+      </mat-radio-group>
+      <mat-divider></mat-divider>
+      <h3 mat-subheader>Width Layout</h3>
+      <mat-radio-group [(ngModel)]="widthLayout">
+        <mat-radio-button class="setting" *ngFor="let widthLayout of ['Fullwidth', 'Boxed']" [value]="widthLayout">
+          {{ widthLayout }}
+        </mat-radio-button>
+      </mat-radio-group>
+      <mat-divider></mat-divider>
+    </mat-list>
   </div>
 </div>

@@ -2,7 +2,8 @@
   <div class="content" [ngClass]="{
     'menu-content-small-screen' : !_menuContainer.isFullWidth,
     'menu-content-opened' : _menuContainer.isFullWidth && _menuContainer.isOpened,
-    'chatbox-content-small-screen' : !_chatboxContainer.isFullWidth }">
+    'chatbox-content-small-screen' : !_chatboxContainer.isFullWidth,
+    'minimal-mode': minimalMode }">
     <ng-content></ng-content>
     <pure-setting-button></pure-setting-button>
   </div>

@@ -7,5 +7,12 @@ import { PureSettingsContainerService } from '../../pure-containers/pure-setting
   styleUrls: ['./pure-settings.component.scss']
 })
 export class PureSettings {
+  themes = [
+    { id: 'default', name: 'Default (Light)' },
+    { id: 'aaaa', name: 'AAAA (Light)' },
+    { id: 'bbbb', name: 'BBBB (Dark)' },
+    { id: 'dddd', name: 'DDDD (Dark)' }
+  ];
+
   constructor(public _settingsContainer: PureSettingsContainerService) { }
 }

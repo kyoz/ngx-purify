@@ -8,7 +8,7 @@ import * as Hammer from 'hammerjs';
   styleUrls: ['./pure-menu-container.component.scss'],
 })
 export class PureMenuContainer implements OnInit {
-  @ViewChild('pure_menu_container') pureSideMenu: ElementRef;
+  @ViewChild('pure_menu_container') pureSideMenuContainer: ElementRef;
 
   constructor(
     public _menuContainer: PureMenuContainerService
@@ -19,7 +19,7 @@ export class PureMenuContainer implements OnInit {
   }
 
   registerHammer() {
-    const hammer = new Hammer(this.pureSideMenu.nativeElement, {});
+    const hammer = new Hammer(this.pureSideMenuContainer.nativeElement, {});
     hammer.on('swipeleft', ev => {
       if (!this._menuContainer.isFullWidth) {
         this._menuContainer.close();

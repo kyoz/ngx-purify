@@ -8,7 +8,7 @@ import * as Hammer from 'hammerjs';
   styleUrls: ['./pure-notification-container.component.scss']
 })
 export class PureNotificationContainer implements OnInit {
-  @ViewChild('pure_notification_container') pureSideNotification: ElementRef;
+  @ViewChild('pure_notification_container') pureSideNotificationContainer: ElementRef;
 
   constructor(public _notificationContainer: PureNotificationContainerService) { }
 
@@ -17,7 +17,7 @@ export class PureNotificationContainer implements OnInit {
   }
 
   registerHammer() {
-    const hammer = new Hammer(this.pureSideNotification.nativeElement, {});
+    const hammer = new Hammer(this.pureSideNotificationContainer.nativeElement, {});
     hammer.on('swiperight', ev => {
       this._notificationContainer.close();
     });
