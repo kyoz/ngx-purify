@@ -1,4 +1,11 @@
 .pure-main-container {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
+
   .content {
     background: white;
     position: absolute;
