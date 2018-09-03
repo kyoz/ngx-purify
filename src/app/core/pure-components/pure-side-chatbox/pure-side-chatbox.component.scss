@@ -89,7 +89,6 @@
   }
   .chatbox {
     z-index: 9001;
-    box-shadow: -1px 0 2px 0 rgba(0, 0, 0, .25);
     text-rendering: optimizeLegibility;
     .no-conversation-selected {
       position: absolute;
@@ -133,10 +132,6 @@
         font-size: 14px;
         padding: 16px 16px 0px 20px;
         // Transition to make chatbox open more smoother
-        visibility: hidden;
-        opacity: 0;
-        transition: visibility 0s, opacity 0s linear;
-        transition-delay: 0s;
         .message-row {
           width: 100%;
           height: auto;
@@ -252,12 +247,6 @@
     }
   }
   .chatbox.chatbox-opened {
-    .have-conversation>.messages {
-      // Transition to make chatbox open more smoother
-      visibility: visible;
-      opacity: 1;
-      transition: visibility 0s, opacity .2s linear;
-      transition-delay: .2s;
-    }
+    box-shadow: -1px 0 2px 0 rgba(0, 0, 0, .25);
   }
 }

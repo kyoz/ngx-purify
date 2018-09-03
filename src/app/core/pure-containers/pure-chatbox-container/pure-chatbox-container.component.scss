@@ -1,15 +1,17 @@
 .pure-chatbox-container {
   position: absolute;
-  right: 0px;
+  right: -352px;
   top: 0px;
   bottom: 0px;
-  min-width: 0px;
-  max-width: 0px;
-  width: 0px;
+  width: 352px;
+  min-width: 352px;
+  max-width: 100vw;
   overflow: hidden;
   box-sizing: border-box;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
+  transition: all .15s ease-in-out;
   z-index: 9000;
+
   .toolbar {
     position: relative;
     z-index: 9001;
@@ -52,46 +54,29 @@
 }
 
 .chatbox-fullwidth {
-  min-width: 64px;
-  max-width: 64px;
-  width: 64px;
-  transition: width .2s ease-in-out, max-width .2s ease-in-out, min-width .2s ease-in-out;
+  right: -288px;
 }
 
 .chatbox-non-full-width {
-  min-width: 0px;
-  max-width: 0px;
-  width: 0px;
+  right: -352px;
 }
 
 .chatbox-closed.chatbox-non-full-width {
-  min-width: 0px;
-  max-width: 0px;
-  width: 0px;
+  right: -352px;
 }
 
 .chatbox-closed.chatbox-full-width {
-  min-width: 64px;
-  max-width: 64px;
-  width: 64px;
+  right: -288px;
 }
 
 .chatbox-opened {
-  min-width: 352px;
-  max-width: 352px;
-  width: 352px;
-  transition: width .2s ease-in-out, max-width .2s ease-in-out, min-width .2s ease-in-out;
+  right: 0px;
   .toolbar {
     .content {
       opacity: 1;
       visibility: visible;
-      transition: visibility .3s, opacity .25s ease-in;
     }
   }
-}
-
-.chatbox-closed {
-  transition: width .2s ease-in-out, max-width .2s ease-in-out, min-width .2s ease-in-out;
 }
 
 @media only screen and (max-width: 600px) {
@@ -100,10 +85,3 @@
   }
 }
 
-@media only screen and (max-width: 400px) {
-  .chatbox-opened {
-    min-width: 100vw;
-    max-width: 100vw;
-    width: 100vw;
-  }
-}
