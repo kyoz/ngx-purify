@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PureSettingsContainerService } from '../../pure-containers/pure-settings-container/pure-settings-container.service';
+import { PureSettingsService, SETTINGS } from './pure-settings.service';
 
 @Component({
   selector: 'pure-settings',
@@ -7,12 +8,14 @@ import { PureSettingsContainerService } from '../../pure-containers/pure-setting
   styleUrls: ['./pure-settings.component.scss']
 })
 export class PureSettings {
-  themes = [
-    { id: 'default', name: 'Default (Light)' },
-    { id: 'aaaa', name: 'AAAA (Light)' },
-    { id: 'bbbb', name: 'BBBB (Dark)' },
-    { id: 'dddd', name: 'DDDD (Dark)' }
-  ];
+  SETTINGS = SETTINGS;
 
-  constructor(public _settingsContainer: PureSettingsContainerService) { }
+  constructor(
+    public _settingsContainer: PureSettingsContainerService,
+    public _settings: PureSettingsService
+  ) {}
+
+  onChangeWidthLayout(e) {
+    this._settings.saveWidthLayoutSetting(e.value);
+  }
 }

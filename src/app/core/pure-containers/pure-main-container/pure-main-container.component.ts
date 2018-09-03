@@ -6,6 +6,7 @@ import { PureMenuContainerService } from '../pure-menu-container/pure-menu-conta
 import { PureChatboxContainerService } from '../pure-chatbox-container/pure-chatbox-container.service';
 import { PureNotificationContainerService } from '../pure-notification-container/pure-notification-container.service';
 import { PureSettingsContainerService } from '../pure-settings-container/pure-settings-container.service';
+import { PureSettingsService } from '../../pure-components/pure-settings/pure-settings.service';
 
 @Component({
   selector: 'pure-main-container',
@@ -26,7 +27,8 @@ export class PureMainContainer implements OnInit {
     public _menuContainer: PureMenuContainerService,
     public _chatboxContainer: PureChatboxContainerService,
     public _notificationContainer: PureNotificationContainerService,
-    public _settingsContainer: PureSettingsContainerService
+    public _settingsContainer: PureSettingsContainerService,
+    public _settings: PureSettingsService
   ) { }
 
   ngOnInit() {

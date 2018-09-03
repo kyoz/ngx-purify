@@ -5,10 +5,14 @@ import { PureDirectivesModule } from '../pure-directives/pure-directives.module'
 // Components
 import { PureNotification } from './pure-notification/pure-notification.component';
 import { PureSideChatbox } from './pure-side-chatbox/pure-side-chatbox.component';
-import { PureSideChatboxService } from './pure-side-chatbox/pure-side-chatbox.service';
 import { PureToolbar } from './pure-toolbar/pure-toolbar.component';
 import { PureSettings } from './pure-settings/pure-settings.component';
 import { PureSettingButton } from './pure-setting-button/pure-setting-button.component';
+
+// Services
+import { PureSideChatboxService } from './pure-side-chatbox/pure-side-chatbox.service';
+import { PureSettingsService } from './pure-settings/pure-settings.service';
+import { PureSettingsStorage } from './pure-settings/pure-settings.storage';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,9 @@ import { PureSettingButton } from './pure-setting-button/pure-setting-button.com
     PureSettingButton
   ],
   providers: [
-    PureSideChatboxService
+    PureSideChatboxService,
+    PureSettingsService,
+    PureSettingsStorage
   ],
 })
 export class PureComponentsModule {}

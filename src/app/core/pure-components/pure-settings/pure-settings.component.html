@@ -10,22 +10,22 @@
   <div class="content" perfectScrollbar>
     <mat-list class="setting-list">
       <h3 mat-subheader class="title">Themes</h3>
-      <mat-radio-group [(ngModel)]="theme">
-        <mat-radio-button class="setting" *ngFor="let theme of themes" [value]="theme.id">
-          {{ theme.name }}
+      <mat-radio-group [(ngModel)]="_settings.currentTheme">
+        <mat-radio-button class="setting" *ngFor="let theme of SETTINGS.THEMES" [value]="theme">
+          {{ theme }}
         </mat-radio-button>
       </mat-radio-group>
       <mat-divider></mat-divider>
-      <h3 mat-subheader>Languages</h3>
-      <mat-radio-group [(ngModel)]="language">
-        <mat-radio-button class="setting" *ngFor="let lang of ['English', 'Spain', 'Chinese']" [value]="lang">
+      <h3 mat-subheader class="title">Languages</h3>
+      <mat-radio-group [(ngModel)]="_settings.currentLanguage">
+        <mat-radio-button class="setting" *ngFor="let lang of SETTINGS.LANGUAGES" [value]="lang">
           {{ lang }}
         </mat-radio-button>
       </mat-radio-group>
       <mat-divider></mat-divider>
-      <h3 mat-subheader>Width Layout</h3>
-      <mat-radio-group [(ngModel)]="widthLayout">
-        <mat-radio-button class="setting" *ngFor="let widthLayout of ['Fullwidth', 'Boxed']" [value]="widthLayout">
+      <h3 mat-subheader class="title">Width Layout</h3>
+      <mat-radio-group (change)="onChangeWidthLayout($event)" [(ngModel)]="_settings.currentWidthLayout">
+        <mat-radio-button class="setting" *ngFor="let widthLayout of SETTINGS.WIDTH_LAYOUTS" [value]="widthLayout">
           {{ widthLayout }}
         </mat-radio-button>
       </mat-radio-group>
