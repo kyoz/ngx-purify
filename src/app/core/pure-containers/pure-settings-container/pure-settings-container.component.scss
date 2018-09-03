@@ -9,7 +9,8 @@
   overflow: hidden;
   box-sizing: border-box;
   z-index: 10000;
-  transition: all .2s ease-in-out;
+  visibility: hidden;
+  transition: all .15s ease-in-out;
 
   .settings-wrapper{
     position: absolute;
@@ -24,7 +25,7 @@
 }
 
 .settings-opened {
+  visibility: visible;
   right: 0px;
-  transition: all .2s ease-in-out;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
 }
