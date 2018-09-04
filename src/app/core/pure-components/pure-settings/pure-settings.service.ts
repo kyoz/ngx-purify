@@ -20,7 +20,6 @@ export class PureSettingsService {
   currentWidthLayout = 'Fullwidth';
 
   constructor(private _storage: PureSettingsStorage) {
-    this.init();
   }
 
   public saveThemeSetting(theme: string) {
@@ -49,6 +48,7 @@ export class PureSettingsService {
     }
     if (storedWidthLayout) {
       this.currentWidthLayout = storedWidthLayout;
+      this.updateWidthLayout(this.currentWidthLayout);
     }
   }
 

@@ -32,6 +32,8 @@ export class PureMainContainer implements OnInit {
   ) { }
 
   ngOnInit() {
+    // Init for pure settings
+    this._settings.init();
   }
 
   closeBackdrop() {
