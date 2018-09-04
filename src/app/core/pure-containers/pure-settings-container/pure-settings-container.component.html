@@ -1,7 +1,5 @@
 <div #pure_settings_container class="pure-settings-container"
-  [ngClass]="{ 
-    'settings-opened' : _settingsContainer.isOpened,
-    'settings-closed' : _settingsContainer.isClosed }">
+  [ngClass]="{ 'opened' : _settingsContainer.isOpened }">
   <div class="settings-wrapper" perfectScrollbar>
     <pure-settings></pure-settings>
   </div>

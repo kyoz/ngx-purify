@@ -52,20 +52,20 @@
   }
 }
 
-.chatbox-fullwidth {
+.pure-chatbox-container.fullwidth {
   right: -288px;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
 }
 
-.chatbox-closed.chatbox-non-full-width {
+.pure-chatbox-container.closed.non-fullwidth {
   right: -352px;
 }
 
-.chatbox-closed.chatbox-full-width {
+.pure-chatbox-container.closed.full-width {
   right: -288px;
 }
 
-.chatbox-opened {
+.pure-chatbox-container.opened {
   right: 0px;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
   .toolbar {

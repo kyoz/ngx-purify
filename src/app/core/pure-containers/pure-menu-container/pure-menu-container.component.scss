@@ -21,7 +21,7 @@
   }
 }
 
-.menu-fullwidth {
+.pure-menu-container.fullwidth {
   left: -224px;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
 
@@ -40,20 +40,20 @@
   }
 }
 
-.menu-non-full-width {
+.pure-menu-container.non-fullwidth {
   left: -288px;
 }
 
-.menu-closed.menu-non-full-width {
+.pure-menu-container.closed.non-fullwidth {
   left: -288px;
 }
 
-.menu-closed.menu-full-width {
+.pure-menu-container.closed.full-width {
   left: -224px;
 }
 
 // Just can hover to open menu when is in fullwidth mode & menu is closed
-.menu-closed.menu-fullwidth.menu-can-hover {
+.pure-menu-container.closed.fullwidth.can-hover {
   &:hover {
     left: 0px;
 
@@ -65,11 +65,11 @@
   }
 }
 
-.menu-closed.menu-cant-hover {
+.pure-menu-container.closed.cant-hover {
   pointer-events: none;
 }
 
-.menu-opened {
+.pure-menu-container.opened {
   left: 0px;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
 
