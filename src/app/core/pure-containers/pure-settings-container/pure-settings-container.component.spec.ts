@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PureSettingsContainer } from './pure-settings-container.component';
+import { PureCoreModule } from '../../core.module';
 
 describe('PureSettingsContainer', () => {
   let component: PureSettingsContainer;
@@ -8,7 +8,7 @@ describe('PureSettingsContainer', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PureSettingsContainer ]
+      imports: [PureCoreModule]
     })
     .compileComponents();
   }));

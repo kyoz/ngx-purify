@@ -1,7 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { PureCoreModule } from '../../core.module';
 import { PureSideChatbox } from './pure-side-chatbox.component';
-import { PureSharedModule } from '../../../shared/shared.module';
-import { PureMockApiService } from '../../pure-mock-api/pure-mock-api.service';
+import { AppStateModule } from '../../../app-state.module';
+import { EffectsModule } from '@ngrx/effects';
+import { PureSideChatboxEffects } from './pure-side-chatbox.effect';
 
 describe('PureSideChatbox', () => {
   let component: PureSideChatbox;
@@ -9,9 +11,13 @@ describe('PureSideChatbox', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [PureSharedModule],
-      declarations: [PureSideChatbox],
-      providers: [PureMockApiService]
+      imports: [
+        PureCoreModule,
+        AppStateModule,
+        EffectsModule.forRoot([
+          PureSideChatboxEffects
+        ])
+      ]
     })
     .compileComponents();
   }));

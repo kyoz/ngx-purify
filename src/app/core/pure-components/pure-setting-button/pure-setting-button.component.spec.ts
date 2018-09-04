@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PureSettingButton } from './pure-setting-button.component';
+import { PureCoreModule } from '../../core.module';
 
 describe('PureSettingButton', () => {
   let component: PureSettingButton;
@@ -8,7 +8,7 @@ describe('PureSettingButton', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PureSettingButton ]
+      imports: [PureCoreModule]
     })
     .compileComponents();
   }));

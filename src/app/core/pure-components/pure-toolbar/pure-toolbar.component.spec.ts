@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { PureCoreModule } from '../../core.module';
 import { PureToolbar } from './pure-toolbar.component';
 
 describe('PureToolbar', () => {
@@ -8,7 +8,7 @@ describe('PureToolbar', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PureToolbar ]
+      imports: [PureCoreModule]
     })
     .compileComponents();
   }));

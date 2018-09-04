@@ -13,7 +13,7 @@ export class PureSettingsContainer implements OnInit {
   constructor(public _settingsContainer: PureSettingsContainerService) { }
 
   ngOnInit() {
-    this.registerHammer();    
+    this.registerHammer();
   }
 
   registerHammer() {

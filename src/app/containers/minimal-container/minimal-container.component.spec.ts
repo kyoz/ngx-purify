@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { MinimalContainer } from './minimal-container.component';
+import { PureCoreModule } from '../../core/core.module';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('MinimalContainer', () => {
   let component: MinimalContainer;
@@ -8,7 +9,11 @@ describe('MinimalContainer', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MinimalContainer ]
+      declarations: [MinimalContainer],
+      imports: [
+        PureCoreModule,
+        RouterTestingModule
+      ]
     })
     .compileComponents();
   }));
