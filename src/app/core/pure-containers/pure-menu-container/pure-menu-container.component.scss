@@ -44,16 +44,12 @@
   left: -288px;
 }
 
-.pure-menu-container.closed.non-fullwidth {
-  left: -288px;
-}
-
-.pure-menu-container.closed.full-width {
+.pure-menu-container.full-width {
   left: -224px;
 }
 
 // Just can hover to open menu when is in fullwidth mode & menu is closed
-.pure-menu-container.closed.fullwidth.can-hover {
+.pure-menu-container.fullwidth.can-hover {
   &:hover {
     left: 0px;
 
@@ -65,7 +61,7 @@
   }
 }
 
-.pure-menu-container.closed.cant-hover {
+.pure-menu-container.cant-hover {
   pointer-events: none;
 }
 
