@@ -32,6 +32,7 @@
   width: 10px;
   /* there must be 'right' or 'left' for ps__rail-y */
   right: 0 !important;
+  left: unset !important;
   /* please don't change 'position' */
   position: absolute;
 }
@@ -84,6 +85,7 @@
   width: 3px;
   /* there must be 'right' for ps__thumb-y */
   right: 2px !important;
+  left: unset !important;
   /* please don't change 'position' */
   position: absolute;
 }
