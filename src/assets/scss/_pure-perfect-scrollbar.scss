@@ -1,7 +1,7 @@
 /*
  * Container style
  */
- .ps {
+.ps {
   overflow: hidden !important;
   overflow-anchor: none;
   -ms-overflow-style: none;
@@ -31,7 +31,7 @@
   -webkit-transition: background-color .2s linear, opacity .2s linear;
   width: 10px;
   /* there must be 'right' or 'left' for ps__rail-y */
-  right: 0;
+  right: 0 !important;
   /* please don't change 'position' */
   position: absolute;
 }
@@ -83,7 +83,7 @@
   -webkit-transition: background-color .2s linear, width .2s ease-in-out;
   width: 3px;
   /* there must be 'right' for ps__thumb-y */
-  right: 2px;
+  right: 2px !important;
   /* please don't change 'position' */
   position: absolute;
 }
@@ -113,4 +113,16 @@
   .ps {
     overflow: auto !important;
   }
+}
+
+/* RTL Support */
+
+*[dir=rtl] .ps__rail-y {
+    right: unset !important;
+    left: 0px !important;
+}
+
+*[dir=rtl] .ps__thumb-y {
+    right: unset !important;
+    left: 2px !important;
 }

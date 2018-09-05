@@ -11,15 +11,14 @@
     right: 0px;
     top: 64px;
     bottom: 0px;
+    overflow-x: hidden;
     .setting-list {
+      margin-bottom: 8px;
       .title {
         margin-bottom: 8px;
       }
       .setting {
-        width: 100%;
-        padding-left: 32px;
-        padding-bottom: 16px;
-        box-sizing: border-box;
+        height: 40px;
       }
     }
   }

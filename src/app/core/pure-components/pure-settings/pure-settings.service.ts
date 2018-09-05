@@ -4,20 +4,25 @@ import { PureSettingsStorage } from './pure-settings.storage';
 export const SETTING_STORAGE_KEYS = {
   theme: 'current-theme',
   language: 'current-language',
+  textDirection: 'current-text-direction',
   widthLayout: 'current-width-layout'
 };
 
 export const SETTINGS = {
   THEMES: ['Default', 'AAAA', 'BBBB', 'CCCC'],
   LANGUAGES: ['English', 'Spanish', 'Chinese'],
+  TEXT_DIRECTIONS: ['LTR', 'RTL'],
   WIDTH_LAYOUTS: ['Fullwidth', 'Boxed']
 };
 
 @Injectable()
 export class PureSettingsService {
-  currentTheme = 'Default';
-  currentLanguage = 'English';
-  currentWidthLayout = 'Fullwidth';
+  currentSettings = {
+    theme: 'Default',
+    language: 'English',
+    textDirection: 'LTR',
+    widthLayout: 'Fullwidth'
+  }
 
   constructor(private _storage: PureSettingsStorage) {
   }
@@ -30,30 +35,49 @@ export class PureSettingsService {
     this._storage.storeSetting(SETTING_STORAGE_KEYS.language, language);
   }
 
+  public saveTextDirectionSetting(textDirection: string) {
+    this._storage.storeSetting(SETTING_STORAGE_KEYS.textDirection, textDirection);
+    this.updateTextDirection(textDirection);
+  }
+  
   public saveWidthLayoutSetting(widthLayout: string) {
     this._storage.storeSetting(SETTING_STORAGE_KEYS.widthLayout, widthLayout);
     this.updateWidthLayout(widthLayout);
   }
-  
+
   init() {
     const storedTheme = this._storage.getStoredSetting(SETTING_STORAGE_KEYS.theme);
     const storedLanguage = this._storage.getStoredSetting(SETTING_STORAGE_KEYS.language);
+    const storedTextDirection = this._storage.getStoredSetting(SETTING_STORAGE_KEYS.textDirection);
     const storedWidthLayout = this._storage.getStoredSetting(SETTING_STORAGE_KEYS.widthLayout);
 
     if (storedTheme) {
-      this.currentTheme = storedTheme;
+      this.currentSettings.theme = storedTheme;
     }
     if (storedLanguage) {
-      this.currentLanguage = storedLanguage;
+      this.currentSettings.language = storedLanguage;
+    }
+    if (storedTextDirection) {
+      this.currentSettings.textDirection = storedTextDirection;
+      this.updateTextDirection(storedTextDirection);
     }
     if (storedWidthLayout) {
-      this.currentWidthLayout = storedWidthLayout;
-      this.updateWidthLayout(this.currentWidthLayout);
+      this.currentSettings.widthLayout = storedWidthLayout;
+      this.updateWidthLayout(storedWidthLayout);
+    }
+  }
+
+  updateTextDirection(textDirection: string) {
+    switch(textDirection) {
+      case 'RTL':
+        document.getElementById('pure_main_container').setAttribute('dir', 'rtl');
+        break;
+      default:
+        document.getElementById('pure_main_container').removeAttribute('dir');
     }
   }
 
   updateWidthLayout(widthLayout: string) {
-    this.currentWidthLayout = widthLayout;
     switch(widthLayout) {
       case 'Boxed':
         document.getElementById('pure_main_container').classList.add('boxed');

@@ -1,35 +1,70 @@
 <div class="pure-settings">
   <mat-toolbar class="toolbar" color="primary">
     <mat-icon>settings</mat-icon>
-    <span style="padding-left: 8px">Settings</span>
+    <span class="pure-spacer-8"></span>
+    <span>Settings</span>
     <span class="pure-spacer"></span>
     <button mat-icon-button class="close-btn" (click)="_settingsContainer.close()">
       <mat-icon>close</mat-icon>
     </button>
   </mat-toolbar>
-  <div class="content" perfectScrollbar>
+  <div class="content" [perfectScrollbar]="{suppressScrollX: true}">
+
     <mat-list class="setting-list">
       <h3 mat-subheader class="title">Themes</h3>
-      <mat-radio-group [(ngModel)]="_settings.currentTheme">
-        <mat-radio-button class="setting" *ngFor="let theme of SETTINGS.THEMES" [value]="theme">
-          {{ theme }}
-        </mat-radio-button>
+      <mat-radio-group [(ngModel)]="_settings.currentSettings.theme">
+        <mat-list-item class="setting" *ngFor="let theme of SETTINGS.THEMES">
+          <span class="pure-spacer-16"></span>
+          <mat-radio-button [value]="theme">
+            {{ theme }}
+          </mat-radio-button>
+        </mat-list-item>
       </mat-radio-group>
-      <mat-divider></mat-divider>
-      <h3 mat-subheader class="title">Languages</h3>
-      <mat-radio-group [(ngModel)]="_settings.currentLanguage">
-        <mat-radio-button class="setting" *ngFor="let lang of SETTINGS.LANGUAGES" [value]="lang">
-          {{ lang }}
-        </mat-radio-button>
-      </mat-radio-group>
-      <mat-divider></mat-divider>
-      <h3 mat-subheader class="title">Width Layout</h3>
-      <mat-radio-group (change)="onChangeWidthLayout($event)" [(ngModel)]="_settings.currentWidthLayout">
-        <mat-radio-button class="setting" *ngFor="let widthLayout of SETTINGS.WIDTH_LAYOUTS" [value]="widthLayout">
-          {{ widthLayout }}
-        </mat-radio-button>
-      </mat-radio-group>
-      <mat-divider></mat-divider>
     </mat-list>
+
+    <mat-divider></mat-divider>
+
+    <mat-list class="setting-list">
+      <h3 mat-subheader class="title">Width Layout</h3>
+      <mat-radio-group (change)="onChangeWidthLayout($event)" [(ngModel)]="_settings.currentSettings.widthLayout">
+        <mat-list-item class="setting" *ngFor="let widthLayout of SETTINGS.WIDTH_LAYOUTS">
+          <span class="pure-spacer-16"></span>
+          <mat-radio-button [value]="widthLayout">
+            {{ widthLayout }}
+          </mat-radio-button>
+        </mat-list-item>
+      </mat-radio-group>
+    </mat-list>
+
+    <mat-divider></mat-divider>
+
+    <mat-list class="setting-list">
+      <h3 mat-subheader class="title">Text direction</h3>
+      <mat-radio-group (change)="onChangeTextDirection($event)" [(ngModel)]="_settings.currentSettings.textDirection">
+        <mat-list-item class="setting" *ngFor="let dir of SETTINGS.TEXT_DIRECTIONS">
+          <span class="pure-spacer-16"></span>
+          <mat-radio-button [value]="dir">
+            {{ dir }}
+          </mat-radio-button>
+        </mat-list-item>
+      </mat-radio-group>
+    </mat-list>
+
+    <mat-divider></mat-divider>
+
+    <mat-list class="setting-list">
+      <h3 mat-subheader class="title">Languages</h3>
+      <mat-radio-group [(ngModel)]="_settings.currentSettings.language">
+        <mat-list-item class="setting" *ngFor="let lang of SETTINGS.LANGUAGES">
+          <span class="pure-spacer-16"></span>
+          <mat-radio-button [value]="lang">
+            {{ lang }}
+          </mat-radio-button>
+        </mat-list-item>
+      </mat-radio-group>
+
+    </mat-list>
+
+    <mat-divider></mat-divider>
   </div>
 </div>

@@ -18,4 +18,8 @@ export class PureSettings {
   onChangeWidthLayout(e) {
     this._settings.saveWidthLayoutSetting(e.value);
   }
+
+  onChangeTextDirection(e) {
+    this._settings.saveTextDirectionSetting(e.value);
+  }
 }
