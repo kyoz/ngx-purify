@@ -5,6 +5,7 @@ import { DashboardRoutingModule } from './dashboard.routing';
 import { AnalyticalDashboard } from './analytical-dashboard/analytical-dashboard.component';
 import { OperationalDashboard } from './operational-dashboard/operational-dashboard.component';
 import { StrategicDashboard } from './strategic-dashboard/strategic-dashboard.component';
+import { PureSharedModule } from '../../../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { StrategicDashboard } from './strategic-dashboard/strategic-dashboard.co
     StrategicDashboard
   ],
   imports: [
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    PureSharedModule
   ]
 })
 export class DashboardModule {}

@@ -1,5 +1,6 @@
 import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // App Router
 import { AppRoutingModule } from './app.routing';
@@ -27,6 +28,7 @@ import { PureSideChatboxEffects } from './core/pure-components/pure-side-chatbox
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
 
     // App Router 
     AppRoutingModule,

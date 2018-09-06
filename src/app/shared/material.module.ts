@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -27,7 +26,6 @@ import {
     CommonModule,
 
     // Angular Material Modules
-    BrowserAnimationsModule,
 
     MatAutocompleteModule,
     MatBadgeModule,
