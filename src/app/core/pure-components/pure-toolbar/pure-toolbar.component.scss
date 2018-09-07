@@ -1,10 +1,10 @@
-.pure-toolbar{
+.pure-toolbar {
   z-index: 2;
   position: relative;
   box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.15), 0 1px 3px 0 rgba(0,0,0,.12);
   padding: 0px;
   .button {
-    width: 64px;
+    width: 63px;
     min-width: 64px;
     height: 100%;
     padding: 0px;
@@ -89,5 +89,19 @@
     .userinfo-btn {
       display: none;
     }
+  }
+}
+
+.pure-toolbar.RTL {
+  .right-side {
+    border-right: 1px solid rgba(white,.15);
+    border-left: unset;
+  }
+  .left-side {
+    border-left: 1px solid rgba(white,.15);
+    border-left: unset;
+  }
+  .search {
+    padding: 0px 24px 0px 16px;
   }
 }

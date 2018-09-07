@@ -87,4 +87,11 @@ export class PureSettingsService {
     }
   }
 
+  /**
+   * GETTING FUNCTIONS
+   */
+
+  public get textDirection() {
+    return this.currentSettings.textDirection;
+  }
 }

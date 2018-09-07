@@ -2,6 +2,7 @@ import { Component, HostListener } from '@angular/core';
 import { PureMenuContainerService } from '../../pure-containers/pure-menu-container/pure-menu-container.service';
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
 import { PureNotificationContainerService } from '../../pure-containers/pure-notification-container/pure-notification-container.service';
+import { PureSettingsService } from '../pure-settings/pure-settings.service';
 
 @Component({
   selector: 'pure-toolbar',
@@ -23,7 +24,8 @@ export class PureToolbar {
   constructor(
     public _menuContainer: PureMenuContainerService,
     public _chatboxContainer: PureChatboxContainerService,
-    public _notificationContainer: PureNotificationContainerService
+    public _notificationContainer: PureNotificationContainerService,
+    public _settings: PureSettingsService
   ) {}
 
   toggleSearch() {

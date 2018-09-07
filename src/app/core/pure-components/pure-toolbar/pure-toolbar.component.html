@@ -1,4 +1,6 @@
-<mat-toolbar class="pure-toolbar" color="primary">
+<mat-toolbar class="pure-toolbar" color="primary" [ngClass]="{
+  'RTL' : _settings.textDirection === 'RTL'
+}">
   <button mat-button class="button left-side" *ngIf="!_menuContainer.isFullWidth" (click)="_menuContainer.toggle()">
     <mat-icon>menu</mat-icon>
   </button> 
@@ -39,7 +41,8 @@
   </div>
 
   <!--USER MENU-->
-  <mat-menu #userInfoMenu="matMenu" xPosition="before" overlapTrigger="false">
+  <mat-menu #userInfoMenu="matMenu" overlapTrigger="false"
+    [xPosition]="_settings.textDirection === 'LTR' ? 'before' : 'after'">
     <button mat-menu-item>
       <mat-icon svgIcon="account"></mat-icon>
       <span>User Profile</span>
@@ -56,7 +59,8 @@
   </mat-menu>
 
   <!--USER MENU-->
-  <mat-menu #languageMenu="matMenu" xPosition="before" overlapTrigger="false">
+  <mat-menu #languageMenu="matMenu" overlapTrigger="false"
+    [xPosition]="_settings.textDirection === 'LTR' ? 'before' : 'after'">
     <button mat-menu-item>
       <span fxLayout="row" fxLayoutAlign="start center">
         <img src="assets/icon/nations/usa.png" width="24" style="padding-right: 12px">
