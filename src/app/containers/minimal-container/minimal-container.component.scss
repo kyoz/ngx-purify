@@ -1,10 +1,10 @@
 .app-minimal-container {
   position: absolute;
+  display: flex;
   top: 0px;
   left: 0px;
   right: 0px;
   bottom: 0px;
   background: #eeeeee;
-  text-align: center;
   overflow: hidden;
 }

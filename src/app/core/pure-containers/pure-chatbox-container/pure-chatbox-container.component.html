@@ -12,7 +12,7 @@
       <span *ngSwitchCase="false" class="title">Chatbox</span>
       <div *ngSwitchCase="true" class="user-info" fxLayout="row" fxLayoutAlign="start center">
         <img class="avatar" src="assets/image/avatar/{{_sideChatbox.currentConversation.contactInfo.avatar}}" width="36px">
-        <span class="name">{{ _sideChatbox.currentConversation.contactInfo.name }}</span>
+        <span class="name">{{_sideChatbox.currentConversation.contactInfo.name}}</span>
       </div>
     </span>
     <div class="pure-spacer"></div>

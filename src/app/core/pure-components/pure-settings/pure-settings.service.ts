@@ -70,20 +70,20 @@ export class PureSettingsService {
   updateTextDirection(textDirection: string) {
     switch(textDirection) {
       case 'RTL':
-        document.getElementById('pure_main_container').setAttribute('dir', 'rtl');
+        document.getElementById('PURE_MAIN_CONTAINER').setAttribute('dir', 'rtl');
         break;
       default:
-        document.getElementById('pure_main_container').removeAttribute('dir');
+        document.getElementById('PURE_MAIN_CONTAINER').removeAttribute('dir');
     }
   }
 
   updateWidthLayout(widthLayout: string) {
     switch(widthLayout) {
       case 'Boxed':
-        document.getElementById('pure_main_container').classList.add('boxed');
+        document.getElementById('PURE_MAIN_CONTAINER').classList.add('boxed');
         break;
       default:
-        document.getElementById('pure_main_container').classList.remove('boxed');
+        document.getElementById('PURE_MAIN_CONTAINER').classList.remove('boxed');
     }
   }
 

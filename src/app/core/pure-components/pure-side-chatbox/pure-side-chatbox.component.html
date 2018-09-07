@@ -14,7 +14,7 @@
           'do-not-disturb' : contact.status === 'do-not-disturb'
         }"></span>
         <span class="contact-unread-count" *ngIf="contact.unreadCount > 0">
-          {{ contact.unreadCount >= 100 ? '99+' : contact.unreadCount }}
+          {{contact.unreadCount >= 100 ? '99+' : contact.unreadCount}}
         </span>
       </button>
     </div>
@@ -41,10 +41,10 @@
           <img class="avatar" *ngIf="message.sender !== 0" 
             src="assets/image/avatar/{{_sideChatbox.currentConversation.contactInfo.avatar}}" width="36">
           <div class="message">
-            {{ message.message }}
+            {{message.message}}
           </div>
           <div class="time">
-            {{ message.createAt | date: 'MM/dd/yy - hh:mm aa' }}
+            {{message.createAt | date: 'MM/dd/yy - hh:mm aa'}}
           </div>
         </div>
       </div>
@@ -55,7 +55,7 @@
         <div>
           <mat-icon>chat_bubble_outline</mat-icon>
         </div>
-        You haven't have any message<br> with {{ _sideChatbox.currentConversation.contactInfo.name }}
+        You haven't have any message<br> with {{_sideChatbox.currentConversation.contactInfo.name}}
       </div>
       <div class="message-input-wrapper" perfectScrollbar *ngIf="_sideChatbox.inConversation">
         <textarea #message_input class="message-input" placeholder="Type a message" rows="1"

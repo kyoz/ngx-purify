@@ -13,15 +13,15 @@
     <h3 mat-subheader>Events</h3>
     <mat-list-item *ngFor="let event of events">
       <mat-icon mat-list-icon>events</mat-icon>
-      <h4 mat-line class="main-line">{{event.name}}</h4>
-      <p mat-line class="sub-line"> {{event.time}} {{event.place ? ' - ' : ''}} {{event.place}}</p>
+      <h4 mat-line>{{event.name}}</h4>
+      <p mat-line> {{event.time}} {{event.place ? ' - ' : ''}} {{event.place}}</p>
     </mat-list-item>
     <mat-divider></mat-divider>
     <h3 mat-subheader>Notes</h3>
     <mat-list-item *ngFor="let note of notes">
       <mat-icon mat-list-icon>event_available</mat-icon>
-      <h4 mat-line class="main-line">{{note.name}}</h4>
-      <p mat-line class="sub-line"> {{note.createdTime}} </p>
+      <h4 mat-line>{{note.name}}</h4>
+      <p mat-line> {{note.createdTime}} </p>
     </mat-list-item>
     <mat-divider></mat-divider>
     <h3 mat-subheader>Settings</h3>
