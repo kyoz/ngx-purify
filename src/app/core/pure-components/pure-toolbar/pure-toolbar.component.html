@@ -17,8 +17,8 @@
   <button mat-button class="button right-side" (click)="toggleSearch()">
     <mat-icon>search</mat-icon>
   </button>
-  <button mat-button class="button right-side fullscreen-btn" (click)="requestFullscreen()">
-    <mat-icon>fullscreen</mat-icon>
+  <button mat-button class="button right-side fullscreen-btn" (click)="toggleFullscreen()">
+    <mat-icon>{{ isFullScreen ? 'fullscreen_exit' : 'fullscreen' }}</mat-icon>
   </button>
   <button mat-button class="button right-side language-btn" [matMenuTriggerFor]="languageMenu">
     <mat-icon>languages</mat-icon>
