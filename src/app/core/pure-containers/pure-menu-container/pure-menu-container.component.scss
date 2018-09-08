@@ -10,6 +10,14 @@
   transition: all .15s ease-in-out;
   z-index: 9000;
 
+  .toolbar {
+    .menu-button {
+      margin-right: -4px;
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
   .menu-wrapper {
     position: absolute;
     top: 64px;
@@ -25,12 +33,6 @@
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
 
   .toolbar {
-    .menu-button {
-      margin-right: -8px;
-      visibility: hidden;
-      opacity: 0;
-    }
-
     .title {
       margin-bottom: -2px;
       font-weight: 200;
@@ -107,14 +109,15 @@
 .pure-menu-container.RTL {
   left: unset;
   right: -288px;
+  .toolbar > .menu-button {
+    margin-right: unset;
+    margin-left: -4px;
+  }
 }
 
 .pure-menu-container.fullwidth.RTL {
   left: unset;
   right: -224px;
-  .toolbar > .menu-button {
-    margin-left: -8px;
-  }
 }
 
 .pure-menu-container.non-fullwidth.RTL {
