@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { PureNotificationContainerService } from './pure-notification-container.service';
+import { PureSettingsService } from '../../pure-components/pure-settings/pure-settings.service';
 import * as Hammer from 'hammerjs';
 
 @Component({
@@ -10,7 +11,9 @@ import * as Hammer from 'hammerjs';
 export class PureNotificationContainer implements OnInit {
   @ViewChild('pure_notification_container') pureSideNotificationContainer: ElementRef;
 
-  constructor(public _notificationContainer: PureNotificationContainerService) { }
+  constructor(
+    public _notificationContainer: PureNotificationContainerService,
+    public _settings: PureSettingsService) { }
 
   ngOnInit() {
     this.registerHammer();

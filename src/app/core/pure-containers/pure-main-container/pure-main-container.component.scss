@@ -45,9 +45,9 @@
   z-index: 999;
   background: rgba(black, 0);
   position: absolute;
-  left: 0px;
   top: 0px;
   bottom: 0px;
+  left: 0px;
   right: 0px;
   animation-name: pure-container-backdrop-anim;
   animation-duration: .5s;
@@ -64,6 +64,10 @@
   right: 0px;
 }
 
+/**
+* RESPONSIVE SUPPORT
+*/
+
 @keyframes pure-container-backdrop-anim {
   from {
     background: rgba(black, .0)
@@ -71,5 +75,28 @@
 
   to {
     background: rgba(black, .6)
+  }
+}
+
+/**
+* RTL SUPPORT
+*/
+
+.pure-main-container.RTL {
+  .menu-content-small-screen {
+    right: 0px;
+    left: 0px;
+  }
+  .menu-content-opened {
+    left: 64px;
+    right: 288px;
+  }
+  .chatbox-content-small-screen {
+    left: 0px;
+    right: 0px;
+  }
+  .minimal-mode {
+    left: 0px;
+    right: 0px;
   }
 }

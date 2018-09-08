@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef } from '@angular/core';
 import { PureMenuContainerService } from './pure-menu-container.service';
+import { PureSettingsService } from '../../pure-components/pure-settings/pure-settings.service';
 import * as Hammer from 'hammerjs';
 
 @Component({
@@ -11,7 +12,8 @@ export class PureMenuContainer implements OnInit {
   @ViewChild('pure_menu_container') pureSideMenuContainer: ElementRef;
 
   constructor(
-    public _menuContainer: PureMenuContainerService
+    public _menuContainer: PureMenuContainerService,
+    public _settings: PureSettingsService
   ) { }
 
   ngOnInit() {

@@ -1,5 +1,8 @@
 <div #pure_notification_container class="pure-notification-container"
-  [ngClass]="{ 'opened' : _notificationContainer.isOpened }">
+  [ngClass]="{
+    'opened' : _notificationContainer.isOpened,
+    'RTL' : _settings.textDirection === 'RTL'
+  }">
   <div class="notification-wrapper" perfectScrollbar>
     <pure-notification></pure-notification>
   </div>

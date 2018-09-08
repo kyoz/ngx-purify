@@ -3,7 +3,9 @@
     'can-hover' : _menuContainer.canHover,
     'fullwidth' : _menuContainer.isFullWidth,
     'non-fullwidth' : !_menuContainer.isFullWidth,
-    'opened' : _menuContainer.isOpened }">
+    'opened' : _menuContainer.isOpened,
+    'RTL' : _settings.textDirection === 'RTL'
+  }">
   <mat-toolbar color="primary" class="toolbar">
     <img src="assets/logo/pure.png" height="38" class="icon">
     <span (click)="_menuContainer.toggle()" class="title">PURE</span>

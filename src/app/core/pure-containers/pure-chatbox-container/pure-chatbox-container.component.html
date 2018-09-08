@@ -2,7 +2,9 @@
   [ngClass]="{ 
     'fullwidth' : _chatboxContainer.isFullWidth,
     'non-fullwidth' : !_chatboxContainer.isFullWidth,
-    'opened' : _chatboxContainer.isOpened }">
+    'opened' : _chatboxContainer.isOpened,
+    'RTL' : _settings.textDirection === 'RTL'
+  }">
   <mat-toolbar color="primary" class="toolbar" (click)="openChatbox()"
     [ngSwitch]="_sideChatbox.inConversation && _chatboxContainer.isOpened">
     <mat-icon class="chatbox-icon" *ngSwitchCase="false">

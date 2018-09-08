@@ -81,8 +81,43 @@
   }
 }
 
+/**
+* RESPONSIVE SUPPORT
+*/
+
 @media only screen and (max-width: 600px) {
   .pure-menu-container>.menu-wrapper {
     top: 56px;
   }
+}
+
+/**
+* RTL SUPPORT
+*/
+
+.pure-menu-container.RTL {
+  left: unset;
+  right: -288px;
+}
+
+.pure-menu-container.fullwidth.RTL {
+  left: unset;
+  right: -224px;
+}
+
+.pure-menu-container.non-fullwidth.RTL {
+  left: unset;
+  right: -288px;
+}
+
+.pure-menu-container.fullwidth.can-hover.RTL {
+  &:hover {
+    left: unset;
+    right: 0px;
+  }
+}
+
+.pure-menu-container.opened.RTL {
+  left: unset;
+  right: 0px;
 }

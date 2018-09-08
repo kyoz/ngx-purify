@@ -28,3 +28,17 @@
   right: 0px;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
 }
+
+/**
+* RTL SUPPORT
+*/
+
+.pure-notification-container.RTL {
+  right: unset;
+  left: -288px;
+}
+
+.pure-notification-container.opened.RTL {
+  right: unset;
+  left: 0px;
+}

@@ -1,4 +1,6 @@
-<div class="pure-side-chatbox" fxLayout="row" fxLayoutAlign="space-between stretch">
+<div class="pure-side-chatbox" fxLayout="row" fxLayoutAlign="space-between stretch" [ngClass]="{
+  'RTL': _settings.textDirection === 'RTL'
+}">
   <div fxFlex="64px" class="chatbox-contacts" perfectScrollbar>
     <div class="contact-item-wrapper" *ngFor="let contact of _sideChatbox.contacts$ | async">
       <span class="contact-item-selected" *ngIf="contact.id === _sideChatbox.conversationContact">

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, ChangeDetectorRef } from '@an
 import { PureSideChatboxService } from './pure-side-chatbox.service';
 import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
+import { PureSettingsService } from '../pure-settings/pure-settings.service';
 
 @Component({
   selector: 'pure-side-chatbox',
@@ -17,7 +18,8 @@ export class PureSideChatbox implements OnInit {
   constructor(
     private _changeDetectionRef: ChangeDetectorRef,
     public _sideChatbox: PureSideChatboxService,
-    public _chatboxContainer: PureChatboxContainerService) {
+    public _chatboxContainer: PureChatboxContainerService,
+    public _settings: PureSettingsService) {
       this._sideChatbox.getContacts();
   }
 

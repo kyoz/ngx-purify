@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { PureChatboxContainerService } from './pure-chatbox-container.service';
 import { PureSideChatboxService } from '../../pure-components/pure-side-chatbox/pure-side-chatbox.service';
+import { PureSettingsService } from '../../pure-components/pure-settings/pure-settings.service';
 import * as Hammer from 'hammerjs';
 
 @Component({
@@ -13,7 +14,8 @@ export class PureChatboxContainer implements OnInit {
 
   constructor(
     public _chatboxContainer: PureChatboxContainerService,
-    public _sideChatbox: PureSideChatboxService) {
+    public _sideChatbox: PureSideChatboxService,
+    public _settings: PureSettingsService) {
   }
 
   ngOnInit() {
