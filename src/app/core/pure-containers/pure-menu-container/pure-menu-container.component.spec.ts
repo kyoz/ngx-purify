@@ -6,6 +6,8 @@ import { PureMenuContainer } from './pure-menu-container.component';
 
 // Pure Services
 import { PureMenuContainerService } from './pure-menu-container.service';
+import { PureSettingsStorage } from '../../pure-components/pure-settings/pure-settings.storage';
+import { PureSettingsService } from '../../pure-components/pure-settings/pure-settings.service';
 
 describe('PureMenuContainer', () => {
   let component: PureMenuContainer;
@@ -15,7 +17,11 @@ describe('PureMenuContainer', () => {
     TestBed.configureTestingModule({
       imports: [PureSharedModule],
       declarations: [PureMenuContainer],
-      providers: [PureMenuContainerService]
+      providers: [
+        PureMenuContainerService,
+        PureSettingsStorage,
+        PureSettingsService
+      ]
     })
     .compileComponents();
   }));
