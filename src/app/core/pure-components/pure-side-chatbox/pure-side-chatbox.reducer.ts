@@ -18,7 +18,6 @@ export function sideChatBoxReducer(state: IPureSideChatBoxState = defaultState, 
     case SideChatBoxActions.PURE_SIDE_CHATBOX_FETCH_CONTACTS:
       return state.set('contacts', action.payload);
     case SideChatBoxActions.PURE_SIDE_CHATBOX_FETCH_CONVERSATION:
-      console.log(action.payload);
       return state.set('currentConversation', action.payload);
     case SideChatBoxActions.PURE_SIDE_CHATBOX_CLEAR_CONVERSATION:
       return state.set('currentConversation', {
