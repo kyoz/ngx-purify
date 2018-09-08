@@ -50,6 +50,12 @@
       background: inherit;
       color: inherit;
     }
+    .search-icon {
+      margin-left: -4px;
+    }
+    .close-btn {
+      margin-right: -4px;
+    }
   }
 
   /**
@@ -111,6 +117,14 @@
   }
   .search {
     padding: 0px 24px 0px 16px;
+    .search-icon {
+      margin-left: unset;
+      margin-right: -4px;
+    }
+    .close-btn {
+      margin-right: unset;
+      margin-left: -4px;
+    }
   }
   .userinfo-btn .arrow-icon {
     padding-left: unset;
