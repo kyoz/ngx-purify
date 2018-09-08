@@ -7,7 +7,7 @@ import { PureNotification } from '../../pure-components/pure-notification/pure-n
 
 // Pure Services
 import { PureNotificationContainerService } from './pure-notification-container.service';
-import { PureSettingsStorage } from '../../pure-components/pure-settings/pure-settings.storage';
+import { PureSettingsStorageService } from '../../pure-components/pure-settings/pure-settings.storage';
 import { PureSettingsService } from '../../pure-components/pure-settings/pure-settings.service';
 
 describe('PureNotificationContainer', () => {
@@ -23,7 +23,7 @@ describe('PureNotificationContainer', () => {
       ],
       providers: [
         PureNotificationContainerService,
-        PureSettingsStorage,
+        PureSettingsStorageService,
         PureSettingsService
       ]
     })

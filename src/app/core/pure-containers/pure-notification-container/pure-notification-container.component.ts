@@ -21,8 +21,14 @@ export class PureNotificationContainer implements OnInit {
 
   registerHammer() {
     const hammer = new Hammer(this.pureSideNotificationContainer.nativeElement, {});
-    hammer.on('swiperight', ev => {
-      this._notificationContainer.close();
+
+    hammer.on('swipe', event => {
+      if (event.direction === 4 && this._settings.textDirection === 'LTR') { // Right
+        this._notificationContainer.close();
+      }
+      if (event.direction === 2 && this._settings.textDirection === 'RTL') { // Left
+        this._notificationContainer.close();
+      }
     });
   }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PureSettingsStorage } from './pure-settings.storage';
+import { PureSettingsStorageService } from './pure-settings.storage';
 
 export const SETTING_STORAGE_KEYS = {
   theme: 'current-theme',
@@ -24,7 +24,7 @@ export class PureSettingsService {
     widthLayout: 'Fullwidth'
   }
 
-  constructor(private _storage: PureSettingsStorage) {
+  constructor(private _storage: PureSettingsStorageService) {
   }
 
   public saveThemeSetting(theme: string) {

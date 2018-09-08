@@ -6,7 +6,7 @@ import { PureMenuContainer } from './pure-menu-container.component';
 
 // Pure Services
 import { PureMenuContainerService } from './pure-menu-container.service';
-import { PureSettingsStorage } from '../../pure-components/pure-settings/pure-settings.storage';
+import { PureSettingsStorageService } from '../../pure-components/pure-settings/pure-settings.storage';
 import { PureSettingsService } from '../../pure-components/pure-settings/pure-settings.service';
 
 describe('PureMenuContainer', () => {
@@ -19,7 +19,7 @@ describe('PureMenuContainer', () => {
       declarations: [PureMenuContainer],
       providers: [
         PureMenuContainerService,
-        PureSettingsStorage,
+        PureSettingsStorageService,
         PureSettingsService
       ]
     })

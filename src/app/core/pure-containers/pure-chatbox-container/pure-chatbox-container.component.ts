@@ -24,8 +24,14 @@ export class PureChatboxContainer implements OnInit {
 
   registerHammer() {
     const hammer = new Hammer(this.pureChatboxContainer.nativeElement, {});
-    hammer.on('swiperight', ev => {
-      this._chatboxContainer.close();
+
+    hammer.on('swipe', event => {
+      if (event.direction === 4 && this._settings.textDirection === 'LTR') { // Right
+        this._chatboxContainer.close();
+      }
+      if (event.direction === 2 && this._settings.textDirection === 'RTL') { // Left
+        this._chatboxContainer.close();
+      }
     });
   }
 

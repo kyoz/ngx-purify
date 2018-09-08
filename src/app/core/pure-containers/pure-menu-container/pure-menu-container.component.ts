@@ -22,8 +22,12 @@ export class PureMenuContainer implements OnInit {
 
   registerHammer() {
     const hammer = new Hammer(this.pureSideMenuContainer.nativeElement, {});
-    hammer.on('swipeleft', ev => {
-      if (!this._menuContainer.isFullWidth) {
+
+    hammer.on('swipe', event => {
+      if (event.direction === 4 && this._settings.textDirection === 'RTL') { // Right
+        this._menuContainer.close();
+      }
+      if (event.direction === 2 && this._settings.textDirection === 'LTR') { // Left
         this._menuContainer.close();
       }
     });

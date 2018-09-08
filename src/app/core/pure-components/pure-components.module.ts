@@ -12,7 +12,7 @@ import { PureSettingButton } from './pure-setting-button/pure-setting-button.com
 // Services
 import { PureSideChatboxService } from './pure-side-chatbox/pure-side-chatbox.service';
 import { PureSettingsService } from './pure-settings/pure-settings.service';
-import { PureSettingsStorage } from './pure-settings/pure-settings.storage';
+import { PureSettingsStorageService } from './pure-settings/pure-settings.storage';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { PureSettingsStorage } from './pure-settings/pure-settings.storage';
   providers: [
     PureSideChatboxService,
     PureSettingsService,
-    PureSettingsStorage
+    PureSettingsStorageService
   ],
 })
 export class PureComponentsModule {}

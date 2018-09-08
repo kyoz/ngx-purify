@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class PureSettingsStorage {
+export class PureSettingsStorageService {
 
   getStoredSetting(key: string) {
     try {

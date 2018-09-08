@@ -53,8 +53,9 @@
   }
 
   /**
-  * RESPONSIVE
+  * RESPONSIVE SUPPORT
   */
+
   @media only screen and (max-width: 800px) {
     .fullscreen-btn {
       display: none;
@@ -75,6 +76,9 @@
       .avatar {
         width: 36px;
         min-width: 36px;
+      }
+      .pure-spacer-8, .pure-spacer-16 {
+        display: none;
       }
     }
   }
@@ -107,5 +111,9 @@
   }
   .search {
     padding: 0px 24px 0px 16px;
+  }
+  .userinfo-btn .arrow-icon {
+    padding-left: unset;
+    padding-right: 8px;
   }
 }
