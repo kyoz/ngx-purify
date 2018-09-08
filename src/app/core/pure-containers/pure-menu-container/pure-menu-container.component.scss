@@ -26,15 +26,19 @@
 
   .toolbar {
     .menu-button {
+      margin-right: -8px;
       visibility: hidden;
       opacity: 0;
     }
 
     .title {
-      padding-left: 16px;
       margin-bottom: -2px;
       font-weight: 200;
       display: hidden;
+    }
+
+    .logo {
+      display: inline;
     }
   }
 }
@@ -43,19 +47,20 @@
   left: -288px;
 }
 
-.pure-menu-container.full-width {
-  left: -224px;
-}
-
 // Just can hover to open menu when is in fullwidth mode & menu is closed
 .pure-menu-container.fullwidth.can-hover {
   &:hover {
     left: 0px;
 
-    .toolbar>.menu-button {
-      opacity: 1;
-      visibility: visible;
-      transition: visibility .2s, opacity .25s ease-in;
+    .toolbar {
+      .menu-button {
+        opacity: 1;
+        visibility: visible;
+        transition: visibility .2s, opacity .25s ease-in;
+      }
+      .logo {
+        display: none;
+      }
     }
   }
 }
@@ -77,6 +82,10 @@
 
     .title {
       display: inline-block;
+    }
+
+    .logo {
+      display: none;
     }
   }
 }
@@ -103,6 +112,9 @@
 .pure-menu-container.fullwidth.RTL {
   left: unset;
   right: -224px;
+  .toolbar > .menu-button {
+    margin-left: -8px;
+  }
 }
 
 .pure-menu-container.non-fullwidth.RTL {
