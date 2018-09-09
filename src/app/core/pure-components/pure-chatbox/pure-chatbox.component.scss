@@ -1,4 +1,4 @@
-.pure-side-chatbox {
+.pure-chatbox {
   position: absolute;
   left: 0px;
   top: 0px;
@@ -193,8 +193,6 @@
             border-top-left-radius: 20px;
             border-bottom-left-radius: 20px;
             float: right;
-            color: rgba(0, 0, 0, .78);
-            background: #d8d8d8;
           }
         }
 
@@ -203,6 +201,8 @@
             border-top-right-radius: 20px;
             border-bottom-right-radius: 20px;
             float: left;
+            background: #d8d8d8;
+            color: rgba(0, 0, 0, .78);
           }
         }
 
@@ -293,7 +293,7 @@
 /**
 * RTL SUPPORT
 */
-.pure-side-chatbox.RTL {
+.pure-chatbox.RTL {
   .chatbox-contacts>.contact-item-wrapper {
     .contact-item-selected>.indicator {
       left: unset;
