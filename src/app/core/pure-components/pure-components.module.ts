@@ -8,6 +8,7 @@ import { PureSideChatbox } from './pure-side-chatbox/pure-side-chatbox.component
 import { PureToolbar } from './pure-toolbar/pure-toolbar.component';
 import { PureSettings } from './pure-settings/pure-settings.component';
 import { PureSettingButton } from './pure-setting-button/pure-setting-button.component';
+import { PureMenu } from './pure-menu/pure-menu.component';
 
 // Services
 import { PureSideChatboxService } from './pure-side-chatbox/pure-side-chatbox.service';
@@ -20,6 +21,7 @@ import { PureSettingsStorageService } from './pure-settings/pure-settings.storag
     PureSideChatbox,
     PureToolbar,
     PureSettings,
+    PureMenu,
     PureSettingButton
   ],
   imports: [
@@ -31,6 +33,7 @@ import { PureSettingsStorageService } from './pure-settings/pure-settings.storag
     PureSideChatbox,
     PureToolbar,
     PureSettings,
+    PureMenu,
     PureSettingButton
   ],
   providers: [

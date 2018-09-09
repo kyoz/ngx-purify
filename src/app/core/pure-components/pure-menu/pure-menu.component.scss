@@ -1,0 +1,23 @@
+.pure-menu {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+
+  .header {
+    height: 128px;
+    width: 100%;
+    // background: #3f51b5;
+
+    .name {
+
+    }
+    .mail {
+
+    }
+    .avatar {
+      border-radius: 40px;
+    }
+  }
+}
