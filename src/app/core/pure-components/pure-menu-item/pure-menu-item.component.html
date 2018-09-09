@@ -1,0 +1,15 @@
+<a mat-list-item class="pure-menu-item">
+  <div fxLayout="row" fxLayoutAlign="start center" class="content level-{{level}}">
+    <mat-icon class="icon" *ngIf="menuItem.icon">{{ menuItem.icon }}</mat-icon>
+    <span class="name" [ngClass]="{'no-icon': !menuItem.icon }">
+      {{ menuItem.name }}
+    </span>
+  </div>
+</a>
+
+<span *ngIf="hasChildren">
+  <pure-menu-item *ngFor="let childMenuItem of menuItem.children" 
+    [menuItem]="childMenuItem"
+    [level]="level+1">
+  </pure-menu-item>
+</span>

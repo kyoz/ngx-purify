@@ -9,6 +9,7 @@ import { PureToolbar } from './pure-toolbar/pure-toolbar.component';
 import { PureSettings } from './pure-settings/pure-settings.component';
 import { PureSettingButton } from './pure-setting-button/pure-setting-button.component';
 import { PureMenu } from './pure-menu/pure-menu.component';
+import { PureMenuItem } from './pure-menu-item/pure-menu-item.component';
 
 // Services
 import { PureChatboxService } from './pure-chatbox/pure-chatbox.service';
@@ -22,7 +23,8 @@ import { PureSettingsStorageService } from '../pure-services/pure-settings.stora
     PureToolbar,
     PureSettings,
     PureMenu,
-    PureSettingButton
+    PureSettingButton,
+    PureMenuItem
   ],
   imports: [
     PureSharedModule,
@@ -34,7 +36,8 @@ import { PureSettingsStorageService } from '../pure-services/pure-settings.stora
     PureToolbar,
     PureSettings,
     PureMenu,
-    PureSettingButton
+    PureSettingButton,
+    PureMenuItem
   ],
   providers: [
     PureChatboxService,

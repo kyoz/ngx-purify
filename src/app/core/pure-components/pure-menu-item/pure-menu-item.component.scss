@@ -1,0 +1,38 @@
+.pure-menu-item {
+  padding-top: 0px;
+
+  .content {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    padding-left: 22px;
+
+    .icon {
+      font-size: 20px;
+      margin-bottom: -3px;
+      margin-right: 8px;
+    }
+  }
+
+  /**
+    * LEVELS
+    */
+  .content.level-1 {
+    padding-left: 54px;
+  }
+
+  .content.level-2 {
+    padding-left: 70px;
+  }
+
+  .content.level-3 {
+    padding-left: 102px;
+  }
+
+  .content.level-4 {
+    padding-left: 126px
+  }
+}
+
