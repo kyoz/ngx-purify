@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
 import { of, Observable } from 'rxjs';
 import { map, flatMap, pluck } from 'rxjs/operators';
-import * as SideChatBoxActions from './pure-side-chatbox.action';
+import * as SideChatBoxActions from './pure-chatbox.action';
 import { PureMockApiService } from '../../pure-mock-api/pure-mock-api.service';
-import { IChatboxContact, IChatBoxMessage, ICurrentConversation } from '../../pure-mock-api/interface/chatbox';
+import { IChatboxContact, IChatBoxMessage, ICurrentConversation } from '../../pure-interfaces/chatbox';
 
 @Injectable()
-export class PureSideChatboxEffects {
+export class PureChatboxEffects {
 
   @Effect()
   getContacts$ = this._actions$

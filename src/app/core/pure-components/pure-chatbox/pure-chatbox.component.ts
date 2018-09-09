@@ -1,15 +1,15 @@
 import { Component, OnInit, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
-import { PureSideChatboxService } from './pure-side-chatbox.service';
+import { PureChatboxService } from './pure-chatbox.service';
 import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
-import { PureSettingsService } from '../pure-settings/pure-settings.service';
+import { PureSettingsService } from '../../pure-services/pure-settings.service';
 
 @Component({
-  selector: 'pure-side-chatbox',
-  templateUrl: './pure-side-chatbox.component.html',
-  styleUrls: ['./pure-side-chatbox.component.scss']
+  selector: 'pure-chatbox',
+  templateUrl: './pure-chatbox.component.html',
+  styleUrls: ['./pure-chatbox.component.scss']
 })
-export class PureSideChatbox implements OnInit {
+export class PureChatbox implements OnInit {
   @ViewChild('message_input') messageInputRef: ElementRef;
   @ViewChild('messages_content') messagesContentRef?: PerfectScrollbarDirective;
 
@@ -17,7 +17,7 @@ export class PureSideChatbox implements OnInit {
 
   constructor(
     private _changeDetectionRef: ChangeDetectorRef,
-    public _sideChatbox: PureSideChatboxService,
+    public _sideChatbox: PureChatboxService,
     public _chatboxContainer: PureChatboxContainerService,
     public _settings: PureSettingsService) {
       this._sideChatbox.getContacts();

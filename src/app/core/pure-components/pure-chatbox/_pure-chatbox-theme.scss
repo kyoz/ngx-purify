@@ -1,4 +1,4 @@
-@mixin pure-side-chatbox-theme($theme) {
+@mixin pure-chatbox-theme($theme) {
   $primary: map-get($theme, primary);
   $background: map-get($theme, background);
   $foreground: map-get($theme, foreground);

@@ -1,13 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PureCoreModule } from '../../core.module';
-import { PureSideChatbox } from './pure-side-chatbox.component';
+import { PureChatbox } from './pure-chatbox.component';
 import { AppStateModule } from '../../../app-state.module';
 import { EffectsModule } from '@ngrx/effects';
-import { PureSideChatboxEffects } from './pure-side-chatbox.effect';
+import { PureChatboxEffects } from './pure-chatbox.effect';
 
-describe('PureSideChatbox', () => {
-  let component: PureSideChatbox;
-  let fixture: ComponentFixture<PureSideChatbox>;
+describe('PureChatbox', () => {
+  let component: PureChatbox;
+  let fixture: ComponentFixture<PureChatbox>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -15,7 +15,7 @@ describe('PureSideChatbox', () => {
         PureCoreModule,
         AppStateModule,
         EffectsModule.forRoot([
-          PureSideChatboxEffects
+          PureChatboxEffects
         ])
       ]
     })
@@ -23,7 +23,7 @@ describe('PureSideChatbox', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PureSideChatbox);
+    fixture = TestBed.createComponent(PureChatbox);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

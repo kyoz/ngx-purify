@@ -4,21 +4,21 @@ import { PureDirectivesModule } from '../pure-directives/pure-directives.module'
 
 // Components
 import { PureNotification } from './pure-notification/pure-notification.component';
-import { PureSideChatbox } from './pure-side-chatbox/pure-side-chatbox.component';
+import { PureChatbox } from './pure-chatbox/pure-chatbox.component';
 import { PureToolbar } from './pure-toolbar/pure-toolbar.component';
 import { PureSettings } from './pure-settings/pure-settings.component';
 import { PureSettingButton } from './pure-setting-button/pure-setting-button.component';
 import { PureMenu } from './pure-menu/pure-menu.component';
 
 // Services
-import { PureSideChatboxService } from './pure-side-chatbox/pure-side-chatbox.service';
-import { PureSettingsService } from './pure-settings/pure-settings.service';
-import { PureSettingsStorageService } from './pure-settings/pure-settings.storage';
+import { PureChatboxService } from './pure-chatbox/pure-chatbox.service';
+import { PureSettingsService } from '../pure-services/pure-settings.service';
+import { PureSettingsStorageService } from '../pure-services/pure-settings.storage';
 
 @NgModule({
   declarations: [
     PureNotification,
-    PureSideChatbox,
+    PureChatbox,
     PureToolbar,
     PureSettings,
     PureMenu,
@@ -30,14 +30,14 @@ import { PureSettingsStorageService } from './pure-settings/pure-settings.storag
   ],
   exports: [
     PureNotification,
-    PureSideChatbox,
+    PureChatbox,
     PureToolbar,
     PureSettings,
     PureMenu,
     PureSettingButton
   ],
   providers: [
-    PureSideChatboxService,
+    PureChatboxService,
     PureSettingsService,
     PureSettingsStorageService
   ],

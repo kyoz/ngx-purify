@@ -17,7 +17,7 @@ import { MinimalContainer } from './containers/minimal-container/minimal-contain
 // Ngrx Redux Modules
 import { EffectsModule } from '@ngrx/effects';
 import { AppStateModule } from './app-state.module';
-import { PureSideChatboxEffects } from './core/pure-components/pure-side-chatbox/pure-side-chatbox.effect';
+import { PureChatboxEffects } from './core/pure-components/pure-chatbox/pure-chatbox.effect';
 
 
 @NgModule({
@@ -40,7 +40,7 @@ import { PureSideChatboxEffects } from './core/pure-components/pure-side-chatbox
     // Ngrx Redux Modules
     AppStateModule,
     EffectsModule.forRoot([
-      PureSideChatboxEffects
+      PureChatboxEffects
     ])
   ],
   providers: [],

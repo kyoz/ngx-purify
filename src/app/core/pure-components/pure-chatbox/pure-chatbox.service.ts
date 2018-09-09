@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
 import { IAppState } from '../../../types/app-state';
-import { getContacts, getCurrentConversation } from './pure-side-chatbox.selector';
+import { getContacts, getCurrentConversation } from './pure-chatbox.selector';
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
-import { ICurrentConversation } from '../../pure-mock-api/interface/chatbox';
-import * as SideChatboxActions from './pure-side-chatbox.action';
+import { ICurrentConversation } from '../../pure-interfaces/chatbox';
+import * as SideChatboxActions from './pure-chatbox.action';
 import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
 
 @Injectable()
-export class PureSideChatboxService {
+export class PureChatboxService {
   contacts$: Observable<any>;
   currentConversation$: Observable<any>;
 

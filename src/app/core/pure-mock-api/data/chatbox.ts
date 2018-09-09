@@ -1,4 +1,4 @@
-import { IChatboxContact, IChatBoxConversation } from "../interface/chatbox";
+import { IChatboxContact, IChatBoxConversation } from "../../pure-interfaces/chatbox";
 
 /**
  * NOTE

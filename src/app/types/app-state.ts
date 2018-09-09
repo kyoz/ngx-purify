@@ -1,5 +1,5 @@
-import { IPureSideChatBoxState } from '../core/pure-components/pure-side-chatbox/pure-side-chatbox.state';
+import { IPureChatboxState } from '../core/pure-components/pure-chatbox/pure-chatbox.state';
 
 export interface IAppState {
-  sideChatbox: IPureSideChatBoxState;
+  sideChatbox: IPureChatboxState;
 }

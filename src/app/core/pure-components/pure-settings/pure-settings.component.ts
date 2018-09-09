@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { PureSettingsContainerService } from '../../pure-containers/pure-settings-container/pure-settings-container.service';
-import { PureSettingsService, SETTINGS } from './pure-settings.service';
+import { PureSettingsService, SETTINGS } from '../../pure-services/pure-settings.service';
 
 @Component({
   selector: 'pure-settings',

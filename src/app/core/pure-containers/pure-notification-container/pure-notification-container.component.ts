@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { PureNotificationContainerService } from './pure-notification-container.service';
-import { PureSettingsService } from '../../pure-components/pure-settings/pure-settings.service';
+import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import * as Hammer from 'hammerjs';
 
 @Component({

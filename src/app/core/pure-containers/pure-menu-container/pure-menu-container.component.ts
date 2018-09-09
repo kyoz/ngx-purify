@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef } from '@angular/core';
 import { PureMenuContainerService } from './pure-menu-container.service';
-import { PureSettingsService } from '../../pure-components/pure-settings/pure-settings.service';
+import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import * as Hammer from 'hammerjs';
 
 @Component({

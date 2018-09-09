@@ -6,7 +6,7 @@ import { PureMenuContainerService } from '../pure-menu-container/pure-menu-conta
 import { PureChatboxContainerService } from '../pure-chatbox-container/pure-chatbox-container.service';
 import { PureNotificationContainerService } from '../pure-notification-container/pure-notification-container.service';
 import { PureSettingsContainerService } from '../pure-settings-container/pure-settings-container.service';
-import { PureSettingsService } from '../../pure-components/pure-settings/pure-settings.service';
+import { PureSettingsService } from '../../pure-services/pure-settings.service';
 
 @Component({
   selector: 'pure-main-container',

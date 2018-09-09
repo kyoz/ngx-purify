@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CHATBOX_CONTACTS, CHATBOX_CONVERSASIONS } from '../data/chatbox';
-import { ICurrentConversation } from '../interface/chatbox';
+import { ICurrentConversation } from '../../pure-interfaces/chatbox';
 
 @Injectable()
 export class ChatBoxMockApiService {

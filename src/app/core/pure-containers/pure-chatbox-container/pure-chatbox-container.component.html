@@ -6,15 +6,15 @@
     'RTL' : _settings.textDirection === 'RTL'
   }">
   <mat-toolbar color="primary" class="toolbar" (click)="openChatbox()"
-    [ngSwitch]="_sideChatbox.inConversation && _chatboxContainer.isOpened">
+    [ngSwitch]="_chatbox.inConversation && _chatboxContainer.isOpened">
     <mat-icon class="chatbox-icon" *ngSwitchCase="false">
       chat
     </mat-icon>
     <span class="content">
       <span *ngSwitchCase="false" class="title">Chatbox</span>
       <div *ngSwitchCase="true" class="user-info" fxLayout="row" fxLayoutAlign="start center">
-        <img class="avatar" src="assets/image/avatar/{{_sideChatbox.currentConversation.contactInfo.avatar}}" width="36px">
-        <span class="name">{{_sideChatbox.currentConversation.contactInfo.name}}</span>
+        <img class="avatar" src="assets/image/avatar/{{_chatbox.currentConversation.contactInfo.avatar}}" width="36px">
+        <span class="name">{{_chatbox.currentConversation.contactInfo.name}}</span>
       </div>
     </span>
     <div class="pure-spacer"></div>
@@ -23,6 +23,6 @@
     </button>
   </mat-toolbar>
   <div class="chatbox-wrapper">
-    <pure-side-chatbox></pure-side-chatbox> 
+    <pure-chatbox></pure-chatbox> 
   </div>
 </div>

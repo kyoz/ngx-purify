@@ -1,9 +1,9 @@
-import * as SideChatBoxActions from './pure-side-chatbox.action';
+import * as SideChatBoxActions from './pure-chatbox.action';
 import { Map } from 'immutable';
-import { IPureSideChatBoxState } from './pure-side-chatbox.state';
-import { getCurrentConversation } from './pure-side-chatbox.selector';
+import { IPureChatboxState } from './pure-chatbox.state';
+import { getCurrentConversation } from './pure-chatbox.selector';
 
-export type SideChatBoxActions = SideChatBoxActions.All;
+export type PureChatBoxActions = SideChatBoxActions.All;
 
 const defaultState = Map({
   contacts: [],
@@ -13,7 +13,7 @@ const defaultState = Map({
   } 
 });
 
-export function sideChatBoxReducer(state: IPureSideChatBoxState = defaultState, action: SideChatBoxActions) {
+export function pureChatboxReducer(state: IPureChatboxState = defaultState, action: PureChatBoxActions) {
   switch(action.type) {
     case SideChatBoxActions.PURE_SIDE_CHATBOX_FETCH_CONTACTS:
       return state.set('contacts', action.payload);
