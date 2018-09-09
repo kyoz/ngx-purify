@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { PureSettingsStorageService } from './pure-settings.storage';
+import { THEMES } from '../../configs/themes';
+import { LANGUAGES } from '../../configs/languages';
 
 export const SETTING_STORAGE_KEYS = {
   theme: 'current-theme',
@@ -9,8 +11,8 @@ export const SETTING_STORAGE_KEYS = {
 };
 
 export const SETTINGS = {
-  THEMES: ['Default', 'AAAA', 'BBBB', 'CCCC'],
-  LANGUAGES: ['English', 'Spanish', 'Chinese'],
+  THEMES: THEMES,
+  LANGUAGES: LANGUAGES,
   TEXT_DIRECTIONS: ['LTR', 'RTL'],
   WIDTH_LAYOUTS: ['Fullwidth', 'Boxed']
 };
