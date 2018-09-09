@@ -7,8 +7,8 @@ import { PureNotification } from '../../pure-components/pure-notification/pure-n
 
 // Pure Services
 import { PureNotificationContainerService } from './pure-notification-container.service';
-import { PureSettingsStorageService } from '../../pure-components/pure-settings/pure-settings.storage';
-import { PureSettingsService } from '../../pure-components/pure-settings/pure-settings.service';
+import { PureSettingsStorageService } from '../../pure-services/pure-settings.storage';
+import { PureSettingsService } from '../../pure-services/pure-settings.service';
 
 describe('PureNotificationContainer', () => {
   let component: PureNotificationContainer;

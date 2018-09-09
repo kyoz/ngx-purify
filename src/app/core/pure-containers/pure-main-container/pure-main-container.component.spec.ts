@@ -3,7 +3,7 @@ import { PureMainContainer } from './pure-main-container.component';
 import { PureCoreModule } from '../../core.module';
 import { EffectsModule } from '@ngrx/effects';
 import { AppStateModule } from '../../../app-state.module';
-import { PureSideChatboxEffects } from '../../pure-components/pure-side-chatbox/pure-side-chatbox.effect';
+import { PureChatboxEffects } from '../../pure-components/pure-chatbox/pure-chatbox.effect';
 
 describe('PureMainContainer', () => {
   let component: PureMainContainer;
@@ -15,7 +15,7 @@ describe('PureMainContainer', () => {
         PureCoreModule,
         AppStateModule,
         EffectsModule.forRoot([
-          PureSideChatboxEffects
+          PureChatboxEffects
         ])
       ]
     })

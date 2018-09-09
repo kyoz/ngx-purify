@@ -4,7 +4,7 @@ import { MainContainer } from './main-container.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppStateModule } from '../../app-state.module';
 import { EffectsModule } from '@ngrx/effects';
-import { PureSideChatboxEffects } from '../../core/pure-components/pure-side-chatbox/pure-side-chatbox.effect';
+import { PureChatboxEffects } from '../../core/pure-components/pure-chatbox/pure-chatbox.effect';
 
 describe('MainContainer', () => {
   let component: MainContainer;
@@ -18,7 +18,7 @@ describe('MainContainer', () => {
         RouterTestingModule,
         AppStateModule,
         EffectsModule.forRoot([
-          PureSideChatboxEffects
+          PureChatboxEffects
         ])
       ]
     })

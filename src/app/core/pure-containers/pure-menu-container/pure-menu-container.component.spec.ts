@@ -3,11 +3,12 @@ import { PureSharedModule } from '../../../shared/shared.module';
 
 // Pure Components
 import { PureMenuContainer } from './pure-menu-container.component';
+import { PureMenu } from '../../pure-components/pure-menu/pure-menu.component';
 
 // Pure Services
 import { PureMenuContainerService } from './pure-menu-container.service';
-import { PureSettingsStorageService } from '../../pure-components/pure-settings/pure-settings.storage';
-import { PureSettingsService } from '../../pure-components/pure-settings/pure-settings.service';
+import { PureSettingsStorageService } from '../../pure-services/pure-settings.storage';
+import { PureSettingsService } from '../../pure-services/pure-settings.service';
 
 describe('PureMenuContainer', () => {
   let component: PureMenuContainer;
@@ -16,7 +17,10 @@ describe('PureMenuContainer', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [PureSharedModule],
-      declarations: [PureMenuContainer],
+      declarations: [
+        PureMenuContainer,
+        PureMenu
+      ],
       providers: [
         PureMenuContainerService,
         PureSettingsStorageService,
