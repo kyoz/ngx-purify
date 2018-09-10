@@ -2,20 +2,32 @@
   $primary: map-get($theme, primary);
   $background: map-get($theme, background);
   $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
 
   .pure-chatbox {
     color: mat-color($foreground, text);
     background: mat-color($background, background);
 
+    .contact-item .contact-status {
+      @if $is-dark == false {
+        color: #FAFAFA;
+      } @else {
+        color: mat-color($background, background);
+      }
+    }
+
     .contact-item-selected {
-      background: mat-color($primary, 200, .5);
+      background: mat-color($primary, 200, .15);
+
       .indicator {
         background: mat-color($primary);
       }
     }
+
     .contact-unread-count {
       background: mat-color($primary);
     }
+
     .chatbox > .have-conversation > .messages > .message-row > {
       .message {
         background: mat-color($primary);
@@ -25,6 +37,7 @@
         color: mat-color($foreground, hint-text)
       }
     }
+
     .chatbox {
       .no-conversation-selected, .no-messages {
         color: mat-color($foreground, hint-text);

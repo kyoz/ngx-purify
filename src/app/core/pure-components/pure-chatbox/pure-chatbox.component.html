@@ -3,9 +3,6 @@
 }">
   <div fxFlex="64px" class="chatbox-contacts" perfectScrollbar>
     <div class="contact-item-wrapper" *ngFor="let contact of _sideChatbox.contacts$ | async">
-      <span class="contact-item-selected" *ngIf="contact.id === _sideChatbox.conversationContact">
-        <span class="indicator"></span>
-      </span>
       <button mat-button color="primary" class="contact-item" fxLayoutAlign="center center"
         (click)="startConversation(contact)">
         <img class="contact-image" src="assets/image/avatar/{{contact.avatar}}" matTooltip="{{contact.name}}" matTooltipPosition="before">
@@ -19,6 +16,9 @@
           {{contact.unreadCount >= 100 ? '99+' : contact.unreadCount}}
         </span>
       </button>
+      <span class="contact-item-selected" *ngIf="contact.id === _sideChatbox.conversationContact">
+        <span class="indicator"></span>
+      </span>
     </div>
   </div>
   <div class="chatbox" fxFlex fxLayoutAlign="center center" [ngClass]="{
