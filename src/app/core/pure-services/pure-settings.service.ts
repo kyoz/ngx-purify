@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { PureSettingsStorageService } from './pure-settings.storage';
 import { THEMES } from '../../configs/themes';
 import { LANGUAGES } from '../../configs/languages';
+import { IPureTheme } from '../pure-interfaces/settings';
 
 export const SETTING_STORAGE_KEYS = {
   theme: 'current-theme',
@@ -20,7 +21,7 @@ export const SETTINGS = {
 @Injectable()
 export class PureSettingsService {
   currentSettings = {
-    theme: 'Default',
+    theme: THEMES[0].class, // Take first theme as default
     language: 'English',
     textDirection: 'LTR',
     widthLayout: 'Fullwidth'
@@ -29,8 +30,13 @@ export class PureSettingsService {
   constructor(private _storage: PureSettingsStorageService) {
   }
 
-  public saveThemeSetting(theme: string) {
-    this._storage.storeSetting(SETTING_STORAGE_KEYS.theme, theme);
+  /**
+   * SAVE SETTING FUNCTIONS
+   */
+
+  public saveThemeSetting(themeClass: string) {
+    this._storage.storeSetting(SETTING_STORAGE_KEYS.theme, themeClass);
+    this.updateTheme(themeClass);
   }
 
   public saveLanguageSetting(language: string) {
@@ -41,20 +47,25 @@ export class PureSettingsService {
     this._storage.storeSetting(SETTING_STORAGE_KEYS.textDirection, textDirection);
     this.updateTextDirection(textDirection);
   }
-  
+
   public saveWidthLayoutSetting(widthLayout: string) {
     this._storage.storeSetting(SETTING_STORAGE_KEYS.widthLayout, widthLayout);
     this.updateWidthLayout(widthLayout);
   }
 
+  /**
+   * INIT FUNCTION
+   */
+
   init() {
-    const storedTheme = this._storage.getStoredSetting(SETTING_STORAGE_KEYS.theme);
+    const storedTheme: string = this._storage.getStoredSetting(SETTING_STORAGE_KEYS.theme);
     const storedLanguage = this._storage.getStoredSetting(SETTING_STORAGE_KEYS.language);
     const storedTextDirection = this._storage.getStoredSetting(SETTING_STORAGE_KEYS.textDirection);
     const storedWidthLayout = this._storage.getStoredSetting(SETTING_STORAGE_KEYS.widthLayout);
 
     if (storedTheme) {
       this.currentSettings.theme = storedTheme;
+      this.updateTheme(storedTheme);
     }
     if (storedLanguage) {
       this.currentSettings.language = storedLanguage;
@@ -69,8 +80,40 @@ export class PureSettingsService {
     }
   }
 
+  /**
+   * UPDATE FUNCTIONS
+   */
+
+  updateTheme(themeClass: string) {
+    const themeClassList: any = document.getElementById('PURE_ADMIN_DASHBOARD').classList;
+    let newThemeClass = '';
+
+    for (const theme of THEMES) {
+      // Set the new theme
+      if (theme.class === themeClass) {
+        newThemeClass = theme.class;
+      } else {
+        // Remove other themes
+        themeClassList.remove(theme.class);
+      }
+    }
+
+    // Add new theme class to index.html
+    if (newThemeClass) {
+      themeClassList.add(newThemeClass);
+    } else {
+
+      // In some case, due to the configuration of adding or remove theme class.
+      // The current theme store in storage doesn't match any current theme
+      // So reset to the default theme (Need at least one theme)
+
+      this.currentSettings.theme = THEMES[0].class;
+      this.updateTheme(this.currentSettings.theme);
+    }
+  }
+
   updateTextDirection(textDirection: string) {
-    switch(textDirection) {
+    switch (textDirection) {
       case 'RTL':
         document.getElementById('PURE_MAIN_CONTAINER').setAttribute('dir', 'rtl');
         break;
@@ -80,7 +123,7 @@ export class PureSettingsService {
   }
 
   updateWidthLayout(widthLayout: string) {
-    switch(widthLayout) {
+    switch (widthLayout) {
       case 'Boxed':
         document.getElementById('PURE_MAIN_CONTAINER').classList.add('boxed');
         break;

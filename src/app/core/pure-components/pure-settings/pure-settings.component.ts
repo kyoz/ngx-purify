@@ -15,6 +15,10 @@ export class PureSettings {
     public _settings: PureSettingsService
   ) {}
 
+  onChangeTheme(e) {
+    this._settings.saveThemeSetting(e.value);
+  }
+
   onChangeWidthLayout(e) {
     this._settings.saveWidthLayoutSetting(e.value);
   }
