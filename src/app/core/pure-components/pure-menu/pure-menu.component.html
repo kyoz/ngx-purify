@@ -2,7 +2,7 @@
   <div class="menu pure-theme">
 
     <div class="group" *ngFor="let group of menuData">
-      <div>{{ group.groupName }}</div>
+      <div class="group-name">{{ group.groupName }}</div>
       <mat-nav-list>
         <pure-menu-item *ngFor="let menuItem of group.menuItems" [menuItem]="menuItem"></pure-menu-item>
       </mat-nav-list>

@@ -1,7 +1,7 @@
 <a mat-list-item class="pure-menu-item">
   <div fxLayout="row" fxLayoutAlign="start center" class="content level-{{level}}">
     <mat-icon class="icon" *ngIf="menuItem.icon">{{ menuItem.icon }}</mat-icon>
-    <span class="name" [ngClass]="{'no-icon': !menuItem.icon }">
+    <span class="menu-item-name" [ngClass]="{'no-icon': !menuItem.icon }">
       {{ menuItem.name }}
     </span>
   </div>

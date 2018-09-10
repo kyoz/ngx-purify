@@ -5,19 +5,12 @@
   top: 0px;
   bottom: 0px;
 
-  .header {
-    height: 128px;
-    width: 100%;
-    // background: #3f51b5;
-
-    .name {
-
-    }
-    .mail {
-
-    }
-    .avatar {
-      border-radius: 40px;
+  .menu {
+    .group-name {
+      padding: 32px 0px 8px 24px;
+      font-size: 12px;
+      font-weight: bold;
     }
   }
+  
 }

@@ -1,0 +1,23 @@
+@mixin pure-menu-theme($theme) {
+  $primary: map-get($theme, primary);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  .pure-menu {
+
+    .group {
+      .group-name {
+        color: mat-color($primary, .9);
+      }
+
+      .menu-item-name {
+        color: mat-color($foreground, text);
+      }
+    }
+
+    mat-icon {
+      color: mat-color($foreground, icon);
+    }
+  }
+}

@@ -5,7 +5,7 @@ import { IMenuGroup, IMenuItem } from "../core/pure-interfaces/menu";
  */
 const ApplicationMenu: IMenuItem[] = [
   { name: 'Calender',icon: 'today', route: 'app/calender' },
-  { name: 'Mail', route: 'app/mail' },
+  { name: 'Mail', icon: 'mail', route: 'app/mail' },
   { name: 'Messenger', icon: 'message', route: 'app/messenger' }
 ];
 
@@ -81,15 +81,15 @@ const TestMenu: IMenuItem[] = [
 
 export const MENU_CONFIG: IMenuGroup[] = [
   {
-    groupName: 'Application',
+    groupName: 'APPLICATIONS',
     menuItems: ApplicationMenu
   },
   {
-    groupName: 'Pages',
+    groupName: 'PAGES',
     menuItems: PageMenu
   },
   {
-    groupName: 'Test',
+    groupName: 'TESTS',
     menuItems: TestMenu
   }
 ];
