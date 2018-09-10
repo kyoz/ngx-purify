@@ -9,12 +9,6 @@
     margin-bottom: 20px;
     padding-left: 44px;
   }
-  .date {
-    color: rgba(0, 0, 0, .54);
-  }
-  mat-icon {
-    color: rgba(0, 0, 0, .54);
-  }
   mat-list-item {
     font-family: Roboto, sans-serif;
     .main-line {
@@ -22,7 +16,6 @@
     }
     .sub-line {
       padding-top: 4px;
-      color: rgba(0, 0, 0, .42);
     }
   }
 }

@@ -1,5 +1,10 @@
+@import '../pure-styles-theme';
 @import '../../../app/core/pure-components/pure-chatbox/pure-chatbox-theme';
 
 @mixin pure-theme($theme) {
+  // Main, global styling theme of pure
+  @include pure-style-theme($theme);
+
+  // Theming for components
   @include pure-chatbox-theme($theme);
 }

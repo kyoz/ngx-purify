@@ -1,0 +1,34 @@
+/**
+ * By default, Angular Material advice us to using @mixin to automatically apply a theme (Create theme
+ * file for each component (To work perfectly with light and dark theme), but in some component,
+ * we don't have so much styling that need a seperate theme file.
+ *
+ * In that case, i using this method. With this global classes, you can set styling the most basic
+ * (background, color, icon color...) for your components with out create a theme file for those components
+ */
+
+@mixin pure-style-theme($theme) {
+  $primary: map-get($theme, primary);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  // Set both background and force ground with current material theme
+  .pure-theme {
+    background: mat-color($background, background);
+    color: mat-color($foreground, text);
+  }
+
+  // Set foreground with current material theme
+  .pure-foreground {
+    color: mat-color($foreground, text);
+  }
+
+  .pure-icon-foreground {
+    color: mat-color($foreground, icon);
+  }
+
+  // Set background with current material theme
+  .pure-background {
+    background: mat-color($background, background);
+  }
+}
