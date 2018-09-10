@@ -34,7 +34,7 @@ export class PureToolbar {
 
   toggleFullscreen() {
     if (!this.isInFullScreen()) {
-      const demo: any = document.getElementById('pure-admin-dashboard');
+      const demo: any = document.getElementById('PURE_ADMIN_DASHBOARD');
       if (demo.requestFullscreen) {
         demo.requestFullscreen();
       } else if (demo.mozRequestFullScreen) { /* Firefox */
