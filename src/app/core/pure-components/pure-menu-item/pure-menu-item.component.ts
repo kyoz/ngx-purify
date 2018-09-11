@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, Input, ViewChildren, QueryList, ViewChild } from '@angular/core';
 import { IMenuItem } from '../../pure-interfaces/menu';
 
 @Component({
@@ -7,12 +7,13 @@ import { IMenuItem } from '../../pure-interfaces/menu';
   styleUrls: ['./pure-menu-item.component.scss']
 })
 export class PureMenuItem implements OnInit {
-  @ViewChildren(PureMenuItem) children: QueryList<PureMenuItem>;
-  @Input() menuItem: IMenuItem;
-  @Input() parent: PureMenuItem;
+  @ViewChildren(PureMenuItem) childMenuItems: QueryList<PureMenuItem>;
+
+  @Input() menuItemData: IMenuItem;
   @Input() level = 0;
   @Input() active = false;
   @Input() opened = false;
+  @Input() expandingMenuItem: PureMenuItem; // To collapse expading menu when expand other menu
 
   constructor() {
   }
@@ -31,24 +32,24 @@ export class PureMenuItem implements OnInit {
    */
 
   get hasChildren(): boolean {
-    if (!this.menuItem || !this.menuItem.children) {
+    if (!this.menuItemData || !this.menuItemData.children) {
       return false;
     }
-    return this.menuItem.children.length > 0;
+    return this.menuItemData.children.length > 0;
   }
 
   get height(): number {
     if (!this.opened) return 0;
 
     let addedHeight = 0;
-    if(this.children) {
-      this.children.forEach(childComponent => {
+    if(this.childMenuItems) {
+      this.childMenuItems.forEach(childComponent => {
         if(childComponent) {
           addedHeight += childComponent.height;
         }
       });
     }
-    return (this.menuItem.children.length * 48) + addedHeight;
+    return (this.menuItemData.children.length * 48) + addedHeight;
   }
 
   /**
@@ -62,11 +63,19 @@ export class PureMenuItem implements OnInit {
   }
 
   toggleDropdown() {
-    this.opened = !this.opened;
+    if (this.opened) {
+      this.collapseDropdown();
+    } else {
+      this.opened = true;
+    }
+  }
+
+  collapseDropdown() {
+    this.opened = false;
 
     // Collapse all child item if possible
-    if(this.children) {
-      this.children.forEach(childComponent => {
+    if(!this.opened && this.childMenuItems) {
+      this.childMenuItems.forEach(childComponent => {
         if(childComponent.opened) {
           childComponent.toggleDropdown();
         }
