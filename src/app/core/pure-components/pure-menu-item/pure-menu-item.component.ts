@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewChildren, QueryList, ViewChild } from '@angular/core';
 import { IMenuItem } from '../../pure-interfaces/menu';
+import { PureMenuService } from '../pure-menu/pure-menu.service';
 
 @Component({
   selector: 'pure-menu-item',
@@ -15,7 +16,7 @@ export class PureMenuItem implements OnInit {
   @Input() opened = false;
   @Input() expandingMenuItem: PureMenuItem; // To collapse expading menu when expand other menu
 
-  constructor() {
+  constructor(private _menuService: PureMenuService) {
   }
 
   ngOnInit() {
@@ -42,9 +43,9 @@ export class PureMenuItem implements OnInit {
     if (!this.opened) return 0;
 
     let addedHeight = 0;
-    if(this.childMenuItems) {
+    if (this.childMenuItems) {
       this.childMenuItems.forEach(childComponent => {
-        if(childComponent) {
+        if (childComponent) {
           addedHeight += childComponent.height;
         }
       });
@@ -66,6 +67,12 @@ export class PureMenuItem implements OnInit {
     if (this.opened) {
       this.collapseDropdown();
     } else {
+      // Collapse expanding menu item to open a new one (Just for root menu item)
+      if (this.level === 0) {
+        this._menuService.collapseExpandingMenuItem();
+        this._menuService.setExpandingMenuItem(this); // Set this root menu item as expanding menu item
+      }
+
       this.opened = true;
     }
   }
@@ -74,12 +81,12 @@ export class PureMenuItem implements OnInit {
     this.opened = false;
 
     // Collapse all child item if possible
-    if(!this.opened && this.childMenuItems) {
+    if (!this.opened && this.childMenuItems) {
       this.childMenuItems.forEach(childComponent => {
-        if(childComponent.opened) {
+        if (childComponent.opened) {
           childComponent.toggleDropdown();
         }
       });
-    } 
+    }
   }
 }
