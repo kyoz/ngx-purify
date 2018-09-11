@@ -8,6 +8,7 @@
     top: 0px;
     bottom: 0px;
     padding-left: 22px;
+    padding-right: 18px;
 
     .icon {
       font-size: 20px;
@@ -17,6 +18,22 @@
 
     .menu-item-name {
       font-size: 14px;
+      flex: 1 1 auto;
+    }
+
+    .expand-icon {
+      font-size: 18px;
+      line-height: 18px;
+      min-width: 18px;
+      max-width: 18px;
+      min-height: 18px;
+      max-height: 18px;
+      margin-bottom: -2px;
+      transition: transform .2s ease-in-out;
+    }
+    
+    .expand-icon.expanded {
+      transform: rotate(90deg);
     }
   }
 
@@ -40,3 +57,10 @@
   }
 }
 
+
+.children {
+  overflow:hidden;
+  box-sizing: border-box;
+  height: 0px;
+  transition: all .2s ease-in-out;
+}

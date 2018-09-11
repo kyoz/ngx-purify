@@ -9,7 +9,10 @@ import { IMenuItem } from '../../pure-interfaces/menu';
 export class PureMenuItem implements OnInit {
   @ViewChildren(PureMenuItem) children: QueryList<PureMenuItem>;
   @Input() menuItem: IMenuItem;
+  @Input() parent: PureMenuItem;
   @Input() level = 0;
+  @Input() active = false;
+  @Input() opened = false;
 
   constructor() {
   }
@@ -23,6 +26,10 @@ export class PureMenuItem implements OnInit {
     }
   }
 
+  /**
+   * GET FUNCTIONS
+   */
+
   get hasChildren(): boolean {
     if (!this.menuItem || !this.menuItem.children) {
       return false;
@@ -30,4 +37,40 @@ export class PureMenuItem implements OnInit {
     return this.menuItem.children.length > 0;
   }
 
+  get height(): number {
+    if (!this.opened) return 0;
+
+    let addedHeight = 0;
+    if(this.children) {
+      this.children.forEach(childComponent => {
+        if(childComponent) {
+          addedHeight += childComponent.height;
+        }
+      });
+    }
+    return (this.menuItem.children.length * 48) + addedHeight;
+  }
+
+  /**
+   * FUNCTIONS
+   */
+
+  onMenuItemClicked() {
+    if (this.hasChildren) {
+      this.toggleDropdown();
+    }
+  }
+
+  toggleDropdown() {
+    this.opened = !this.opened;
+
+    // Collapse all child item if possible
+    if(this.children) {
+      this.children.forEach(childComponent => {
+        if(childComponent.opened) {
+          childComponent.toggleDropdown();
+        }
+      });
+    } 
+  }
 }

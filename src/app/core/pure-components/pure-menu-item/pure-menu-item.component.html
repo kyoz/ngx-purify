@@ -1,15 +1,17 @@
-<a mat-list-item class="pure-menu-item">
+<a mat-list-item class="pure-menu-item" (click)="onMenuItemClicked()">
   <div fxLayout="row" fxLayoutAlign="start center" class="content level-{{level}}">
     <mat-icon class="icon" *ngIf="menuItem.icon">{{ menuItem.icon }}</mat-icon>
     <span class="menu-item-name" [ngClass]="{'no-icon': !menuItem.icon }">
       {{ menuItem.name }}
     </span>
+    <mat-icon class="expand-icon" [ngClass]="{ 'expanded': opened }" *ngIf="hasChildren">keyboard_arrow_right</mat-icon>
   </div>
 </a>
 
-<span *ngIf="hasChildren">
+<div class="children" *ngIf="hasChildren" [ngClass]="{ 'opened': opened }" [ngStyle]="{ 'height.px': height }">
   <pure-menu-item *ngFor="let childMenuItem of menuItem.children" 
     [menuItem]="childMenuItem"
+    [parent]="this"
     [level]="level+1">
   </pure-menu-item>
-</span>
+</div>
