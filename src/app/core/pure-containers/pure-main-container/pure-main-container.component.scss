@@ -14,7 +14,7 @@
     right: 64px;
     top: 0px;
     bottom: 0px;
-    transition: all .15s ease-in-out;
+    transition: left .15s ease-in-out;
   }
 
   .menu-content-small-screen {
@@ -83,18 +83,25 @@
 */
 
 .pure-main-container.RTL {
+  .content {
+    transition: right .15s ease-in-out;
+  }
+
   .menu-content-small-screen {
     right: 0px;
     left: 0px;
   }
+
   .menu-content-opened {
     left: 64px;
     right: 288px;
   }
+
   .chatbox-content-small-screen {
     left: 0px;
     right: 0px;
   }
+
   .minimal-mode {
     left: 0px;
     right: 0px;
