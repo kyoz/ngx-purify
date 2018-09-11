@@ -9,10 +9,10 @@
     background: mat-color($background, background);
 
     .contact-item .contact-status {
-      @if $is-dark == false {
-        color: #FAFAFA;
-      } @else {
+      @if $is-dark {
         color: mat-color($background, background);
+      } @else {
+        color: #FAFAFA;
       }
     }
 
