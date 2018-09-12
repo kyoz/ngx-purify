@@ -4,7 +4,7 @@ import { IMenuGroup, IMenuItem } from "../core/pure-interfaces/menu";
  * DEFINE MENUS
  */
 const ApplicationMenu: IMenuItem[] = [
-  { name: 'Calender',icon: 'today', route: 'app/calender' },
+  { name: 'Calender', icon: 'today', route: 'app/calender' },
   { name: 'Mail', icon: 'mail', route: 'app/mail' },
   { name: 'Messenger', icon: 'message', route: 'app/messenger' }
 ];
@@ -14,7 +14,13 @@ const PageMenu: IMenuItem[] = [
     name: 'Authentication',
     icon: 'lock',
     children: [
-      { name: 'Login', route: 'app/login' },
+      {
+        name: 'Login', icon: 'lock', route: 'app/login', children: [
+          { name: 'Login 1', icon: '' },
+          { name: 'Login 2', icon: 'lock' },
+          { name: 'Login 3', icon: 'lock' },
+        ]
+      },
       { name: 'Register', route: 'app/register' },
       { name: 'Forgot Password', route: 'app/forgot_password' }
     ]
@@ -32,19 +38,66 @@ const PageMenu: IMenuItem[] = [
 
 const TestMenu: IMenuItem[] = [
   {
-    name: 'Test',
+    name: 'Test have icon',
     icon: 'money',
     children: [
-      { 
+      {
         name: 'Level 1',
         route: 'app/test_1',
+        icon: 'money',
         children: [
-          { 
+          {
             name: 'Level 2',
             icon: 'money',
             route: 'app/test_2',
             children: [
-              { 
+              {
+                name: 'Level 3',
+            icon: 'money',
+                route: 'app/test_3',
+                children: [
+                  {
+                    name: 'Level 4',
+            icon: 'money',
+                    route: 'app/test_3',
+                    children: [
+                      {
+                        name: 'Level 5',
+            icon: 'money',
+                        route: 'app/test_3',
+                        children: [
+                          {
+                            name: 'Level 6',
+                            icon: 'money',
+                            route: 'app/test_3',
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+    ]
+  }
+];
+
+const TestMenuNoIcon: IMenuItem[] = [
+  {
+    name: 'Test no icon',
+    children: [
+      {
+        name: 'Level 1',
+        route: 'app/test_1',
+        children: [
+          {
+            name: 'Level 2',
+            route: 'app/test_2',
+            children: [
+              {
                 name: 'Level 3',
                 route: 'app/test_3',
                 children: [
@@ -58,7 +111,6 @@ const TestMenu: IMenuItem[] = [
                         children: [
                           {
                             name: 'Level 6',
-                            icon: 'money',
                             route: 'app/test_3',
                           }
                         ]
@@ -91,5 +143,9 @@ export const MENU_CONFIG: IMenuGroup[] = [
   {
     groupName: 'TESTS',
     menuItems: TestMenu
+  },
+  {
+    groupName: 'TEST NO ICON',
+    menuItems: TestMenuNoIcon
   }
 ];

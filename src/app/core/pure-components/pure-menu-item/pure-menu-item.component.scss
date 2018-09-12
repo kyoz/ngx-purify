@@ -37,23 +37,44 @@
     }
   }
 
+  .content.opened {
+    background: rgba(#bdbdbd, .1);
+  }
+
   /**
     * LEVELS
     */
   .content.level-1 {
     padding-left: 54px;
+    background: rgba(#bdbdbd, .1);
   }
 
   .content.level-2 {
-    padding-left: 70px;
+    padding-left: 86px;
+    background: rgba(#bdbdbd, .2);
   }
 
   .content.level-3 {
-    padding-left: 102px;
+    padding-left: 118px;
+    background: rgba(#bdbdbd, .3);
   }
 
   .content.level-4 {
-    padding-left: 126px
+    padding-left: 150px;
+    background: rgba(#bdbdbd, .4);
+  }
+
+  .content.level-1.opened {
+    background: rgba(#bdbdbd, .2);
+  }
+  .content.level-2.opened {
+    background: rgba(#bdbdbd, .3);
+  }
+  .content.level-3.opened {
+    background: rgba(#bdbdbd, .4);
+  }
+  .content.level-4.opened {
+    background: rgba(#bdbdbd, .4);
   }
 }
 

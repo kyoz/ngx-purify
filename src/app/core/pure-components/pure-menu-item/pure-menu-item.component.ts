@@ -57,9 +57,15 @@ export class PureMenuItem implements OnInit {
    * FUNCTIONS
    */
 
+  deactivate() {
+    this.active = false;
+  }
+
   onMenuItemClicked() {
     if (this.hasChildren) {
       this.toggleDropdown();
+    } else {
+      this.navigate();
     }
   }
 
@@ -75,6 +81,13 @@ export class PureMenuItem implements OnInit {
 
       this.opened = true;
     }
+  }
+
+  navigate() {
+    this._menuService.deactivateMenuItem();
+
+    this.active = true;
+    this._menuService.setActivatingMenuItem(this);
   }
 
   collapseDropdown() {
