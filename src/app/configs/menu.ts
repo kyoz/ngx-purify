@@ -1,12 +1,13 @@
 import { IMenuGroup, IMenuItem } from "../core/pure-interfaces/menu";
+import { MenuItem } from "../core/pure-classes/menu-item";
 
 /**
  * DEFINE MENUS
  */
 const ApplicationMenu: IMenuItem[] = [
-  { name: 'Calender', icon: 'today', route: 'app/dashboard/analytical' },
-  { name: 'Mail', icon: 'mail', route: 'app/dashboard/operational' },
-  { name: 'Messenger', icon: 'message', route: 'app/messenger' }
+  new MenuItem('Calender', 'today', 'app/dashboard/analytical'),
+  new MenuItem('Mail', 'mail', 'app/dashboard/operational'),
+  new MenuItem('Messenger', 'message', 'app/messenger')
 ];
 
 const PageMenu: IMenuItem[] = [
@@ -109,10 +110,7 @@ const TestMenuNoIcon: IMenuItem[] = [
                         name: 'Level 5',
                         route: 'app/test_3',
                         children: [
-                          {
-                            name: 'Level 6',
-                            route: 'app/test_3',
-                          }
+                          new MenuItem('Level 6','','app/test_3')
                         ]
                       }
                     ]
