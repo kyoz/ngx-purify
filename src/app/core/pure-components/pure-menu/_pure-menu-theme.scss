@@ -1,3 +1,5 @@
+@import '../../../../assets/scss/pure-style-functions';
+
 @mixin pure-menu-theme($theme) {
   $primary: map-get($theme, primary);
   $background: map-get($theme, background);
@@ -13,6 +15,39 @@
 
       .menu-item-name {
         color: mat-color($foreground, text);
+      }
+
+      /**
+        * LEVELS
+        */
+
+      .content.level-1, .content.level-2, .content.level-3, .content.level-4 {
+        @if $is-dark==true {
+          background: rgba(#212121, .6);
+        }
+
+        @else {
+          background: rgba(#bdbdbd, .1);
+        }
+      }
+
+      .content.active {
+        background: mat-color($primary);
+        span, mat-icon {
+          color: get-text-color(mat-color($primary));
+        }
+      }
+
+      .children {
+        @if $is-dark==true {
+          &:before { background: linear-gradient(180deg, rgba(0, 0, 0, .3) 0, transparent); }
+          &:after { background: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, .2)); }
+        }
+
+        @else {
+          &:before { background: linear-gradient(180deg, rgba(0, 0, 0, .2) 0, transparent); }
+          &:after { background: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, .2)); }
+        }
       }
     }
 
