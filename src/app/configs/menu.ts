@@ -29,8 +29,8 @@ const PageMenu: IMenuItem[] = [
     name: 'Pricing',
     icon: 'attach_money',
     children: [
-      { name: 'Pricing 1', route: 'app/pricing_1' },
-      { name: 'Pricing 2', route: 'app/pricing_2' },
+      { name: 'Pricing 1', route: 'https://google.com' },
+      { name: 'Pricing 2', route: 'page/auth/login' },
       { name: 'Pricing 3', route: 'app/pricing_3' }
     ]
   }

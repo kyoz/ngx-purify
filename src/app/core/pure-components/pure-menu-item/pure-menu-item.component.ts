@@ -1,6 +1,9 @@
-import { Component, OnInit, Input, ViewChildren, QueryList, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChildren, QueryList } from '@angular/core';
+import { Router } from '@angular/router';
 import { IMenuItem } from '../../pure-interfaces/menu';
 import { PureMenuService } from '../pure-menu/pure-menu.service';
+import { PureStringUtils } from '../../pure-utils/pure-string-utils';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'pure-menu-item',
@@ -16,7 +19,10 @@ export class PureMenuItem implements OnInit {
   @Input() opened = false;
   @Input() expandingMenuItem: PureMenuItem; // To collapse expading menu when expand other menu
 
-  constructor(private _menuService: PureMenuService) {
+  constructor(
+    private _menuService: PureMenuService,
+    private _route: Router,
+    private _snackbar: MatSnackBar) {
   }
 
   ngOnInit() {
@@ -86,8 +92,18 @@ export class PureMenuItem implements OnInit {
   navigate() {
     this._menuService.deactivateMenuItem();
 
+    // Set activating menu item
     this.active = true;
     this._menuService.setActivatingMenuItem(this);
+
+    // Navigate
+    if (this.hasExternalLink) {
+    window.location.href = this.menuItemData.route;
+    } else {
+      this._route.navigate([this.menuItemData.route]).catch(e => {
+        this._snackbar.open(`This route doesn't exist. Please check you configuration !`);
+      });
+    }
   }
 
   collapseDropdown() {
@@ -101,5 +117,15 @@ export class PureMenuItem implements OnInit {
         }
       });
     }
+  }
+
+  get hasExternalLink(): boolean {
+    if(!this.menuItemData) {
+      return false;
+    }
+
+    return !PureStringUtils.isEmpty(this.menuItemData.route) && 
+      (PureStringUtils.startsWith(this.menuItemData.route, 'http://') ||
+       PureStringUtils.startsWith(this.menuItemData.route, 'https://'));
   }
 }
