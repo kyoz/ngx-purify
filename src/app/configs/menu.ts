@@ -110,7 +110,7 @@ const TestMenuNoIcon: IMenuItem[] = [
                         name: 'Level 5',
                         route: 'app/test_3',
                         children: [
-                          new MenuItem('Level 6','','app/test_3')
+                          new MenuItem('Level 6', null ,'app/test_3')
                         ]
                       }
                     ]
