@@ -8,10 +8,12 @@ export class PureMenuService {
 
   setExpandingMenuItem(menuItem: PureMenuItem) {
     this.expandingMenuItem = menuItem;
+    this.expandingMenuItem.opened = true;
   }
 
   setActivatingMenuItem(menuItem: PureMenuItem) {
     this.activatingMenuItem = menuItem;
+    this.activatingMenuItem.active = true;
   }
 
   collapseExpandingMenuItem() {

@@ -4,8 +4,8 @@ import { IMenuGroup, IMenuItem } from "../core/pure-interfaces/menu";
  * DEFINE MENUS
  */
 const ApplicationMenu: IMenuItem[] = [
-  { name: 'Calender', icon: 'today', route: 'app/calender' },
-  { name: 'Mail', icon: 'mail', route: 'app/mail' },
+  { name: 'Calender', icon: 'today', route: 'app/dashboard/analytical' },
+  { name: 'Mail', icon: 'mail', route: 'app/dashboard/operational' },
   { name: 'Messenger', icon: 'message', route: 'app/messenger' }
 ];
 
@@ -30,7 +30,7 @@ const PageMenu: IMenuItem[] = [
     icon: 'attach_money',
     children: [
       { name: 'Pricing 1', route: 'https://google.com' },
-      { name: 'Pricing 2', route: 'page/auth/login' },
+      { name: 'Pricing 2', route: '/page/auth/login' },
       { name: 'Pricing 3', route: 'app/pricing_3' }
     ]
   }

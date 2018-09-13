@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { IMenuItem } from '../../pure-interfaces/menu';
 import { PureMenuService } from '../pure-menu/pure-menu.service';
 import { PureStringUtils } from '../../pure-utils/pure-string-utils';
-import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'pure-menu-item',
@@ -21,8 +20,7 @@ export class PureMenuItem implements OnInit {
 
   constructor(
     private _menuService: PureMenuService,
-    private _route: Router,
-    private _snackbar: MatSnackBar) {
+    private _route: Router) {
   }
 
   ngOnInit() {
@@ -31,6 +29,13 @@ export class PureMenuItem implements OnInit {
     // In this case i recommend create multi groups for menu items
     if (this.level > 4) {
       this.level = 4;
+    }
+
+    // Set menu item is active when navigate route of this menu item or refresh page
+    if (this.menuItemData && this.menuItemData.route && !this.hasChildren){
+      if(PureStringUtils.cleanRouteLink(this._route.url) === PureStringUtils.cleanRouteLink(this.menuItemData.route)) {
+        this._menuService.setActivatingMenuItem(this);
+      }
     }
   }
 
@@ -57,6 +62,23 @@ export class PureMenuItem implements OnInit {
       });
     }
     return (this.menuItemData.children.length * 48) + addedHeight;
+  }
+
+  get hasLink(): boolean {
+    if(!this.menuItemData || this.hasExternalLink) {
+      return false;
+    }
+    return !PureStringUtils.isEmpty(this.menuItemData.route);
+  }
+
+  get hasExternalLink(): boolean {
+    if(!this.menuItemData) {
+      return false;
+    }
+
+    return !PureStringUtils.isEmpty(this.menuItemData.route) && 
+      (PureStringUtils.startsWith(this.menuItemData.route, 'http://') ||
+       PureStringUtils.startsWith(this.menuItemData.route, 'https://'));
   }
 
   /**
@@ -92,16 +114,17 @@ export class PureMenuItem implements OnInit {
   navigate() {
     this._menuService.deactivateMenuItem();
 
-    // Set activating menu item
-    this.active = true;
-    this._menuService.setActivatingMenuItem(this);
-
     // Navigate
     if (this.hasExternalLink) {
     window.location.href = this.menuItemData.route;
     } else {
+      const activatingMenuItem = this._menuService.activatingMenuItem;
+
+      this._menuService.setActivatingMenuItem(this);
       this._route.navigate([this.menuItemData.route]).catch(e => {
-        this._snackbar.open(`This route doesn't exist. Please check you configuration !`);
+        this._menuService.setActivatingMenuItem(activatingMenuItem);
+        this.active = false;
+        console.error(e);
       });
     }
   }
@@ -117,15 +140,5 @@ export class PureMenuItem implements OnInit {
         }
       });
     }
-  }
-
-  get hasExternalLink(): boolean {
-    if(!this.menuItemData) {
-      return false;
-    }
-
-    return !PureStringUtils.isEmpty(this.menuItemData.route) && 
-      (PureStringUtils.startsWith(this.menuItemData.route, 'http://') ||
-       PureStringUtils.startsWith(this.menuItemData.route, 'https://'));
   }
 }

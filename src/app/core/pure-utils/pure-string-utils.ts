@@ -17,4 +17,10 @@ export class PureStringUtils {
     }
     return sourceString.toLowerCase().substring(0, startWith.length) === startWith.toLowerCase();
   }
+
+  public static cleanRouteLink(link) {
+    if (PureStringUtils.isEmpty(link)) return '';
+
+    return link.charAt(0) && link.charAt(0) === '/' ? link.substring(1) : link;
+  }
 }
