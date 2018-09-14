@@ -1,13 +1,16 @@
 import { IMenuGroup, IMenuItem } from "../core/pure-interfaces/menu";
-import { MenuItem } from "../core/pure-classes/menu-item";
 
 /**
  * DEFINE MENUS
+ * I do prefer this method to config menu than using class (Ex: new Class('Calendar', 'today', 'app/calendar'))
+ * With this method you can provide object correct with Interface. No need to arrange.
+ * And with object key, its more easier for us when we have update.
  */
+
 const ApplicationMenu: IMenuItem[] = [
-  new MenuItem('Calender', 'today', 'app/dashboard/analytical'),
-  new MenuItem('Mail', 'mail', 'app/dashboard/operational'),
-  new MenuItem('Messenger', 'message', 'app/messenger')
+  { name: 'Calender', icon: 'today', route: 'app/dashboard/analytical' },
+  { name: 'Mail', icon: 'mail', route: 'app/dashboard/operational' },
+  { name: 'Messenger', icon: 'message', route: 'app/messenger' }
 ];
 
 const PageMenu: IMenuItem[] = [
@@ -110,7 +113,7 @@ const TestMenuNoIcon: IMenuItem[] = [
                         name: 'Level 5',
                         route: 'app/test_3',
                         children: [
-                          new MenuItem('Level 6', null ,'app/test_3')
+                          { name: 'Level 6', route: 'app/test_3' }
                         ]
                       }
                     ]
