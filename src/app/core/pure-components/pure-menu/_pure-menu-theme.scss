@@ -36,6 +36,9 @@
         span, mat-icon {
           color: get-text-color(mat-color($primary));
         }
+
+        &:before { background: linear-gradient(180deg, rgba(0, 0, 0, .2) 0, transparent); }
+        &:after { background: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, .2)); }
       }
 
       .children {
