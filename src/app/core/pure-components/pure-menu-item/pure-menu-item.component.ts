@@ -17,7 +17,6 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   @Input() level = 0;
   @Input() active = false;
   @Input() opened = false;
-  @Input() expandingMenuItem: PureMenuItem; // To collapse expading menu when expand other menu
 
   private routeSubscription: Subscription;
 
@@ -136,16 +135,12 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
 
   navigate() {
 
-    // Navigate
     if (this.hasExternalLink) {
-    window.location.href = this.menuItemData.route;
+      // Navigate to an external Link
+      window.location.href = this.menuItemData.route;
     } else {
-      // const activatingMenuItem = this._menuService.activatingMenuItem;
-
-      // this._menuService.setActivatingMenuItem(this);
+      // Change route
       this._route.navigate([this.menuItemData.route]).catch(e => {
-        // this._menuService.setActivatingMenuItem(activatingMenuItem);
-        // this.active = false;
         console.error(e);
       });
     }
