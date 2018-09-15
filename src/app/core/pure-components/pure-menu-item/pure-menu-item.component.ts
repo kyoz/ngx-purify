@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChildren, QueryList, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, ViewChildren, QueryList, AfterViewInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { IMenuItem } from '../../pure-interfaces/menu';
 import { PureMenuService } from '../pure-menu/pure-menu.service';
@@ -17,12 +17,15 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   @Input() level = 0;
   @Input() active = false;
   @Input() opened = false;
+  @Input() parent: PureMenuItem;
 
   private routeSubscription: Subscription;
+  private _parent: PureMenuItem = this;
 
   constructor(
     private _menuService: PureMenuService,
-    private _route: Router) {
+    private _route: Router,
+    private _changeDetectionRef: ChangeDetectorRef) {
   }
 
   ngOnInit() {
@@ -32,9 +35,11 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
     if (this.level > 4) {
       this.level = 4;
     }
-
+    
     // Set menu item is active when first load
     this.activate();
+
+   
   }
 
   ngAfterViewInit() {
@@ -45,6 +50,14 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
         this.activate();
       }
     });
+
+     // Expanding menu on load when there is activating menu item
+     if (this._menuService.activatingMenuItem && this._menuService.activatingMenuItem === this) {
+      this.expandDropdownOnLoad(this._menuService.activatingMenuItem);
+    }
+
+    // To detect when you change value of a parent components when inside child components
+    this._changeDetectionRef.detectChanges();
   }
 
   ngOnDestroy(): void {
@@ -75,7 +88,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
         }
       });
     }
-    return (this.menuItemData.children.length * 48) + addedHeight;
+    return this.menuItemData && this.menuItemData.children ? (this.menuItemData.children.length * 48) + addedHeight : 0;
   }
 
   get hasLink(): boolean {
@@ -156,6 +169,27 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
           childComponent.toggleDropdown();
         }
       });
+    }
+  }
+
+  expandDropdownOnLoad(activatingMenuItem) {
+    let parent: PureMenuItem = this;
+    let rootParent: PureMenuItem = this;
+
+    while (parent !== undefined && parent !== null) {
+      if (parent && parent.level !== 0){
+        parent.toggleDropdown();
+      }
+
+      parent = parent.parent;
+
+      if (parent) {
+        rootParent = parent;
+      }
+    }
+
+    if (rootParent) {
+      this._menuService.setExpandingMenuItem(rootParent);
     }
   }
 }

@@ -12,6 +12,7 @@
 
 <div class="children" *ngIf="hasChildren" [ngStyle]="{ 'height.px': height }">
   <pure-menu-item *ngFor="let childMenuItem of menuItemData.children" 
+    [parent]="_parent"
     [menuItemData]="childMenuItem"
     [level]="level+1">
   </pure-menu-item>
