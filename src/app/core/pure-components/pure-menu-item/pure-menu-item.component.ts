@@ -1,15 +1,16 @@
-import { Component, OnInit, Input, ViewChildren, QueryList } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input, ViewChildren, QueryList, AfterViewInit, OnDestroy } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 import { IMenuItem } from '../../pure-interfaces/menu';
 import { PureMenuService } from '../pure-menu/pure-menu.service';
 import { PureStringUtils } from '../../pure-utils/pure-string-utils';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'pure-menu-item',
   templateUrl: './pure-menu-item.component.html',
   styleUrls: ['./pure-menu-item.component.scss']
 })
-export class PureMenuItem implements OnInit {
+export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   @ViewChildren(PureMenuItem) childMenuItems: QueryList<PureMenuItem>;
 
   @Input() menuItemData: IMenuItem;
@@ -17,6 +18,8 @@ export class PureMenuItem implements OnInit {
   @Input() active = false;
   @Input() opened = false;
   @Input() expandingMenuItem: PureMenuItem; // To collapse expading menu when expand other menu
+
+  private routeSubscription: Subscription;
 
   constructor(
     private _menuService: PureMenuService,
@@ -31,11 +34,23 @@ export class PureMenuItem implements OnInit {
       this.level = 4;
     }
 
-    // Set menu item is active when navigate route of this menu item or refresh page
-    if (this.menuItemData && this.menuItemData.route && !this.hasChildren){
-      if(PureStringUtils.cleanRouteLink(this._route.url) === PureStringUtils.cleanRouteLink(this.menuItemData.route)) {
-        this._menuService.setActivatingMenuItem(this);
+    // Set menu item is active when first load
+    this.activate();
+  }
+
+  ngAfterViewInit() {
+    // Subscribe to set menu item is active when change route
+    this.routeSubscription = this._route.events.subscribe(e => {
+      if (e instanceof NavigationEnd) {
+        // Deactivate current activating menu item
+        this.activate();
       }
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.routeSubscription) {
+      this.routeSubscription.unsubscribe();
     }
   }
 
@@ -85,6 +100,14 @@ export class PureMenuItem implements OnInit {
    * FUNCTIONS
    */
 
+  activate() {
+    if (this.menuItemData && this.menuItemData.route && !this.hasChildren){
+      if(PureStringUtils.cleanRouteLink(this._route.url) === PureStringUtils.cleanRouteLink(this.menuItemData.route)) {
+        this._menuService.setActivatingMenuItem(this);
+      }
+    }
+  }
+
   deactivate() {
     this.active = false;
   }
@@ -112,18 +135,17 @@ export class PureMenuItem implements OnInit {
   }
 
   navigate() {
-    this._menuService.deactivateMenuItem();
 
     // Navigate
     if (this.hasExternalLink) {
     window.location.href = this.menuItemData.route;
     } else {
-      const activatingMenuItem = this._menuService.activatingMenuItem;
+      // const activatingMenuItem = this._menuService.activatingMenuItem;
 
-      this._menuService.setActivatingMenuItem(this);
+      // this._menuService.setActivatingMenuItem(this);
       this._route.navigate([this.menuItemData.route]).catch(e => {
-        this._menuService.setActivatingMenuItem(activatingMenuItem);
-        this.active = false;
+        // this._menuService.setActivatingMenuItem(activatingMenuItem);
+        // this.active = false;
         console.error(e);
       });
     }

@@ -12,6 +12,12 @@ export class PureMenuService {
   }
 
   setActivatingMenuItem(menuItem: PureMenuItem) {
+    // Deactivate activating menu
+    if (this.activatingMenuItem && this.activatingMenuItem.active) {
+      this.activatingMenuItem.deactivate();
+    }
+
+    // Activate for new menu item
     this.activatingMenuItem = menuItem;
     this.activatingMenuItem.active = true;
   }
@@ -19,12 +25,6 @@ export class PureMenuService {
   collapseExpandingMenuItem() {
     if (this.expandingMenuItem && this.expandingMenuItem.opened) {
       this.expandingMenuItem.collapseDropdown();
-    }
-  }
-
-  deactivateMenuItem() {
-    if (this.activatingMenuItem && this.activatingMenuItem.active) {
-      this.activatingMenuItem.deactivate();
     }
   }
 }
