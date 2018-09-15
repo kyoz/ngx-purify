@@ -22,11 +22,17 @@ export class PureNotificationContainer implements OnInit {
   registerHammer() {
     const hammer = new Hammer(this.pureSideNotificationContainer.nativeElement, {});
 
-    hammer.on('swipe', event => {
-      if (event.direction === 4 && this._settings.textDirection === 'LTR') { // Right
+    // Actually, we can just use hammer.on('swipe') and detect if user swipe left or right for both
+    // LTR and RTL direction, but i'v test and it not work well on mobile so for now, i do seperate em
+
+    hammer.on('swiperight', () => {
+      if (this._settings.currentSettings.textDirection === 'LTR') {
         this._notificationContainer.close();
       }
-      if (event.direction === 2 && this._settings.textDirection === 'RTL') { // Left
+    });
+
+    hammer.on('swipeleft', () => {
+      if (this._settings.currentSettings.textDirection === 'RTL') {
         this._notificationContainer.close();
       }
     });

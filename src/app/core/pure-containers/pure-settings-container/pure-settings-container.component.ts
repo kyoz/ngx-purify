@@ -18,7 +18,7 @@ export class PureSettingsContainer implements OnInit {
 
   registerHammer() {
     const hammer = new Hammer(this.pureSettingsContainer.nativeElement, {});
-    hammer.on('swiperight', ev => {
+    hammer.on('swiperight', () => {
       this._settingsContainer.close();
     });
   }
