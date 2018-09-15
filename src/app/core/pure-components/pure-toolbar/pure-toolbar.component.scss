@@ -42,6 +42,7 @@
     color: inherit;
     padding: 0px 16px 0px 24px;
     .search-input {
+      min-width: 50px;
       outline: none;
       border: none;
       font-size: 16px;
@@ -87,6 +88,14 @@
         display: none;
       }
     }
+    .search {
+      .search-icon {
+        margin-left: -8px;
+      }
+      .close-btn {
+        margin-right: -8px;
+      }
+    }
   }
 
   @media only screen and (max-width: 500px) {
@@ -129,5 +138,16 @@
   .userinfo-btn .arrow-icon {
     padding-left: unset;
     padding-right: 8px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .search {
+      .search-icon {
+        margin-right: -8px;
+      }
+      .close-btn {
+        margin-left: -8px;
+      }
+    }
   }
 }
