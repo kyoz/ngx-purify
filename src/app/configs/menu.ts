@@ -8,8 +8,8 @@ import { IMenuGroup, IMenuItem } from "../core/pure-interfaces/menu";
  */
 
 const ApplicationMenu: IMenuItem[] = [
-  { name: 'Calender', icon: 'today', route: 'app/dashboard' },
-  { name: 'Mail', icon: 'mail', route: 'app/dashboard' },
+  { name: 'Calender', icon: 'today', route: '' },
+  { name: 'Mail', icon: 'mail', route: 'app/dashboard/analytical' },
   { name: 'Messenger', icon: 'message', route: 'app/messenger' }
 ];
 
@@ -21,7 +21,7 @@ const PageMenu: IMenuItem[] = [
       {
         name: 'Login', icon: 'lock', route: 'app/login', children: [
           { name: 'Login 1', icon: '' },
-          { name: 'Login 2', icon: 'lock', route: 'app/dashboard/analytical' },
+          { name: 'Login 2', icon: 'lock', route: 'app/dashboard' },
           { name: 'Login 3', icon: 'lock', route: 'app/dashboard/operational' },
         ]
       },
