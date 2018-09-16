@@ -1,9 +1,11 @@
 <div #pure_menu_container class="pure-menu-container"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
   [ngClass]="{
-    'can-hover' : _menuContainer.canHover,
     'fullwidth' : _menuContainer.isFullWidth,
     'non-fullwidth' : !_menuContainer.isFullWidth,
     'opened' : _menuContainer.isOpened,
+    'can-hover' : _menuContainer.canHover,
     'RTL' : _settings.textDirection === 'RTL'
   }">
   <mat-toolbar color="primary" class="toolbar">
@@ -17,7 +19,6 @@
         {{!_menuContainer.isOpened ? 'menu' : _settings.textDirection === 'LTR' ? 'arrow_back' : 'arrow_forward'}}
       </mat-icon>
     </button>
-    <img src="assets/logo/pure.png" height="28" class="logo">
   </mat-toolbar>
   <div class="menu-wrapper pure-background">
     <pure-menu></pure-menu>

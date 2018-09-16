@@ -13,8 +13,12 @@
         color: mat-color($primary, .9);
       }
 
+      .group-name-replace>mat-icon {
+        color: rgba(mat-color($foreground, icon), .2);
+      }
+
       .pure-menu-content {
-        .icon, .expand-icon {
+        .icon, .expand-icon, .replace-icon {
           color: mat-color($foreground, icon);
         }
         .name {

@@ -18,7 +18,7 @@ export class PureMainContainer implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize() {
     // Init for side menu & chatbox
-    this._menuContainer.isFullWidth = this._chatboxContainer.isFullWidth = window.innerWidth >= RESPONSIVE_BREAKPOINTS.NORMAL ? true : false;
+    this._menuContainer.setIsFullWidth(this._chatboxContainer.isFullWidth = window.innerWidth >= RESPONSIVE_BREAKPOINTS.NORMAL ? true : false);
     this._menuContainer.init();
     this._notificationContainer.init();
   }

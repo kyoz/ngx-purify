@@ -4,49 +4,77 @@ import { RESPONSIVE_BREAKPOINTS } from '../../pure-utils/pure-configs';
 @Injectable()
 export class PureMenuContainerService {
 
-  public isFullWidth: boolean = false;
-  public state: 'opened' | 'closed' = 'opened';
-  public canHover: boolean = true;
+  private _isFullWidth: boolean = false;
+  private _isHovering: boolean = false;
+  private _state: 'opened' | 'closed' = 'opened';
+  private _canHover: boolean = true;
 
   constructor() {
-    this.isFullWidth = window.innerWidth >= RESPONSIVE_BREAKPOINTS.NORMAL ? true : false;
+    this._isFullWidth = window.innerWidth >= RESPONSIVE_BREAKPOINTS.NORMAL ? true : false;
     this.init();
   }
 
   public init() {
     if (this.isFullWidth) {
-      this.state = 'opened';
+      this._state = 'opened';
     } else {
-      this.state = 'closed';
+      this._state = 'closed';
     }
   }
 
   public open() {
-    this.state = 'opened';
+    this._state = 'opened';
   }
 
   public close() {
-    this.state = 'closed';
+    this._state = 'closed';
   }
 
   public toggle() {
-    this.state = this.state === 'opened' ? 'closed' : 'opened';
+    this._state = this._state === 'opened' ? 'closed' : 'opened';
 
     // To close side menu when toggle
-    if (this.state === 'closed') {
-      this.canHover = false;
+    if (this._state === 'closed') {
+      this._canHover = false;
       setTimeout(() => {
-        this.canHover = true;
+        this._canHover = true;
       }, 300);
     }
   }
 
+  /**
+   * SET FUNCTIONS
+   */
+
+  public setIsFullWidth(isFullWidth) {
+    this._isFullWidth = isFullWidth;
+  }
+
+  public setIsHovering(isHovering) {
+    this._isHovering= isHovering;
+  }
+
+  /**
+   * GET FUNCTIONS
+   */
+
+  public get isFullWidth() {
+    return this._isFullWidth;
+  }
+
   public get isOpened() {
-    return this.state === 'opened';
+    return this._state === 'opened';
   }
 
   public get isClosed() {
-    return this.state === 'closed';
+    return this._state === 'closed';
+  }
+  
+  public get canHover() {
+    return this._canHover;
   }
 
+  public get isHovering() {
+    return this._isHovering;
+  }
 }

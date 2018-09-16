@@ -38,4 +38,12 @@ export class PureMenuContainer implements OnInit {
       }
     });
   }
+
+  onMouseEnter() {
+    this._menuContainer.setIsHovering(true);
+  }
+
+  onMouseLeave() {
+    this._menuContainer.setIsHovering(false);
+  }
 }
