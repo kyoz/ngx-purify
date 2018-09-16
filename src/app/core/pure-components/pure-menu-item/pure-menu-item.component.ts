@@ -95,7 +95,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
     if(!this.menuItemData || this.hasExternalLink) {
       return false;
     }
-    return !PureStringUtils.isEmpty(this.menuItemData.route);
+    return !PureStringUtils.isEmpty(this.menuItemData.url);
   }
 
   get hasExternalLink(): boolean {
@@ -103,9 +103,9 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
       return false;
     }
 
-    return !PureStringUtils.isEmpty(this.menuItemData.route) && 
-      (PureStringUtils.startsWith(this.menuItemData.route, 'http://') ||
-       PureStringUtils.startsWith(this.menuItemData.route, 'https://'));
+    return !PureStringUtils.isEmpty(this.menuItemData.url) && 
+      (PureStringUtils.startsWith(this.menuItemData.url, 'http://') ||
+       PureStringUtils.startsWith(this.menuItemData.url, 'https://'));
   }
 
   /**
@@ -113,8 +113,8 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
    */
 
   activate() {
-    if (this.menuItemData && this.menuItemData.route && !this.hasChildren){
-      if(PureStringUtils.cleanRouteLink(this._route.url) === PureStringUtils.cleanRouteLink(this.menuItemData.route)) {
+    if (this.menuItemData && this.menuItemData.url && !this.hasChildren){
+      if(PureStringUtils.cleanRouteLink(this._route.url) === PureStringUtils.cleanRouteLink(this.menuItemData.url)) {
         this._menuService.setActivatingMenuItem(this);
       }
     }
@@ -150,10 +150,10 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
 
     if (this.hasExternalLink) {
       // Navigate to an external Link
-      window.location.href = this.menuItemData.route;
+      window.location.href = this.menuItemData.url;
     } else {
       // Change route
-      this._route.navigate([this.menuItemData.route]).catch(e => {
+      this._route.navigate([this.menuItemData.url]).catch(e => {
         console.error(e);
       });
     }

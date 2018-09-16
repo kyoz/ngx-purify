@@ -3,60 +3,60 @@ import { IMenuItem } from "../../core/pure-interfaces/menu";
 export const MaterialComponentMenu: IMenuItem[] = [
   { 
     name: 'Form Controls', icon: 'layers', children: [
-      { name: 'Autocomplete', route: '/material-component/form-control/autocomplete' },
-      { name: 'Checkbox', route: '/material-component/form-control/checkbox' },
-      { name: 'Datepicker', route: '/material-component/form-control/datepicker' },
-      { name: 'Form field', route: '/material-component/form-control/form-field' },
-      { name: 'Input', route: '/material-component/form-control/input' },
-      { name: 'Radio button', route: '/material-component/form-control/radio-button' },
-      { name: 'Select', route: '/material-component/form-control/select' },
-      { name: 'Slider', route: '/material-component/form-control/slider' },
-      { name: 'Slide Toggle', route: '/material-component/form-control/slide-toggle' }
+      { name: 'Autocomplete', url: '/material-component/form-control/autocomplete' },
+      { name: 'Checkbox', url: '/material-component/form-control/checkbox' },
+      { name: 'Datepicker', url: '/material-component/form-control/datepicker' },
+      { name: 'Form field', url: '/material-component/form-control/form-field' },
+      { name: 'Input', url: '/material-component/form-control/input' },
+      { name: 'Radio button', url: '/material-component/form-control/radio-button' },
+      { name: 'Select', url: '/material-component/form-control/select' },
+      { name: 'Slider', url: '/material-component/form-control/slider' },
+      { name: 'Slide Toggle', url: '/material-component/form-control/slide-toggle' }
     ]
   },
   {
     name: 'Navigation', icon: 'layers', children: [
-     { name: 'Menu', route: '/material-component/navigation/menu' },
-     { name: 'Sidenav', route: '/material-component/navigation/sidenav' },
-     { name: 'Toolbar', route: '/material-component/navigation/toolbar' }
+     { name: 'Menu', url: '/material-component/navigation/menu' },
+     { name: 'Sidenav', url: '/material-component/navigation/sidenav' },
+     { name: 'Toolbar', url: '/material-component/navigation/toolbar' }
     ]
   },
   {
     name: 'Layout', icon: 'layers', children: [
-     { name: 'Card', route: '/material-component/layout/card' },
-     { name: 'Divider', route: '/material-component/layout/divider' },
-     { name: 'Expansion Panel', route: '/material-component/layout/expansion-panel' },
-     { name: 'Grid List', route: '/material-component/layout/grid-list' },
-     { name: 'List', route: '/material-component/layout/list' },
-     { name: 'Stepper', route: '/material-component/layout/stepper' },
-     { name: 'Tab', route: '/material-component/layout/tab' },
-     { name: 'Tree', route: '/material-component/layout/tree' }
+     { name: 'Card', url: '/material-component/layout/card' },
+     { name: 'Divider', url: '/material-component/layout/divider' },
+     { name: 'Expansion Panel', url: '/material-component/layout/expansion-panel' },
+     { name: 'Grid List', url: '/material-component/layout/grid-list' },
+     { name: 'List', url: '/material-component/layout/list' },
+     { name: 'Stepper', url: '/material-component/layout/stepper' },
+     { name: 'Tab', url: '/material-component/layout/tab' },
+     { name: 'Tree', url: '/material-component/layout/tree' }
     ]
   },
   {
     name: 'Button & Indicators', icon: 'layers', children: [
-     { name: 'Button', route: '/material-component/button-indicators/button' },
-     { name: 'Button Toggle', route: '/material-component/button-indicators/button-toggle' },
-     { name: 'Badge', route: '/material-component/button-indicators/badge' },
-     { name: 'Chips', route: '/material-component/button-indicators/chips' },
-     { name: 'Icon', route: '/material-component/button-indicators/icon' },
-     { name: 'Progress spinner', route: '/material-component/button-indicators/progress-spinner' },
-     { name: 'Progress bar', route: '/material-component/button-indicators/progress-bar' }
+     { name: 'Button', url: '/material-component/button-indicators/button' },
+     { name: 'Button Toggle', url: '/material-component/button-indicators/button-toggle' },
+     { name: 'Badge', url: '/material-component/button-indicators/badge' },
+     { name: 'Chips', url: '/material-component/button-indicators/chips' },
+     { name: 'Icon', url: '/material-component/button-indicators/icon' },
+     { name: 'Progress spinner', url: '/material-component/button-indicators/progress-spinner' },
+     { name: 'Progress bar', url: '/material-component/button-indicators/progress-bar' }
     ]
   },
   {
     name: 'Popups & Modals', icon: 'layers', children: [
-     { name: 'Bottom Sheet', route: '/material-component/popups-modals/bottom-sheet' },
-     { name: 'Dialog', route: '/material-component/popups-modals/dialog' },
-     { name: 'Snackbar', route: '/material-component/popups-modals/snackbar' },
-     { name: 'Tooltip', route: '/material-component/popups-modals/tooltip' }
+     { name: 'Bottom Sheet', url: '/material-component/popups-modals/bottom-sheet' },
+     { name: 'Dialog', url: '/material-component/popups-modals/dialog' },
+     { name: 'Snackbar', url: '/material-component/popups-modals/snackbar' },
+     { name: 'Tooltip', url: '/material-component/popups-modals/tooltip' }
     ]
   },
   {
     name: 'Data table', icon: 'layers', children: [
-     { name: 'Paginator', route: '/material-component/data-table/paginator' },
-     { name: 'Sort header', route: '/material-component/data-table/sort header' },
-     { name: 'Table', route: '/material-component/data-table/table' }
+     { name: 'Paginator', url: '/material-component/data-table/paginator' },
+     { name: 'Sort header', url: '/material-component/data-table/sort header' },
+     { name: 'Table', url: '/material-component/data-table/table' }
     ]
   }
 ];

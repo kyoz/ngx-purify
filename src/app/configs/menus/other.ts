@@ -16,7 +16,7 @@ export const OtherMenu: IMenuItem[] = [
                 children: [
                   {
                     name: 'Level 5',
-                    route: '/multilevel-menu/level-5'
+                    url: '/multilevel-menu/level-5'
                   }
                 ]
               }
@@ -45,7 +45,7 @@ export const OtherMenu: IMenuItem[] = [
                   {
                     name: 'Level 5',
                     icon: 'list',
-                    route: '/multilevel-menu/level-5'
+                    url: '/multilevel-menu/level-5'
                   }
                 ]
               }
@@ -59,7 +59,7 @@ export const OtherMenu: IMenuItem[] = [
     name: 'Navigation', icon: 'launch', children: [
       { name: 'Normal Route' },
       { name: 'Route with Queries' },
-      { name: 'External Link', route: 'https://google.com' }
+      { name: 'External Link', url: 'https://google.com' }
     ]
   }
 ];

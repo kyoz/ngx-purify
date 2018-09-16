@@ -6,6 +6,6 @@ export interface IMenuGroup {
 export interface IMenuItem {
   name: string,
   icon?: string,
-  route?: string,
+  url?: string,
   children?: IMenuItem[]
 }

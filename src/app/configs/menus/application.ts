@@ -10,23 +10,23 @@ import { IMenuItem } from "../../core/pure-interfaces/menu";
 export const ApplicationMenu: IMenuItem[] = [
   { 
     name: 'Dashboard', icon: 'dashboard', children: [
-      { name: 'Analytical', route: '/app/dashboard/analytical' },
-      { name: 'Operational', route: '/app/dashboard/operational' },
-      { name: 'Strategic', route: '/app/dashboard/strategic' }
+      { name: 'Analytical', url: '/app/dashboard/analytical' },
+      { name: 'Operational', url: '/app/dashboard/operational' },
+      { name: 'Strategic', url: '/app/dashboard/strategic' }
     ]
   },
   {
     name: 'E-Commerce', icon: 'shopping_cart', children: [
-     { name: 'Front page', route: '/app/e-commerce/front-page' },
-     { name: 'Management', route: '/app/e-commerce/management' }
+     { name: 'Front page', url: '/app/e-commerce/front-page' },
+     { name: 'Management', url: '/app/e-commerce/management' }
     ]
   },
-  { name: 'Calender', icon: 'today', route: '/app/calender' },
-  { name: 'Contacts', icon: 'account_box', route: '/app/contacts' },
-  { name: 'Mail', icon: 'mail', route: '/app/mail' },
-  { name: 'Messenger', icon: 'message', route: '/app/messenger' },
-  { name: 'Todo', icon: 'check_box', route: '/app/todo' },
-  { name: 'Scrumboard', icon: 'dns', route: '/app/scrumboard' },
-  { name: 'File Manager', icon: 'folder', route: '/app/file-manager' },
-  { name: 'Search', icon: 'search', route: '/app/search' }
+  { name: 'Calender', icon: 'today', url: '/app/calender' },
+  { name: 'Contacts', icon: 'account_box', url: '/app/contacts' },
+  { name: 'Mail', icon: 'mail', url: '/app/mail' },
+  { name: 'Messenger', icon: 'message', url: '/app/messenger' },
+  { name: 'Todo', icon: 'check_box', url: '/app/todo' },
+  { name: 'Scrumboard', icon: 'dns', url: '/app/scrumboard' },
+  { name: 'File Manager', icon: 'folder', url: '/app/file-manager' },
+  { name: 'Search', icon: 'search', url: '/app/search' }
 ];
