@@ -13,8 +13,13 @@
         color: mat-color($primary, .9);
       }
 
-      .menu-item-name {
-        color: mat-color($foreground, text);
+      .pure-menu-content {
+        .menu-item-icon, .expand-icon {
+          color: mat-color($foreground, icon);
+        }
+        .menu-item-name {
+          color: mat-color($foreground, text);
+        }
       }
 
       /**
@@ -52,10 +57,6 @@
           &:after { background: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, .2)); }
         }
       }
-    }
-
-    mat-icon {
-      color: mat-color($foreground, icon);
     }
   }
 }

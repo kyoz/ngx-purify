@@ -1,7 +1,7 @@
 <a mat-list-item class="pure-menu-item" (click)="onMenuItemClicked()">
   <div fxLayout="row" fxLayoutAlign="start center" class="pure-menu-content content level-{{level}}"
     [ngClass]="{'active': active, 'opened': opened}">
-    <mat-icon class="icon" *ngIf="menuItemData.icon">{{ menuItemData.icon }}</mat-icon>
+    <mat-icon class="menu-item-icon" *ngIf="menuItemData.icon">{{ menuItemData.icon }}</mat-icon>
     <span class="menu-item-name">
       {{ menuItemData.name }}
     </span>
