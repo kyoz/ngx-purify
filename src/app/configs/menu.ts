@@ -1,152 +1,17 @@
-import { IMenuGroup, IMenuItem } from "../core/pure-interfaces/menu";
+// Interfaces
+import { IMenuGroup } from "../core/pure-interfaces/menu";
 
-/**
- * DEFINE MENUS
- * I do prefer this method to config menu than using class (Ex: new Class('Calendar', 'today', 'app/calendar'))
- * With this method you can provide object correct with Interface. No need to arrange.
- * And with object key, its more easier for us when we have update.
- */
-
-const ApplicationMenu: IMenuItem[] = [
-  { name: 'Calender', icon: 'today', route: '' },
-  { name: 'Mail', icon: 'mail', route: 'app/dashboard/analytical' },
-  { name: 'Messenger', icon: 'message', route: 'app/messenger' }
-];
-
-const PageMenu: IMenuItem[] = [
-  {
-    name: 'Authentication',
-    icon: 'lock',
-    children: [
-      {
-        name: 'Login', icon: 'lock', route: 'app/login', children: [
-          { name: 'Login 1', icon: '' },
-          { name: 'Login 2', icon: 'lock', route: 'app/dashboard' },
-          { name: 'Login 3', icon: 'lock', route: 'app/dashboard/operational' },
-        ]
-      },
-      { name: 'Register', route: 'app/register' },
-      { name: 'Forgot Password', route: 'app/forgot_password' }
-    ]
-  },
-  {
-    name: 'Pricing',
-    icon: 'attach_money',
-    children: [
-      { name: 'Pricing 1', route: 'https://google.com' },
-      { name: 'Pricing 2', route: '/page/auth/login' },
-      { name: 'Pricing 3', route: 'app/pricing_3' }
-    ]
-  }
-];
-
-const TestMenu: IMenuItem[] = [
-  {
-    name: 'Test have icon',
-    icon: 'money',
-    children: [
-      {
-        name: 'Level 1',
-        route: 'app/test_1',
-        icon: 'money',
-        children: [
-          {
-            name: 'Level 2',
-            icon: 'money',
-            route: 'app/test_2',
-            children: [
-              {
-                name: 'Level 3',
-            icon: 'money',
-                route: 'app/test_3',
-                children: [
-                  {
-                    name: 'Level 4',
-            icon: 'money',
-                    route: 'app/test_3',
-                    children: [
-                      {
-                        name: 'Level 5',
-            icon: 'money',
-                        route: 'app/test_3',
-                        children: [
-                          {
-                            name: 'Level 6',
-                            icon: 'money',
-                            route: 'app/test_3',
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-    ]
-  }
-];
-
-const TestMenuNoIcon: IMenuItem[] = [
-  {
-    name: 'Test no icon',
-    children: [
-      {
-        name: 'Level 1',
-        route: 'app/test_1',
-        children: [
-          {
-            name: 'Level 2',
-            route: 'app/test_2',
-            children: [
-              {
-                name: 'Level 3',
-                route: 'app/test_3',
-                children: [
-                  {
-                    name: 'Level 4',
-                    route: 'app/test_3',
-                    children: [
-                      {
-                        name: 'Level 5',
-                        route: 'app/test_3',
-                        children: [
-                          { name: 'Level 6', route: 'app/test_3' }
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-    ]
-  }
-];
-
-/**
- * ADD MENUS TO MENU_CONFIGS
- */
+// Menus
+import { ApplicationMenu } from './menus/application';
+import { PageMenu } from './menus/page';
+import { OtherMenu } from './menus/other';
+import { DocumentationMenu } from './menus/documentation';
+import { MaterialComponentMenu } from './menus/material-component';
 
 export const MENU_CONFIG: IMenuGroup[] = [
-  {
-    groupName: 'APPLICATIONS',
-    menuItems: ApplicationMenu
-  },
-  {
-    groupName: 'PAGES',
-    menuItems: PageMenu
-  },
-  {
-    groupName: 'TESTS',
-    menuItems: TestMenu
-  },
-  {
-    groupName: 'TEST NO ICON',
-    menuItems: TestMenuNoIcon
-  }
+  { groupName: 'APPLICATIONS', menuItems: ApplicationMenu },
+  { groupName: 'PAGES', menuItems: PageMenu },
+  { groupName: 'MATERIAL COMPONENTS', menuItems: MaterialComponentMenu },
+  { groupName: 'DOCUMENTATION', menuItems: DocumentationMenu },
+  { groupName: 'OTHERS', menuItems: OtherMenu }
 ];

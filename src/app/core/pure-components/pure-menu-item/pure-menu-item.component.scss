@@ -19,6 +19,9 @@
     .menu-item-name {
       font-size: 14px;
       flex: 1 1 auto;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .expand-icon {
