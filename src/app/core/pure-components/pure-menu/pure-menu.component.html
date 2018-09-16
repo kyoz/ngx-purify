@@ -1,12 +1,10 @@
-<div #PURE_MENU class="pure-menu" perfectScrollbar>
-  <div class="menu pure-theme">
-
-    <div class="group" *ngFor="let group of menuData">
-      <div class="group-name">{{ group.groupName }}</div>
-      <mat-nav-list>
-        <pure-menu-item *ngFor="let menuItem of group.menuItems" [menuItemData]="menuItem"></pure-menu-item>
-      </mat-nav-list>
-    </div>
-    
+<div #PURE_MENU class="pure-menu pure-theme" perfectScrollbar [ngClass]="{
+  'closed': _menuContainer.isClosed
+}">
+  <div class="group" *ngFor="let group of menuData">
+    <div class="group-name">{{ group.groupName }}</div>
+    <mat-nav-list>
+      <pure-menu-item *ngFor="let menuItem of group.menuItems" [menuItemData]="menuItem"></pure-menu-item>
+    </mat-nav-list>
   </div>
 </div>

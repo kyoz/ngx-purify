@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { PureMenuContainerService } from '../../pure-containers/pure-menu-container/pure-menu-container.service';
 import { MENU_CONFIG } from '../../../configs/menu';
 
 @Component({
@@ -11,7 +12,7 @@ export class PureMenu implements OnInit {
 
   menuData = MENU_CONFIG;
 
-  constructor() { }
+  constructor(public _menuContainer: PureMenuContainerService) { }
 
   ngAfterViewInit() {
 

@@ -14,10 +14,10 @@
       }
 
       .pure-menu-content {
-        .menu-item-icon, .expand-icon {
+        .icon, .expand-icon {
           color: mat-color($foreground, icon);
         }
-        .menu-item-name {
+        .name {
           color: mat-color($foreground, text);
         }
       }
