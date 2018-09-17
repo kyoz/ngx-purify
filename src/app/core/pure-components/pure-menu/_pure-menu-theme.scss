@@ -7,7 +7,6 @@
   $is-dark: map-get($theme, is-dark);
 
   .pure-menu {
-
     .group {
       .group-name {
         color: mat-color($primary, .9);
@@ -33,6 +32,27 @@
       .content.level-1, .content.level-2, .content.level-3, .content.level-4 {
         @if $is-dark==true {
           background: rgba(#212121, .6);
+        } @else {
+          background: rgba(#bdbdbd, .1);
+        }
+
+        // Hover Effect
+        &:hover {
+          @if $is-dark==true {
+            background: rgba(#212121, .9);
+          } @else {
+            background: rgba(#bdbdbd, .2);
+          }
+        }
+      }
+
+      /**
+       * CONTENT 
+       */
+
+      .content:hover {
+        @if $is-dark==true {
+          background: rgba(#212121, .4);
         }
 
         @else {
@@ -48,7 +68,12 @@
 
         &:before { background: linear-gradient(180deg, rgba(0, 0, 0, .2) 0, transparent); }
         &:after { background: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, .2)); }
+        &:hover { background: mat-color($primary); }
       }
+
+      /**
+       * CHILDREN
+       */
 
       .children {
         @if $is-dark==true {

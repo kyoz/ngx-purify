@@ -1,17 +1,15 @@
-<a mat-list-item class="pure-menu-item" (click)="onMenuItemClicked()">
+<div class="pure-menu-item" (click)="onMenuItemClicked()">
   <div fxLayout="row" fxLayoutAlign="start center" class="pure-menu-content content level-{{level}}"
     [ngClass]="{'active': active, 'opened': opened}">
     <!--Icon to replace menu item that doesn't have icon when shrink-->
-    <mat-icon class="replace-icon" *ngIf="!menuItemData.icon && !_menuContainer.isHovering && _menuContainer.isClosed">more_horiz</mat-icon>
+    <mat-icon class="replace-icon" *ngIf="!menuItemData.icon && !_menuContainer.isHovering && _menuContainer.isClosed">layers</mat-icon>
     <!--Original icon-->
     <mat-icon class="icon" *ngIf="menuItemData.icon">{{ menuItemData.icon }}</mat-icon>
-    <span class="name" *ngIf="_menuContainer.isHovering || _menuContainer.isOpened">
-      {{ menuItemData.name }}
-    </span>
+    <span class="name" *ngIf="_menuContainer.isHovering || _menuContainer.isOpened">{{ menuItemData.name }}</span>
     <mat-icon class="expand-icon" [ngClass]="{ 'expanded': opened }"
       *ngIf="hasChildren && (_menuContainer.isHovering || _menuContainer.isOpened)">keyboard_arrow_right</mat-icon>
   </div>
-</a>
+</div>
 
 <div class="children" *ngIf="hasChildren" [ngStyle]="{ 'height.px': height }">
   <pure-menu-item *ngFor="let childMenuItem of menuItemData.children" 

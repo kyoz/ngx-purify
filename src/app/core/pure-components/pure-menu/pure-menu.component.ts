@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { PureMenuContainerService } from '../../pure-containers/pure-menu-container/pure-menu-container.service';
+import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 import { MENU_CONFIG } from '../../../configs/menu';
+import { PureMenuService } from './pure-menu.service';
+import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'pure-menu',
@@ -8,11 +11,13 @@ import { MENU_CONFIG } from '../../../configs/menu';
   styleUrls: ['./pure-menu.component.scss']
 })
 export class PureMenu implements OnInit {
-  @ViewChild('PURE_MENU') pureMenu: ElementRef;
+  @ViewChild('PURE_MENU') pureMenuScrollbar?: PerfectScrollbarDirective;
 
   menuData = MENU_CONFIG;
 
-  constructor(public _menuContainer: PureMenuContainerService) { }
+  constructor(
+    private _menuService: PureMenuService,
+    public _menuContainer: PureMenuContainerService) { }
 
   ngAfterViewInit() {
 
@@ -25,24 +30,33 @@ export class PureMenu implements OnInit {
       activatingMenuItemRef[0].scrollIntoView(true);
 
       // Menu has scroll all the way to bottom
-      if (this.pureMenu.nativeElement.scrollHeight <= (this.pureMenu.nativeElement.scrollTop + window.innerHeight - 64)) {
+      const pureMenu = this.pureMenuScrollbar.elementRef.nativeElement;
+
+      if (pureMenu.scrollHeight <= (pureMenu.scrollTop + window.innerHeight - 64)) {
         return;
       }
       // 64 is the height of toolbar, 24 is half of the item height
       const centerScreenHeight = (window.innerHeight - 64) / 2 - 24;
 
-      this.pureMenu.nativeElement.scrollTop -= centerScreenHeight;
+      pureMenu.scrollTop -= centerScreenHeight;
 
-      const scrollTopInInnerHeight = this.pureMenu.nativeElement.scrollTop * window.innerHeight / this.pureMenu.nativeElement.scrollHeight;
+      const scrollTopInInnerHeight = pureMenu.scrollTop * window.innerHeight / pureMenu.scrollHeight;
 
       if (scrollTopInInnerHeight < centerScreenHeight) {
         setTimeout(() => {
-          this.pureMenu.nativeElement.scrollTop -= (centerScreenHeight - scrollTopInInnerHeight) / 2 + 48;
+          pureMenu.scrollTop -= (centerScreenHeight - scrollTopInInnerHeight) / 2 + 48;
         });
       }
     }
   }
 
   ngOnInit() {
+    this._menuService.onActivatingMenuItem$.pipe(debounceTime(100), distinctUntilChanged()).subscribe(() => {
+      // The menu have animation on height when menu expanding. Have to wait for animation done.
+      // If no, there'll be a gap at bottom in some case.
+      setTimeout(() => {
+        this.pureMenuScrollbar.update();
+      }, 300);
+    });
   }
 }

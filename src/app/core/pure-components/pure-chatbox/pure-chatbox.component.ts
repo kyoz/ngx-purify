@@ -11,7 +11,7 @@ import { PureSettingsService } from '../../pure-services/pure-settings.service';
 })
 export class PureChatbox implements OnInit {
   @ViewChild('message_input') messageInputRef: ElementRef;
-  @ViewChild('messages_content') messagesContentRef?: PerfectScrollbarDirective;
+  @ViewChild('messages_content') messagesContentScrollbar?: PerfectScrollbarDirective;
 
   messageInput;
 
@@ -74,9 +74,9 @@ export class PureChatbox implements OnInit {
   scrollChatboxToBottom() {
     this._changeDetectionRef.detectChanges();
 
-    if (this.messagesContentRef) {
-      this.messagesContentRef.update();
-      this.messagesContentRef.scrollToBottom();
+    if (this.messagesContentScrollbar) {
+      this.messagesContentScrollbar.update();
+      this.messagesContentScrollbar.scrollToBottom();
     }
   }
 

@@ -4,10 +4,11 @@
   right: 0px;
   top: 0px;
   bottom: 0px;
-  padding-top: 8px;
+  padding-top: 12px;
+  overflow: hidden;
 
   .group-name {
-    padding: 32px 0px 8px 24px;
+    padding: 24px 0px 16px 24px;
     font-size: 12px;
     font-weight: bold;
     white-space: nowrap;
@@ -22,7 +23,7 @@
     mat-icon {
       position: absolute;
       left: 20px;
-      top: 24px;
+      top: 18px;
     }
   }
 }

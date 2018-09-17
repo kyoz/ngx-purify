@@ -55,7 +55,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
 
      // Expanding menu on load when there is activating menu item
      if (this._menuService.activatingMenuItem && this._menuService.activatingMenuItem === this) {
-      this.expandDropdownOnLoad(this._menuService.activatingMenuItem);
+      this.expandDropdownOnLoad();
     }
 
     // To detect when you change value of a parent components when inside child components
@@ -171,10 +171,13 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
           childComponent.toggleDropdown();
         }
       });
+
+      // Dispatch event to know when the menu is collapse
+      this._menuService.onActivatingMenuItem$.next(new Date);
     }
   }
 
-  expandDropdownOnLoad(activatingMenuItem) {
+  expandDropdownOnLoad() {
     let parent: PureMenuItem = this;
     let rootParent: PureMenuItem = this;
 

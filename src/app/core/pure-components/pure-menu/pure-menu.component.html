@@ -1,11 +1,9 @@
-<div #PURE_MENU class="pure-menu pure-theme" perfectScrollbar>
+<div #PURE_MENU=ngxPerfectScrollbar class="pure-menu pure-theme" perfectScrollbar>
   <div class="group" *ngFor="let group of menuData">
     <!--Icon to replace group name when the menu shrink-->
     <div class="group-name-replace" *ngIf="_menuContainer.isClosed && !_menuContainer.isHovering"><mat-icon>remove</mat-icon></div>
     <!--Group name-->
     <div class="group-name" *ngIf="_menuContainer.isOpened || _menuContainer.isHovering">{{ group.groupName }}</div>
-    <mat-nav-list>
-      <pure-menu-item *ngFor="let menuItem of group.menuItems" [menuItemData]="menuItem"></pure-menu-item>
-    </mat-nav-list>
+    <pure-menu-item *ngFor="let menuItem of group.menuItems" [menuItemData]="menuItem"></pure-menu-item>
   </div>
 </div>
