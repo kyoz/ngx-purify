@@ -70,11 +70,12 @@ export class PureMenuContainerService {
     return this._state === 'closed';
   }
   
+  public get isHovering() {
+    return this._isHovering;
+  }
+  
   public get canHover() {
     return this._canHover;
   }
 
-  public get isHovering() {
-    return this._isHovering;
-  }
 }

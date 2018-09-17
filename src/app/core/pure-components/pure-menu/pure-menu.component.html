@@ -1,4 +1,4 @@
-<div #PURE_MENU=ngxPerfectScrollbar class="pure-menu pure-theme" perfectScrollbar
+<div #PURE_MENU=ngxPerfectScrollbar class="pure-menu pure-theme" [perfectScrollbar]="{ suppressScrollX: true }"
   [ngClass]="{ 'opened-or-hovering-menu': _menuContainer.canHover && (_menuContainer.isHovering || _menuContainer.isOpened) }">
   <div class="group" *ngFor="let group of menuData">
     <div class="group-name-wrapper">
