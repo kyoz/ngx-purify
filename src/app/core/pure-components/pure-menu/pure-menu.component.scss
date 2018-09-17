@@ -7,23 +7,25 @@
   padding-top: 12px;
   overflow: hidden;
 
-  .group-name {
-    padding: 24px 0px 16px 24px;
-    font-size: 12px;
-    font-weight: bold;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+  .group {
+    .group-name {
+      padding: 24px 0px 16px 24px;
+      font-size: 12px;
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
-  .group-name-replace {
-    height: 54px;
-    width: 100%;
-    position: relative;
-    mat-icon {
-      position: absolute;
-      left: 20px;
-      top: 18px;
+    .group-name-replace {
+      height: 54px;
+      width: 100%;
+      position: relative;
+      mat-icon {
+        position: absolute;
+        left: 20px;
+        top: 18px;
+      }
     }
   }
 }
