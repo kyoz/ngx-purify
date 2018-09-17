@@ -104,6 +104,13 @@
     padding-left: 150px;
   }
 
+  .content.level-1, .content.level-2, .content.level-3, .content.level-4 {
+    .icon {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
   /**
    * TRANSITION FOR MENU ITEMS
    */
@@ -125,6 +132,17 @@
       visibility: hidden;
       opacity: 0;
       transition: visibility 200ms ease-in, opacity 200ms ease-in;
+    }
+  }
+
+  .content.opened-or-hovering-menu.level-1,
+  .content.opened-or-hovering-menu.level-2,
+  .content.opened-or-hovering-menu.level-3,
+  .content.opened-or-hovering-menu.level-4 {
+    .icon {
+      visibility: visible;
+      opacity: 1;
+      transition: visibility .3s ease-in-out, opacity .5s ease-in-out;
     }
   }
 
