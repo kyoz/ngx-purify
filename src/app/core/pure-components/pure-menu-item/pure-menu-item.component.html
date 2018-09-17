@@ -2,10 +2,11 @@
   <div fxLayout="row" fxLayoutAlign="start center" class="pure-menu-content content level-{{level}}"
     [ngClass]="{
       'active': active, 'opened': opened,
-      'opened-or-hovering-menu': _menuContainer.canHover && (_menuContainer.isHovering || _menuContainer.isOpened)
+      'opened-or-hovering-menu': _menuContainer.canHover && (_menuContainer.isHovering || _menuContainer.isOpened),
+      'no-icon': !menuItemData.icon && _menuContainer.isClosed
     }">
     <!--Icon to replace menu item that doesn't have icon when shrink-->
-    <mat-icon class="replace-icon" *ngIf="!menuItemData.icon && _menuContainer.isClosed">layers</mat-icon>
+    <mat-icon class="replace-icon">layers</mat-icon>
     <!--Original icon-->
     <mat-icon class="icon" *ngIf="menuItemData.icon">{{ menuItemData.icon }}</mat-icon>
     <span class="name">{{ menuItemData.name }}</span>

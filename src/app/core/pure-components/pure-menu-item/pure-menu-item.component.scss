@@ -30,6 +30,8 @@
       height: 14px;
       line-height: 14px;
       transition: none;
+      visibility: hidden;
+      opacity: 0;
     }
 
     .name {
@@ -105,6 +107,13 @@
    * TRANSITION FOR MENU ITEMS
    */
 
+  .pure-menu-content.no-icon {
+    .replace-icon {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
   .pure-menu-content.opened-or-hovering-menu {
     .name, .expand-icon {
       visibility: visible;
@@ -112,9 +121,12 @@
       transition: visibility .3s ease-in-out, opacity .5s ease-in-out;
     }
     .replace-icon {
-      display: none;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 200ms ease-in, opacity 200ms ease-in;
     }
   }
+
 }
 
 .children {

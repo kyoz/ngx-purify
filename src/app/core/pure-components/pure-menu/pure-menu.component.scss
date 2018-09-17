@@ -49,7 +49,7 @@
     .group-name-replace {
       visibility: hidden;
       opacity: 0;
-      transition: visibility 100ms linear 100ms, opacity 100ms linear;
+      transition: visibility 200ms ease-in, opacity 200ms ease-in;
     }
   }
 }
