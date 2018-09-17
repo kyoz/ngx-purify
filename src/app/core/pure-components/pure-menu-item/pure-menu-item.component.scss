@@ -2,6 +2,7 @@
   padding-top: 0px;
   height: 48px;
   width: 100%;
+  box-sizing: border-box;
   position: relative;
 
   .content {
@@ -11,7 +12,6 @@
     top: 0px;
     bottom: 0px;
     padding-left: 22px;
-    padding-right: 18px;
 
     .icon {
       font-size: 20px;
@@ -53,6 +53,7 @@
       min-height: 18px;
       max-height: 18px;
       margin-bottom: -2px;
+      margin-right: 18px;
       visibility: hidden;
       opacity: 0;
       transition: transform .2s ease-in-out;
@@ -69,7 +70,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
+      right: 0px;
       height: 2px;
     }
   
@@ -78,7 +79,7 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 100%;
+      right: 0px;
       height: 2px;
     }
   }
