@@ -29,6 +29,7 @@
       width: 14px;
       height: 14px;
       line-height: 14px;
+      transition: none;
     }
 
     .name {
@@ -37,6 +38,9 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      visibility: hidden;
+      opacity: 0;
+      transition: none;
     }
 
     .expand-icon {
@@ -47,6 +51,8 @@
       min-height: 18px;
       max-height: 18px;
       margin-bottom: -2px;
+      visibility: hidden;
+      opacity: 0;
       transition: transform .2s ease-in-out;
     }
 
@@ -93,6 +99,21 @@
 
   .content.level-4 {
     padding-left: 150px;
+  }
+
+  /**
+   * TRANSITION FOR MENU ITEMS
+   */
+
+  .pure-menu-content.hovering-menu {
+    .name, .expand-icon {
+      visibility: visible;
+      opacity: 1;
+      transition: visibility .3s ease-in-out, opacity .5s ease-in-out;
+    }
+    .replace-icon {
+      display: none;
+    }
   }
 }
 
