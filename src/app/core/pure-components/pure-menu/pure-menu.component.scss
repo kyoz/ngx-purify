@@ -8,23 +8,26 @@
   overflow: hidden;
 
   .group {
-    .group-name {
-      padding: 24px 0px 16px 24px;
-      font-size: 12px;
-      font-weight: bold;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .group-name-replace {
+    .group-name-wrapper {
       height: 54px;
       width: 100%;
       position: relative;
-      mat-icon {
+
+      .group-name {
         position: absolute;
+        top: 24px;
+        left: 24px;
+        font-size: 12px;
+        font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .group-name-replace {
+        position: absolute;
+        top: 16px;
         left: 20px;
-        top: 18px;
       }
     }
   }
