@@ -1,6 +1,5 @@
 .pure-chatbox-container {
   position: absolute;
-  display: flex;
   right: -352px;
   left: unset;
   top: 0px;
@@ -10,7 +9,6 @@
   overflow: hidden;
   box-sizing: border-box;
   transition: transform 100ms ease-in-out;
-  will-change: transform;
   z-index: 9000;
 
   .toolbar {

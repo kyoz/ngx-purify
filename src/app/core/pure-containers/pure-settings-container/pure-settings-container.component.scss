@@ -9,7 +9,6 @@
   box-sizing: border-box;
   transform: translateX(320px);
   transition: transform 100ms ease-in-out;
-  will-change: transform;
   z-index: 10000;
 
   .settings-wrapper{

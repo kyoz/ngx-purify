@@ -1,6 +1,5 @@
 .pure-notification-container {
   position: absolute;
-  display: flex;
   right: -288px;
   left: unset;
   top: 0px;
@@ -27,7 +26,6 @@
 .pure-notification-container.opened {
   transform: translateX(-288px);
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
-  will-change: transform;
 }
 
 /**
