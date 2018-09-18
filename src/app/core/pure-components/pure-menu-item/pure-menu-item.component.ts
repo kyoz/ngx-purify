@@ -129,8 +129,6 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   onMenuItemClicked() {
     if (this.hasChildren) {
       this.toggleDropdown();
-    } else {
-      this.navigate();
     }
   }
 

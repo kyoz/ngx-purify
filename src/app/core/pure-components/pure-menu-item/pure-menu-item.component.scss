@@ -1,9 +1,10 @@
 .pure-menu-item {
-  padding-top: 0px;
+  position: relative;
+  display: block;
+  box-sizing: border-box;
   height: 48px;
   width: 100%;
-  box-sizing: border-box;
-  position: relative;
+  padding-top: 0px;
 
   .content {
     position: absolute;

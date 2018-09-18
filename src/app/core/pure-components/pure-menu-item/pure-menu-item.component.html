@@ -1,4 +1,4 @@
-<div class="pure-menu-item" (click)="onMenuItemClicked()" [ngClass]="{  }">
+<a class="pure-menu-item" (click)="onMenuItemClicked()" [routerLink]="menuItemData.url">
   <div fxLayout="row" fxLayoutAlign="start center" class="pure-menu-content content level-{{level}}"
     [ngClass]="{
       'active': active, 'opened': opened,
@@ -13,7 +13,7 @@
     <mat-icon class="expand-icon" [ngClass]="{ 'expanded': opened }"
       *ngIf="hasChildren">keyboard_arrow_right</mat-icon>
   </div>
-</div>
+</a>
 
 <div class="children" *ngIf="hasChildren" [ngStyle]="{ 'height.px': height }">
   <pure-menu-item *ngFor="let childMenuItem of menuItemData.children" 
