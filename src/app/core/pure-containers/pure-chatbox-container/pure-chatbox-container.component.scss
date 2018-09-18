@@ -1,13 +1,16 @@
 .pure-chatbox-container {
   position: absolute;
-  right: -288px;
+  display: flex;
+  right: -352px;
+  left: unset;
   top: 0px;
   bottom: 0px;
   width: 352px;
   max-width: 100vw;
   overflow: hidden;
   box-sizing: border-box;
-  transition: all .15s ease-in-out;
+  transition: transform 100ms ease-in-out;
+  will-change: transform;
   z-index: 9000;
 
   .toolbar {
@@ -57,25 +60,33 @@
   }
 }
 
-.pure-chatbox-container.non-fullwidth {
-  right: -352px;
+.pure-chatbox-container.fullwidth, .pure-chatbox-container.opened {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
+}
+
+/**
+ * TRANSITIONS
+ */
+
+.pure-chatbox-container.opened {
+  .toolbar {
+    .content {
+      opacity: 1;
+    }
+  }
 }
 
 .pure-chatbox-container.fullwidth {
   right: -288px;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
+  left: unset;
 }
 
-.pure-chatbox-container.opened {
-  right: 0px;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
+.pure-chatbox-container.fullwidth.opened {
+  transform: translateX(-288px);
+}
 
-  .toolbar {
-    .content {
-      opacity: 1;
-      visibility: visible;
-    }
-  }
+.pure-chatbox-container.non-fullwidth.opened {
+  transform: translateX(-352px);
 }
 
 /**
@@ -124,17 +135,15 @@
   }
 }
 
-.pure-chatbox-container.non-fullwidth.RTL {
-  right: unset;
-  left: -352px;
-}
-
 .pure-chatbox-container.fullwidth.RTL {
   right: unset;
   left: -288px;
 }
 
-.pure-chatbox-container.opened.RTL {
-  right: unset;
-  left: 0px;
+.pure-chatbox-container.fullwidth.opened.RTL {
+  transform: translateX(288px);
+}
+
+.pure-chatbox-container.non-fullwidth.opened.RTL {
+  transform: translateX(352px);
 }

@@ -14,7 +14,7 @@
     right: 64px;
     top: 0px;
     bottom: 0px;
-    transition: left .15s ease-in-out;
+    transition: left 100ms ease-in-out;
   }
 
   .menu-content-small-screen {
@@ -50,7 +50,7 @@
   left: 0px;
   right: 0px;
   animation-name: pure-container-backdrop-anim;
-  animation-duration: .5s;
+  animation-duration: 500ms;
   animation-fill-mode: forwards;
 }
 
@@ -70,11 +70,11 @@
 
 @keyframes pure-container-backdrop-anim {
   from {
-    background: rgba(black, .0)
+    background-color: rgba(black, .0)
   }
 
   to {
-    background: rgba(black, .6)
+    background-color: rgba(black, .6)
   }
 }
 
@@ -84,7 +84,7 @@
 
 .pure-main-container.RTL {
   .content {
-    transition: right .15s ease-in-out;
+    transition: right 100ms ease-in-out;
   }
 
   .menu-content-small-screen {
