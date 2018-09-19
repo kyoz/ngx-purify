@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, ChangeDetectionStrategy } from '@angular/core';
 import { PureMenuContainerService } from '../../pure-containers/pure-menu-container/pure-menu-container.service';
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
 import { PureNotificationContainerService } from '../../pure-containers/pure-notification-container/pure-notification-container.service';
@@ -7,7 +7,8 @@ import { PureSettingsService } from '../../pure-services/pure-settings.service';
 @Component({
   selector: 'pure-toolbar',
   templateUrl: './pure-toolbar.component.html',
-  styleUrls: ['./pure-toolbar.component.scss']
+  styleUrls: ['./pure-toolbar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PureToolbar {
   @HostListener('window:fullscreenchange', ['$event'])

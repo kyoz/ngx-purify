@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { getToday } from '../../pure-utils/pure-date';
 
 @Component({
   selector: 'pure-notification',
   templateUrl: './pure-notification.component.html',
-  styleUrls: ['./pure-notification.component.scss']
+  styleUrls: ['./pure-notification.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PureNotification implements OnInit {
 
