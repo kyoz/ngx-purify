@@ -25,28 +25,7 @@ export class PureSettingsService {
   currentTextDir$: BehaviorSubject<string> = new BehaviorSubject('LTR');
   currentWidthLayout$: BehaviorSubject<string> = new BehaviorSubject('Fullwidth');
 
-  // Subscribe variables to use as models
-  currentTheme;
-  currentLang;
-  currentTextDir;
-  currentWidthLayout;
-
   constructor(private _storage: PureSettingsStorageService) {
-    this.currentTheme$.subscribe(theme => {
-      this.currentTheme = theme;
-    });
-
-    this.currentLang$.subscribe(lang => {
-      this.currentLang = lang;
-    });
-
-    this.currentTextDir$.subscribe(textDir => {
-      this.currentTextDir = textDir;
-    });
-
-    this.currentWidthLayout$.subscribe(widthLayout => {
-      this.currentWidthLayout = widthLayout;
-    });
   }
 
   /**

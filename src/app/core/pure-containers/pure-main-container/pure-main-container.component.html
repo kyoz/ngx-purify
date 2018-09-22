@@ -1,5 +1,5 @@
 <div id="PURE_MAIN_CONTAINER" class="pure-main-container" [ngClass]="{
-  'RTL' : _settings.currentTextDir=== 'RTL'
+  'RTL' : (_settings.currentTextDir$ | async) === 'RTL'
 }">
   <div class="content" [ngClass]="{
     'menu-content-small-screen' : !_menuContainer.isFullWidth,

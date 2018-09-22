@@ -3,7 +3,7 @@
     'fullwidth' : _chatboxContainer.isFullWidth,
     'non-fullwidth' : !_chatboxContainer.isFullWidth,
     'opened' : _chatboxContainer.isOpened,
-    'RTL' : _settings.currentTextDir === 'RTL'
+    'RTL' : (_settings.currentTextDir$ | async) === 'RTL'
   }">
   <mat-toolbar color="primary" class="toolbar" (click)="openChatbox()"
     [ngSwitch]="_chatbox.inConversation && _chatboxContainer.isOpened">
