@@ -7,6 +7,7 @@ import * as Hammer from 'hammerjs';
   selector: 'pure-menu-container',
   templateUrl: './pure-menu-container.component.html',
   styleUrls: ['./pure-menu-container.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PureMenuContainer implements OnInit {
   @ViewChild('pure_menu_container') pureSideMenuContainer: ElementRef;
@@ -27,13 +28,13 @@ export class PureMenuContainer implements OnInit {
     // LTR and RTL direction, but i'v test and it not work well on mobile so for now, i do seperate em
 
     hammer.on('swiperight', () => {
-      if (this._settings.currentSettings.textDirection === 'RTL') {
+      if (this._settings.currentTextDir$.value === 'RTL') {
         this._menuContainer.close();
       }
     });
 
     hammer.on('swipeleft', () => {
-      if (this._settings.currentSettings.textDirection === 'LTR') {
+      if (this._settings.currentTextDir$.value === 'LTR') {
         this._menuContainer.close();
       }
     });

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ChangeDetectionStrategy } from '@angular/core';
 import { PureNotificationContainerService } from './pure-notification-container.service';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import * as Hammer from 'hammerjs';
@@ -6,7 +6,8 @@ import * as Hammer from 'hammerjs';
 @Component({
   selector: 'pure-notification-container',
   templateUrl: './pure-notification-container.component.html',
-  styleUrls: ['./pure-notification-container.component.scss']
+  styleUrls: ['./pure-notification-container.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PureNotificationContainer implements OnInit {
   @ViewChild('pure_notification_container') pureSideNotificationContainer: ElementRef;
@@ -26,13 +27,13 @@ export class PureNotificationContainer implements OnInit {
     // LTR and RTL direction, but i'v test and it not work well on mobile so for now, i do seperate em
 
     hammer.on('swiperight', () => {
-      if (this._settings.currentSettings.textDirection === 'LTR') {
+      if (this._settings.currentTextDir$.value === 'LTR') {
         this._notificationContainer.close();
       }
     });
 
     hammer.on('swipeleft', () => {
-      if (this._settings.currentSettings.textDirection === 'RTL') {
+      if (this._settings.currentTextDir$.value === 'RTL') {
         this._notificationContainer.close();
       }
     });

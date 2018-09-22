@@ -11,7 +11,8 @@ import { PureSettingsService } from '../../pure-services/pure-settings.service';
 @Component({
   selector: 'pure-main-container',
   templateUrl: './pure-main-container.component.html',
-  styleUrls: ['./pure-main-container.component.scss']
+  styleUrls: ['./pure-main-container.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PureMainContainer implements OnInit {
   @Input() minimalMode = false;
@@ -20,7 +21,7 @@ export class PureMainContainer implements OnInit {
     // Init for side menu & chatbox
     this._menuContainer.setIsFullWidth(this._chatboxContainer.isFullWidth = window.innerWidth >= RESPONSIVE_BREAKPOINTS.NORMAL ? true : false);
     this._menuContainer.init();
-    this._notificationContainer.init();
+    this._notificationContainer.reset();
   }
 
   constructor(

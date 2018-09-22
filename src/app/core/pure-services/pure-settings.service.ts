@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ChangeDetectorRef } from '@angular/core';
 import { PureSettingsStorageService } from './pure-settings.storage';
 import { THEMES } from '../../configs/themes';
 import { LANGUAGES } from '../../configs/languages';
-import { IPureTheme } from '../pure-interfaces/settings';
+import { BehaviorSubject } from 'rxjs';
 
 export const SETTING_STORAGE_KEYS = {
   theme: 'current-theme',
@@ -20,36 +20,59 @@ export const SETTINGS = {
 
 @Injectable()
 export class PureSettingsService {
-  currentSettings = {
-    theme: THEMES[0].class, // Take first theme as default
-    language: 'English',
-    textDirection: 'LTR',
-    widthLayout: 'Fullwidth'
-  }
+  currentTheme$: BehaviorSubject<string> = new BehaviorSubject(THEMES[0].class); // Take first theme as default
+  currentLang$: BehaviorSubject<string> = new BehaviorSubject('English');
+  currentTextDir$: BehaviorSubject<string> = new BehaviorSubject('LTR');
+  currentWidthLayout$: BehaviorSubject<string> = new BehaviorSubject('Fullwidth');
+
+  // Subscribe variables to use as models
+  currentTheme;
+  currentLang;
+  currentTextDir;
+  currentWidthLayout;
 
   constructor(private _storage: PureSettingsStorageService) {
+    this.currentTheme$.subscribe(theme => {
+      this.currentTheme = theme;
+    });
+
+    this.currentLang$.subscribe(lang => {
+      this.currentLang = lang;
+    });
+
+    this.currentTextDir$.subscribe(textDir => {
+      this.currentTextDir = textDir;
+    });
+
+    this.currentWidthLayout$.subscribe(widthLayout => {
+      this.currentWidthLayout = widthLayout;
+    });
   }
 
   /**
    * SAVE SETTING FUNCTIONS
    */
 
-  public saveThemeSetting(themeClass: string) {
-    this._storage.storeSetting(SETTING_STORAGE_KEYS.theme, themeClass);
-    this.updateTheme(themeClass);
+  public saveThemeSetting(theme: string) {
+    this._storage.storeSetting(SETTING_STORAGE_KEYS.theme, theme);
+    this.currentTheme$.next(theme);
+    this.updateTheme(theme);
   }
 
   public saveLanguageSetting(language: string) {
     this._storage.storeSetting(SETTING_STORAGE_KEYS.language, language);
+    this.currentLang$.next(language);
   }
 
-  public saveTextDirectionSetting(textDirection: string) {
-    this._storage.storeSetting(SETTING_STORAGE_KEYS.textDirection, textDirection);
-    this.updateTextDirection(textDirection);
+  public saveTextDirectionSetting(textDir: string) {
+    this._storage.storeSetting(SETTING_STORAGE_KEYS.textDirection, textDir);
+    this.currentTextDir$.next(textDir);
+    this.updateTextDirection(textDir);
   }
 
   public saveWidthLayoutSetting(widthLayout: string) {
     this._storage.storeSetting(SETTING_STORAGE_KEYS.widthLayout, widthLayout);
+    this.currentWidthLayout$.next(widthLayout);
     this.updateWidthLayout(widthLayout);
   }
 
@@ -64,18 +87,18 @@ export class PureSettingsService {
     const storedWidthLayout = this._storage.getStoredSetting(SETTING_STORAGE_KEYS.widthLayout);
 
     if (storedTheme) {
-      this.currentSettings.theme = storedTheme;
+      this.currentTheme$.next(storedTheme);
       this.updateTheme(storedTheme);
     }
     if (storedLanguage) {
-      this.currentSettings.language = storedLanguage;
+      this.currentLang$.next(storedLanguage);
     }
     if (storedTextDirection) {
-      this.currentSettings.textDirection = storedTextDirection;
+      this.currentTextDir$.next(storedTextDirection);
       this.updateTextDirection(storedTextDirection);
     }
     if (storedWidthLayout) {
-      this.currentSettings.widthLayout = storedWidthLayout;
+      this.currentWidthLayout$.next(storedWidthLayout);
       this.updateWidthLayout(storedWidthLayout);
     }
   }
@@ -107,8 +130,8 @@ export class PureSettingsService {
       // The current theme store in storage doesn't match any current theme
       // So reset to the default theme (Need at least one theme)
 
-      this.currentSettings.theme = THEMES[0].class;
-      this.updateTheme(this.currentSettings.theme);
+      this.currentTheme$.next(THEMES[0].class);
+      this.updateTheme(this.currentTheme$.value);
     }
   }
 
@@ -130,13 +153,5 @@ export class PureSettingsService {
       default:
         document.getElementById('PURE_MAIN_CONTAINER').classList.remove('boxed');
     }
-  }
-
-  /**
-   * GETTING FUNCTIONS
-   */
-
-  public get textDirection() {
-    return this.currentSettings.textDirection;
   }
 }

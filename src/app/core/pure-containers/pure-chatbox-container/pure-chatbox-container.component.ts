@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ChangeDetectionStrategy } from '@angular/core';
 import { PureChatboxContainerService } from './pure-chatbox-container.service';
 import { PureChatboxService } from '../../pure-components/pure-chatbox/pure-chatbox.service';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
@@ -7,7 +7,8 @@ import * as Hammer from 'hammerjs';
 @Component({
   selector: 'pure-chatbox-container',
   templateUrl: './pure-chatbox-container.component.html',
-  styleUrls: ['./pure-chatbox-container.component.scss']
+  styleUrls: ['./pure-chatbox-container.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PureChatboxContainer implements OnInit {
   @ViewChild('pure_chatbox_container') pureChatboxContainer: ElementRef;
@@ -29,13 +30,13 @@ export class PureChatboxContainer implements OnInit {
     // LTR and RTL direction, but i'v test and it not work well on mobile so for now, i do seperate em
 
     hammer.on('swiperight', () => {
-      if (this._settings.currentSettings.textDirection === 'LTR') {
+      if (this._settings.currentTextDir$.value === 'LTR') {
         this._chatboxContainer.close();
       }
     });
 
     hammer.on('swipeleft', () => {
-      if (this._settings.currentSettings.textDirection === 'RTL') {
+      if (this._settings.currentTextDir$.value === 'RTL') {
         this._chatboxContainer.close();
       }
     });

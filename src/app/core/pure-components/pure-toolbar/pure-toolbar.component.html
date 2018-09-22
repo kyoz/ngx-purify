@@ -1,5 +1,5 @@
 <mat-toolbar class="pure-toolbar" color="primary" [ngClass]="{
-  'RTL' : _settings.textDirection === 'RTL'
+  'RTL' : _settings.currentTextDir === 'RTL'
 }">
   <button mat-button class="button left-side" *ngIf="!_menuContainer.isFullWidth" (click)="_menuContainer.toggle()">
     <mat-icon>menu</mat-icon>
@@ -25,7 +25,7 @@
   <button mat-button class="button right-side language-btn" [matMenuTriggerFor]="languageMenu">
     <mat-icon>languages</mat-icon>
   </button>
-  <button mat-button class="button right-side" (click)="_notificationContainer.toggle()">
+  <button mat-button class="button right-side" (click)="_notificationContainer.open()">
     <mat-icon>format_list_bulleted</mat-icon>
   </button>
   <button mat-button class="button right-side" *ngIf="!_chatboxContainer.isFullWidth"
@@ -42,7 +42,7 @@
 
   <!--USER MENU-->
   <mat-menu #userInfoMenu="matMenu" overlapTrigger="false"
-    [xPosition]="_settings.textDirection === 'LTR' ? 'before' : 'after'">
+    [xPosition]="_settings.currentTextDir === 'LTR' ? 'before' : 'after'">
     <button mat-menu-item>
       <mat-icon svgIcon="account"></mat-icon>
       <span>User Profile</span>
@@ -60,7 +60,7 @@
 
   <!--USER MENU-->
   <mat-menu #languageMenu="matMenu" overlapTrigger="false"
-    [xPosition]="_settings.textDirection === 'LTR' ? 'before' : 'after'">
+    [xPosition]="_settings.currentTextDir === 'LTR' ? 'before' : 'after'">
     <button mat-menu-item>
       <span fxLayout="row" fxLayoutAlign="start center">
         <img src="assets/icon/nations/usa.png" width="24" style="padding-right: 12px">

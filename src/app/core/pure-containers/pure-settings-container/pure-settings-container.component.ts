@@ -1,11 +1,12 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ChangeDetectionStrategy } from '@angular/core';
 import { PureSettingsContainerService } from './pure-settings-container.service';
 import * as Hammer from 'hammerjs';
 
 @Component({
   selector: 'pure-settings-container',
   templateUrl: './pure-settings-container.component.html',
-  styleUrls: ['./pure-settings-container.component.scss']
+  styleUrls: ['./pure-settings-container.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PureSettingsContainer implements OnInit {
   @ViewChild('pure_settings_container') pureSettingsContainer: ElementRef;

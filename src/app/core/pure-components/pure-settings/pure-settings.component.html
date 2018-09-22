@@ -1,5 +1,5 @@
 <div class="pure-settings" [ngClass]="{
-  'RTL' : _settings.textDirection === 'RTL'
+  'RTL' : _settings.currentTextDir === 'RTL'
 }">
   <mat-toolbar class="toolbar" color="primary">
     <mat-icon>settings</mat-icon>
@@ -14,7 +14,7 @@
 
     <mat-list class="setting-list">
       <h3 mat-subheader class="title">Themes</h3>
-      <mat-radio-group  (change)="onChangeTheme($event)" [(ngModel)]="_settings.currentSettings.theme">
+      <mat-radio-group  (change)="onChangeTheme($event)" [(ngModel)]="_settings.currentTheme">
         <mat-list-item class="setting" *ngFor="let theme of SETTINGS.THEMES">
           <span class="pure-spacer-16"></span>
           <mat-radio-button [value]="theme.class">
@@ -28,7 +28,7 @@
 
     <mat-list class="setting-list">
       <h3 mat-subheader class="title">Width Layout</h3>
-      <mat-radio-group (change)="onChangeWidthLayout($event)" [(ngModel)]="_settings.currentSettings.widthLayout">
+      <mat-radio-group (change)="onChangeWidthLayout($event)" [(ngModel)]="_settings.currentWidthLayout">
         <mat-list-item class="setting" *ngFor="let widthLayout of SETTINGS.WIDTH_LAYOUTS">
           <span class="pure-spacer-16"></span>
           <mat-radio-button [value]="widthLayout">
@@ -42,7 +42,7 @@
 
     <mat-list class="setting-list">
       <h3 mat-subheader class="title">Text direction</h3>
-      <mat-radio-group (change)="onChangeTextDirection($event)" [(ngModel)]="_settings.currentSettings.textDirection">
+      <mat-radio-group (change)="onChangeTextDirection($event)" [(ngModel)]="_settings.currentTextDir">
         <mat-list-item class="setting" *ngFor="let dir of SETTINGS.TEXT_DIRECTIONS">
           <span class="pure-spacer-16"></span>
           <mat-radio-button [value]="dir">
@@ -56,7 +56,7 @@
 
     <mat-list class="setting-list">
       <h3 mat-subheader class="title">Languages</h3>
-      <mat-radio-group [(ngModel)]="_settings.currentSettings.language">
+      <mat-radio-group [(ngModel)]="_settings.currentLang">
         <mat-list-item class="setting" *ngFor="let lang of SETTINGS.LANGUAGES">
           <span class="pure-spacer-16"></span>
           <mat-radio-button [value]="lang">

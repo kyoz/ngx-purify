@@ -1,5 +1,5 @@
 <div id="PURE_MAIN_CONTAINER" class="pure-main-container" [ngClass]="{
-  'RTL' : _settings.textDirection === 'RTL'
+  'RTL' : _settings.currentTextDir=== 'RTL'
 }">
   <div class="content" [ngClass]="{
     'menu-content-small-screen' : !_menuContainer.isFullWidth,
@@ -17,13 +17,13 @@
   <pure-settings-container></pure-settings-container>
   <!--Main Backdrop-->
   <div class="pure-main-container-backdrop"
-    [ngStyle]="{'z-index': _notificationContainer.isOpened ? '9900' : '999'}"
+    [ngStyle]="{'z-index': (_notificationContainer.isOpened$ | async) ? '9900' : '999'}"
     [hidden]="!((_menuContainer.isOpened && !_menuContainer.isFullWidth) ||
       (_chatboxContainer.isOpened && !_chatboxContainer.isFullWidth) ||
-      _notificationContainer.isOpened)"
+      (_notificationContainer.isOpened$ | async))"
     (click)="closeBackdrop()"></div>
   <!--Setting Backdrop-->
   <div class="pure-settings-backdrop"
-    [hidden]="!_settingsContainer.isOpened"
+    [hidden]="!(_settingsContainer.isOpened$ | async)"
     (click)="_settingsContainer.close()"></div>
 </div>

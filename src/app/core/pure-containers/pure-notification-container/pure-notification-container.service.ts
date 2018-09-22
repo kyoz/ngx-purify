@@ -1,41 +1,31 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class PureNotificationContainerService {
+  isOpened$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
-  public state: 'opened' | 'closed' = 'closed';
+  constructor() {
+    this.isOpened$.subscribe(isOpened => {
+      if (!isOpened) {
+        // Scroll the notification to top when closed
+        const pureNotification = document.getElementsByClassName('notification-wrapper ps ps--active-y');
+        if(pureNotification && pureNotification[0]) {
+          pureNotification[0].scrollTop = 0;
+        }
+      }
+    })
+  }
 
-  constructor() {}
-
-  public init() {
-    this.state = 'closed';
+  public reset() {
+    this.isOpened$.next(false);
   }
 
   public open() {
-    this.state = 'opened';
+    this.isOpened$.next(true);
   }
 
   public close() {
-    this.state = 'closed';
-
-    // Scroll the notification to top when closed
-    setTimeout(() => {
-      const pureNotification = document.getElementsByClassName('notification-wrapper ps ps--active-y');
-      if(pureNotification && pureNotification[0]) {
-        pureNotification[0].scrollTop = 0;
-      }
-    }, 100);
-  }
-
-  public toggle() {
-    this.state = this.state === 'opened' ? 'closed' : 'opened';
-  }
-
-  public get isOpened() {
-    return this.state === 'opened';
-  }
-
-  public get isClosed() {
-    return this.state === 'closed';
+    this.isOpened$.next(false);
   }
 }
