@@ -18,15 +18,15 @@ export class PureChatbox implements OnInit {
 
   constructor(
     private _changeDetectionRef: ChangeDetectorRef,
-    public _sideChatbox: PureChatboxService,
+    public _chatbox: PureChatboxService,
     public _chatboxContainer: PureChatboxContainerService,
     public _settings: PureSettingsService) {
-      this._sideChatbox.getContacts();
+      this._chatbox.getContacts();
   }
 
   ngOnInit() {
-    this._sideChatbox.currentConversation$.subscribe(() => {
-      if (this._sideChatbox.inConversation) {
+    this._chatbox.currentConversation$.subscribe(() => {
+      if (this._chatbox.inConversation) {
         this.scrollChatboxToBottom();
       }
     });
@@ -34,14 +34,14 @@ export class PureChatbox implements OnInit {
 
   startConversation(contact) {
     this.clearMessageInput();
-    this._sideChatbox.chooseContact(contact.id)
+    this._chatbox.chooseContact(contact.id)
     this.focusMessageInput();
   }
 
   sendMessage() {
     if (!this.messageInput || this.messageInput.trim().length === 0) return;
 
-    this._sideChatbox.sendMessage(this.messageInput);
+    this._chatbox.sendMessage(this.messageInput);
     this.clearMessageInput();
     this.focusMessageInput();
   }

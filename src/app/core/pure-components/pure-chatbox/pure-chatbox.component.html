@@ -2,7 +2,7 @@
   'RTL': (_settings.currentTextDir$ | async) === 'RTL'
 }">
   <div fxFlex="64px" class="chatbox-contacts" perfectScrollbar>
-    <div class="contact-item-wrapper" *ngFor="let contact of _sideChatbox.contacts$ | async">
+    <div class="contact-item-wrapper" *ngFor="let contact of _chatbox.contacts$ | async">
       <button mat-button color="primary" class="contact-item" fxLayoutAlign="center center"
         (click)="startConversation(contact)">
         <img class="contact-image" src="assets/image/avatar/{{contact.avatar}}" matTooltip="{{contact.name}}" matTooltipPosition="before">
@@ -16,7 +16,7 @@
           {{contact.unreadCount >= 100 ? '99+' : contact.unreadCount}}
         </span>
       </button>
-      <span class="contact-item-selected" *ngIf="contact.id === _sideChatbox.conversationContact">
+      <span class="contact-item-selected" *ngIf="contact.id === _chatbox.conversationContact">
         <span class="indicator"></span>
       </span>
     </div>
@@ -24,24 +24,24 @@
   <div class="chatbox" fxFlex fxLayoutAlign="center center" [ngClass]="{
       'chatbox-opened': (_chatboxContainer.isOpened$ | async)
   }">
-    <div class="no-conversation-selected" *ngIf="!_sideChatbox.inConversation && (_chatboxContainer.isOpened$ | async)">
+    <div class="no-conversation-selected" *ngIf="!_chatbox.inConversation && (_chatboxContainer.isOpened$ | async)">
       <div>
         <mat-icon>chat</mat-icon>
       </div>
       Select a contact to start<br>a conversation
     </div>
     <div class="have-conversation" fxLayout="column" fxLayoutAlign="space-between stretch"
-      [hidden]="!(_sideChatbox.inConversation && _sideChatbox.currentConversation.messages.length > 0)">
+      [hidden]="!(_chatbox.inConversation && _chatbox.currentConversation.messages.length > 0)">
       <div #messages_content=ngxPerfectScrollbar class="messages" perfectScrollbar>
-        <div class="message-row" *ngFor="let message of _sideChatbox.currentConversation.messages; let i = index"
+        <div class="message-row" *ngFor="let message of _chatbox.currentConversation.messages; let i = index"
           [ngClass]="{
             'mine' : message.sender === 0,
             'their' : message.sender !== 0,
-            'first-of-group': isFirstOfGroup(i, message, _sideChatbox.currentConversation.messages), 
-            'last-of-group': isLastOfGroup(i, message, _sideChatbox.currentConversation.messages)
+            'first-of-group': isFirstOfGroup(i, message, _chatbox.currentConversation.messages), 
+            'last-of-group': isLastOfGroup(i, message, _chatbox.currentConversation.messages)
           }">
           <img class="avatar" *ngIf="message.sender !== 0" 
-            src="assets/image/avatar/{{_sideChatbox.currentConversation.contactInfo.avatar}}" width="36">
+            src="assets/image/avatar/{{_chatbox.currentConversation.contactInfo.avatar}}" width="36">
           <div class="message">
             {{message.message}}
           </div>
@@ -51,15 +51,15 @@
         </div>
       </div>
       <div class="no-messages" fxLayout="column" fxLayoutAlign="center center"
-        *ngIf="_sideChatbox.inConversation && 
-          _sideChatbox.currentConversation.messages.length === 0 &&
+        *ngIf="_chatbox.inConversation && 
+          _chatbox.currentConversation.messages.length === 0 &&
           (_chatboxContainer.isOpened$ | async)">
         <div>
           <mat-icon>chat_bubble_outline</mat-icon>
         </div>
-        You haven't have any message<br> with {{_sideChatbox.currentConversation.contactInfo.name}}
+        You haven't have any message<br> with {{_chatbox.currentConversation.contactInfo.name}}
       </div>
-      <div class="message-input-wrapper" perfectScrollbar *ngIf="_sideChatbox.inConversation">
+      <div class="message-input-wrapper" perfectScrollbar *ngIf="_chatbox.inConversation">
         <textarea #message_input class="message-input" placeholder="Type a message" rows="1"
           [(ngModel)]="messageInput"
           (ngModelChange)="resizeMessageInput()"
@@ -67,7 +67,7 @@
           (keyup.enter)="sendMessage()"></textarea>
       </div>
       <button mat-icon-button color="primary" class="message-send-btn" (click)="sendMessage()"
-        *ngIf="_sideChatbox.inConversation && (_chatboxContainer.isOpened$ | async)">
+        *ngIf="_chatbox.inConversation && (_chatboxContainer.isOpened$ | async)">
         <mat-icon>
           send
         </mat-icon>
