@@ -1,81 +1,38 @@
 import { Injectable } from '@angular/core';
-import { RESPONSIVE_BREAKPOINTS } from '../../pure-utils/pure-configs';
+import { PureMainContainerService } from '../pure-main-container/pure-main-container.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class PureMenuContainerService {
+  isOpened$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  isHovering$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  canHover$: BehaviorSubject<boolean> = new BehaviorSubject(true);
 
-  private _isFullWidth: boolean = false;
-  private _isHovering: boolean = false;
-  private _state: 'opened' | 'closed' = 'opened';
-  private _canHover: boolean = true;
-
-  constructor() {
-    this._isFullWidth = window.innerWidth >= RESPONSIVE_BREAKPOINTS.NORMAL ? true : false;
-    this.init();
+  constructor(private _mainContainer: PureMainContainerService) {
+    this.reset();
   }
 
-  public init() {
-    if (this.isFullWidth) {
-      this._state = 'opened';
-    } else {
-      this._state = 'closed';
-    }
+  public reset() {
+    this.isOpened$.next(this._mainContainer.isFullWidth$.value);
   }
 
   public open() {
-    this._state = 'opened';
+    this.isOpened$.next(true);
   }
 
   public close() {
-    this._state = 'closed';
+    this.isOpened$.next(false);
   }
 
   public toggle() {
-    this._state = this._state === 'opened' ? 'closed' : 'opened';
+    this.isOpened$.next(!this.isOpened$.value);
 
-    // To close side menu when toggle
-    if (this._state === 'closed') {
-      this._canHover = false;
+    // To close side menu when toggle (Prevent hover make menu open until it actually closed)
+    if (!this.isOpened$.value) {
+      this.canHover$.next(false);
       setTimeout(() => {
-        this._canHover = true;
+        this.canHover$.next(true);
       }, 300);
     }
   }
-
-  /**
-   * SET FUNCTIONS
-   */
-
-  public setIsFullWidth(isFullWidth) {
-    this._isFullWidth = isFullWidth;
-  }
-
-  public setIsHovering(isHovering) {
-    this._isHovering= isHovering;
-  }
-
-  /**
-   * GET FUNCTIONS
-   */
-
-  public get isFullWidth() {
-    return this._isFullWidth;
-  }
-
-  public get isOpened() {
-    return this._state === 'opened';
-  }
-
-  public get isClosed() {
-    return this._state === 'closed';
-  }
-  
-  public get isHovering() {
-    return this._isHovering;
-  }
-  
-  public get canHover() {
-    return this._canHover;
-  }
-
 }

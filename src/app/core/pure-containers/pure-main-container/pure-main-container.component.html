@@ -2,9 +2,9 @@
   'RTL' : (_settings.currentTextDir$ | async) === 'RTL'
 }">
   <div class="content" [ngClass]="{
-    'menu-content-small-screen' : !_menuContainer.isFullWidth,
-    'menu-content-opened' : _menuContainer.isFullWidth && _menuContainer.isOpened,
-    'chatbox-content-small-screen' : !_chatboxContainer.isFullWidth,
+    'menu-content-small-screen' : !(_mainContainer.isFullWidth$ | async),
+    'menu-content-opened' : (_mainContainer.isFullWidth$ | async) && (_menuContainer.isOpened$ | async),
+    'chatbox-content-small-screen' : !(_mainContainer.isFullWidth$ | async),
     'minimal-mode': minimalMode
   }">
     <ng-content></ng-content>
@@ -18,9 +18,11 @@
   <!--Main Backdrop-->
   <div class="pure-main-container-backdrop"
     [ngStyle]="{'z-index': (_notificationContainer.isOpened$ | async) ? '9900' : '999'}"
-    [hidden]="!((_menuContainer.isOpened && !_menuContainer.isFullWidth) ||
-      (_chatboxContainer.isOpened && !_chatboxContainer.isFullWidth) ||
-      (_notificationContainer.isOpened$ | async))"
+    [hidden]="!(
+      ((_menuContainer.isOpened$ | async) && !(_mainContainer.isFullWidth$ | async)) ||
+      ((_chatboxContainer.isOpened$ | async) && !(_mainContainer.isFullWidth$ | async)) ||
+      (_notificationContainer.isOpened$ | async)
+    )"
     (click)="closeBackdrop()"></div>
   <!--Setting Backdrop-->
   <div class="pure-settings-backdrop"

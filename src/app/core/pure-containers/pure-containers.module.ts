@@ -16,6 +16,7 @@ import { PureChatboxContainerService } from './pure-chatbox-container/pure-chatb
 import { PureMenuContainerService } from './pure-menu-container/pure-menu-container.service';
 import { PureNotificationContainerService } from './pure-notification-container/pure-notification-container.service';
 import { PureSettingsContainerService } from './pure-settings-container/pure-settings-container.service';
+import { PureMainContainerService } from './pure-main-container/pure-main-container.service';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { PureSettingsContainerService } from './pure-settings-container/pure-set
     PureSettingsContainer
   ],
   providers: [
+    PureMainContainerService,
     PureChatboxContainerService,
     PureMenuContainerService,
     PureNotificationContainerService,

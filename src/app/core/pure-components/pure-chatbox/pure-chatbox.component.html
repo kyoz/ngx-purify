@@ -22,9 +22,9 @@
     </div>
   </div>
   <div class="chatbox" fxFlex fxLayoutAlign="center center" [ngClass]="{
-      'chatbox-opened': _chatboxContainer.isOpened
+      'chatbox-opened': (_chatboxContainer.isOpened$ | async)
   }">
-    <div class="no-conversation-selected" *ngIf="!_sideChatbox.inConversation && _chatboxContainer.isOpened">
+    <div class="no-conversation-selected" *ngIf="!_sideChatbox.inConversation && (_chatboxContainer.isOpened$ | async)">
       <div>
         <mat-icon>chat</mat-icon>
       </div>
@@ -53,7 +53,7 @@
       <div class="no-messages" fxLayout="column" fxLayoutAlign="center center"
         *ngIf="_sideChatbox.inConversation && 
           _sideChatbox.currentConversation.messages.length === 0 &&
-          _chatboxContainer.isOpened">
+          (_chatboxContainer.isOpened$ | async)">
         <div>
           <mat-icon>chat_bubble_outline</mat-icon>
         </div>
@@ -67,7 +67,7 @@
           (keyup.enter)="sendMessage()"></textarea>
       </div>
       <button mat-icon-button color="primary" class="message-send-btn" (click)="sendMessage()"
-        *ngIf="_sideChatbox.inConversation && _chatboxContainer.isOpened">
+        *ngIf="_sideChatbox.inConversation && (_chatboxContainer.isOpened$ | async)">
         <mat-icon>
           send
         </mat-icon>

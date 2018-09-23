@@ -1,14 +1,15 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { PureMenuContainerService } from '../../pure-containers/pure-menu-container/pure-menu-container.service';
 import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
-import { MENU_CONFIG } from '../../../configs/menu';
 import { PureMenuService } from './pure-menu.service';
 import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
+import { MENU_CONFIG } from '../../../configs/menu';
 
 @Component({
   selector: 'pure-menu',
   templateUrl: './pure-menu.component.html',
-  styleUrls: ['./pure-menu.component.scss']
+  styleUrls: ['./pure-menu.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PureMenu implements OnInit {
   @ViewChild('PURE_MENU') pureMenuScrollbar?: PerfectScrollbarDirective;

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChildren, QueryList, AfterViewInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChildren, QueryList, AfterViewInit, OnDestroy, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { IMenuItem } from '../../pure-interfaces/menu';
 import { PureMenuService } from '../pure-menu/pure-menu.service';
@@ -9,7 +9,8 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'pure-menu-item',
   templateUrl: './pure-menu-item.component.html',
-  styleUrls: ['./pure-menu-item.component.scss']
+  styleUrls: ['./pure-menu-item.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   @ViewChildren(PureMenuItem) childMenuItems: QueryList<PureMenuItem>;

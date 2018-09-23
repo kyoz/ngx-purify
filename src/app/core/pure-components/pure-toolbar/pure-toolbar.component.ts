@@ -3,6 +3,7 @@ import { PureMenuContainerService } from '../../pure-containers/pure-menu-contai
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
 import { PureNotificationContainerService } from '../../pure-containers/pure-notification-container/pure-notification-container.service';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
+import { PureMainContainerService } from '../../pure-containers/pure-main-container/pure-main-container.service';
 
 @Component({
   selector: 'pure-toolbar',
@@ -23,6 +24,7 @@ export class PureToolbar {
   isFullScreen = false;
 
   constructor(
+    public _mainContainer: PureMainContainerService,
     public _menuContainer: PureMenuContainerService,
     public _chatboxContainer: PureChatboxContainerService,
     public _notificationContainer: PureNotificationContainerService,

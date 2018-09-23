@@ -1,7 +1,7 @@
 <mat-toolbar class="pure-toolbar" color="primary" [ngClass]="{
   'RTL' : (_settings.currentTextDir$ | async) === 'RTL'
 }">
-  <button mat-button class="button left-side" *ngIf="!_menuContainer.isFullWidth" (click)="_menuContainer.toggle()">
+  <button mat-button class="button left-side" *ngIf="!(_mainContainer.isFullWidth$ | async)" (click)="_menuContainer.open()">
     <mat-icon>menu</mat-icon>
   </button> 
   <button mat-button class="button left-side">
@@ -28,8 +28,8 @@
   <button mat-button class="button right-side" (click)="_notificationContainer.open()">
     <mat-icon>format_list_bulleted</mat-icon>
   </button>
-  <button mat-button class="button right-side" *ngIf="!_chatboxContainer.isFullWidth"
-    (click)="_chatboxContainer.toggle()">
+  <button mat-button class="button right-side" *ngIf="!(_mainContainer.isFullWidth$ | async)"
+    (click)="_chatboxContainer.open()">
     <mat-icon>chat</mat-icon>
   </button>
   <div class="search" *ngIf="isSearching" fxLayout="row" fxLayoutAlign="space-between center" >

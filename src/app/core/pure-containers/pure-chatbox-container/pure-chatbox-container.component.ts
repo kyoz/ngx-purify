@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, ChangeDetectionStrategy } fro
 import { PureChatboxContainerService } from './pure-chatbox-container.service';
 import { PureChatboxService } from '../../pure-components/pure-chatbox/pure-chatbox.service';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
+import { PureMainContainerService } from '../pure-main-container/pure-main-container.service';
 import * as Hammer from 'hammerjs';
 
 @Component({
@@ -14,6 +15,7 @@ export class PureChatboxContainer implements OnInit {
   @ViewChild('pure_chatbox_container') pureChatboxContainer: ElementRef;
 
   constructor(
+    public _mainContainer: PureMainContainerService,
     public _chatboxContainer: PureChatboxContainerService,
     public _chatbox: PureChatboxService,
     public _settings: PureSettingsService) {
@@ -43,7 +45,7 @@ export class PureChatboxContainer implements OnInit {
   }
 
   openChatbox() {
-    if (this._chatboxContainer.isClosed) {
+    if (!this._chatboxContainer.isOpened$.value) {
       this._chatboxContainer.open(); 
     }
   }
