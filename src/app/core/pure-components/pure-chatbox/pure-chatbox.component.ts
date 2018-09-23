@@ -41,9 +41,12 @@ export class PureChatbox implements OnInit {
   sendMessage() {
     if (!this.messageInput || this.messageInput.trim().length === 0) return;
 
-    this._chatbox.sendMessage(this.messageInput);
+    const message = this.messageInput.trim();
+
     this.clearMessageInput();
     this.focusMessageInput();
+
+    this._chatbox.sendMessage(message);
   }
 
   clearMessageInput() {
