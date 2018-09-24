@@ -4,8 +4,8 @@
   [ngClass]="{
     'fullwidth' : (_mainContainer.isFullWidth$ | async),
     'non-fullwidth' : !(_mainContainer.isFullWidth$ | async),
-    'opened' : (_menuContainer.isOpened$ | async),
     'can-hover' : (_menuContainer.canHover$ | async),
+    'opened' : (_menuContainer.isOpened$ | async),
     'RTL' : (_settings.currentTextDir$ | async) === 'RTL'
   }">
   <mat-toolbar color="primary" class="toolbar">
@@ -21,6 +21,6 @@
     </button>
   </mat-toolbar>
   <div class="menu-wrapper pure-background">
-    <pure-menu></pure-menu>
+    <!-- <pure-menu></pure-menu> -->
   </div>
 </div>

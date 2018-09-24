@@ -14,7 +14,7 @@
     right: 64px;
     top: 0px;
     bottom: 0px;
-    transition: left 100ms ease-in-out;
+    transition: left 50ms ease-in-out;
   }
 
   .menu-content-small-screen {
@@ -84,7 +84,7 @@
 
 .pure-main-container.RTL {
   .content {
-    transition: right 100ms ease-in-out;
+    transition: right 50ms ease-in-out;
   }
 
   .menu-content-small-screen {

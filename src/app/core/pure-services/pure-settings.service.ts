@@ -3,6 +3,7 @@ import { PureSettingsStorageService } from './pure-settings.storage';
 import { THEMES } from '../../configs/themes';
 import { LANGUAGES } from '../../configs/languages';
 import { BehaviorSubject } from 'rxjs';
+import { PureMenuContainerService } from '../pure-containers/pure-menu-container/pure-menu-container.service';
 
 export const SETTING_STORAGE_KEYS = {
   theme: 'current-theme',
@@ -25,7 +26,9 @@ export class PureSettingsService {
   currentTextDir$: BehaviorSubject<string> = new BehaviorSubject('LTR');
   currentWidthLayout$: BehaviorSubject<string> = new BehaviorSubject('Fullwidth');
 
-  constructor(private _storage: PureSettingsStorageService) {
+  constructor(
+    private _storage: PureSettingsStorageService,
+    private _menuContainer: PureMenuContainerService) {
   }
 
   /**
@@ -115,6 +118,8 @@ export class PureSettingsService {
   }
 
   updateTextDirection(textDirection: string) {
+    this._menuContainer.isOpened$.next(false);
+    
     switch (textDirection) {
       case 'RTL':
         document.getElementById('PURE_MAIN_CONTAINER').setAttribute('dir', 'rtl');

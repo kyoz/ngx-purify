@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { PureMainContainerService } from '../pure-main-container/pure-main-container.service';
 import { BehaviorSubject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 @Injectable()
 export class PureMenuContainerService {
@@ -10,6 +11,18 @@ export class PureMenuContainerService {
 
   constructor(private _mainContainer: PureMainContainerService) {
     this.reset();
+
+    this.isOpened$.subscribe(isOpened => {
+      if (!isOpened) {
+        this.canHover$.next(false);
+      }
+    });
+
+    this.isHovering$.subscribe(isHovering => {
+      if (isHovering) {
+        this.canHover$.next(true);
+      }
+    });
   }
 
   public reset() {
@@ -26,13 +39,5 @@ export class PureMenuContainerService {
 
   public toggle() {
     this.isOpened$.next(!this.isOpened$.value);
-
-    // To close side menu when toggle (Prevent hover make menu open until it actually closed)
-    if (!this.isOpened$.value) {
-      this.canHover$.next(false);
-      setTimeout(() => {
-        this.canHover$.next(true);
-      }, 300);
-    }
   }
 }

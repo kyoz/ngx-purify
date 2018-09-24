@@ -1,13 +1,15 @@
 .pure-menu-container {
   position: absolute;
-  left: 0px;
+  left: -224px;
+  right: unset;
   top: 0px;
   bottom: 0px;
-  width: 0px;
+  width: 288px;
   max-width: 100vw;
   overflow: hidden;
   box-sizing: border-box;
-  transition: all 100ms ease-in-out;
+  transition: none;
+  transition: transform 150ms ease-in-out;
   z-index: 9000;
 
   .toolbar {
@@ -39,20 +41,44 @@
   }
 }
 
-.pure-menu-container.fullwidth {
-  width: 64px;
+.pure-menu-container.fullwidth, .pure-chatbox-menu.opened {
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
 }
 
+/**
+ * TRANSITION
+ */
+
 .pure-menu-container.non-fullwidth {
-  width: 0px;
+  left: -288px;
+  right: unset;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
 }
 
-// Just can hover to open menu when is in fullwidth mode & menu is closed
+.pure-menu-container.opened {
+  .toolbar {
+    .menu-button {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .title {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.pure-menu-container.fullwidth.opened {
+  transform: translateX(224px);
+}
+
+.pure-menu-container.non-fullwidth.opened {
+  transform: translateX(288px);
+}
+
 .pure-menu-container.fullwidth.can-hover {
   &:hover {
-    width: 288px;
-
     .toolbar {
       .menu-button {
         opacity: 1;
@@ -68,20 +94,15 @@
   }
 }
 
-.pure-menu-container.opened {
-  width: 288px;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
+.pure-menu-container.fullwidth.can-hover {
+  &:hover {
+    transform: translateX(224px);
+  }
+}
 
-  .toolbar {
-    .menu-button {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .title {
-      opacity: 1;
-      visibility: visible;
-    }
+.pure-menu-container.non-fullwidth.can-hover {
+  &:hover {
+    transform: translateX(288px);
   }
 }
 
@@ -101,10 +122,36 @@
 
 .pure-menu-container.RTL {
   left: unset;
-  right: 0px;
+  right: -224px;
+
   .toolbar > .menu-button {
     margin-right: unset;
     margin-left: -4px;
+  }
+}
+
+.pure-menu-container.non-fullwidth.RTL {
+  left: unset;
+  right: -288px;
+}
+
+.pure-menu-container.fullwidth.opened.RTL {
+  transform: translateX(-224px);
+}
+
+.pure-menu-container.non-fullwidth.opened.RTL {
+  transform: translateX(-288px);
+}
+
+.pure-menu-container.fullwidth.can-hover.RTL {
+  &:hover {
+    transform: translateX(-224px);
+  }
+}
+
+.pure-menu-container.non-fullwidth.can-hover.RTL {
+  &:hover {
+    transform: translateX(-288px);
   }
 }
 
