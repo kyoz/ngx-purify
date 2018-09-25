@@ -107,3 +107,13 @@
     right: 0px;
   }
 }
+
+/**
+ * DISABBLE ANIMATION FOR SMOOTH SETTING CHANGES
+ */
+
+.pure-main-container.disable-animation {
+  .content {
+    transition: none;
+  }
+}

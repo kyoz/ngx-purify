@@ -1,9 +1,9 @@
-import { Injectable, ChangeDetectorRef } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { PureSettingsStorageService } from './pure-settings.storage';
 import { THEMES } from '../../configs/themes';
 import { LANGUAGES } from '../../configs/languages';
 import { BehaviorSubject } from 'rxjs';
-import { PureMenuContainerService } from '../pure-containers/pure-menu-container/pure-menu-container.service';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 export const SETTING_STORAGE_KEYS = {
   theme: 'current-theme',
@@ -25,10 +25,14 @@ export class PureSettingsService {
   currentLang$: BehaviorSubject<string> = new BehaviorSubject('English');
   currentTextDir$: BehaviorSubject<string> = new BehaviorSubject('LTR');
   currentWidthLayout$: BehaviorSubject<string> = new BehaviorSubject('Fullwidth');
+  disableAnimation$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(
-    private _storage: PureSettingsStorageService,
-    private _menuContainer: PureMenuContainerService) {
+    private _storage: PureSettingsStorageService) {
+      // Allow animation after dir setting done
+      this.disableAnimation$.pipe(debounceTime(300), distinctUntilChanged()).subscribe(() => {
+        this.disableAnimation$.next(false);
+      });
   }
 
   /**
@@ -118,8 +122,6 @@ export class PureSettingsService {
   }
 
   updateTextDirection(textDirection: string) {
-    this._menuContainer.isOpened$.next(false);
-    
     switch (textDirection) {
       case 'RTL':
         document.getElementById('PURE_MAIN_CONTAINER').setAttribute('dir', 'rtl');
@@ -127,6 +129,9 @@ export class PureSettingsService {
       default:
         document.getElementById('PURE_MAIN_CONTAINER').removeAttribute('dir');
     }
+
+    // Disable animation
+    this.disableAnimation$.next(true);
   }
 
   updateWidthLayout(widthLayout: string) {

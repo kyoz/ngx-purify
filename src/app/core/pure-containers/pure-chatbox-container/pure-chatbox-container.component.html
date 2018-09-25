@@ -3,7 +3,8 @@
     'fullwidth' : (_mainContainer.isFullWidth$ | async),
     'non-fullwidth' : !(_mainContainer.isFullWidth$ | async),
     'opened' : (_chatboxContainer.isOpened$ | async),
-    'RTL' : (_settings.currentTextDir$ | async) === 'RTL'
+    'RTL' : (_settings.currentTextDir$ | async) === 'RTL',
+    'disable-animation' : (_settings.disableAnimation$ | async)
   }">
   <mat-toolbar color="primary" class="toolbar" (click)="openChatbox()"
     [ngSwitch]="_chatbox.inConversation && (_chatboxContainer.isOpened$ | async)">

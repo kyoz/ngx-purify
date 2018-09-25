@@ -145,3 +145,11 @@
 .pure-chatbox-container.non-fullwidth.opened.RTL {
   transform: translateX(352px);
 }
+
+/**
+ * DISABBLE ANIMATION FOR SMOOTH SETTING CHANGES
+ */
+
+.pure-chatbox-container.disable-animation {
+  transition: none;
+}
