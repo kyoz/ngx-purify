@@ -8,6 +8,8 @@ import { PureNotificationContainerService } from '../pure-notification-container
 import { PureSettingsContainerService } from '../pure-settings-container/pure-settings-container.service';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { PureMainContainerService } from './pure-main-container.service';
+import { combineLatest } from 'rxjs';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'pure-main-container',
@@ -19,11 +21,15 @@ export class PureMainContainer implements OnInit {
   @Input() minimalMode = false;
   @HostListener('window:resize', ['$event'])
   onResize() {
+    // Disable animation
+    this._settings.disableAnimation$.next(true);
     // Init for side menu & chatbox
     this._mainContainer.isFullWidth$.next(window.innerWidth >= RESPONSIVE_BREAKPOINTS.NORMAL ? true : false);
     this._menuContainer.reset();
     this._notificationContainer.reset();
   }
+
+  isBackdropVisible = false;
 
   constructor(
     public _mainContainer: PureMainContainerService,
@@ -32,7 +38,27 @@ export class PureMainContainer implements OnInit {
     public _notificationContainer: PureNotificationContainerService,
     public _settingsContainer: PureSettingsContainerService,
     public _settings: PureSettingsService
-  ) { }
+  ) {
+    const combineBehaviorSubjects = combineLatest(
+      _menuContainer.isOpened$,
+      _chatboxContainer.isOpened$,
+      _notificationContainer.isOpened$,
+      _mainContainer.isFullWidth$
+    );
+    
+    combineBehaviorSubjects.pipe(distinctUntilChanged()).subscribe(([
+      isMenuOpened,
+      isChatboxOpened,
+      isNotificationOpened,
+      isFullWidth
+    ]) => {
+      if (((isMenuOpened || isChatboxOpened) && !isFullWidth) || isNotificationOpened) {
+        this.isBackdropVisible = true;
+      } else {
+        this.isBackdropVisible = false;
+      }
+    });
+   }
 
   ngOnInit() {
     // Init for pure settings

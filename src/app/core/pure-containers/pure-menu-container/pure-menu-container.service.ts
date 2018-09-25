@@ -30,11 +30,15 @@ export class PureMenuContainerService {
   }
 
   public open() {
-    this.isOpened$.next(true);
+    if (!this.isOpened$.value) {
+      this.isOpened$.next(true);
+    }
   }
 
   public close() {
-    this.isOpened$.next(false);
+    if (this.isOpened$.value) {
+      this.isOpened$.next(false);
+    }
   }
 
   public toggle() {

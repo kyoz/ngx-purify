@@ -9,7 +9,7 @@
   overflow: hidden;
   box-sizing: border-box;
   transition: transform 150ms ease-in-out;
-  z-index: 9000;
+  z-index: 8800;
 
   .toolbar {
     position: relative;
@@ -52,6 +52,7 @@
   left: -288px;
   right: unset;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
+  z-index: 9000;
 }
 
 .pure-menu-container.opened {

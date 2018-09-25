@@ -18,12 +18,7 @@
   <pure-settings-container></pure-settings-container>
   <!--Main Backdrop-->
   <div class="pure-main-container-backdrop"
-    [ngStyle]="{'z-index': (_notificationContainer.isOpened$ | async) ? '9900' : '999'}"
-    [hidden]="!(
-      ((_menuContainer.isOpened$ | async) && !(_mainContainer.isFullWidth$ | async)) ||
-      ((_chatboxContainer.isOpened$ | async) && !(_mainContainer.isFullWidth$ | async)) ||
-      (_notificationContainer.isOpened$ | async)
-    )"
+    [ngClass]="{ 'visible' : isBackdropVisible }"
     (click)="closeBackdrop()"></div>
   <!--Setting Backdrop-->
   <div class="pure-settings-backdrop"
