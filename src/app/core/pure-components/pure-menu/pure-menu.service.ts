@@ -11,7 +11,7 @@ export class PureMenuService {
 
   setExpandingMenuItem(menuItem: PureMenuItem) {
     this.expandingMenuItem = menuItem;
-    this.expandingMenuItem.opened = true;
+    this.expandingMenuItem.opened.next(true);
 
     // Dispatch event to know when the menu is expand
     this.onActivatingMenuItem$.next(new Date());
@@ -31,6 +31,6 @@ export class PureMenuService {
 
     // Activate for new menu item
     this.activatingMenuItem = menuItem;
-    this.activatingMenuItem.active = true;
+    this.activatingMenuItem.active.next(true);
   }
 }
