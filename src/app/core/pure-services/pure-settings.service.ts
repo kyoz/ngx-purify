@@ -30,8 +30,10 @@ export class PureSettingsService {
   constructor(
     private _storage: PureSettingsStorageService) {
       // Allow animation after dir setting done
-      this.disableAnimation$.pipe(debounceTime(300), distinctUntilChanged()).subscribe(() => {
-        this.disableAnimation$.next(false);
+      this.disableAnimation$.pipe(debounceTime(300), distinctUntilChanged()).subscribe(res => {
+        if (res) {
+          this.disableAnimation$.next(false);
+        }
       });
   }
 
