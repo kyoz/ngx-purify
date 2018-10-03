@@ -15,19 +15,19 @@
     position: relative;
     z-index: 9001;
     box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.15), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+
     .menu-button {
       margin-right: -4px;
       visibility: hidden;
       opacity: 0;
     }
+
     .title {
       font-size: 18px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
       margin-bottom: -2px;
-      visibility: hidden;
-      opacity: 0;
      }
   }
 
@@ -40,7 +40,15 @@
   }
 }
 
-.pure-menu-container.fullwidth, .pure-chatbox-menu.opened {
+.pure-menu-container.fullwidth {
+  .toolbar {
+    .logo {
+      transform: translateX(224px);
+    }
+  }
+}
+
+.pure-menu-container.fullwidth, .pure-menu-container.opened {
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
 }
 
@@ -57,12 +65,10 @@
 
 .pure-menu-container.opened {
   .toolbar {
-    .menu-button {
-      opacity: 1;
-      visibility: visible;
+    .logo {
+      transform: translateX(0px);
     }
-
-    .title {
+    .menu-button {
       opacity: 1;
       visibility: visible;
     }
@@ -80,15 +86,13 @@
 .pure-menu-container.fullwidth.can-hover {
   &:hover {
     .toolbar {
+      .logo {
+        transform: translateX(0px);
+      }
       .menu-button {
         opacity: 1;
         visibility: visible;
         transition: visibility .3s, opacity .35s ease-in;
-      }
-      .title {
-        opacity: 1;
-        visibility: visible;
-        transition: visibility 100ms, opacity .2s ease-in;
       }
     }
   }

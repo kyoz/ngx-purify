@@ -3,7 +3,8 @@
     [ngClass]="{
       'active': active, 'opened': opened,
       'opened-or-hovering-menu': (_menuContainer.canHover$ | async) && ((_menuContainer.isHovering$ | async) || (_menuContainer.isOpened$ | async)),
-      'no-icon': (!menuItemData.icon && !(_menuContainer.isOpened$ | async)) || level !== 0
+      'no-icon': (!menuItemData.icon && !(_menuContainer.isOpened$ | async)) || level !== 0,
+      'fullwidth': (_mainContainer.isFullWidth$ | async)
     }">
     <!--Icon to replace menu item that doesn't have icon when shrink-->
     <mat-icon class="replace-icon">{{ menuItemData.icon ? menuItemData.icon : 'layers' }}</mat-icon>

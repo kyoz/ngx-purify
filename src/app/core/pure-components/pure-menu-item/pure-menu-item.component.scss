@@ -18,7 +18,6 @@
       font-size: 20px;
       margin-bottom: -3px;
       margin-right: 8px;
-      transform: translateX(224px);
     }
 
     .replace-icon {
@@ -33,7 +32,6 @@
       line-height: 14px;
       transition: none;
       opacity: 0;
-      transform: translateX(224px);
     }
 
     .name {
@@ -110,15 +108,21 @@
     }
   }
 
-  /**
-   * TRANSITION FOR MENU ITEMS
-   */
-
   .pure-menu-content.no-icon {
     .replace-icon {
       opacity: 1;
     }
   }
+
+  .pure-menu-content.fullwidth {
+    .icon, .replace-icon {
+      transform: translateX(224px);
+    }
+  }
+
+  /**
+   * TRANSITION FOR MENU ITEMS
+   */
 
   .pure-menu-content.opened-or-hovering-menu {
     .icon {

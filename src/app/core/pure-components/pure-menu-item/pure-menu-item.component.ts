@@ -4,6 +4,7 @@ import { IMenuItem } from '../../pure-interfaces/menu';
 import { PureMenuService } from '../pure-menu/pure-menu.service';
 import { PureStringUtils } from '../../pure-utils/pure-string-utils';
 import { PureMenuContainerService } from '../../pure-containers/pure-menu-container/pure-menu-container.service';
+import { PureMainContainerService } from '../../pure-containers/pure-main-container/pure-main-container.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -28,7 +29,8 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
     private _menuService: PureMenuService,
     private _route: Router,
     private _changeDetectionRef: ChangeDetectorRef,
-    public _menuContainer: PureMenuContainerService) {
+    public _menuContainer: PureMenuContainerService,
+    public _mainContainer: PureMainContainerService) {
   }
 
   ngOnInit() {
