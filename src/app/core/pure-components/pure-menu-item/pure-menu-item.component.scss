@@ -30,7 +30,6 @@
       width: 14px;
       height: 14px;
       line-height: 14px;
-      transition: none;
       opacity: 0;
     }
 
@@ -41,7 +40,6 @@
       overflow: hidden;
       text-overflow: ellipsis;
       opacity: 0;
-      transition: none;
     }
 
     .expand-icon {
@@ -151,7 +149,7 @@
   overflow: hidden;
   box-sizing: border-box;
   height: 0px;
-  transition: all .2s ease-in-out;
+  transition: height .2s ease-in-out;
   position: relative;
 
   &:before {

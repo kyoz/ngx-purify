@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, ChangeDetectionStrategy, ViewEncapsulation, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, ChangeDetectionStrategy, Input } from '@angular/core';
 import { RESPONSIVE_BREAKPOINTS } from '../../pure-utils/pure-configs';
 
 // Services
@@ -8,7 +8,7 @@ import { PureNotificationContainerService } from '../pure-notification-container
 import { PureSettingsContainerService } from '../pure-settings-container/pure-settings-container.service';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { PureMainContainerService } from './pure-main-container.service';
-import { combineLatest } from 'rxjs';
+import { combineLatest, Subscription } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
@@ -17,7 +17,7 @@ import { distinctUntilChanged } from 'rxjs/operators';
   styleUrls: ['./pure-main-container.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PureMainContainer implements OnInit {
+export class PureMainContainer implements OnInit, OnDestroy {
   @Input() minimalMode = false;
   @HostListener('window:resize', ['$event'])
   onResize() {
@@ -30,6 +30,7 @@ export class PureMainContainer implements OnInit {
   }
 
   isBackdropVisible = false;
+  combineSubscription: Subscription;
 
   constructor(
     public _mainContainer: PureMainContainerService,
@@ -46,7 +47,7 @@ export class PureMainContainer implements OnInit {
       _mainContainer.isFullWidth$
     );
     
-    combineBehaviorSubjects.pipe(distinctUntilChanged()).subscribe(([
+    this.combineSubscription = combineBehaviorSubjects.pipe(distinctUntilChanged()).subscribe(([
       isMenuOpened,
       isChatboxOpened,
       isNotificationOpened,
@@ -63,6 +64,12 @@ export class PureMainContainer implements OnInit {
   ngOnInit() {
     // Init for pure settings
     this._settings.init();
+  }
+
+  ngOnDestroy() {
+    if (this.combineSubscription) {
+      this.combineSubscription.unsubscribe();
+    }
   }
 
   closeBackdrop() {
