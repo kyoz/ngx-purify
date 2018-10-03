@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { PureMainContainerService } from '../pure-main-container/pure-main-container.service';
 import { BehaviorSubject } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Injectable()
 export class PureMenuContainerService {
@@ -12,13 +12,11 @@ export class PureMenuContainerService {
   constructor(private _mainContainer: PureMainContainerService) {
     this.reset();
 
-    this.isOpened$.subscribe(isOpened => {
-      if (!isOpened) {
-        this.canHover$.next(false);
-      }
+    this.isOpened$.pipe(distinctUntilChanged()).subscribe(isOpened => {
+      this.canHover$.next(isOpened);
     });
 
-    this.isHovering$.subscribe(isHovering => {
+    this.isHovering$.pipe(distinctUntilChanged()).subscribe(isHovering => {
       if (isHovering) {
         this.canHover$.next(true);
       }
