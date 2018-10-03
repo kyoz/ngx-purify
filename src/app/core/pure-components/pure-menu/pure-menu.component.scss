@@ -22,7 +22,6 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        visibility: hidden;
         opacity: 0;
       }
 
@@ -30,8 +29,8 @@
         position: absolute;
         top: 18px;
         left: 20px;
-        visibility: visible;
         opacity: 1;
+        transform: translateX(224px);
       }
     }
   }
@@ -41,15 +40,12 @@
   .group>.group-name-wrapper {
 
     .group-name {
-      visibility: visible;
       opacity: 1;
-      transition: visibility .3s ease-in-out, opacity .5s ease-in-out;
     }
 
     .group-name-replace {
-      visibility: hidden;
       opacity: 0;
-      transition: visibility 200ms ease-in, opacity 200ms ease-in;
+      transform: translateX(0);
     }
   }
 }
