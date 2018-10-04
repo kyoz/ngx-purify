@@ -29,10 +29,16 @@
         position: absolute;
         top: 18px;
         left: 20px;
-        opacity: 1;
+        opacity: 0;
         transform: translateX(224px);
       }
     }
+  }
+}
+
+.pure-menu.fullwidth {
+  .group>.group-name-wrapper>.group-name-replace {
+    opacity: 1;
   }
 }
 
