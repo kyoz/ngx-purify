@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/
 import { PureMenuContainerService } from '../../pure-containers/pure-menu-container/pure-menu-container.service';
 import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 import { PureMenuService } from './pure-menu.service';
+import { combineLatest, Subscription, BehaviorSubject } from 'rxjs';
 import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
 import { MENU_CONFIG } from '../../../configs/menu';
 
@@ -16,9 +17,35 @@ export class PureMenu implements OnInit {
 
   menuData = MENU_CONFIG;
 
+  isOpenedOrHoveringMenu: BehaviorSubject<boolean> = new BehaviorSubject(undefined);
+  combineBehaviorSubjects;
+  combineSubscription: Subscription;
+
   constructor(
     private _menuService: PureMenuService,
-    public _menuContainer: PureMenuContainerService) { }
+    public _menuContainer: PureMenuContainerService) {
+      const combineBehaviorSubjects = combineLatest(
+        _menuContainer.canHover$,
+        _menuContainer.isHovering$,
+        _menuContainer.isOpened$,
+      );
+      
+      this.combineSubscription = combineBehaviorSubjects.pipe(distinctUntilChanged()).subscribe(([
+        canHover,
+        isHovering,
+        isOpened,
+      ]) => {
+        if (canHover && (isHovering || isOpened)) {
+          if (!this.isOpenedOrHoveringMenu.value) {
+            this.isOpenedOrHoveringMenu.next(true);
+          }
+        } else {
+          if (this.isOpenedOrHoveringMenu.value) {
+            this.isOpenedOrHoveringMenu.next(false);
+          }
+        }
+      });
+    }
 
   ngAfterViewInit() {
 

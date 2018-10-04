@@ -21,6 +21,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   @Input() active: BehaviorSubject<boolean> = new BehaviorSubject(false);
   @Input() opened: BehaviorSubject<boolean> = new BehaviorSubject(false);
   @Input() parent: PureMenuItem;
+  @Input() isOpenedOrHoveringMenu: BehaviorSubject<boolean>;
 
   private routeSubscription: Subscription;
   private _parent: PureMenuItem = this;

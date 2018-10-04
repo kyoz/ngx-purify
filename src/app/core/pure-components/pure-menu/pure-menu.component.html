@@ -1,5 +1,5 @@
 <div #PURE_MENU=ngxPerfectScrollbar class="pure-menu pure-theme" [perfectScrollbar]="{ suppressScrollX: true }"
-  [ngClass]="{ 'opened-or-hovering-menu': (_menuContainer.canHover$ | async) && ((_menuContainer.isHovering$ | async) || (_menuContainer.isOpened$ | async)) }">
+  [ngClass]="{ 'opened-or-hovering-menu': (isOpenedOrHoveringMenu | async) }">
   <div class="group" *ngFor="let group of menuData">
     <div class="group-name-wrapper">
       <!--Icon to replace group name when the menu shrink-->
@@ -7,6 +7,8 @@
       <!--Group name-->
       <div class="group-name">{{ group.groupName }}</div>
     </div>
-    <pure-menu-item *ngFor="let menuItem of group.menuItems" [menuItemData]="menuItem"></pure-menu-item>
+    <pure-menu-item *ngFor="let menuItem of group.menuItems" 
+      [menuItemData]="menuItem"
+      [isOpenedOrHoveringMenu]="isOpenedOrHoveringMenu"></pure-menu-item>
   </div>
 </div>

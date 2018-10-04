@@ -3,7 +3,7 @@
     [ngClass]="{
       'active': (active | async),
       'opened': (opened | async),
-      'opened-or-hovering-menu': (_menuContainer.canHover$ | async) && ((_menuContainer.isHovering$ | async) || (_menuContainer.isOpened$ | async)),
+      'opened-or-hovering-menu': (isOpenedOrHoveringMenu | async),
       'no-icon': (!menuItemData.icon && !(_menuContainer.isOpened$ | async)) || level !== 0,
       'fullwidth': (_mainContainer.isFullWidth$ | async)
     }">
@@ -21,6 +21,7 @@
   <pure-menu-item *ngFor="let childMenuItem of menuItemData.children" 
     [parent]="_parent"
     [menuItemData]="childMenuItem"
-    [level]="level+1">
+    [level]="level+1"
+    [isOpenedOrHoveringMenu]="isOpenedOrHoveringMenu">
   </pure-menu-item>
 </div>
