@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { IChatboxContact, IChatBoxMessage } from '../../pure-interfaces/chatbox';
+import { IChatboxContact, IChatBoxMessage, ICurrentConversation } from '../../pure-interfaces/chatbox';
 
 export const PURE_SIDE_CHATBOX_GET_CONTACTS = '[Side Chatbox] Get Contacts';
 export const PURE_SIDE_CHATBOX_FETCH_CONTACTS = '[Side Chatbox] Fetch Contacts';
@@ -24,7 +24,7 @@ export class GetConversation implements Action {
 
 export class FetchConversation implements Action {
   readonly type = PURE_SIDE_CHATBOX_FETCH_CONVERSATION;
-  constructor(public payload: IChatBoxMessage[]) {}
+  constructor(public payload: ICurrentConversation) {}
 }
 
 export class ClearConversation implements Action {

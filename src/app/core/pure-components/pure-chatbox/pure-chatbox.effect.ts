@@ -25,7 +25,7 @@ export class PureChatboxEffects {
       flatMap((contactId): Observable<ICurrentConversation> => {
         return this._mockApi.chatbox.getConversationByContact(contactId);
       }),
-      map((conversation: IChatBoxMessage[]) => new SideChatBoxActions.FetchConversation(conversation))
+      map((conversation: ICurrentConversation) => new SideChatBoxActions.FetchConversation(conversation))
     );
 
   constructor(
