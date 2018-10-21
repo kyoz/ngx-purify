@@ -19,6 +19,16 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppStateModule } from './app-state.module';
 import { PureChatboxEffects } from './core/pure-components/pure-chatbox/pure-chatbox.effect';
 
+// Perfect Scrollbar
+import {
+  PerfectScrollbarConfigInterface,
+  PERFECT_SCROLLBAR_CONFIG
+} from 'ngx-perfect-scrollbar';
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  wheelPropagation: true,
+  suppressScrollX: true
+};
 
 @NgModule({
   declarations: [
@@ -41,9 +51,15 @@ import { PureChatboxEffects } from './core/pure-components/pure-chatbox/pure-cha
     AppStateModule,
     EffectsModule.forRoot([
       PureChatboxEffects
-    ])
+    ]),
   ],
-  providers: [],
+  providers: [
+    // Perfect Scrollbar Global Configuration
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

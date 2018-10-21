@@ -6,15 +6,7 @@ import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 // Perfect Scrollbar
-import {
-  PerfectScrollbarModule,
-  PerfectScrollbarConfigInterface,
-  PERFECT_SCROLLBAR_CONFIG
-} from 'ngx-perfect-scrollbar';
-
-const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
-  wheelPropagation: true
-};
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
 @NgModule({
   declarations: [],
@@ -25,8 +17,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     RouterModule,
     MaterialModule,
     FlexLayoutModule,
-    PerfectScrollbarModule,
-
+    PerfectScrollbarModule
   ],
   exports: [
     CommonModule,
@@ -36,13 +27,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MaterialModule,
     FlexLayoutModule,
     PerfectScrollbarModule
-  ],
-  providers: [
-    // Perfect Scrollbar
-    {
-      provide: PERFECT_SCROLLBAR_CONFIG,
-      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    },
-  ],
+  ]
 })
 export class PureSharedModule { }
