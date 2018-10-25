@@ -60,7 +60,7 @@ export class PureMenu implements OnInit {
       activatingMenuItemRef[0].scrollIntoView(true);
 
       // Menu has scroll all the way to bottom
-      const pureMenu = this.pureMenuScrollbar.elementRef.nativeElement;
+      const pureMenu = this.pureMenuScrollbar._elementRef.nativeElement;
 
       if (pureMenu.scrollHeight <= (pureMenu.scrollTop + window.innerHeight - 64)) {
         return;

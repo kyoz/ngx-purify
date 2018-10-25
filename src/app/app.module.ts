@@ -19,6 +19,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppStateModule } from './app-state.module';
 import { PureChatboxEffects } from './core/pure-components/pure-chatbox/pure-chatbox.effect';
 
+// Device Detectors
+import { DeviceDetectorModule } from 'ngx-device-detector';
+
 // Perfect Scrollbar
 import {
   PerfectScrollbarConfigInterface,
@@ -52,6 +55,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     EffectsModule.forRoot([
       PureChatboxEffects
     ]),
+
+    // Device Detectors
+    DeviceDetectorModule.forRoot()
   ],
   providers: [
     // Perfect Scrollbar Global Configuration

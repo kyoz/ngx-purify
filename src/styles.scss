@@ -10,3 +10,11 @@
   padding: 0px;
   font-family: Roboto, sans-serif;
 }
+
+/* Perfect Scrollbar Fix Styles to Work Perfectly on all devices */
+[pureperfectscrollbar] {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  pointer-events: auto;
+}
