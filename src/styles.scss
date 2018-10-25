@@ -15,6 +15,6 @@
 [pureperfectscrollbar] {
   overflow-x: hidden;
   overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-  pointer-events: auto;
+  -webkit-overflow-scrolling: touch; // Momentum Scrolling Support
+  pointer-events: auto; // Fix something Scrollbar not showing on mobile devices
 }

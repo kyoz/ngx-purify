@@ -1,4 +1,11 @@
-.pure-notification{
+.pure-notification {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  box-sizing: border-box;
+
   .today-top {
     font-size: 36px;
     height: 36px;
