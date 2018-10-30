@@ -3,6 +3,7 @@ import { PureChatboxService } from './pure-chatbox.service';
 import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'pure-chatbox',
@@ -18,6 +19,7 @@ export class PureChatbox implements OnInit {
 
   constructor(
     private _changeDetectionRef: ChangeDetectorRef,
+    private _deviceDetector: DeviceDetectorService,
     public _chatbox: PureChatboxService,
     public _chatboxContainer: PureChatboxContainerService,
     public _settings: PureSettingsService) {
@@ -57,6 +59,11 @@ export class PureChatbox implements OnInit {
   }
 
   focusMessageInput() {
+    // In mobile device, everytime an input is focus, the keyboard is pushup.
+    // It's kind of annoying will small screen device so i do not focus on mobile.
+    if (this._deviceDetector.isMobile()) {
+      return;
+    }
     setTimeout(() => {
       if (this.messageInputRef) {
         this.messageInputRef.nativeElement.focus();
