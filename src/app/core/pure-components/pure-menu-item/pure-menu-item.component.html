@@ -1,4 +1,6 @@
-<a class="pure-menu-item" (click)="onMenuItemClicked()" [routerLink]="menuItemData.url">
+<a class="pure-menu-item" (click)="onMenuItemClicked()" [routerLink]="menuItemData.url" [ngClass]="{
+  'RTL' : (_settings.currentTextDir$ | async) === 'RTL'
+ }">
   <div fxLayout="row" fxLayoutAlign="start center" class="pure-menu-content content level-{{level}}"
     [ngClass]="{
       'active': (active | async),

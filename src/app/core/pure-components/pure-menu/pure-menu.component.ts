@@ -3,6 +3,7 @@ import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 import { PureMenuService } from './pure-menu.service';
 import { PureMenuContainerService } from '../../pure-containers/pure-menu-container/pure-menu-container.service';
 import { PureMainContainerService } from '../../pure-containers/pure-main-container/pure-main-container.service';
+import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { combineLatest, Subscription, BehaviorSubject } from 'rxjs';
 import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
 import { MENU_CONFIG } from '../../../configs/menu';
@@ -25,7 +26,8 @@ export class PureMenu implements OnInit {
   constructor(
     private _menuService: PureMenuService,
     public _menuContainer: PureMenuContainerService,
-    public _mainContainer: PureMainContainerService) {
+    public _mainContainer: PureMainContainerService,
+    public _settings: PureSettingsService) {
       const combineBehaviorSubjects = combineLatest(
         _menuContainer.canHover$,
         _menuContainer.isHovering$,

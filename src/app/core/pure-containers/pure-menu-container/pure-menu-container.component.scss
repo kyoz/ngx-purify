@@ -127,9 +127,22 @@
   left: unset;
   right: -224px;
 
-  .toolbar > .menu-button {
-    margin-right: unset;
-    margin-left: -4px;
+  .toolbar {
+    .menu-button {
+      margin-right: unset;
+      margin-left: -4px;
+    }
+    .logo {
+      transform: translateX(-224px);
+    }
+  }
+}
+
+.pure-menu-container.opened.RTL {
+  .toolbar {
+    .logo {
+      transform: translateX(0px);
+    }
   }
 }
 

@@ -16,6 +16,10 @@
 
     .icon {
       font-size: 20px;
+      min-width: 20px;
+      max-width: 20px;
+      min-height: 23px;
+      max-height: 23px;
       margin-bottom: -3px;
       margin-right: 8px;
     }
@@ -69,7 +73,7 @@
       right: 0px;
       height: 2px;
     }
-  
+
     &:after {
       content: " ";
       position: absolute;
@@ -100,7 +104,10 @@
     padding-left: 150px;
   }
 
-  .content.level-1, .content.level-2, .content.level-3, .content.level-4 {
+  .content.level-1,
+  .content.level-2,
+  .content.level-3,
+  .content.level-4 {
     .icon {
       opacity: 0;
     }
@@ -113,7 +120,9 @@
   }
 
   .pure-menu-content.fullwidth {
-    .icon, .replace-icon {
+
+    .icon,
+    .replace-icon {
       transform: translateX(224px);
     }
   }
@@ -126,9 +135,12 @@
     .icon {
       transform: translateX(0px);
     }
-    .name, .expand-icon {
+
+    .name,
+    .expand-icon {
       opacity: 1;
     }
+
     .replace-icon {
       opacity: 0;
     }
@@ -171,8 +183,79 @@
   }
 
   .children {
-    &:before, &:after {
+
+    &:before,
+    &:after {
       display: none;
+    }
+  }
+}
+
+/**
+ * RTL SUPPORT
+ */
+
+.pure-menu-item.RTL {
+  .content {
+    padding-left: unset;
+    padding-right: 22px;
+
+    .icon {
+      margin-right: unset;
+      margin-left: 8px;
+    }
+
+    .replace-icon {
+      left: unset;
+      right: 25px;
+    }
+
+    .expand-icon {
+      margin-right: unset;
+      margin-left: 18px;
+      transform: rotate(-180deg);
+    }
+
+    .expand-icon.expanded {
+      transform: rotate(-270deg);
+    }
+  }
+
+  /**
+    * LEVELS
+    */
+
+  .content.level-1 {
+    padding-left: unset;
+    padding-right: 54px;
+  }
+
+  .content.level-2 {
+    padding-left: unset;
+    padding-right: 86px;
+  }
+
+  .content.level-3 {
+    padding-left: unset;
+    padding-right: 118px;
+  }
+
+  .content.level-4 {
+    padding-left: unset;
+    padding-right: 150px;
+  }
+
+  .pure-menu-content.fullwidth {
+
+    .icon,
+    .replace-icon {
+      transform: translateX(-224px);
+    }
+  }
+
+  .pure-menu-content.opened-or-hovering-menu {
+    .icon {
+      transform: translateX(0px);
     }
   }
 }

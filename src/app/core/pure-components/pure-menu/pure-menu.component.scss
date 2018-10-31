@@ -54,3 +54,24 @@
     }
   }
 }
+
+/**
+ * RTL SUPPORT
+ */
+
+.pure-menu.RTL {
+  .group {
+    .group-name-wrapper {
+      .group-name {
+        left: auto;
+        right: 24px;
+      }
+
+      .group-name-replace {
+        left: auto;
+        right: 20px;
+        transform: translateX(-224px);
+      }
+    }
+  }
+}
