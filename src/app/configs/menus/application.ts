@@ -21,9 +21,9 @@ export const ApplicationMenu: IMenuItem[] = [
      { name: 'Management', url: '/app/e-commerce/management' }
     ]
   },
-  { name: 'Calender', icon: 'today', url: '/app/calender' },
-  { name: 'Contacts', icon: 'account_box', url: '/app/contacts' },
-  { name: 'Mail', icon: 'mail', url: '/app/mail' },
+  { name: 'Calender', icon: 'today', url: '/app/calender', badge: 2 },
+  { name: 'Contacts', icon: 'account_box', url: '/app/contacts', badge: 3, badgeColor: 'primary' },
+  { name: 'Mail', icon: 'mail', url: '/app/mail', badge: 15, badgeColor: 'accent' },
   { name: 'Messenger', icon: 'message', url: '/app/messenger' },
   { name: 'Todo', icon: 'check_box', url: '/app/todo' },
   { name: 'Scrumboard', icon: 'dns', url: '/app/scrumboard' },

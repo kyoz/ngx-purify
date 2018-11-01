@@ -14,6 +14,14 @@
     <!--Original icon-->
     <mat-icon class="icon" *ngIf="menuItemData.icon">{{ menuItemData.icon }}</mat-icon>
     <span class="name">{{ menuItemData.name }}</span>
+    <span class="badge" *ngIf="menuItemData.badge"
+      [ngClass]="fixBadgeColor(menuItemData.badgeColor)"
+      [ngStyle]="{
+        'margin-right' : hasChildren && ((_settings.currentTextDir$ | async) !== 'RTL') ? '12px' : '20px',
+        'margin-left' : hasChildren && ((_settings.currentTextDir$ | async) === 'RTL') ? '12px' : '20px'
+      }">
+      {{ menuItemData.badge }}
+    </span>
     <mat-icon class="expand-icon" [ngClass]="{ 'expanded': (opened | async) }"
       *ngIf="hasChildren">keyboard_arrow_right</mat-icon>
   </div>

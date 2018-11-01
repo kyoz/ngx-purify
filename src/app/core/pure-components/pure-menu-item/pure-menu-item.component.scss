@@ -46,6 +46,16 @@
       opacity: 0;
     }
 
+    .badge {
+      height: 14px;
+      line-height: 14px;
+      text-decoration: none;
+      padding: 4px 8px;
+      font-size: 12px;
+      border-radius: 16px;
+      opacity: 0;
+    }
+
     .expand-icon {
       font-size: 18px;
       line-height: 18px;
@@ -139,6 +149,11 @@
     .name,
     .expand-icon {
       opacity: 1;
+    }
+
+    .badge {
+      opacity: 1;
+      transition: opacity 200ms ease-in-out;
     }
 
     .replace-icon {

@@ -201,4 +201,9 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
       this._menuService.setExpandingMenuItem(rootParent);
     }
   }
+
+  fixBadgeColor(color) {
+    if (color === 'primary' || color === 'accent') return color;
+    return 'warn';
+  }
 }

@@ -2,6 +2,8 @@
 
 @mixin pure-menu-theme($theme) {
   $primary: map-get($theme, primary);
+  $warn: map-get($theme, warn);
+  $accent: map-get($theme, accent);
   $background: map-get($theme, background);
   $foreground: map-get($theme, foreground);
   $is-dark: map-get($theme, is-dark);
@@ -20,6 +22,20 @@
         .icon, .expand-icon, .replace-icon {
           color: mat-color($foreground, icon);
         }
+
+        .badge, .badge.warn {
+          background: mat-color($warn);
+          color: get-text-color(mat-color($warn));
+        }
+        .badge.primary {
+          background: mat-color($primary);
+          color: get-text-color(mat-color($primary));
+        }
+        .badge.accent {
+          background: mat-color($accent);
+          color: get-text-color(mat-color($accent));
+        }
+
         .name {
           color: mat-color($foreground, text);
         }

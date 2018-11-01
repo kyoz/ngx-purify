@@ -1,6 +1,6 @@
 @function get-text-color($color) {
-  @if (lightness($color) > 50) {
-    @return $black-87-opacity; // Lighter backgorund, return dark color
+  @if (lightness($color) > 65) {
+    @return $black-87-opacity; // Lighter background, return dark color
   } @else {
     @return $white-87-opacity; // Darker background, return light color
   }

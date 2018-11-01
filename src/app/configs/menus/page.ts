@@ -13,6 +13,7 @@ export const PageMenu: IMenuItem[] = [
   {
     name: 'Errors',
     icon: 'error',
+    badge: 14,
     children: [
       { name: '404', icon: 'lock', url: '/page/error/404' },
       { name: '408', url: '/page/error/408' },
