@@ -176,7 +176,7 @@
   overflow: hidden;
   box-sizing: border-box;
   height: 0px;
-  transition: height .2s ease-in-out;
+  transition: height 280ms cubic-bezier(.4,0,.2,1);
   position: relative;
 
   &:before {
