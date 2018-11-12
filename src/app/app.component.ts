@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PureTranslateService } from './core/pure-services/pure-translate.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor() {}
+  constructor(private _translator: PureTranslateService) {
+    this._translator.init();
+  }
 }

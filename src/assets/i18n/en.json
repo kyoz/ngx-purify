@@ -1,0 +1,91 @@
+{
+  "MENU": {
+    "APPLICATIONS": {
+      "TITLE": "APPLICATION",
+      "DASHBOARD": {
+        "TITLE": "Dashboard",
+        "ANALYTICAL": "Analytical",
+        "OPERATIONAL": "Operational",
+        "STRATEGIC": "Strategic"
+      },
+      "E-COMMERCE": {
+        "TITLE": "E-Commerce",
+        "FRONT_PAGE": "Front page",
+        "MANAGEMENT": "Management"
+      },
+      "CALENDER": "Calender",
+      "CONTACT": "Contact",
+      "MAIL": "Mail",
+      "MESSENGER": "Messenger",
+      "TODO": "Todo",
+      "SCRUMBOARD": "Scrumboard",
+      "FILE_MANAGER": "File Manager",
+      "SEARCH": "Search"
+    },
+    "PAGES": {
+      "TITLE": "PAGES",
+      "AUTHENTICATION": {
+        "TITLE": "Authentication",
+        "LOGIN": "Login",
+        "REGISTER": "Register",
+        "FORGOT_PASSWORD": "Forgot Password"
+      },
+      "ERRORS": {
+        "SESSION_EXPIRED": "Session Expired"
+      },
+      "PRICING": {
+        "STYLE_1": "Style 1",
+        "STYLE_2": "Style 2",
+        "STYLE_3": "Style 3"
+      },
+      "FAQ": "FAQ"
+     },
+    "DOCUMENTATION": {
+      "TITLE": "DOCUMENTATION",
+      "GETTING_STARTED": {
+        "TITLE": "Getting Started",
+        "INTRODUCTION": "Introduction",
+        "INSTALLATION": "Installation"
+      },
+      "CONFIGURATION": {
+        "TITLE": "Configuration",
+        "MENU": "Menu",
+        "THEMES": "Themes",
+        "LANGUAGE_TRANSLATION": "Language Translation"
+      },
+      "DEVELOPING": {
+        "TITLE": "Developing",
+        "START_SERVER": "Start Server",
+        "PRODUCTION": "Production"
+      },
+      "COMPONENTS": "Components",
+      "DIRECTIVES": "Directives",
+      "SERVICES": "Services",
+      "3RD_PARTY_COMPONENTS": "3rd Party Components",
+      "CHANGELOG": "Changelog"
+    },
+    "OTHERS": {
+      "TITLE": "OTHERS",
+      "MULTI_LEVEL_MENU": {
+        "TITLE": "Multi-level Menu",
+        "LEVEL_2": "Level 2",
+        "LEVEL_3": "Level 3",
+        "LEVEL_4": "Level 4",
+        "LEVEL_5": "Level 5"
+      },
+      "MULTI_LEVEL_MENU_WITH_ICON": {
+        "TITLE": "Multi-level Menu (With icon)",
+        "LEVEL_2": "Level 2",
+        "LEVEL_3": "Level 3",
+        "LEVEL_4": "Level 4",
+        "LEVEL_5": "Level 5"
+      },
+      "NAVIGATION": {
+        "TITLE": "Navigation",
+        "NORMAL_ROUTE": "Normal Route",
+        "ROUTE_WITH_QUERIES": "Route With Queries",
+        "EXTERNAL_LINK": "External Link"
+      }
+    }
+  }
+}

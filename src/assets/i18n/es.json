@@ -1,0 +1,91 @@
+{
+  "MENU": {
+    "APPLICATIONS": {
+      "TITLE": "APLICACIÓN",
+      "DASHBOARD": {
+        "TITLE": "Dashboard",
+        "ANALYTICAL": "Analítico",
+        "OPERATIONAL": "Operacional",
+        "STRATEGIC": "Estratégico"
+      },
+      "E-COMMERCE": {
+        "TITLE": "E-Commerce",
+        "FRONT_PAGE": "Portada",
+        "MANAGEMENT": "Gestión"
+      },
+      "CALENDER": "Calendario",
+      "CONTACT": "Contacto",
+      "MAIL": "Correo",
+      "MESSENGER": "Mensajero",
+      "TODO": "Todo",
+      "SCRUMBOARD": "Scrumboard",
+      "FILE_MANAGER": "Administrador de archivos",
+      "SEARCH": "Buscar"
+    },
+    "PAGES": {
+      "TITLE": "PAGINAS",
+      "AUTHENTICATION": {
+        "TITLE": "Autenticación",
+        "LOGIN": "Login",
+        "REGISTER": "Registro",
+        "FORGOT_PASSWORD": "Olvidé mi contraseña"
+      },
+      "ERRORS": {
+        "SESSION_EXPIRED": "Sesión caducada"
+      },
+      "PRICING": {
+        "STYLE_1": "Estilo 1",
+        "STYLE_2": "Estilo 2",
+        "STYLE_3": "Estilo 3"
+      },
+      "FAQ": "FAQ"
+     },
+    "DOCUMENTATION": {
+      "TITLE": "DOCUMENTACIÓN",
+      "GETTING_STARTED": {
+        "TITLE": "Comenzando",
+        "INTRODUCTION": "Introducción",
+        "INSTALLATION": "Instalación"
+      },
+      "CONFIGURATION": {
+        "TITLE": "Configuración",
+        "MENU": "Menú",
+        "THEMES": "Temas",
+        "LANGUAGE_TRANSLATION": "Traducción de idioma"
+      },
+      "DEVELOPING": {
+        "TITLE": "En desarrollo",
+        "START_SERVER": "Iniciar servidor",
+        "PRODUCTION": "Producción"
+      },
+      "COMPONENTS": "Components",
+      "DIRECTIVES": "Directives",
+      "SERVICES": "Services",
+      "3RD_PARTY_COMPONENTS": "3rd Party Components",
+      "CHANGELOG": "Changelog"
+    },
+    "OTHERS": {
+      "TITLE": "OTHERS",
+      "MULTI_LEVEL_MENU": {
+        "TITLE": "Multi-level Menu",
+        "LEVEL_2": "Level 2",
+        "LEVEL_3": "Level 3",
+        "LEVEL_4": "Level 4",
+        "LEVEL_5": "Level 5"
+      },
+      "MULTI_LEVEL_MENU_WITH_ICON": {
+        "TITLE": "Multi-level Menu (With icon)",
+        "LEVEL_2": "Level 2",
+        "LEVEL_3": "Level 3",
+        "LEVEL_4": "Level 4",
+        "LEVEL_5": "Level 5"
+      },
+      "NAVIGATION": {
+        "TITLE": "Navigation",
+        "NORMAL_ROUTE": "Normal Route",
+        "ROUTE_WITH_QUERIES": "Route With Queries",
+        "EXTERNAL_LINK": "External Link"
+      }
+    }
+  }
+}

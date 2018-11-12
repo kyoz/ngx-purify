@@ -13,7 +13,7 @@
     <mat-icon class="replace-icon">{{ menuItemData.icon ? menuItemData.icon : 'layers' }}</mat-icon>
     <!--Original icon-->
     <mat-icon class="icon" *ngIf="menuItemData.icon">{{ menuItemData.icon }}</mat-icon>
-    <span class="name">{{ menuItemData.name }}</span>
+    <span class="name">{{ menuItemData.i18n ? (menuItemData.name | translate) : menuItemData.name }}</span>
     <span class="badge" *ngIf="menuItemData.badge"
       [ngClass]="fixBadgeColor(menuItemData.badgeColor)"
       [ngStyle]="{

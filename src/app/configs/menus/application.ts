@@ -9,10 +9,10 @@ import { IMenuItem } from "../../core/pure-interfaces/menu";
 
 export const ApplicationMenu: IMenuItem[] = [
   { 
-    name: 'Dashboard', icon: 'dashboard', children: [
-      { name: 'Analytical', url: '/app/dashboard/analytical' },
-      { name: 'Operational', url: '/app/dashboard/operational' },
-      { name: 'Strategic', url: '/app/dashboard/strategic' }
+    name: 'MENU.APPLICATIONS.DASHBOARD.TITLE', icon: 'dashboard', i18n: true, children: [
+      { name: 'MENU.APPLICATIONS.DASHBOARD.ANALYTICAL', url: '/app/dashboard/analytical', i18n: true },
+      { name: 'MENU.APPLICATIONS.DASHBOARD.OPERATIONAL', url: '/app/dashboard/operational', i18n: true },
+      { name: 'MENU.APPLICATIONS.DASHBOARD.STRATEGIC', url: '/app/dashboard/strategic', i18n: true }
     ]
   },
   {

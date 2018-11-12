@@ -4,6 +4,7 @@ import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-
 import { PureNotificationContainerService } from '../../pure-containers/pure-notification-container/pure-notification-container.service';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { PureMainContainerService } from '../../pure-containers/pure-main-container/pure-main-container.service';
+import { PureTranslateService } from '../../pure-services/pure-translate.service';
 
 @Component({
   selector: 'pure-toolbar',
@@ -28,7 +29,8 @@ export class PureToolbar {
     public _menuContainer: PureMenuContainerService,
     public _chatboxContainer: PureChatboxContainerService,
     public _notificationContainer: PureNotificationContainerService,
-    public _settings: PureSettingsService
+    public _settings: PureSettingsService,
+    private _translator: PureTranslateService
   ) {}
 
   toggleSearch() {
@@ -65,5 +67,9 @@ export class PureToolbar {
     (document['webkitFullscreenElement'] && document['webkitFullscreenElement'] !== null) ||
     (document['mozFullScreenElement'] && document['mozFullScreenElement'] !== null) ||
     (document['msFullscreenElement'] && document['msFullscreenElement'] !== null);
+  }
+
+  changeLanguage(langCode) {
+    this._translator.changeLanguage(langCode);
   }
 }

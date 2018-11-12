@@ -1,0 +1,91 @@
+{
+  "MENU": {
+    "APPLICATIONS": {
+      "TITLE": "申请",
+      "DASHBOARD": {
+        "TITLE": "仪表板",
+        "ANALYTICAL": "分析",
+        "OPERATIONAL": "运营",
+        "STRATEGIC": "战略"
+      },
+      "E-COMMERCE": {
+        "TITLE": "电子商务",
+        "FRONT_PAGE": "首页",
+        "MANAGEMENT": "管理"
+      },
+      "CALENDER": "日历",
+      "CONTACT": "联系方式",
+      "MAIL": "邮件",
+      "MESSENGER": "使者",
+      "TODO": "Todo",
+      "SCRUMBOARD": "Scrumboard",
+      "FILE_MANAGER": "文件管理器",
+      "SEARCH": "搜索"
+    },
+    "PAGES": {
+      "TITLE": "网页",
+      "AUTHENTICATION": {
+        "TITLE": "身份验证",
+        "LOGIN": "登录",
+        "REGISTER": "注册",
+        "FORGOT_PASSWORD": "忘记密码"
+      },
+      "ERRORS": {
+        "SESSION_EXPIRED": "会话已过期"
+      },
+      "PRICING": {
+        "STYLE_1": "风格 1",
+        "STYLE_2": "风格 2",
+        "STYLE_3": "风格 3"
+      },
+      "FAQ": "FAQ"
+     },
+    "DOCUMENTATION": {
+      "TITLE": "文档",
+      "GETTING_STARTED": {
+        "TITLE": "入门",
+        "INTRODUCTION": "简介",
+        "INSTALLATION": "安装"
+      },
+      "CONFIGURATION": {
+        "TITLE": "配置",
+        "MENU": "菜单",
+        "THEMES": "主题",
+        "LANGUAGE_TRANSLATION": "语言翻译"
+      },
+      "DEVELOPING": {
+        "TITLE": "发展中",
+        "START_SERVER": "启动服务器",
+        "PRODUCTION": "生产"
+      },
+      "COMPONENTS": "Components",
+      "DIRECTIVES": "Directives",
+      "SERVICES": "Services",
+      "3RD_PARTY_COMPONENTS": "3rd Party Components",
+      "CHANGELOG": "Changelog"
+    },
+    "OTHERS": {
+      "TITLE": "OTHERS",
+      "MULTI_LEVEL_MENU": {
+        "TITLE": "Multi-level Menu",
+        "LEVEL_2": "Level 2",
+        "LEVEL_3": "Level 3",
+        "LEVEL_4": "Level 4",
+        "LEVEL_5": "Level 5"
+      },
+      "MULTI_LEVEL_MENU_WITH_ICON": {
+        "TITLE": "Multi-level Menu (With icon)",
+        "LEVEL_2": "Level 2",
+        "LEVEL_3": "Level 3",
+        "LEVEL_4": "Level 4",
+        "LEVEL_5": "Level 5"
+      },
+      "NAVIGATION": {
+        "TITLE": "Navigation",
+        "NORMAL_ROUTE": "Normal Route",
+        "ROUTE_WITH_QUERIES": "Route With Queries",
+        "EXTERNAL_LINK": "External Link"
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClient } from '@angular/common/http';
 
 // App Router
 import { AppRoutingModule } from './app.routing';
@@ -22,11 +23,22 @@ import { PureChatboxEffects } from './core/pure-components/pure-chatbox/pure-cha
 // Device Detectors
 import { DeviceDetectorModule } from 'ngx-device-detector';
 
+// Translator
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 // Perfect Scrollbar
 import {
   PerfectScrollbarConfigInterface,
   PERFECT_SCROLLBAR_CONFIG
 } from 'ngx-perfect-scrollbar';
+
+// Pure Translate Service
+import { PureTranslateService } from './core/pure-services/pure-translate.service';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true,
@@ -57,7 +69,16 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ]),
 
     // Device Detectors
-    DeviceDetectorModule.forRoot()
+    DeviceDetectorModule.forRoot(),
+
+    // Translator
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     // Perfect Scrollbar Global Configuration
@@ -65,6 +86,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     },
+    // Pure Translate Service
+    PureTranslateService
   ],
   bootstrap: [AppComponent]
 })

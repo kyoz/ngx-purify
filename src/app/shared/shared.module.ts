@@ -8,6 +8,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 // Perfect Scrollbar
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
+// Translator
+import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -17,7 +20,8 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
     RouterModule,
     MaterialModule,
     FlexLayoutModule,
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    TranslateModule
   ],
   exports: [
     CommonModule,
@@ -26,7 +30,8 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
     RouterModule,
     MaterialModule,
     FlexLayoutModule,
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    TranslateModule
   ]
 })
 export class PureSharedModule { }

@@ -1,6 +1,7 @@
 export interface IMenuGroup {
   groupName: string,
-  menuItems: IMenuItem[]
+  menuItems: IMenuItem[],
+  i18n?: boolean
 }
 
 export interface IMenuItem {
@@ -9,5 +10,6 @@ export interface IMenuItem {
   url?: string,
   children?: IMenuItem[],
   badge?: number,
-  badgeColor?: string
+  badgeColor?: string,
+  i18n?: boolean
 }
