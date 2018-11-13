@@ -12,6 +12,6 @@ export const MENU_CONFIG: IMenuGroup[] = [
   { groupName: 'MENU.APPLICATIONS.TITLE', menuItems: ApplicationMenu, i18n: true },
   { groupName: 'MENU.PAGES.TITLE', menuItems: PageMenu, i18n: true },
   { groupName: 'MATERIAL COMPONENTS', menuItems: MaterialComponentMenu },
-  { groupName: 'MENU.DOCUMENTATION.TITLE', menuItems: DocumentationMenu, i18n: true },
-  { groupName: 'OTHERS', menuItems: OtherMenu, i18n: true }
+  { groupName: 'MENU.OTHERS.TITLE', menuItems: OtherMenu, i18n: true },
+  { groupName: 'MENU.DOCUMENTATION.TITLE', menuItems: DocumentationMenu, i18n: true }
 ];

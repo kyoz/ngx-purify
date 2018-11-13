@@ -8,7 +8,7 @@
         "OPERATIONAL": "Operacional",
         "STRATEGIC": "Estratégico"
       },
-      "E-COMMERCE": {
+      "E_COMMERCE": {
         "TITLE": "E-Commerce",
         "FRONT_PAGE": "Portada",
         "MANAGEMENT": "Gestión"
@@ -31,9 +31,11 @@
         "FORGOT_PASSWORD": "Olvidé mi contraseña"
       },
       "ERRORS": {
+        "TITLE": "Errores",
         "SESSION_EXPIRED": "Sesión caducada"
       },
       "PRICING": {
+        "TITLE": "Precios",
         "STYLE_1": "Estilo 1",
         "STYLE_2": "Estilo 2",
         "STYLE_3": "Estilo 3"
@@ -65,26 +67,26 @@
       "CHANGELOG": "Changelog"
     },
     "OTHERS": {
-      "TITLE": "OTHERS",
+      "TITLE": "OTROS",
       "MULTI_LEVEL_MENU": {
-        "TITLE": "Multi-level Menu",
-        "LEVEL_2": "Level 2",
-        "LEVEL_3": "Level 3",
-        "LEVEL_4": "Level 4",
-        "LEVEL_5": "Level 5"
+        "TITLE": "Menú multinivel",
+        "LEVEL_2": "Nivel 2",
+        "LEVEL_3": "Nivel 3",
+        "LEVEL_4": "Nivel 4",
+        "LEVEL_5": "Nivel 5"
       },
       "MULTI_LEVEL_MENU_WITH_ICON": {
-        "TITLE": "Multi-level Menu (With icon)",
-        "LEVEL_2": "Level 2",
-        "LEVEL_3": "Level 3",
-        "LEVEL_4": "Level 4",
-        "LEVEL_5": "Level 5"
+        "TITLE": "Menú multinivel (con el icono)",
+        "LEVEL_2": "Nivel 2",
+        "LEVEL_3": "Nivel 3",
+        "LEVEL_4": "Nivel 4",
+        "LEVEL_5": "Nivel 5"
       },
       "NAVIGATION": {
-        "TITLE": "Navigation",
-        "NORMAL_ROUTE": "Normal Route",
-        "ROUTE_WITH_QUERIES": "Route With Queries",
-        "EXTERNAL_LINK": "External Link"
+        "TITLE": "Navegación",
+        "NORMAL_ROUTE": "Ruta normal",
+        "ROUTE_WITH_QUERIES": "Ruta con consultas",
+        "EXTERNAL_LINK": "Enlace externo"
       }
     }
   }

@@ -8,7 +8,7 @@
         "OPERATIONAL": "Operational",
         "STRATEGIC": "Strategic"
       },
-      "E-COMMERCE": {
+      "E_COMMERCE": {
         "TITLE": "E-Commerce",
         "FRONT_PAGE": "Front page",
         "MANAGEMENT": "Management"
@@ -31,9 +31,11 @@
         "FORGOT_PASSWORD": "Forgot Password"
       },
       "ERRORS": {
+        "TITLE": "Errors",
         "SESSION_EXPIRED": "Session Expired"
       },
       "PRICING": {
+        "TITLE": "Pricing",
         "STYLE_1": "Style 1",
         "STYLE_2": "Style 2",
         "STYLE_3": "Style 3"

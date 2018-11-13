@@ -8,7 +8,7 @@
         "OPERATIONAL": "运营",
         "STRATEGIC": "战略"
       },
-      "E-COMMERCE": {
+      "E_COMMERCE": {
         "TITLE": "电子商务",
         "FRONT_PAGE": "首页",
         "MANAGEMENT": "管理"
@@ -31,9 +31,11 @@
         "FORGOT_PASSWORD": "忘记密码"
       },
       "ERRORS": {
+        "TITLE": "错误",
         "SESSION_EXPIRED": "会话已过期"
       },
       "PRICING": {
+        "TITLE": "价钱",
         "STYLE_1": "风格 1",
         "STYLE_2": "风格 2",
         "STYLE_3": "风格 3"
@@ -65,26 +67,26 @@
       "CHANGELOG": "Changelog"
     },
     "OTHERS": {
-      "TITLE": "OTHERS",
+      "TITLE": "其他人",
       "MULTI_LEVEL_MENU": {
-        "TITLE": "Multi-level Menu",
-        "LEVEL_2": "Level 2",
-        "LEVEL_3": "Level 3",
-        "LEVEL_4": "Level 4",
-        "LEVEL_5": "Level 5"
+        "TITLE": "多级菜单",
+        "LEVEL_2": "等级2",
+        "LEVEL_3": "3级",
+        "LEVEL_4": "等级4",
+        "LEVEL_5": "等级5"
       },
       "MULTI_LEVEL_MENU_WITH_ICON": {
-        "TITLE": "Multi-level Menu (With icon)",
-        "LEVEL_2": "Level 2",
-        "LEVEL_3": "Level 3",
-        "LEVEL_4": "Level 4",
-        "LEVEL_5": "Level 5"
+        "TITLE": "多级菜单 (带图标)",
+        "LEVEL_2": "等级2",
+        "LEVEL_3": "3级",
+        "LEVEL_4": "等级4",
+        "LEVEL_5": "等级5"
       },
       "NAVIGATION": {
-        "TITLE": "Navigation",
-        "NORMAL_ROUTE": "Normal Route",
-        "ROUTE_WITH_QUERIES": "Route With Queries",
-        "EXTERNAL_LINK": "External Link"
+        "TITLE": "导航",
+        "NORMAL_ROUTE": "正常路线",
+        "ROUTE_WITH_QUERIES": "路由查询",
+        "EXTERNAL_LINK": "外部链接"
       }
     }
   }

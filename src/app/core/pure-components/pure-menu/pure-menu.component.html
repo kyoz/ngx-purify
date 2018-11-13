@@ -9,7 +9,7 @@
       <!--Icon to replace group name when the menu shrink-->
       <mat-icon class="group-name-replace">remove</mat-icon>
       <!--Group name-->
-      <div class="group-name">{{ group.i18n ? (group.groupName | translate) : group.groupName }}</div>
+      <div class="group-name">{{ group.groupName | translate }}</div>
     </div>
     <pure-menu-item *ngFor="let menuItem of group.menuItems" 
       [menuItemData]="menuItem"

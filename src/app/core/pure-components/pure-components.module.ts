@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+
+// Modules
 import { PureSharedModule } from '../../shared/shared.module';
 import { PureDirectivesModule } from '../pure-directives/pure-directives.module';
 

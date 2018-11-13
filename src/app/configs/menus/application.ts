@@ -16,17 +16,17 @@ export const ApplicationMenu: IMenuItem[] = [
     ]
   },
   {
-    name: 'E-Commerce', icon: 'shopping_cart', children: [
-     { name: 'Front page', url: '/app/e-commerce/front-page' },
-     { name: 'Management', url: '/app/e-commerce/management' }
+    name: 'MENU.APPLICATIONS.E_COMMERCE.TITLE', icon: 'shopping_cart', children: [
+     { name: 'MENU.APPLICATIONS.E_COMMERCE.FRONT_PAGE', url: '/app/e-commerce/front-page' },
+     { name: 'MENU.APPLICATIONS.E_COMMERCE.MANAGEMENT', url: '/app/e-commerce/management' }
     ]
   },
-  { name: 'Calender', icon: 'today', url: '/app/calender', badge: 2 },
-  { name: 'Contacts', icon: 'account_box', url: '/app/contacts', badge: 3, badgeColor: 'primary' },
-  { name: 'Mail', icon: 'mail', url: '/app/mail', badge: 15, badgeColor: 'accent' },
-  { name: 'Messenger', icon: 'message', url: '/app/messenger' },
-  { name: 'Todo', icon: 'check_box', url: '/app/todo' },
-  { name: 'Scrumboard', icon: 'dns', url: '/app/scrumboard' },
-  { name: 'File Manager', icon: 'folder', url: '/app/file-manager' },
-  { name: 'Search', icon: 'search', url: '/app/search' }
+  { name: 'MENU.APPLICATIONS.CALENDER', icon: 'today', url: '/app/calender', badge: 2 },
+  { name: 'MENU.APPLICATIONS.CONTACT', icon: 'account_box', url: '/app/contacts', badge: 3, badgeColor: 'primary' },
+  { name: 'MENU.APPLICATIONS.MAIL', icon: 'mail', url: '/app/mail', badge: 15, badgeColor: 'accent' },
+  { name: 'MENU.APPLICATIONS.MESSENGER', icon: 'message', url: '/app/messenger' },
+  { name: 'MENU.APPLICATIONS.TODO', icon: 'check_box', url: '/app/todo' },
+  { name: 'MENU.APPLICATIONS.SCRUMBOARD', icon: 'dns', url: '/app/scrumboard' },
+  { name: 'MENU.APPLICATIONS.FILE_MANAGER', icon: 'folder', url: '/app/file-manager' },
+  { name: 'MENU.APPLICATIONS.SEARCH', icon: 'search', url: '/app/search' }
 ];
