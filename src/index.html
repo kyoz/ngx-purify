@@ -1,8 +1,12 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <title>Pure - Angular 6+ Material Design Admin Template</title>
+  <meta name="keywords" content="Html, Css, Angular, Angular 2, Angular 4, Angular 5, Angular 6, Angular 7, Material Design, Material 2, NG, NGX">
+  <meta name="description" content="Angular Material Design Admin Template">
+  <meta name="author" content="banminkyoz">
+  <title>Pure - Angular 7+ Material Design Admin Template</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,8 +15,118 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
 
+  <style>
+    .pure-splash-screen {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      pointer-events: none;
+      background: rgb(49, 56, 70);
+      z-index: 999999;
+      opacity: 1;
+    }
+
+    .pure-splash-screen-loaded {
+      opacity: 0;
+      transition: opacity .5s ease-out;
+    }
+
+    /*Loading animation*/
+    .loading-dot {
+      display: inline-block;
+      position: relative;
+      width: 64px;
+      height: 64px;
+    }
+
+    .loading-dot div {
+      position: absolute;
+      top: 27px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #fff;
+      animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    }
+
+    .loading-dot div:nth-child(1) {
+      left: 6px;
+      animation: loading-dot1 0.6s infinite;
+    }
+
+    .loading-dot div:nth-child(2) {
+      left: 6px;
+      animation: loading-dot2 0.6s infinite;
+    }
+
+    .loading-dot div:nth-child(3) {
+      left: 26px;
+      animation: loading-dot2 0.6s infinite;
+    }
+
+    .loading-dot div:nth-child(4) {
+      left: 45px;
+      animation: loading-dot3 0.6s infinite;
+    }
+
+    @keyframes loading-dot1 {
+      0% {
+        transform: scale(0);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes loading-dot3 {
+      0% {
+        transform: scale(1);
+      }
+
+      100% {
+        transform: scale(0);
+      }
+    }
+
+    @keyframes loading-dot2 {
+      0% {
+        transform: translate(0, 0);
+      }
+
+      100% {
+        transform: translate(19px, 0);
+      }
+    }
+
+  </style>
+
 </head>
+
 <body id="PURE_ADMIN_DASHBOARD" class="pure-default-theme">
+
+  <div id="PURE_SPLASH_SCREEN" class="pure-splash-screen">
+    <div>
+      <img src="./assets/logo/pure.png" width="128">
+    </div>
+    <div>
+      <div class="loading-dot">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+
   <app-root></app-root>
+
 </body>
+
 </html>

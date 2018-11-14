@@ -9,4 +9,10 @@ if (environment.production) {
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule)
+  .then(() => {
+    setTimeout(()=> {
+      const splashScreen = document.getElementById('PURE_SPLASH_SCREEN');
+      splashScreen.classList.add('pure-splash-screen-loaded');
+    }, 500)
+  })
   .catch(err => console.log(err));
