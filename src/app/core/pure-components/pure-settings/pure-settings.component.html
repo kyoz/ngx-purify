@@ -14,7 +14,7 @@
 
     <mat-list class="setting-list">
       <h3 mat-subheader class="title">Themes</h3>
-      <mat-radio-group  (change)="onChangeTheme($event)" [(ngModel)]="currentTheme">
+      <mat-radio-group  (change)="onChangeTheme($event)" [ngModel]="_settings.currentTheme$ | async">
         <mat-list-item class="setting" *ngFor="let theme of SETTINGS.THEMES">
           <span class="pure-spacer-16"></span>
           <mat-radio-button [value]="theme.class">
@@ -28,7 +28,7 @@
 
     <mat-list class="setting-list">
       <h3 mat-subheader class="title">Width Layout</h3>
-      <mat-radio-group (change)="onChangeWidthLayout($event)" [(ngModel)]="currentWidthLayout">
+      <mat-radio-group (change)="onChangeWidthLayout($event)" [ngModel]="_settings.currentWidthLayout$ | async">
         <mat-list-item class="setting" *ngFor="let widthLayout of SETTINGS.WIDTH_LAYOUTS">
           <span class="pure-spacer-16"></span>
           <mat-radio-button [value]="widthLayout">
@@ -42,7 +42,7 @@
 
     <mat-list class="setting-list">
       <h3 mat-subheader class="title">Text direction</h3>
-      <mat-radio-group (change)="onChangeTextDirection($event)" [(ngModel)]="currentTextDir">
+      <mat-radio-group (change)="onChangeTextDirection($event)" [ngModel]="_settings.currentTextDir$ | async">
         <mat-list-item class="setting" *ngFor="let dir of SETTINGS.TEXT_DIRECTIONS">
           <span class="pure-spacer-16"></span>
           <mat-radio-button [value]="dir">
@@ -56,11 +56,11 @@
 
     <mat-list class="setting-list">
       <h3 mat-subheader class="title">Languages</h3>
-      <mat-radio-group [(ngModel)]="currentLang">
+      <mat-radio-group (change)="onChangeLanguage($event)" [ngModel]="_settings.currentLang$ | async">
         <mat-list-item class="setting" *ngFor="let lang of SETTINGS.LANGUAGES">
           <span class="pure-spacer-16"></span>
-          <mat-radio-button [value]="lang">
-            {{ lang }}
+          <mat-radio-button [value]="lang.key">
+            {{ lang.name }}
           </mat-radio-button>
         </mat-list-item>
       </mat-radio-group>

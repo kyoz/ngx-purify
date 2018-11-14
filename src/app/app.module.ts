@@ -37,9 +37,6 @@ import {
   PERFECT_SCROLLBAR_CONFIG
 } from 'ngx-perfect-scrollbar';
 
-// Pure Translate Service
-import { PureTranslateService } from './core/pure-services/pure-translate.service';
-
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true,
   suppressScrollX: true
@@ -85,9 +82,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    },
-    // Pure Translate Service
-    PureTranslateService
+    }
   ],
   bootstrap: [AppComponent]
 })

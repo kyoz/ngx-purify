@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import { PureSettingsStorageService } from './pure-settings.storage';
 import { THEMES } from '../../configs/themes';
 import { LANGUAGES } from '../../configs/languages';
+import { PureSettingsStorageService } from './pure-settings.storage';
+import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 export const SETTING_STORAGE_KEYS = {
-  theme: 'current-theme',
-  language: 'current-language',
-  textDirection: 'current-text-direction',
-  widthLayout: 'current-width-layout'
+  theme: 'pure-current-theme',
+  language: 'pure-current-language',
+  textDirection: 'pure-current-text-direction',
+  widthLayout: 'pure-current-width-layout'
 };
 
 export const SETTINGS = {
@@ -21,15 +22,17 @@ export const SETTINGS = {
 
 @Injectable()
 export class PureSettingsService {
-  currentTheme$: BehaviorSubject<string> = new BehaviorSubject(THEMES[0].class); // Take first theme as default
-  currentLang$: BehaviorSubject<string> = new BehaviorSubject('English');
-  currentTextDir$: BehaviorSubject<string> = new BehaviorSubject('LTR');
-  currentWidthLayout$: BehaviorSubject<string> = new BehaviorSubject('Fullwidth');
+  // Init and also set default settings
+  currentTheme$: BehaviorSubject<string> = new BehaviorSubject('');
+  currentLang$: BehaviorSubject<string> = new BehaviorSubject('');
+  currentTextDir$: BehaviorSubject<string> = new BehaviorSubject('');
+  currentWidthLayout$: BehaviorSubject<string> = new BehaviorSubject('');
   disableAnimation$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(
-    private _storage: PureSettingsStorageService) {
-      // Allow animation after dir setting done
+    private _storage: PureSettingsStorageService,
+    private _translate: TranslateService) {
+      // Only allow animation after dir setting done
       this.disableAnimation$.pipe(debounceTime(300), distinctUntilChanged()).subscribe(res => {
         if (res) {
           this.disableAnimation$.next(false);
@@ -50,6 +53,7 @@ export class PureSettingsService {
   public saveLanguageSetting(language: string) {
     this._storage.storeSetting(SETTING_STORAGE_KEYS.language, language);
     this.currentLang$.next(language);
+    this.updateLanguage(language);
   }
 
   public saveTextDirectionSetting(textDir: string) {
@@ -69,26 +73,23 @@ export class PureSettingsService {
    */
 
   init() {
-    const storedTheme: string = this._storage.getStoredSetting(SETTING_STORAGE_KEYS.theme);
-    const storedLanguage = this._storage.getStoredSetting(SETTING_STORAGE_KEYS.language);
-    const storedTextDirection = this._storage.getStoredSetting(SETTING_STORAGE_KEYS.textDirection);
-    const storedWidthLayout = this._storage.getStoredSetting(SETTING_STORAGE_KEYS.widthLayout);
+    // Get stored settings
+    let storedTheme: string = this._storage.getStoredSetting(SETTING_STORAGE_KEYS.theme);
+    let storedLanguage = this._storage.getStoredSetting(SETTING_STORAGE_KEYS.language);
+    let storedTextDirection = this._storage.getStoredSetting(SETTING_STORAGE_KEYS.textDirection);
+    let storedWidthLayout = this._storage.getStoredSetting(SETTING_STORAGE_KEYS.widthLayout);
 
-    if (storedTheme) {
-      this.currentTheme$.next(storedTheme);
-      this.updateTheme(storedTheme);
-    }
-    if (storedLanguage) {
-      this.currentLang$.next(storedLanguage);
-    }
-    if (storedTextDirection) {
-      this.currentTextDir$.next(storedTextDirection);
-      this.updateTextDirection(storedTextDirection);
-    }
-    if (storedWidthLayout) {
-      this.currentWidthLayout$.next(storedWidthLayout);
-      this.updateWidthLayout(storedWidthLayout);
-    }
+    // Set default settings
+    storedTheme = storedTheme ? storedTheme : THEMES[0].class;
+    storedLanguage = storedLanguage ? storedLanguage : LANGUAGES[0].key;
+    storedTextDirection = storedTextDirection ? storedTextDirection : 'LTR';
+    storedWidthLayout = storedWidthLayout ? storedWidthLayout : 'Fullwidth';
+
+    // Update settings to view
+    this.updateTheme(storedTheme);
+    this.updateLanguage(storedLanguage);
+    this.updateTextDirection(storedTextDirection);
+    this.updateWidthLayout(storedWidthLayout);
   }
 
   /**
@@ -112,6 +113,7 @@ export class PureSettingsService {
     // Add new theme class to index.html
     if (newThemeClass) {
       themeClassList.add(newThemeClass);
+      this.currentTheme$.next(newThemeClass);
     } else {
 
       // In some case, due to the configuration of adding or remove theme class.
@@ -123,13 +125,21 @@ export class PureSettingsService {
     }
   }
 
+  updateLanguage(langKey: string) {
+    langKey = langKey ? langKey : LANGUAGES[0].key; // If stored langKey is not exist in app, set first lang found 
+    this._translate.setDefaultLang(langKey);
+    this.currentLang$.next(langKey)
+  }
+
   updateTextDirection(textDirection: string) {
     switch (textDirection) {
       case 'RTL':
         document.getElementById('PURE_MAIN_CONTAINER').setAttribute('dir', 'rtl');
+        this.currentTextDir$.next('RTL');
         break;
       default:
         document.getElementById('PURE_MAIN_CONTAINER').removeAttribute('dir');
+        this.currentTextDir$.next('LTR');
     }
 
     // Disable animation
@@ -140,9 +150,11 @@ export class PureSettingsService {
     switch (widthLayout) {
       case 'Boxed':
         document.getElementById('PURE_MAIN_CONTAINER').classList.add('boxed');
+        this.currentWidthLayout$.next('Boxed');
         break;
       default:
         document.getElementById('PURE_MAIN_CONTAINER').classList.remove('boxed');
+        this.currentWidthLayout$.next('Fullwidth');
     }
   }
 }
