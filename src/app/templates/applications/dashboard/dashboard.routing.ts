@@ -5,10 +5,11 @@ import { OperationalDashboard } from './operational-dashboard/operational-dashbo
 import { StrategicDashboard } from './strategic-dashboard/strategic-dashboard.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/analytical', pathMatch: 'full'},
   { path: 'analytical', component: AnalyticalDashboard },
   { path: 'operational', component: OperationalDashboard },
-  { path: 'strategic', component: StrategicDashboard }
+  { path: 'strategic', component: StrategicDashboard },
+  { path: '', redirectTo: 'analytical', pathMatch: 'full'},
+  { path: '**', redirectTo: 'analytical', pathMatch: 'full'}
 ];
 
 @NgModule({

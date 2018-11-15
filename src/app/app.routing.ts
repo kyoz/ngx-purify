@@ -5,10 +5,10 @@ import { MainContainer } from './containers/main-container/main-container.compon
 import { MinimalContainer } from './containers/minimal-container/minimal-container.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'app/dashboard/analytical', pathMatch: 'full' },
   { path: 'app', component: MainContainer, loadChildren: './templates/applications/applications.module#ApplicationsModule' },
-  { path: 'page', component: MinimalContainer, loadChildren: './templates/pages/pages.module#PagesModule' }
-  // { path: '**', component: PageNotFoundComponent },
+  { path: 'page', component: MinimalContainer, loadChildren: './templates/pages/pages.module#PagesModule' },
+  { path: '', redirectTo: 'app', pathMatch: 'full' },
+  { path: '**', redirectTo: 'app', pathMatch: 'full' }
 ];
 
 @NgModule({
