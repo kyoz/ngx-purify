@@ -17,9 +17,18 @@
 
   <style>
     .pure-splash-screen {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
       flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
       justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
       align-items: center;
       position: absolute;
       top: 0px;
@@ -32,8 +41,15 @@
       opacity: 1;
     }
 
+    .pure-splash-screen-logo {
+      -webkit-filter: drop-shadow(0px 10px 6px rgba(0, 0, 0, 0.18));
+      filter: drop-shadow(0px 10px 6px rgba(0, 0, 0, 0.2));
+    }
+
     .pure-splash-screen-loaded {
       opacity: 0;
+      -webkit-transition: opacity .5s ease-out;
+      -o-transition: opacity .5s ease-out;
       transition: opacity .5s ease-out;
     }
 
@@ -51,56 +67,103 @@
       width: 11px;
       height: 11px;
       border-radius: 50%;
-      background: #fff;
+      background: rgb(103, 162, 245);
+      -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);
       animation-timing-function: cubic-bezier(0, 1, 1, 0);
     }
 
     .loading-dot div:nth-child(1) {
       left: 6px;
+      -webkit-animation: loading-dot1 0.6s infinite;
       animation: loading-dot1 0.6s infinite;
     }
 
     .loading-dot div:nth-child(2) {
       left: 6px;
+      -webkit-animation: loading-dot2 0.6s infinite;
       animation: loading-dot2 0.6s infinite;
     }
 
     .loading-dot div:nth-child(3) {
       left: 26px;
+      -webkit-animation: loading-dot2 0.6s infinite;
       animation: loading-dot2 0.6s infinite;
     }
 
     .loading-dot div:nth-child(4) {
       left: 45px;
+      -webkit-animation: loading-dot3 0.6s infinite;
       animation: loading-dot3 0.6s infinite;
     }
 
-    @keyframes loading-dot1 {
+    @-webkit-keyframes loading-dot1 {
       0% {
+        -webkit-transform: scale(0);
         transform: scale(0);
       }
 
       100% {
+        -webkit-transform: scale(1);
         transform: scale(1);
+      }
+    }
+
+    @keyframes loading-dot1 {
+      0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      }
+
+      100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+    }
+
+    @-webkit-keyframes loading-dot3 {
+      0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+
+      100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
       }
     }
 
     @keyframes loading-dot3 {
       0% {
+        -webkit-transform: scale(1);
         transform: scale(1);
       }
 
       100% {
+        -webkit-transform: scale(0);
         transform: scale(0);
+      }
+    }
+
+    @-webkit-keyframes loading-dot2 {
+      0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+      }
+
+      100% {
+        -webkit-transform: translate(19px, 0);
+        transform: translate(19px, 0);
       }
     }
 
     @keyframes loading-dot2 {
       0% {
+        -webkit-transform: translate(0, 0);
         transform: translate(0, 0);
       }
 
       100% {
+        -webkit-transform: translate(19px, 0);
         transform: translate(19px, 0);
       }
     }
@@ -113,7 +176,7 @@
 
   <div id="PURE_SPLASH_SCREEN" class="pure-splash-screen">
     <div>
-      <img src="./assets/logo/pure.png" width="128">
+      <img class="pure-splash-screen-logo" src="./assets/logo/pure.svg" width="128">
     </div>
     <div>
       <div class="loading-dot">
