@@ -1,0 +1,36 @@
+.header {
+  height: 98px;
+  min-height: 98px;
+  padding: 0 32px;
+  // background: #f0f0f0 !important;
+  // border-bottom: 1px solid #e7e7e7;
+
+  .navigation {
+    font-size: .77em;
+    line-height: .77em;
+    font-weight: 300;
+    padding-bottom: 16px;
+    opacity: .7;
+    // color: rgba(0,0,0,.56);
+    mat-icon {
+      width: 16px;
+      height: 16px;
+      font-size: 16px;
+      line-height: 16px;
+    }
+    .arrow {
+      margin-left: 4px;
+      margin-right: 4px;
+    }
+  }
+
+  .title {
+    font-size: .9em;
+    line-height: .9em;
+    font-weight: 400;
+  }
+  
+  .reference {
+    text-align: right;
+  }
+}
