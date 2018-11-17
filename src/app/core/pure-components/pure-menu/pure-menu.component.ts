@@ -64,21 +64,10 @@ export class PureMenu implements OnInit {
       // Menu has scroll all the way to bottom
       const pureMenu = this.pureMenuScrollbar._elementRef.nativeElement;
 
-      if (pureMenu.scrollHeight <= (pureMenu.scrollTop + window.innerHeight - 64)) {
-        return;
-      }
-      // 64 is the height of toolbar, 24 is half of the item height
+      // // 64 is the height of toolbar, 24 is half of the item height
       const centerScreenHeight = (window.innerHeight - 64) / 2 - 24;
 
       pureMenu.scrollTop -= centerScreenHeight;
-
-      const scrollTopInInnerHeight = pureMenu.scrollTop * window.innerHeight / pureMenu.scrollHeight;
-
-      if (scrollTopInInnerHeight < centerScreenHeight) {
-        setTimeout(() => {
-          pureMenu.scrollTop -= (centerScreenHeight - scrollTopInInnerHeight) / 2 + 48;
-        });
-      }
     }
   }
 

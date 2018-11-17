@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
-
-import { DashboardRoutingModule } from './dashboard.routing';
+import { RouterModule } from '@angular/router';
 
 import { AnalyticalDashboard } from './analytical-dashboard/analytical-dashboard.component';
 import { OperationalDashboard } from './operational-dashboard/operational-dashboard.component';
 import { StrategicDashboard } from './strategic-dashboard/strategic-dashboard.component';
-import { PureSharedModule } from '../../../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -14,8 +12,13 @@ import { PureSharedModule } from '../../../shared/shared.module';
     StrategicDashboard
   ],
   imports: [
-    DashboardRoutingModule,
-    PureSharedModule
+    RouterModule.forChild([
+      { path: 'analytical', component: AnalyticalDashboard },
+      { path: 'operational', component: OperationalDashboard },
+      { path: 'strategic', component: StrategicDashboard },
+      { path: '', redirectTo: 'analytical', pathMatch: 'full'},
+      { path: '**', redirectTo: 'analytical', pathMatch: 'full'}
+    ])
   ]
 })
 export class DashboardModule {}

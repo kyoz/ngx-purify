@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
-import { PagesRoutingModule } from './pages.routing';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [],
   imports: [
-    PagesRoutingModule
+    RouterModule.forChild([
+      { path: 'auth', loadChildren: './authentication/authentication.module#AuthenticationModule'}
+    ])
   ],
   exports: [],
   providers: [],
