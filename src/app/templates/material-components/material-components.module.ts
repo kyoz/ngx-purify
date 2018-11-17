@@ -3,7 +3,6 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
-
     // Router
     RouterModule.forChild([
       { path: 'button-indicators', loadChildren: './button-indicators/button-indicators.module#ButtonIndicatorsModule'},

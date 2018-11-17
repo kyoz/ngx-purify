@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { PureSettingsService } from 'src/app/core/pure-services/pure-settings.service';
 
 @Component({
-  selector: 'material-header',
+  selector: 'page-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { MaterialSharedModule } from '../material-shared/material-shared.module';
+import { SharedModule } from '../../shared/shared.module';
 
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
@@ -27,7 +27,7 @@ import { SliderComponent } from './slider/slider.component';
   ],
   imports: [
     // Modules
-    MaterialSharedModule,
+    SharedModule,
 
     // Router
     RouterModule.forChild([
