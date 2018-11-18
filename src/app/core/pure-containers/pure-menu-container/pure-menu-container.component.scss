@@ -82,8 +82,8 @@
   transform: translateX(288px);
 }
 
-.pure-menu-container.fullwidth.can-hover {
-  &:hover {
+.pure-menu-container.fullwidth.hovering {
+    transform: translateX(224px);
     .toolbar {
       .logo {
         transform: translateX(0px);
@@ -94,19 +94,10 @@
         transition: visibility .3s, opacity .35s ease-in;
       }
     }
-  }
 }
 
-.pure-menu-container.fullwidth.can-hover {
-  &:hover {
-    transform: translateX(224px);
-  }
-}
-
-.pure-menu-container.non-fullwidth.can-hover {
-  &:hover {
-    transform: translateX(288px);
-  }
+.pure-menu-container.non-fullwidth.hovering {
+  transform: translateX(288px);
 }
 
 /**
@@ -159,16 +150,12 @@
   transform: translateX(-288px);
 }
 
-.pure-menu-container.fullwidth.can-hover.RTL {
-  &:hover {
+.pure-menu-container.fullwidth.hovering.RTL {
     transform: translateX(-224px);
-  }
 }
 
-.pure-menu-container.non-fullwidth.can-hover.RTL {
-  &:hover {
+.pure-menu-container.non-fullwidth.hovering.RTL {
     transform: translateX(-288px);
-  }
 }
 
 /**

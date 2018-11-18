@@ -4,7 +4,7 @@
   [ngClass]="{
     'fullwidth' : (_mainContainer.isFullWidth$ | async),
     'non-fullwidth' : !(_mainContainer.isFullWidth$ | async),
-    'can-hover' : (_menuContainer.canHover$ | async),
+    'hovering': (_menuContainer.canHover$ | async) && (_menuContainer.isHovering$ | async),
     'opened' : (_menuContainer.isOpened$ | async),
     'RTL' : (_settings.currentTextDir$ | async) === 'RTL',
     'disable-animation': (_settings.disableAnimation$ | async)

@@ -1,6 +1,6 @@
 <div #PURE_MENU=purePerfectScrollbar class="pure-menu pure-theme" purePerfectScrollbar
   [ngClass]="{ 
-    'opened-or-hovering-menu': (isOpenedOrHoveringMenu | async),
+    'opened-or-hovering-menu': (isOpenedOrHoveringMenu$ | async),
     'fullwidth': (_mainContainer.isFullWidth$ | async),
     'RTL' : (_settings.currentTextDir$ | async) === 'RTL'
   }">
@@ -13,6 +13,6 @@
     </div>
     <pure-menu-item *ngFor="let menuItem of group.menuItems" 
       [menuItemData]="menuItem"
-      [isOpenedOrHoveringMenu]="isOpenedOrHoveringMenu"></pure-menu-item>
+      [isOpenedOrHoveringMenu]="isOpenedOrHoveringMenu$"></pure-menu-item>
   </div>
 </div>

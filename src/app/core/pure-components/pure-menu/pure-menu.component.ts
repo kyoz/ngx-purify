@@ -19,8 +19,8 @@ export class PureMenu implements OnInit {
 
   menuData = MENU_CONFIG;
 
-  isOpenedOrHoveringMenu: BehaviorSubject<boolean> = new BehaviorSubject(undefined);
-  combineBehaviorSubjects;
+  isOpenedOrHoveringMenu$: BehaviorSubject<boolean> = new BehaviorSubject(undefined);
+  combineBehaviorSubjects$;
   combineSubscription: Subscription;
 
   constructor(
@@ -40,12 +40,12 @@ export class PureMenu implements OnInit {
         isOpened,
       ]) => {
         if (canHover && (isHovering || isOpened)) {
-          if (!this.isOpenedOrHoveringMenu.value) {
-            this.isOpenedOrHoveringMenu.next(true);
+          if (!this.isOpenedOrHoveringMenu$.value) {
+            this.isOpenedOrHoveringMenu$.next(true);
           }
         } else {
-          if (this.isOpenedOrHoveringMenu.value) {
-            this.isOpenedOrHoveringMenu.next(false);
+          if (this.isOpenedOrHoveringMenu$.value) {
+            this.isOpenedOrHoveringMenu$.next(false);
           }
         }
       });
