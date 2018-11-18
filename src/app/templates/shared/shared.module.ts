@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FlexModule } from '@angular/flex-layout';
+import { FlexModule, FlexLayoutModule } from '@angular/flex-layout';
 
 // Material Modules
 import {
@@ -49,6 +49,7 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     CommonModule,
     FlexModule,
+    FlexLayoutModule,
 
     // Material Modules
     MatAutocompleteModule,
