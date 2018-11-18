@@ -44,6 +44,7 @@ import {
 
 // Components
 import { HeaderComponent } from './header/header.component';
+import { MaterialExampleComponent } from './material-example/material-example.component';
 
 @NgModule({
   imports: [
@@ -89,10 +90,13 @@ import { HeaderComponent } from './header/header.component';
   ],
   declarations: [
     // Components
-    HeaderComponent
+    HeaderComponent,
+    MaterialExampleComponent
   ],
   exports: [
-    HeaderComponent
+    // Components
+    HeaderComponent,
+    MaterialExampleComponent
   ]
 })
 export class SharedModule {}
