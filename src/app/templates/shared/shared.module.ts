@@ -89,6 +89,7 @@ import { HeaderComponent } from './header/header.component';
     MatTreeModule
   ],
   declarations: [
+    // Components
     HeaderComponent
   ],
   exports: [
