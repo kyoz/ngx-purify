@@ -1,11 +1,8 @@
 <div #pure_menu_container class="pure-menu-container"
-  (mouseenter)="onMouseEnter()"
-  (mouseleave)="onMouseLeave()"
   [ngClass]="{
     'fullwidth' : (_mainContainer.isFullWidth$ | async),
     'non-fullwidth' : !(_mainContainer.isFullWidth$ | async),
-    'hovering': (_menuContainer.canHover$ | async) && (_menuContainer.isHovering$ | async),
-    'opened' : (_menuContainer.isOpened$ | async),
+    'opened' : (isOpenedOrHoveringMenu$ | async),
     'RTL' : (_settings.currentTextDir$ | async) === 'RTL',
     'disable-animation': (_settings.disableAnimation$ | async)
   }">

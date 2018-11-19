@@ -1,8 +1,10 @@
-import { Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { PureMenuContainerService } from './pure-menu-container.service';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { PureMainContainerService } from '../pure-main-container/pure-main-container.service';
 import * as Hammer from 'hammerjs';
+import { Subscription, combineLatest, BehaviorSubject } from 'rxjs';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'pure-menu-container',
@@ -13,11 +15,45 @@ import * as Hammer from 'hammerjs';
 export class PureMenuContainer implements OnInit {
   @ViewChild('pure_menu_container') pureSideMenuContainer: ElementRef;
 
+  @HostListener('mouseover') onMouseOver() {
+    this._menuContainer.isHovering$.next(true);
+  }
+
+  @HostListener('mouseleave') onMouseLeave() {
+    this._menuContainer.isHovering$.next(false);
+   }
+  
+  isOpenedOrHoveringMenu$: BehaviorSubject<boolean> = new BehaviorSubject(undefined);
+  combineBehaviorSubjects$;
+  combineSubscription: Subscription;
+
   constructor(
     public _mainContainer: PureMainContainerService,
     public _menuContainer: PureMenuContainerService,
     public _settings: PureSettingsService
-  ) { }
+  ) {
+    const combineBehaviorSubjects = combineLatest(
+      _menuContainer.canHover$,
+      _menuContainer.isHovering$,
+      _menuContainer.isOpened$,
+    );
+    
+    this.combineSubscription = combineBehaviorSubjects.pipe(distinctUntilChanged()).subscribe(([
+      canHover,
+      isHovering,
+      isOpened,
+    ]) => {
+      if (canHover && (isHovering || isOpened)) {
+        if (!this.isOpenedOrHoveringMenu$.value) {
+          this.isOpenedOrHoveringMenu$.next(true);
+        }
+      } else {
+        if (this.isOpenedOrHoveringMenu$.value) {
+          this.isOpenedOrHoveringMenu$.next(false);
+        }
+      }
+    });
+  }
 
   ngOnInit() {
     this.registerHammer();
@@ -40,13 +76,5 @@ export class PureMenuContainer implements OnInit {
         this._menuContainer.close();
       }
     });
-  }
-
-  onMouseEnter() {
-    this._menuContainer.isHovering$.next(true);
-  }
-
-  onMouseLeave() {
-    this._menuContainer.isHovering$.next(false);
   }
 }
