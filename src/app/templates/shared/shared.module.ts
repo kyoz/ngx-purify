@@ -96,7 +96,8 @@ import { MaterialExampleComponent } from './material-example/material-example.co
   exports: [
     // Components
     HeaderComponent,
-    MaterialExampleComponent
+    MaterialExampleComponent,
+    FlexLayoutModule
   ]
 })
 export class SharedModule {}
