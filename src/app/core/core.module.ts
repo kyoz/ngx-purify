@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconRegistry } from '@angular/material';
 
-// Pure Modules 
+// Pure Modules
 import { PureSharedModule } from '../shared/shared.module';
 import { PureMockApiModule } from '../core/pure-mock-api/pure-mock-api.module';
 import { PureComponentsModule } from './pure-components/pure-components.module';
@@ -20,7 +20,7 @@ import { PureDirectivesModule } from './pure-directives/pure-directives.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
- 
+
     // Pure Modules
     PureSharedModule,
     PureMockApiModule,

@@ -26,7 +26,7 @@ import { PureMainContainerService } from './pure-main-container/pure-main-contai
     PureNotificationContainer,
     PureSettingsContainer
   ],
-  imports: [ 
+  imports: [
     PureSharedModule,
     PureComponentsModule
   ],

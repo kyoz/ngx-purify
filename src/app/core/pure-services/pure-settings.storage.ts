@@ -6,20 +6,20 @@ export class PureSettingsStorageService {
   getStoredSetting(key: string) {
     try {
     return localStorage.getItem(key);
-    } catch(e) {
+    } catch (e) {
       return null;
-    };
+    }
   }
 
   storeSetting(key: string, setting: string) {
     try {
       localStorage.setItem(key, setting);
-    } catch(e) {}
+    } catch (e) {}
   }
 
   clearStorate() {
     try {
       localStorage.clear();
-    } catch(e) {}
+    } catch (e) {}
   }
 }

@@ -11,11 +11,11 @@ export class PureNotificationContainerService {
       if (!isOpened) {
         // Scroll the notification to top when closed
         const pureNotification = document.getElementsByClassName('pure-notification');
-        if(pureNotification && pureNotification[0]) {
+        if (pureNotification && pureNotification[0]) {
           pureNotification[0].scrollTop = 0;
         }
       }
-    })
+    });
   }
 
   public reset() {

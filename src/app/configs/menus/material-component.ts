@@ -1,7 +1,7 @@
 import { IMenuItem } from "../../core/pure-interfaces/menu";
 
 export const MaterialComponentMenu: IMenuItem[] = [
-  { 
+  {
     name: 'Form Controls', icon: 'layers', children: [
       { name: 'Autocomplete', url: '/material-components/form-controls/autocomplete' },
       { name: 'Checkbox', url: '/material-components/form-controls/checkbox' },

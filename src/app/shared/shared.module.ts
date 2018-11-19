@@ -34,4 +34,4 @@ import { TranslateModule } from '@ngx-translate/core';
     TranslateModule
   ]
 })
-export class PureSharedModule { }
+export class PureSharedModule {}

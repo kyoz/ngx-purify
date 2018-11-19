@@ -36,12 +36,14 @@ export class PureChatbox implements OnInit {
 
   startConversation(contact) {
     this.clearMessageInput();
-    this._chatbox.chooseContact(contact.id)
+    this._chatbox.chooseContact(contact.id);
     this.focusMessageInput();
   }
 
   sendMessage() {
-    if (!this.messageInput || this.messageInput.trim().length === 0) return;
+    if (!this.messageInput || this.messageInput.trim().length === 0) {
+      return;
+    }
 
     const message = this.messageInput.trim();
 
@@ -92,14 +94,26 @@ export class PureChatbox implements OnInit {
   }
 
   isFirstOfGroup(index, message, messageList) {
-    if (index === 0) return true;
-    if (message.sender !== messageList[index - 1].sender) return true;
+    if (index === 0) {
+      return true;
+    }
+
+    if (message.sender !== messageList[index - 1].sender) {
+      return true;
+    }
+
     return false;
   }
 
   isLastOfGroup(index, message, messageList) {
-    if (index === messageList.length - 1) return true;
-    if (message.sender !== messageList[index + 1].sender) return true;
+    if (index === messageList.length - 1) {
+      return true;
+    }
+
+    if (message.sender !== messageList[index + 1].sender) {
+      return true;
+    }
+
     return false;
   }
 }

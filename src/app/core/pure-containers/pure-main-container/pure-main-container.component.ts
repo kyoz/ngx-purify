@@ -18,6 +18,10 @@ import { distinctUntilChanged } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PureMainContainer implements OnInit, OnDestroy {
+
+  isBackdropVisible = false;
+  combineSubscription: Subscription;
+
   @Input() minimalMode = false;
   @HostListener('window:resize', ['$event'])
   onResize() {
@@ -28,9 +32,6 @@ export class PureMainContainer implements OnInit, OnDestroy {
     this._menuContainer.reset();
     this._notificationContainer.reset();
   }
-
-  isBackdropVisible = false;
-  combineSubscription: Subscription;
 
   constructor(
     public _mainContainer: PureMainContainerService,
@@ -46,7 +47,7 @@ export class PureMainContainer implements OnInit, OnDestroy {
       _notificationContainer.isOpened$,
       _mainContainer.isFullWidth$
     );
-    
+
     this.combineSubscription = combineBehaviorSubjects.pipe(distinctUntilChanged()).subscribe(([
       isMenuOpened,
       isChatboxOpened,
@@ -77,6 +78,6 @@ export class PureMainContainer implements OnInit, OnDestroy {
       this._menuContainer.close();
     }
     this._chatboxContainer.close();
-    this._notificationContainer.close()
+    this._notificationContainer.close();
   }
 }

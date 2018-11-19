@@ -46,7 +46,7 @@ export class PureChatboxContainer implements OnInit {
 
   openChatbox() {
     if (!this._chatboxContainer.isOpened$.value) {
-      this._chatboxContainer.open(); 
+      this._chatboxContainer.open();
     }
   }
 

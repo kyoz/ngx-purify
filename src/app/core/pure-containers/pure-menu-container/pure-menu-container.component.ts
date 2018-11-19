@@ -13,6 +13,10 @@ import { distinctUntilChanged } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PureMenuContainer implements OnInit {
+  isOpenedOrHoveringMenu$: BehaviorSubject<boolean> = new BehaviorSubject(undefined);
+  combineBehaviorSubjects$;
+  combineSubscription: Subscription;
+
   @ViewChild('pure_menu_container') pureSideMenuContainer: ElementRef;
 
   @HostListener('mouseover') onMouseOver() {
@@ -22,10 +26,6 @@ export class PureMenuContainer implements OnInit {
   @HostListener('mouseleave') onMouseLeave() {
     this._menuContainer.isHovering$.next(false);
    }
-  
-  isOpenedOrHoveringMenu$: BehaviorSubject<boolean> = new BehaviorSubject(undefined);
-  combineBehaviorSubjects$;
-  combineSubscription: Subscription;
 
   constructor(
     public _mainContainer: PureMainContainerService,
@@ -37,7 +37,7 @@ export class PureMenuContainer implements OnInit {
       _menuContainer.isHovering$,
       _menuContainer.isOpened$,
     );
-    
+
     this.combineSubscription = combineBehaviorSubjects.pipe(distinctUntilChanged()).subscribe(([
       canHover,
       isHovering,

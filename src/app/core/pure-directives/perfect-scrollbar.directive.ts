@@ -10,7 +10,7 @@ export class PurePerfectScrollbarDirective extends PerfectScrollbarDirective {
   @Input() disabled;
 
   constructor(
-    private _zone: NgZone, 
+    private _zone: NgZone,
     private _differs: KeyValueDiffers,
     public _elementRef: ElementRef,
     @Inject(PLATFORM_ID) private _platformId: Object,

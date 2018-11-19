@@ -12,6 +12,9 @@ import { PureMainContainerService } from '../../pure-containers/pure-main-contai
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PureToolbar {
+  isSearching = false;
+  isFullScreen = false;
+
   @HostListener('window:fullscreenchange', ['$event'])
   @HostListener('window:webkitfullscreenchange', ['$event'])
   @HostListener('window:mozfullscreenchange', ['$event'])
@@ -19,9 +22,6 @@ export class PureToolbar {
   onFullScreenChange() {
     this.isFullScreen = this.isInFullScreen();
   }
-
-  isSearching = false;
-  isFullScreen = false;
 
   constructor(
     public _mainContainer: PureMainContainerService,

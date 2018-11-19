@@ -4,8 +4,8 @@ import { RESPONSIVE_BREAKPOINTS } from '../../pure-utils/pure-configs';
 
 @Injectable()
 export class PureMainContainerService {
-  isFullWidth$: BehaviorSubject<boolean> 
-  
+  isFullWidth$: BehaviorSubject<boolean>;
+
   constructor() {
     this.isFullWidth$ = new BehaviorSubject(window.innerWidth >= RESPONSIVE_BREAKPOINTS.NORMAL ? true : false);
   }

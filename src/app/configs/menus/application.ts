@@ -8,7 +8,7 @@ import { IMenuItem } from "../../core/pure-interfaces/menu";
  */
 
 export const ApplicationMenu: IMenuItem[] = [
-  { 
+  {
     name: 'MENU.APPLICATIONS.DASHBOARD.TITLE', icon: 'dashboard', i18n: true, children: [
       { name: 'MENU.APPLICATIONS.DASHBOARD.ANALYTICAL', url: '/app/dashboard/analytical', i18n: true },
       { name: 'MENU.APPLICATIONS.DASHBOARD.OPERATIONAL', url: '/app/dashboard/operational', i18n: true },

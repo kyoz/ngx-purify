@@ -10,11 +10,11 @@ const defaultState = Map({
   currentConversation: {
     contactInfo: undefined,
     messages: []
-  } 
+  }
 });
 
 export function pureChatboxReducer(state: IPureChatboxState = defaultState, action: PureChatBoxActions) {
-  switch(action.type) {
+  switch (action.type) {
     case SideChatBoxActions.PURE_SIDE_CHATBOX_FETCH_CONTACTS:
       return state.set('contacts', action.payload);
     case SideChatBoxActions.PURE_SIDE_CHATBOX_FETCH_CONVERSATION:

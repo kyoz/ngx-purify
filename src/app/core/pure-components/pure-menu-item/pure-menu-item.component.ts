@@ -1,4 +1,6 @@
-import { Component, OnInit, Input, ViewChildren, QueryList, AfterViewInit, OnDestroy, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component, OnInit, Input, ViewChildren, QueryList, AfterViewInit, OnDestroy, ChangeDetectorRef,
+  ChangeDetectionStrategy } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { IMenuItem } from '../../pure-interfaces/menu';
 import { PureMenuService } from '../pure-menu/pure-menu.service';
@@ -43,11 +45,9 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
     if (this.level > 4) {
       this.level = 4;
     }
-    
+
     // Set menu item is active when first load
     this.activate();
-
-   
   }
 
   ngAfterViewInit() {
@@ -86,7 +86,9 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   }
 
   get height(): number {
-    if (!this.opened.value) return 0;
+    if (!this.opened.value) {
+      return 0;
+    }
 
     let addedHeight = 0;
     if (this.childMenuItems) {
@@ -100,18 +102,18 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   }
 
   get hasLink(): boolean {
-    if(!this.menuItemData || this.hasExternalLink) {
+    if (!this.menuItemData || this.hasExternalLink) {
       return false;
     }
     return !PureStringUtils.isEmpty(this.menuItemData.url);
   }
 
   get hasExternalLink(): boolean {
-    if(!this.menuItemData) {
+    if (!this.menuItemData) {
       return false;
     }
 
-    return !PureStringUtils.isEmpty(this.menuItemData.url) && 
+    return !PureStringUtils.isEmpty(this.menuItemData.url) &&
       (PureStringUtils.startsWith(this.menuItemData.url, 'http://') ||
        PureStringUtils.startsWith(this.menuItemData.url, 'https://'));
   }
@@ -121,8 +123,8 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
    */
 
   activate() {
-    if (this.menuItemData && this.menuItemData.url && !this.hasChildren){
-      if(PureStringUtils.cleanRouteLink(this._route.url) === PureStringUtils.cleanRouteLink(this.menuItemData.url)) {
+    if (this.menuItemData && this.menuItemData.url && !this.hasChildren) {
+      if (PureStringUtils.cleanRouteLink(this._route.url) === PureStringUtils.cleanRouteLink(this.menuItemData.url)) {
         this._menuService.setActivatingMenuItem(this);
       }
     }
@@ -186,7 +188,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
     let rootParent: PureMenuItem = this;
 
     while (parent !== undefined && parent !== null) {
-      if (parent && parent.level !== 0){
+      if (parent && parent.level !== 0) {
         parent.toggleDropdown();
       }
 
@@ -203,7 +205,10 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   }
 
   fixBadgeColor(color) {
-    if (color === 'primary' || color === 'accent') return color;
+    if (color === 'primary' || color === 'accent') {
+      return color;
+    }
+
     return 'warn';
   }
 }

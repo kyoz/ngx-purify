@@ -5,4 +5,3 @@ import { ChatBoxMockApiService } from './services/chatbox.service';
 export class PureMockApiService {
   constructor(public chatbox: ChatBoxMockApiService) { }
 }
-

@@ -1,4 +1,4 @@
 export interface IPureTheme {
-  name: string,
-  class: string
+  name: string;
+  class: string;
 }
