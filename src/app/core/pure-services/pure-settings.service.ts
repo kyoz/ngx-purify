@@ -33,9 +33,12 @@ export class PureSettingsService {
     private _storage: PureSettingsStorageService,
     private _translate: TranslateService) {
       // Only allow animation after dir setting done
-      this.disableAnimation$.pipe(debounceTime(300), distinctUntilChanged()).subscribe(res => {
+      this.disableAnimation$.pipe(distinctUntilChanged()).subscribe(res => {
         if (res) {
-          this.disableAnimation$.next(false);
+          // Enable animation back after 300ms
+          setTimeout(() => {
+            this.disableAnimation$.next(false);
+          }, 300);
         }
       });
   }
