@@ -1,3 +1,21 @@
 <mat-card class="container">
-  Simple card
+  <mat-toolbar class="header">
+    <span style="width: 20px"></span>
+    <span class="pure-icon-foreground">{{ title }}</span>
+    <span style="flex: 1 1 auto"></span>
+    <button mat-icon-button matTooltip="View source" (click)="toggleView()">
+      <mat-icon class="pure-icon-foreground">code</mat-icon>
+    </button>
+    <span style="width: 12px"></span>
+  </mat-toolbar>
+  <div class="content" *ngIf="!isViewingCode">
+    <ng-content></ng-content> 
+  </div>
+  <div class="content" *ngIf="isViewingCode">
+    <mat-tab-group>
+      <mat-tab label="HTML"> Content 1 </mat-tab>
+      <mat-tab label="TS"> Content 2 </mat-tab>
+      <mat-tab label="CSS"> Content 3 </mat-tab>
+    </mat-tab-group>
+  </div>
 </mat-card>
