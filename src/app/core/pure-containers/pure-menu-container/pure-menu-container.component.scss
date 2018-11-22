@@ -1,7 +1,7 @@
 .pure-menu-container {
   position: absolute;
   left: -224px;
-  right: unset;
+  right: auto;
   top: 0px;
   bottom: 0px;
   width: 288px;
@@ -59,7 +59,7 @@
 
 .pure-menu-container.non-fullwidth {
   left: -288px;
-  right: unset;
+  right: auto;
   z-index: 9000;
 }
 
@@ -111,12 +111,12 @@
 */
 
 .pure-menu-container.RTL {
-  left: unset;
+  left: auto;
   right: -224px;
 
   .toolbar {
     .menu-button {
-      margin-right: unset;
+      margin-right: auto;
       margin-left: -4px;
     }
 
@@ -135,7 +135,7 @@
 }
 
 .pure-menu-container.non-fullwidth.RTL {
-  left: unset;
+  left: auto;
   right: -288px;
 }
 

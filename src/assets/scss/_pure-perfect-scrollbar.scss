@@ -32,7 +32,7 @@
   width: 9px;
   /* there must be 'right' or 'left' for ps__rail-y */
   right: 0 !important;
-  left: unset !important;
+  left: auto !important;
   /* please don't change 'position' */
   position: absolute;
 }
@@ -85,7 +85,7 @@
   width: 3px;
   /* there must be 'right' for ps__thumb-y */
   right: 1px !important;
-  left: unset !important;
+  left: auto !important;
   /* please don't change 'position' */
   position: absolute;
 }
@@ -120,11 +120,11 @@
 /* RTL Support */
 
 *[dir=rtl] .ps__rail-y {
-    right: unset !important;
+    right: auto !important;
     left: 0px !important;
 }
 
 *[dir=rtl] .ps__thumb-y {
-    right: unset !important;
+    right: auto !important;
     left: 1px !important;
 }

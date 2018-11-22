@@ -55,7 +55,7 @@
 .pure-main-container-backdrop.visible {
   opacity: 1;
   z-index: 8900;
-  pointer-events: unset;
+  pointer-events: auto;
   transition: opacity 200ms ease-in-out;
 }
 

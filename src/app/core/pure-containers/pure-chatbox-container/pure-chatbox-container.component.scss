@@ -1,7 +1,7 @@
 .pure-chatbox-container {
   position: absolute;
   right: -352px;
-  left: unset;
+  left: auto;
   top: 0px;
   bottom: 0px;
   width: 352px;
@@ -77,7 +77,7 @@
 
 .pure-chatbox-container.fullwidth {
   right: -288px;
-  left: unset;
+  left: auto;
 }
 
 .pure-chatbox-container.fullwidth.opened {
@@ -101,32 +101,32 @@
 * RTL SUPPORT
 */
 .pure-chatbox-container.RTL {
-  right: unset;
+  right: auto;
   left: -352px;
 
   .toolbar {
     .chatbox-icon {
-      margin-left: unset;
+      margin-left: auto;
       margin-right: 4px;
     }
 
     .content {
-      margin-right: unset;
+      margin-right: auto;
       margin-left: -8px;
 
       .title {
-        margin-left: unset;
+        margin-left: auto;
         margin-right: 16px;
       }
 
       .user-info {
         .avatar {
-          margin-left: unset;
+          margin-left: auto;
           margin-right: -2px;
         }
 
         .name {
-          padding-left: unset;
+          padding-left: auto;
           padding-right: 14px;
         }
       }
@@ -135,7 +135,7 @@
 }
 
 .pure-chatbox-container.fullwidth.RTL {
-  right: unset;
+  right: auto;
   left: -288px;
 }
 

@@ -302,7 +302,7 @@
 .pure-chatbox.RTL {
   .chatbox-contacts-wrapper.chatbox-contacts>.contact-item-wrapper {
     .contact-item-selected>.indicator {
-      left: unset;
+      left: auto;
       right: 0px;
       border-radius: 0px;
       border-top-left-radius: 8px;
@@ -311,12 +311,12 @@
 
     .contact-item {
       .contact-status {
-        right: unset;
+        right: auto;
         left: 10px;
       }
 
       .contact-unread-count {
-        left: unset;
+        left: auto;
         right: 10px;
       }
     }
@@ -327,7 +327,7 @@
   }
 
   .chatbox>.have-conversation>.message-send-btn {
-    right: unset;
+    right: auto;
     left: 8px;
   }
 

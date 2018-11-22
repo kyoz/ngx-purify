@@ -1,7 +1,7 @@
 .pure-notification-container {
   position: absolute;
   right: -288px;
-  left: unset;
+  left: auto;
   top: 0px;
   bottom: 0px;
   width: 288px;
@@ -32,7 +32,7 @@
 */
 
 .pure-notification-container.RTL {
-  right: unset;
+  right: auto;
   left: -288px;
   transform: translateX(0px);
 }

@@ -17,8 +17,8 @@
     <span class="badge" *ngIf="menuItemData.badge"
       [ngClass]="fixBadgeColor(menuItemData.badgeColor)"
       [ngStyle]="{
-        'margin-right' : hasChildren && ((_settings.currentTextDir$ | async) !== 'RTL') ? '12px' : '20px',
-        'margin-left' : hasChildren && ((_settings.currentTextDir$ | async) === 'RTL') ? '12px' : '20px'
+        'margin-right' : hasChildren && ((_settings.currentTextDir$ | async) !== 'RTL') ? '12px' : '2px',
+        'margin-left' : hasChildren && ((_settings.currentTextDir$ | async) === 'RTL') ? '12px' : '2px'
       }">
       {{ menuItemData.badge }}
     </span>
