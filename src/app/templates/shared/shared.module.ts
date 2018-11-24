@@ -91,6 +91,8 @@ import { HighlightModule } from 'ngx-highlightjs';
     MatTooltipModule,
     MatTreeModule,
 
+    // Highlighjs
+    HighlightModule
   ],
   declarations: [
     // Components
@@ -101,8 +103,7 @@ import { HighlightModule } from 'ngx-highlightjs';
     // Components
     HeaderComponent,
     MaterialExampleComponent,
-    FlexLayoutModule,
-    HighlightModule
+    FlexLayoutModule
   ]
 })
 export class SharedModule {}

@@ -9,12 +9,17 @@ import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core
 export class MaterialExampleComponent implements OnInit {
 
   isViewingCode = false;
+  code = `123`;
 
   @Input() title;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  initCodes() {
+
   }
 
   toggleView() {

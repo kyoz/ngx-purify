@@ -4,9 +4,6 @@
 @import "assets/scss/theming/_core.scss";
 @include pure-themes-init();
 
-// Highlightjs Theme
-@import '~highlight.js/styles/github.css';
-
 /* Global styles */
 * {
   margin: 0px;

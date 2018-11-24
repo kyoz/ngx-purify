@@ -1,0 +1,12 @@
+@import './themes/highlightjs-light';
+@import './themes/highlightjs-dark';
+
+@mixin highlightjs-theme($theme) {
+  $is-dark: map-get($theme, is-dark);
+
+  @if $is-dark {
+    @include highlightjs-dark();
+  } @else {
+    @include highlightjs-light();
+  }
+}
