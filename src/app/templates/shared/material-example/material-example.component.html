@@ -8,20 +8,20 @@
     </button>
     <span style="width: 12px"></span>
   </mat-toolbar>
-  <div class="content" *ngIf="!isViewingCode">
-    <ng-content></ng-content> 
-  </div>
-  <div class="content" *ngIf="isViewingCode">
+  <div class="code-wrapper" *ngIf="isViewingCode">
     <mat-tab-group>
       <mat-tab label="HTML">
-        <pre><code [highlight]="code"></code></pre>
+        <pre><code [highlight]="code.html"></code></pre>
       </mat-tab>
       <mat-tab label="TS">
-        <pre><code [highlight]="code"></code></pre>
+        <pre><code [highlight]="code.ts"></code></pre>
       </mat-tab>
-      <mat-tab label="CSS">
-        <pre><code [highlight]="code"></code></pre>
+      <mat-tab label="SCSS">
+        <pre><code [highlight]="code.scss"></code></pre>
       </mat-tab>
     </mat-tab-group>
+  </div>
+  <div class="example-wrapper">
+    <ng-content></ng-content> 
   </div>
 </mat-card>

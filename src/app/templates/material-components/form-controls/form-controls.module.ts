@@ -3,7 +3,6 @@ import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../shared/shared.module';
 
-import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { FormFieldComponent } from './form-field/form-field.component';
@@ -12,10 +11,10 @@ import { RadioButtonComponent } from './radio-button/radio-button.component';
 import { SelectComponent } from './select/select.component';
 import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
 import { SliderComponent } from './slider/slider.component';
+import { AutocompleteModule } from './autocomplete/autocomplete.module';
 
 @NgModule({
   declarations: [
-    AutocompleteComponent,
     CheckboxComponent,
     DatepickerComponent,
     FormFieldComponent,
@@ -29,9 +28,11 @@ import { SliderComponent } from './slider/slider.component';
     // Modules
     SharedModule,
 
+    AutocompleteModule,
+
     // Router
     RouterModule.forChild([
-      { path: 'autocomplete', component: AutocompleteComponent },
+      { path: 'autocomplete', loadChildren: './autocomplete/autocomplete.module#AutocompleteModule' },
       { path: 'checkbox', component: CheckboxComponent },
       { path: 'datepicker', component: DatepickerComponent },
       { path: 'form-field', component: FormFieldComponent },

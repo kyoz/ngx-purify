@@ -8,12 +8,20 @@
     padding: 0px;
   }
 
-  .content {
-    min-height: 64px;
+  .example-wrapper {
+    min-height: 48px;
+    padding: 20px 20px 20px 32px;
+    box-sizing: border-box;
+  }
+
+  .code-wrapper {
+    min-height: 48px;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 
     code {
-      font-size: 14px;
-      padding: 16px;
+      padding: 0 20px 20px 32px;
+      font-family: 'Roboto Mono', 'Roboto', sans-serif;
     }
   }
 }
