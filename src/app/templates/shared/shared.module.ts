@@ -46,6 +46,9 @@ import {
 import { HeaderComponent } from './header/header.component';
 import { MaterialExampleComponent } from './material-example/material-example.component';
 
+// Highlightjs
+import { HighlightModule } from 'ngx-highlightjs';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -86,7 +89,8 @@ import { MaterialExampleComponent } from './material-example/material-example.co
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule
+    MatTreeModule,
+
   ],
   declarations: [
     // Components
@@ -97,7 +101,8 @@ import { MaterialExampleComponent } from './material-example/material-example.co
     // Components
     HeaderComponent,
     MaterialExampleComponent,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HighlightModule
   ]
 })
 export class SharedModule {}

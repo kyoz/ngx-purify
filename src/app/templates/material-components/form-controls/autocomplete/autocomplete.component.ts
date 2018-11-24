@@ -8,6 +8,13 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class AutocompleteComponent implements OnInit {
 
+  someCode = `
+  <html>
+    <head>
+    </head>
+  </html>
+  `;
+
   constructor() { }
 
   ngOnInit() {
