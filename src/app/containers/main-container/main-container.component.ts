@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewChild, DoCheck } from '@angular/core';
+import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 
 @Component({
   selector: 'app-main-container',
@@ -6,6 +7,12 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./main-container.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MainContainer {
+export class MainContainer implements DoCheck {
+  @ViewChild('MAIN_CONTAINER') containerPerfectScrollbar?: PerfectScrollbarDirective;
+
+  ngDoCheck(): void {
+    this.containerPerfectScrollbar.update();
+  }
+
   constructor() { }
 }
