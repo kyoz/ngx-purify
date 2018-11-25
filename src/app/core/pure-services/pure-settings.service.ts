@@ -100,6 +100,11 @@ export class PureSettingsService {
    */
 
   updateTheme(themeClass: string) {
+    if (!document.getElementById('PURE_ADMIN_DASHBOARD')) {
+      console.error(`Can't find app !`);
+      return;
+    }
+
     const themeClassList: any = document.getElementById('PURE_ADMIN_DASHBOARD').classList;
     let newThemeClass = '';
 
@@ -150,6 +155,11 @@ export class PureSettingsService {
   }
 
   updateWidthLayout(widthLayout: string) {
+    if (!document.getElementById('PURE_MAIN_CONTAINER')) {
+      console.error(`Cant find main container !`);
+      return;
+    }
+
     switch (widthLayout) {
       case 'Boxed':
         document.getElementById('PURE_MAIN_CONTAINER').classList.add('boxed');

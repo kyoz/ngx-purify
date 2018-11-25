@@ -58,7 +58,7 @@ export class PureMenu implements OnInit, AfterViewInit {
      */
     const activatingMenuItemRef = document.getElementsByClassName('pure-menu-content active');
 
-    if (activatingMenuItemRef) {
+    if (activatingMenuItemRef && activatingMenuItemRef[0]) {
       activatingMenuItemRef[0].scrollIntoView(true);
 
       // Menu has scroll all the way to bottom
