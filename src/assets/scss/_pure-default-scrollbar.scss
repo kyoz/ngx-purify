@@ -26,3 +26,28 @@
   border: 2px solid transparent;
   background-clip: content-box;
 }
+
+@media only screen and (max-width: 600px) {
+  /* Width & Height */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #bdbdbd;
+    border-radius: 8px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #bdbdbd;
+    border-radius: 8px;
+  }
+}
