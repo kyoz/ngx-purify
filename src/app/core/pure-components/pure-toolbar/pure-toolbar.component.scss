@@ -8,6 +8,7 @@
     min-width: 64px;
     height: 100%;
     padding: 0px;
+    border-radius: 0px;
   }
   .right-side {
     border-left: 1px solid rgba(white,.15);
@@ -119,11 +120,11 @@
 .pure-toolbar.RTL {
   .right-side {
     border-right: 1px solid rgba(white,.15);
-    border-left: auto;
+    border-left: none;
   }
   .left-side {
     border-left: 1px solid rgba(white,.15);
-    border-left: auto;
+    border-right: none;
   }
   .search {
     padding: 0px 24px 0px 16px;

@@ -39,7 +39,7 @@
 
         .name {
           padding-left: 14px;
-          width: 216px;
+          max-width: calc(100vw - 128px);
           white-space: nowrap;
           text-overflow: ellipsis;
           overflow: hidden;

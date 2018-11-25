@@ -6,6 +6,12 @@
     font-size: 16px;
     font-weight: 400;
     padding: 0px;
+
+    .title {
+      white-space: nowrap; 
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
   }
 
   .example-wrapper {
