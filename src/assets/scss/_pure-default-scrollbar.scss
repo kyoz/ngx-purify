@@ -1,0 +1,28 @@
+/* Width & Height */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(#d3d3d3, .2);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #bdbdbd;
+  opacity: 0.4;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #bdbdbd;
+  opacity: 0.8;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
