@@ -5,12 +5,20 @@
     [referenceUrl]="'https://material.angular.io/components/autocomplete/overview'">
   </page-header>
   <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="24px" style="padding: 32px">
-    <material-example title="Simple Autocomplete" [code]="simpleAutoCompleteCode">
+    <material-example title="Simple autocomplete" [code]="simpleAutoCompleteCode">
       <simple-autocomplete-example></simple-autocomplete-example>
     </material-example>
-    <material-example title="Filter Autocomplete"></material-example>
-    <material-example title="Option groups autocomplete"></material-example>
-    <material-example title="Highlight the first option"></material-example>
+    <material-example title="Display value autocomplete" [code]="displayValueAutocompleteCode">
+      <display-value-autocomplete-example></display-value-autocomplete-example>
+    </material-example>
+    <material-example title="Filter autocomplete" [code]="filterAutocompleteCode">
+      <filter-autocomplete-example></filter-autocomplete-example>
+    </material-example>
+    <material-example title="Option groups autocomplete" [code]="optionGroupsAutocompleteCode">
+      <option-groups-autocomplete-example></option-groups-autocomplete-example>
+    </material-example>
+    <material-example title="Focus first autocomplete option" [code]="focusFirstOptionAutocompleteCode">
+      <focus-first-option-autocomplete-example></focus-first-option-autocomplete-example>
+    </material-example>
   </div>
-  <!-- <div style="height: 500px"></div> -->
 </div>

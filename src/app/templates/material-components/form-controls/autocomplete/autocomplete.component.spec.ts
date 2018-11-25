@@ -5,6 +5,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from 'src/app/templates/shared/shared.module';
 import { AutocompleteComponent } from './autocomplete.component';
 import { SimpleAutocompleteExample } from './simple-autocomplete-example/simple-autocomplete-example';
+import { DisplayValueAutocompleteExample } from './display-value-autocomplete-example/display-value-autocomplete-example';
+import { FilterAutocompleteExample } from './filter-autocomplete-example/filter-autocomplete-example';
+import { OptionGroupsAutocompleteExample } from './option-groups-autocomplete-example/option-groups-autocomplete-example';
+import { FocusFirstOptionAutocompleteExample } from './focus-first-option-autocomplete-example/focus-first-option-autocomplete-example';
 
 import { PureSettingsService } from 'src/app/core/pure-services/pure-settings.service';
 import { PureSettingsStorageService } from 'src/app/core/pure-services/pure-settings.storage';
@@ -19,7 +23,12 @@ describe('AutocompleteComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         AutocompleteComponent,
-        SimpleAutocompleteExample
+        // Autocomplete Examples
+        SimpleAutocompleteExample,
+        DisplayValueAutocompleteExample,
+        FilterAutocompleteExample,
+        OptionGroupsAutocompleteExample,
+        FocusFirstOptionAutocompleteExample
       ],
       imports: [
         BrowserAnimationsModule,
