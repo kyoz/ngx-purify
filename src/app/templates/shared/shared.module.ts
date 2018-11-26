@@ -50,6 +50,18 @@ import { MaterialExampleComponent } from './material-example/material-example.co
 // Highlightjs
 import { HighlightModule } from 'ngx-highlightjs';
 
+import xml from 'highlight.js/lib/languages/xml';
+import scss from 'highlight.js/lib/languages/scss';
+import typescript from 'highlight.js/lib/languages/typescript';
+
+export function hljsLanguages() {
+  return [
+    {name: 'typescript', func: typescript},
+    {name: 'scss', func: scss},
+    {name: 'xml', func: xml}
+  ];
+}
+
 @NgModule({
   imports: [
     // Angular Module
@@ -95,8 +107,10 @@ import { HighlightModule } from 'ngx-highlightjs';
     MatTooltipModule,
     MatTreeModule,
 
-    // Highlighjs
-    HighlightModule
+    // Highlightjs
+    HighlightModule.forRoot({
+      languages: hljsLanguages
+    })
   ],
   declarations: [
     // Components

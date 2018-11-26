@@ -11,7 +11,7 @@
     "start": "ng serve",
     "start:remote": "ng serve --host 0.0.0.0",
     "build": "ng build",
-    "build:prod": "ng build --prod --build-optimizer",
+    "build:prod": "ng build --prod --build-optimizer --aot",
     "bundle-analyzer": "ng build --prod --stats-json && webpack-bundle-analyzer dist/pure-admin-dashboard/stats.json",
     "test": "ng test",
     "lint": "ng lint",

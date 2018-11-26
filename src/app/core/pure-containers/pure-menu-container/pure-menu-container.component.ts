@@ -25,7 +25,7 @@ export class PureMenuContainer implements OnInit {
 
   @HostListener('mouseleave') onMouseLeave() {
     this._menuContainer.isHovering$.next(false);
-   }
+  }
 
   constructor(
     public _mainContainer: PureMainContainerService,
