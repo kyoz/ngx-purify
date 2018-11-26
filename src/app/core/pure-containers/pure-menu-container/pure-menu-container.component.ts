@@ -56,7 +56,6 @@ export class PureMenuContainer implements OnInit {
     this.registerHammer();
 
     if (this._deviceDetect.isDesktop()) {
-      alert('init menu')
       this.addEventListeners();
     }
   }

@@ -9,7 +9,18 @@
 * {
   margin: 0px;
   padding: 0px;
+  // Font
   font-family: Roboto, sans-serif;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+  // Text rendering
+  text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -webkit-text-rendering: optimizeLegibility;
+  // Tap highlight color
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Perfect Scrollbar Fix Styles to Work Perfectly on all devices */
