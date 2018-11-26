@@ -1,10 +1,11 @@
-import { Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef } from '@angular/core';
 import { PureMenuContainerService } from './pure-menu-container.service';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { PureMainContainerService } from '../pure-main-container/pure-main-container.service';
-import * as Hammer from 'hammerjs';
 import { Subscription, combineLatest, BehaviorSubject } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
+import { DeviceDetectorService } from 'ngx-device-detector';
+import * as Hammer from 'hammerjs';
 
 @Component({
   selector: 'pure-menu-container',
@@ -17,20 +18,16 @@ export class PureMenuContainer implements OnInit {
   combineBehaviorSubjects$;
   combineSubscription: Subscription;
 
+  _onMouseOver = this.onMouseOver.bind(this);
+  _onMouseLeave = this.onMouseLeave.bind(this);
+
   @ViewChild('pure_menu_container') pureSideMenuContainer: ElementRef;
-
-  @HostListener('mouseover') onMouseOver() {
-    this._menuContainer.isHovering$.next(true);
-  }
-
-  @HostListener('mouseleave') onMouseLeave() {
-    this._menuContainer.isHovering$.next(false);
-  }
 
   constructor(
     public _mainContainer: PureMainContainerService,
     public _menuContainer: PureMenuContainerService,
-    public _settings: PureSettingsService
+    public _settings: PureSettingsService,
+    private _deviceDetect: DeviceDetectorService
   ) {
     const combineBehaviorSubjects = combineLatest(
       _menuContainer.canHover$,
@@ -57,6 +54,24 @@ export class PureMenuContainer implements OnInit {
 
   ngOnInit() {
     this.registerHammer();
+
+    if (this._deviceDetect.isDesktop()) {
+      alert('init menu')
+      this.addEventListeners();
+    }
+  }
+
+  addEventListeners() {
+    this.pureSideMenuContainer.nativeElement.addEventListener('mouseover', this._onMouseOver);
+    this.pureSideMenuContainer.nativeElement.addEventListener('mouseleave', this._onMouseLeave);
+  }
+
+  onMouseLeave() {
+    this._menuContainer.isHovering$.next(false);
+  }
+
+  onMouseOver() {
+    this._menuContainer.isHovering$.next(true);
   }
 
   registerHammer() {

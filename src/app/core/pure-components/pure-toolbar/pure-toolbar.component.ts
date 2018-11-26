@@ -1,9 +1,12 @@
-import { Component, HostListener, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+
+// Pure Services
 import { PureMenuContainerService } from '../../pure-containers/pure-menu-container/pure-menu-container.service';
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
 import { PureNotificationContainerService } from '../../pure-containers/pure-notification-container/pure-notification-container.service';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { PureMainContainerService } from '../../pure-containers/pure-main-container/pure-main-container.service';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'pure-toolbar',
@@ -11,25 +14,30 @@ import { PureMainContainerService } from '../../pure-containers/pure-main-contai
   styleUrls: ['./pure-toolbar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PureToolbar {
+export class PureToolbar implements OnInit {
   isSearching = false;
   isFullScreen = false;
 
-  @HostListener('window:fullscreenchange', ['$event'])
-  @HostListener('window:webkitfullscreenchange', ['$event'])
-  @HostListener('window:mozfullscreenchange', ['$event'])
-  @HostListener('window:msfullscreenchange', ['$event'])
-  onFullScreenChange() {
-    this.isFullScreen = this.isInFullScreen();
-  }
+  _onWindowFullScreenChange = this.onWindowFullScreenChange.bind(this);
 
   constructor(
     public _mainContainer: PureMainContainerService,
     public _menuContainer: PureMenuContainerService,
     public _chatboxContainer: PureChatboxContainerService,
     public _notificationContainer: PureNotificationContainerService,
-    public _settings: PureSettingsService
+    public _settings: PureSettingsService,
+    private _deviceDetector: DeviceDetectorService
   ) {}
+
+  ngOnInit() {
+    // Register for Event Handlers
+    if (this._deviceDetector.isDesktop()) {
+      window.addEventListener('fullscreenchange', this._onWindowFullScreenChange);
+      window.addEventListener('webkitfullscreenchange', this._onWindowFullScreenChange);
+      window.addEventListener('mozfullscreenchange', this._onWindowFullScreenChange);
+      window.addEventListener('msfullscreenchange', this._onWindowFullScreenChange);
+    }
+  }
 
   toggleSearch() {
     this.isSearching = !this.isSearching;
@@ -65,6 +73,10 @@ export class PureToolbar {
     (document['webkitFullscreenElement'] && document['webkitFullscreenElement'] !== null) ||
     (document['mozFullScreenElement'] && document['mozFullScreenElement'] !== null) ||
     (document['msFullscreenElement'] && document['msFullscreenElement'] !== null);
+  }
+
+  onWindowFullScreenChange() {
+    this.isFullScreen = this.isInFullScreen();
   }
 
   changeLanguage(langCode) {

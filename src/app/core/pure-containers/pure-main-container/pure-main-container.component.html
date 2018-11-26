@@ -1,4 +1,4 @@
-<div id="PURE_MAIN_CONTAINER" class="pure-main-container" [ngClass]="{
+<div #PURE_MAIN_CONTAINER id="PURE_MAIN_CONTAINER" class="pure-main-container" [ngClass]="{
   'RTL' : (_settings.currentTextDir$ | async) === 'RTL'
 }">
   <div class="content pure-theme" [ngClass]="{
