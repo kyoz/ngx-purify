@@ -14,7 +14,7 @@
 
     <mat-list class="setting-list">
       <h3 mat-subheader class="title">Themes</h3>
-      <mat-radio-group  (change)="onChangeTheme($event)" [ngModel]="_settings.currentTheme$ | async">
+      <mat-radio-group (change)="onChangeTheme($event)" [ngModel]="_settings.currentTheme$ | async">
         <mat-list-item class="setting" *ngFor="let theme of SETTINGS.THEMES">
           <span class="pure-spacer-16"></span>
           <mat-radio-button [value]="theme.class">

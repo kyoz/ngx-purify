@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { PureSettingsContainerService } from '../../pure-containers/pure-settings-container/pure-settings-container.service';
 
 @Component({
@@ -7,12 +7,9 @@ import { PureSettingsContainerService } from '../../pure-containers/pure-setting
   styleUrls: ['./pure-setting-button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PureSettingButton implements OnInit {
+export class PureSettingButton {
 
   constructor(public _settingsContainer: PureSettingsContainerService) { }
-
-  ngOnInit() {
-  }
 
   openSettings() {
     this._settingsContainer.open();

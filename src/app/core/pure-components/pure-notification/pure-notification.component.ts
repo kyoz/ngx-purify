@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { getToday } from '../../pure-utils/pure-date';
 
 @Component({
@@ -7,7 +7,7 @@ import { getToday } from '../../pure-utils/pure-date';
   styleUrls: ['./pure-notification.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PureNotification implements OnInit {
+export class PureNotification {
 
   events: any[] = [
     {
@@ -41,8 +41,4 @@ export class PureNotification implements OnInit {
   today = getToday();
 
   constructor() { }
-
-  ngOnInit() {
-  }
-
 }
