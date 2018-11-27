@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ViewChild, ElementRef, ChangeDetectionStrategy } from '@angular/core';
 import { PureSettingsContainerService } from './pure-settings-container.service';
-import * as Hammer from 'hammerjs';
 
 @Component({
   selector: 'pure-settings-container',
@@ -8,19 +7,8 @@ import * as Hammer from 'hammerjs';
   styleUrls: ['./pure-settings-container.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PureSettingsContainer implements OnInit {
+export class PureSettingsContainer {
   @ViewChild('pure_settings_container') pureSettingsContainer: ElementRef;
 
   constructor(public _settingsContainer: PureSettingsContainerService) { }
-
-  ngOnInit() {
-    this.registerHammer();
-  }
-
-  registerHammer() {
-    const hammer = new Hammer(this.pureSettingsContainer.nativeElement, {});
-    hammer.on('swiperight', () => {
-      this._settingsContainer.close();
-    });
-  }
 }

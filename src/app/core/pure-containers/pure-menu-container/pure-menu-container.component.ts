@@ -5,7 +5,6 @@ import { PureMainContainerService } from '../pure-main-container/pure-main-conta
 import { Subscription, combineLatest, BehaviorSubject } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import * as Hammer from 'hammerjs';
 
 @Component({
   selector: 'pure-menu-container',
@@ -53,8 +52,6 @@ export class PureMenuContainer implements OnInit {
   }
 
   ngOnInit() {
-    this.registerHammer();
-
     if (this._deviceDetect.isDesktop()) {
       this.addEventListeners();
     }
@@ -71,24 +68,5 @@ export class PureMenuContainer implements OnInit {
 
   onMouseOver() {
     this._menuContainer.isHovering$.next(true);
-  }
-
-  registerHammer() {
-    const hammer = new Hammer(this.pureSideMenuContainer.nativeElement, {});
-
-    // Actually, we can just use hammer.on('swipe') and detect if user swipe left or right for both
-    // LTR and RTL direction, but i'v test and it not work well on mobile so for now, i do seperate em
-
-    hammer.on('swiperight', () => {
-      if (this._settings.currentTextDir$.value === 'RTL') {
-        this._menuContainer.close();
-      }
-    });
-
-    hammer.on('swipeleft', () => {
-      if (this._settings.currentTextDir$.value === 'LTR') {
-        this._menuContainer.close();
-      }
-    });
   }
 }
