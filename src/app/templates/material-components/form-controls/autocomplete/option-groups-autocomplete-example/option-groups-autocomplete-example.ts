@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
@@ -17,7 +17,8 @@ export const _filter = (opt: string[], value: string): string[] => {
 @Component({
   selector: 'option-groups-autocomplete-example',
   templateUrl: './option-groups-autocomplete-example.html',
-  styleUrls: ['./option-groups-autocomplete-example.scss']
+  styleUrls: ['./option-groups-autocomplete-example.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OptionGroupsAutocompleteExample implements OnInit {
   stateForm: FormGroup = this.fb.group({

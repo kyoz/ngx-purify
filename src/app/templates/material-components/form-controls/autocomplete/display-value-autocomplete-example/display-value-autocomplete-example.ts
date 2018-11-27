@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
@@ -10,7 +10,8 @@ export interface User {
 @Component({
   selector: 'display-value-autocomplete-example',
   templateUrl: './display-value-autocomplete-example.html',
-  styleUrls: ['./display-value-autocomplete-example.scss']
+  styleUrls: ['./display-value-autocomplete-example.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DisplayValueAutocompleteExample implements OnInit {
   optionCtrl = new FormControl();

@@ -33,14 +33,14 @@ import { AutocompleteModule } from './autocomplete/autocomplete.module';
     // Router
     RouterModule.forChild([
       { path: 'autocomplete', loadChildren: './autocomplete/autocomplete.module#AutocompleteModule' },
-      { path: 'checkbox', component: CheckboxComponent },
-      { path: 'datepicker', component: DatepickerComponent },
-      { path: 'form-field', component: FormFieldComponent },
-      { path: 'input', component: InputComponent },
-      { path: 'radio-button', component: RadioButtonComponent },
-      { path: 'select', component: SelectComponent },
-      { path: 'slide-toggle', component: SlideToggleComponent },
-      { path: 'slider', component: SliderComponent }
+      // { path: 'checkbox', component: CheckboxComponent },
+      // { path: 'datepicker', component: DatepickerComponent },
+      // { path: 'form-field', component: FormFieldComponent },
+      // { path: 'input', component: InputComponent },
+      // { path: 'radio-button', component: RadioButtonComponent },
+      // { path: 'select', component: SelectComponent },
+      // { path: 'slide-toggle', component: SlideToggleComponent },
+      // { path: 'slider', component: SliderComponent }
     ])
   ]
 })

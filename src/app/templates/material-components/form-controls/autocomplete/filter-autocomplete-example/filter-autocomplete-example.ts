@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -6,7 +6,8 @@ import { map, startWith } from 'rxjs/operators';
 @Component({
   selector: 'filter-autocomplete-example',
   templateUrl: './filter-autocomplete-example.html',
-  styleUrls: ['./filter-autocomplete-example.scss']
+  styleUrls: ['./filter-autocomplete-example.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FilterAutocompleteExample implements OnInit {
   optionCtrl = new FormControl();
