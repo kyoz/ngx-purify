@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 // App Router
 import { AppRoutingModule } from './app.routing';
@@ -20,7 +22,9 @@ import { MinimalContainer } from './containers/minimal-container/minimal-contain
     MinimalContainer
   ],
   imports: [
+    BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
 
     // App Router
     AppRoutingModule,

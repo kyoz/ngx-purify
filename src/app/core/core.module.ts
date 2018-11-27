@@ -39,6 +39,28 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
 
+
+// Highlightjs
+import { HighlightModule } from 'ngx-highlightjs';
+
+import xml from 'highlight.js/lib/languages/xml';
+import scss from 'highlight.js/lib/languages/scss';
+import typescript from 'highlight.js/lib/languages/typescript';
+
+export function hljsLanguages() {
+  return [
+    {name: 'typescript', func: typescript},
+    {name: 'scss', func: scss},
+    {name: 'xml', func: xml}
+  ];
+}
+
+const PURE_CORE_MODULES = [
+  PureComponentsModule,
+  PureContainersModule,
+  PureDirectivesModule,
+];
+
 @NgModule({
   declarations: [
   ],
@@ -51,9 +73,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     // Pure Modules
     PureSharedModule,
     PureMockApiModule,
-    PureComponentsModule,
-    PureContainersModule,
-    PureDirectivesModule,
+    ...PURE_CORE_MODULES,
 
      // Ngrx Redux Modules
      AppStateModule,
@@ -71,12 +91,15 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
          useFactory: HttpLoaderFactory,
          deps: [HttpClient]
        }
-     })
+     }),
+
+    // Highlightjs
+    HighlightModule.forRoot({
+      languages: hljsLanguages
+    })
   ],
   exports: [
-    PureComponentsModule,
-    PureContainersModule,
-    PureDirectivesModule
+    ...PURE_CORE_MODULES
   ],
   providers: [
     // Perfect Scrollbar Global Configuration

@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ChangeDetectionStrategy } from '@angular/compiler/src/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-operational-dashboard',

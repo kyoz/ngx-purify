@@ -21,48 +21,36 @@ import {
   MatTooltipModule
 } from '@angular/material';
 
+const MATERIAL_MODULES = [
+  MatAutocompleteModule,
+  MatBadgeModule,
+  MatButtonModule,
+  MatDividerModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatOptionModule,
+  MatRadioModule,
+  MatSnackBarModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSlideToggleModule,
+  MatToolbarModule,
+  MatTooltipModule
+];
+
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
 
     // Angular Material Modules
-
-    MatAutocompleteModule,
-    MatBadgeModule,
-    MatButtonModule,
-    MatDividerModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    MatListModule,
-    MatMenuModule,
-    MatOptionModule,
-    MatRadioModule,
-    MatSnackBarModule,
-    MatSelectModule,
-    MatSidenavModule,
-    MatSlideToggleModule,
-    MatToolbarModule,
-    MatTooltipModule
+    ...MATERIAL_MODULES
   ],
   exports: [
-    MatAutocompleteModule,
-    MatBadgeModule,
-    MatButtonModule,
-    MatDividerModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    MatListModule,
-    MatMenuModule,
-    MatOptionModule,
-    MatRadioModule,
-    MatSelectModule,
-    MatSidenavModule,
-    MatSlideToggleModule,
-    MatToolbarModule,
-    MatTooltipModule
+    ...MATERIAL_MODULES
   ],
   providers: [],
 })
