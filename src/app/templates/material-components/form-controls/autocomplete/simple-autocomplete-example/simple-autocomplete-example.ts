@@ -1,11 +1,10 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'simple-autocomplete-example',
   templateUrl: './simple-autocomplete-example.html',
-  styleUrls: ['./simple-autocomplete-example.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./simple-autocomplete-example.scss']
 })
 export class SimpleAutocompleteExample {
   optionCtrl = new FormControl();

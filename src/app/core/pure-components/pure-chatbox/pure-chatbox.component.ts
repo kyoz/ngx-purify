@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { PureChatboxService } from './pure-chatbox.service';
 import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
@@ -8,8 +8,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 @Component({
   selector: 'pure-chatbox',
   templateUrl: './pure-chatbox.component.html',
-  styleUrls: ['./pure-chatbox.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./pure-chatbox.component.scss']
 })
 export class PureChatbox implements OnInit {
   @ViewChild('message_input') messageInputRef: ElementRef;

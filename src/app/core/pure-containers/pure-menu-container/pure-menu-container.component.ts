@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { PureMenuContainerService } from './pure-menu-container.service';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { PureMainContainerService } from '../pure-main-container/pure-main-container.service';
@@ -9,8 +9,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 @Component({
   selector: 'pure-menu-container',
   templateUrl: './pure-menu-container.component.html',
-  styleUrls: ['./pure-menu-container.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./pure-menu-container.component.scss']
 })
 export class PureMenuContainer implements OnInit {
   isOpenedOrHoveringMenu$: BehaviorSubject<boolean> = new BehaviorSubject(undefined);

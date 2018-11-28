@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ChangeDetectionStrategy, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, ViewChild, ElementRef } from '@angular/core';
 import { RESPONSIVE_BREAKPOINTS } from '../../pure-utils/pure-configs';
 
 // Services
@@ -17,8 +17,7 @@ import { distinctUntilChanged } from 'rxjs/operators';
 @Component({
   selector: 'pure-main-container',
   templateUrl: './pure-main-container.component.html',
-  styleUrls: ['./pure-main-container.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./pure-main-container.component.scss']
 })
 export class PureMainContainer implements OnInit, OnDestroy {
 

@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 // Pure Services
 import { PureMenuContainerService } from '../../pure-containers/pure-menu-container/pure-menu-container.service';
@@ -11,8 +11,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 @Component({
   selector: 'pure-toolbar',
   templateUrl: './pure-toolbar.component.html',
-  styleUrls: ['./pure-toolbar.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./pure-toolbar.component.scss']
 })
 export class PureToolbar implements OnInit {
   isSearching = false;

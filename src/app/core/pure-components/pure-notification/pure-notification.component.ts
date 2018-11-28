@@ -1,11 +1,10 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 import { getToday } from '../../pure-utils/pure-date';
 
 @Component({
   selector: 'pure-notification',
   templateUrl: './pure-notification.component.html',
-  styleUrls: ['./pure-notification.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./pure-notification.component.scss']
 })
 export class PureNotification {
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 // Examples Code
 import { SIMPLE_AUTOCOMPLETE_CODE } from './simple-autocomplete-example/simple-autocomplete-code';
@@ -10,8 +10,7 @@ import { FOCUS_FIRST_OPTION_AUTOCOMPLETE_CODE } from './focus-first-option-autoc
 @Component({
   selector: 'app-autocomplete',
   templateUrl: './autocomplete.component.html',
-  styleUrls: ['./autocomplete.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./autocomplete.component.scss']
 })
 export class AutocompleteComponent implements OnInit {
 

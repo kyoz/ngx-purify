@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { PureChatboxContainerService } from './pure-chatbox-container.service';
 import { PureChatboxService } from '../../pure-components/pure-chatbox/pure-chatbox.service';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
@@ -7,8 +7,7 @@ import { PureMainContainerService } from '../pure-main-container/pure-main-conta
 @Component({
   selector: 'pure-chatbox-container',
   templateUrl: './pure-chatbox-container.component.html',
-  styleUrls: ['./pure-chatbox-container.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./pure-chatbox-container.component.scss']
 })
 export class PureChatboxContainer {
   @ViewChild('pure_chatbox_container') pureChatboxContainer: ElementRef;
