@@ -302,13 +302,17 @@
 * RTL SUPPORT
 */
 .pure-chatbox.RTL {
-  .chatbox-contacts-wrapper.chatbox-contacts>.contact-item-wrapper {
-    .contact-item-selected>.indicator {
-      left: auto;
-      right: 0px;
-      border-radius: 0px;
-      border-top-left-radius: 8px;
-      border-bottom-left-radius: 8px;
+  .chatbox-contacts-wrapper>.chatbox-contacts>.contact-item-wrapper {
+
+    .contact-item-selected {
+      .indicator {
+        left: auto;
+        right: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+      }
     }
 
     .contact-item {
