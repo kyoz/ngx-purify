@@ -13,6 +13,9 @@
     </div>
     <pure-menu-item *ngFor="let menuItem of group.menuItems" 
       [menuItemData]="menuItem"
+      [isMenuOpened]="_menuContainer.isOpened$"
+      [isMainFullWidth]="_mainContainer.isFullWidth$"
+      [isRTL]="_settings.currentTextDir$"
       [isOpenedOrHoveringMenu]="isOpenedOrHoveringMenu$"></pure-menu-item>
   </div>
 </div>

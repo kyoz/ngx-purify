@@ -1,13 +1,13 @@
 <a class="pure-menu-item" (click)="onMenuItemClicked()" [routerLink]="menuItemData?.url" [ngClass]="{
-  'RTL' : (_settings.currentTextDir$ | async) === 'RTL'
+  'RTL' : (isRTL | async) === 'RTL'
  }">
   <div class="pure-menu-content content level-{{level}}"
     [ngClass]="{
       'active': (active | async),
       'opened': (opened | async),
-      'opened-or-hovering-menu': (isOpenedOrHoveringMenu | async),
-      'no-icon': (!menuItemData?.icon && !(_menuContainer.isOpened$ | async)) || level !== 0,
-      'fullwidth': (_mainContainer.isFullWidth$ | async)
+      'opened-or-hovering-menu': (isMenuOpened | async),
+      'no-icon': (!menuItemData?.icon && !(isMenuOpened | async)) || level !== 0,
+      'fullwidth': (isMainFullWidth | async)
     }">
     <!--Icon to replace menu item that doesn't have icon when shrink-->
     <mat-icon class="replace-icon">{{ menuItemData?.icon ? menuItemData?.icon : 'layers' }}</mat-icon>
@@ -17,8 +17,8 @@
     <span class="badge" *ngIf="menuItemData?.badge"
       [ngClass]="fixBadgeColor(menuItemData?.badgeColor)"
       [ngStyle]="{
-        'margin-right' : hasChildren && ((_settings.currentTextDir$ | async) !== 'RTL') ? '12px' : '16px',
-        'margin-left' : hasChildren && ((_settings.currentTextDir$ | async) === 'RTL') ? '12px' : '16px'
+        'margin-right' : hasChildren && ((isRTL | async) !== 'RTL') ? '12px' : '16px',
+        'margin-left' : hasChildren && ((isRTL | async) === 'RTL') ? '12px' : '16px'
       }">
       {{ menuItemData?.badge }}
     </span>
@@ -32,6 +32,9 @@
     [parent]="_parent"
     [menuItemData]="childMenuItem"
     [level]="level+1"
+    [isMenuOpened]="isMenuOpened"
+    [isMainFullWidth]="isMainFullWidth"
+    [isRTL]="isRTL"
     [isOpenedOrHoveringMenu]="isOpenedOrHoveringMenu">
   </pure-menu-item>
 </div>

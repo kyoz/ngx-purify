@@ -22,6 +22,9 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   @Input() opened: BehaviorSubject<boolean> = new BehaviorSubject(false);
   @Input() parent: PureMenuItem;
   @Input() isOpenedOrHoveringMenu: BehaviorSubject<boolean>;
+  @Input() isMenuOpened: BehaviorSubject<boolean>;
+  @Input() isMainFullWidth: BehaviorSubject<boolean>;
+  @Input() isRTL: BehaviorSubject<boolean>;
 
   private routeSubscription: Subscription;
   private _parent: PureMenuItem = this;
@@ -29,10 +32,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   constructor(
     private _menuService: PureMenuService,
     private _route: Router,
-    private _changeDetectionRef: ChangeDetectorRef,
-    public _menuContainer: PureMenuContainerService,
-    public _mainContainer: PureMainContainerService,
-    public _settings: PureSettingsService) {
+    private _changeDetectionRef: ChangeDetectorRef) {
   }
 
   ngOnInit() {
