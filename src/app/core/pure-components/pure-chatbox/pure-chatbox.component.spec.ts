@@ -9,7 +9,7 @@ import { PureChatbox } from './pure-chatbox.component';
 
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
-import { HttpLoaderFactory } from 'src/app/app.module';
+import { HttpLoaderFactory } from 'src/app/core/core.module';
 
 describe('PureChatbox', () => {
   let component: PureChatbox;

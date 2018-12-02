@@ -9,7 +9,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { PureChatboxEffects } from '../../pure-components/pure-chatbox/pure-chatbox.effect';
 
 import { TranslateModule, TranslateService, TranslateLoader } from '@ngx-translate/core';
-import { HttpLoaderFactory } from 'src/app/app.module';
+import { HttpLoaderFactory } from 'src/app/core/core.module';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
 

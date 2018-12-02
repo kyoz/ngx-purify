@@ -8,7 +8,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { PureChatboxEffects } from '../../pure-components/pure-chatbox/pure-chatbox.effect';
 
 import { TranslateService, TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { HttpLoaderFactory } from 'src/app/app.module';
+import { HttpLoaderFactory } from 'src/app/core/core.module';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 describe('PureChatboxContainer', () => {

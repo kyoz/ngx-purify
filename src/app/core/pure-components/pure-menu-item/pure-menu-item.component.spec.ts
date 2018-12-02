@@ -14,7 +14,7 @@ import { PureMenuService } from '../pure-menu/pure-menu.service';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { PureSettingsStorageService } from '../../pure-services/pure-settings.storage';
 import { TranslateService, TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { HttpLoaderFactory } from 'src/app/app.module';
+import { HttpLoaderFactory } from 'src/app/core/core.module';
 
 describe('PureMenuItem', () => {
   let component: PureMenuItem;

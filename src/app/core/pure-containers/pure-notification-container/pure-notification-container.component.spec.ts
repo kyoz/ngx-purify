@@ -13,7 +13,7 @@ import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 import { TranslateService, TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { HttpLoaderFactory } from 'src/app/app.module';
+import { HttpLoaderFactory } from 'src/app/core/core.module';
 
 describe('PureNotificationContainer', () => {
   let component: PureNotificationContainer;

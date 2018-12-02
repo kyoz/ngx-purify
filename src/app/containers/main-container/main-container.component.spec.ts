@@ -10,7 +10,7 @@ import { MainContainer } from './main-container.component';
 
 import { PureChatboxEffects } from '../../core/pure-components/pure-chatbox/pure-chatbox.effect';
 import { TranslateModule, TranslateService, TranslateLoader } from '@ngx-translate/core';
-import { HttpLoaderFactory } from 'src/app/app.module';
+import { HttpLoaderFactory } from 'src/app/core/core.module';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 describe('MainContainer', () => {

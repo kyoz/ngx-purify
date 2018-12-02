@@ -9,7 +9,7 @@ import { PureSettingsStorageService } from 'src/app/core/pure-services/pure-sett
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { HttpLoaderFactory } from 'src/app/app.module';
+import { HttpLoaderFactory } from 'src/app/core/core.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 describe('HeaderComponent', () => {

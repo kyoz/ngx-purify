@@ -6,7 +6,7 @@ import { PureCoreModule } from '../../core/core.module';
 import { MinimalContainer } from './minimal-container.component';
 
 import { TranslateModule, TranslateService, TranslateLoader } from '@ngx-translate/core';
-import { HttpLoaderFactory } from 'src/app/app.module';
+import { HttpLoaderFactory } from 'src/app/core/core.module';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 describe('MinimalContainer', () => {

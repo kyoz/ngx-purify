@@ -17,7 +17,7 @@ import { PureSettingsStorageService } from '../../pure-services/pure-settings.st
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 import { TranslateService, TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { HttpLoaderFactory } from 'src/app/app.module';
+import { HttpLoaderFactory } from 'src/app/core/core.module';
 
 describe('PureMenu', () => {
   let component: PureMenu;

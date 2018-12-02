@@ -19,7 +19,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 // Pure Directives
 import { PurePerfectScrollbarDirective } from '../../pure-directives/perfect-scrollbar.directive';
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
-import { HttpLoaderFactory } from 'src/app/app.module';
+import { HttpLoaderFactory } from 'src/app/core/core.module';
 
 describe('PureMenuContainer', () => {
   let component: PureMenuContainer;

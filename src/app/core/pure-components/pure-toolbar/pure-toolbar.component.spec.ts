@@ -5,7 +5,7 @@ import { PureCoreModule } from '../../core.module';
 import { PureToolbar } from './pure-toolbar.component';
 
 import { TranslateService, TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { HttpLoaderFactory } from 'src/app/app.module';
+import { HttpLoaderFactory } from 'src/app/core/core.module';
 
 describe('PureToolbar', () => {
   let component: PureToolbar;

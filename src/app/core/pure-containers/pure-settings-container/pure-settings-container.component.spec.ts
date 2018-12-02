@@ -7,7 +7,7 @@ import { PureSettingsContainer } from './pure-settings-container.component';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 import { TranslateModule, TranslateService, TranslateLoader } from '@ngx-translate/core';
-import { HttpLoaderFactory } from 'src/app/app.module';
+import { HttpLoaderFactory } from 'src/app/core/core.module';
 
 describe('PureSettingsContainer', () => {
   let component: PureSettingsContainer;
