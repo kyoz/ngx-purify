@@ -13,7 +13,7 @@ import { SharedModule } from '../../shared/shared.module';
       { path: 'autocomplete', loadChildren: './autocomplete/autocomplete.module#AutocompleteModule' },
       { path: 'checkbox', loadChildren: './checkbox/checkbox.module#CheckboxModule' },
       { path: 'datepicker', loadChildren: './datepicker/datepicker.module#DatePickerModule' },
-      // { path: 'form-field', component: FormFieldComponent },
+      { path: 'form-field', loadChildren: './form-field/form-field.module#FormFieldModule' },
       // { path: 'input', component: InputComponent },
       // { path: 'radio-button', component: RadioButtonComponent },
       // { path: 'select', component: SelectComponent },

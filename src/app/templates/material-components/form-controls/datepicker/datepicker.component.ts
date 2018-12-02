@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import * as SIMPLE_DATEPICKER_CODE from './examples/simple-datepicker-example/simple-datepicker-code';
 import * as TOUCH_UI_DATEPICKER_CODE from './examples/touch-ui-datepicker-example/touch-ui-datepicker-code';
@@ -10,15 +10,9 @@ import * as DISABLED_DATEPICKER_CODE from './examples/disabled-datepicker-exampl
   templateUrl: './datepicker.component.html',
   styleUrls: ['./datepicker.component.scss']
 })
-export class DatepickerComponent implements OnInit {
-
+export class DatepickerComponent {
   simpleDatepickerCode = SIMPLE_DATEPICKER_CODE;
   touchUIDatepickerCode = TOUCH_UI_DATEPICKER_CODE;
   openMethodDatepickerCode = OPEN_METHOD_DATEPICKER_CODE;
   disabledDatepickerCode = DISABLED_DATEPICKER_CODE;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 }
