@@ -1,5 +1,4 @@
-export const FOCUS_FIRST_OPTION_AUTOCOMPLETE_CODE = {
-html : `
+export const html = `
 <form class="example-form">
   <mat-form-field class="example-full-width">
     <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="optionCtrl" [matAutocomplete]="auto">
@@ -10,9 +9,9 @@ html : `
     </mat-autocomplete>
   </mat-form-field>
 </form>
-`,
+`;
 
-ts : `
+export const ts = `
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
@@ -41,9 +40,9 @@ export class FocusFirstOptionAutocompleteExample implements OnInit {
     return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
   }
 }
-`,
+`;
 
-scss : `
+export const scss = `
 .example-form {
   width: 100%;
   min-width: 150px;
@@ -53,5 +52,4 @@ scss : `
     width: 100%;
   }
 }
-`
-};
+`;

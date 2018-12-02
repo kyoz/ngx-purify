@@ -1,5 +1,4 @@
-export const OPTION_GROUPS_AUTOCOMPLETE_CODE = {
-html : `
+export const html = `
 <form [formGroup]="stateForm" class="example-form">
   <mat-form-field class="example-full-width">
     <input type="text" matInput placeholder="States Group" formControlName="stateGroup" required [matAutocomplete]="autoGroup">
@@ -12,9 +11,9 @@ html : `
     </mat-autocomplete>
   </mat-form-field>
 </form>
-`,
+`;
 
-ts : `
+export const ts = `
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
@@ -124,9 +123,9 @@ export class OptionGroupsAutocompleteExample implements OnInit {
     return this.stateGroups;
   }
 }
-`,
+`;
 
-scss : `
+export const scss = `
 .example-form {
   width: 100%;
   min-width: 150px;
@@ -136,5 +135,4 @@ scss : `
     width: 100%;
   }
 }
-`
-};
+`;

@@ -1,5 +1,4 @@
-export const SIMPLE_AUTOCOMPLETE_CODE = {
-html : `
+export const html = `
 <form class="example-form">
   <mat-form-field class="example-full-width">
     <input type="text" placeholder="Pick one number" aria-label="Number" matInput [formControl]="optionCtrl" [matAutocomplete]="auto">
@@ -10,9 +9,9 @@ html : `
     </mat-autocomplete>
   </mat-form-field>
 </form>
-`,
+`;
 
-ts : `
+export const ts = `
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
@@ -25,9 +24,9 @@ export class SimpleAutocompleteExample {
   optionCtrl = new FormControl();
   options: string[] = ['One', 'Two', 'Three'];
 }
-`,
+`;
 
-scss : `
+export const scss = `
 .example-form {
   width: 100%;
   min-width: 150px;
@@ -37,5 +36,4 @@ scss : `
     width: 100%;
   }
 }
-`
-};
+`;

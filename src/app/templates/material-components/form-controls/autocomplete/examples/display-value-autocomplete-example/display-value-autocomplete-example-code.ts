@@ -1,5 +1,4 @@
-export const DISPLAY_VALUE_AUTOCOMPLETE_CODE = {
-html : `
+export const html = `
 <form class="example-form">
   <mat-form-field class="example-full-width">
     <input type="text" placeholder="Assignee to" aria-label="Assignee to" matInput [formControl]="optionCtrl" [matAutocomplete]="auto">
@@ -10,9 +9,9 @@ html : `
     </mat-autocomplete>
   </mat-form-field>
 </form>
-`,
+`;
 
-ts : `
+export const ts = `
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
@@ -55,9 +54,9 @@ export class DisplayValueAutocompleteExample implements OnInit {
     return this.options.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
   }
 }
-`,
+`;
 
-scss : `
+export const scss = `
 .example-form {
   width: 100%;
   min-width: 150px;
@@ -67,5 +66,4 @@ scss : `
     width: 100%;
   }
 }
-`
-};
+`;
