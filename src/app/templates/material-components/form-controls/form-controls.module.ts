@@ -12,7 +12,7 @@ import { SharedModule } from '../../shared/shared.module';
     RouterModule.forChild([
       { path: 'autocomplete', loadChildren: './autocomplete/autocomplete.module#AutocompleteModule' },
       { path: 'checkbox', loadChildren: './checkbox/checkbox.module#CheckboxModule' },
-      // { path: 'datepicker', component: DatepickerComponent },
+      { path: 'datepicker', loadChildren: './datepicker/datepicker.module#DatePickerModule' },
       // { path: 'form-field', component: FormFieldComponent },
       // { path: 'input', component: InputComponent },
       // { path: 'radio-button', component: RadioButtonComponent },
