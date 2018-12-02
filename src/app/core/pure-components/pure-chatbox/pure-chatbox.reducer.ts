@@ -1,7 +1,6 @@
-import * as SideChatBoxActions from './pure-chatbox.action';
 import { Map } from 'immutable';
 import { IPureChatboxState } from './pure-chatbox.state';
-import { getCurrentConversation } from './pure-chatbox.selector';
+import * as SideChatBoxActions from './pure-chatbox.action';
 
 export type PureChatBoxActions = SideChatBoxActions.All;
 

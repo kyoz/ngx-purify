@@ -3,9 +3,6 @@ import { Router, NavigationEnd } from '@angular/router';
 import { IMenuItem } from '../../pure-interfaces/menu';
 import { PureMenuService } from '../pure-menu/pure-menu.service';
 import { PureStringUtils } from '../../pure-utils/pure-string-utils';
-import { PureMenuContainerService } from '../../pure-containers/pure-menu-container/pure-menu-container.service';
-import { PureMainContainerService } from '../../pure-containers/pure-main-container/pure-main-container.service';
-import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { Subscription, BehaviorSubject } from 'rxjs';
 
 @Component({
