@@ -1,87 +1,202 @@
-.pure-menu-item {
-  position: relative;
-  display: block;
-  box-sizing: border-box;
-  height: 48px;
-  width: 100%;
+// Pure menu item is nested and is inside pure-menu. So it's not a good idea to create each style
+// for each Pure Menu Item, instead, i use ViewEncapsulateion.None and put Pure Menu Item in the
+// Pure Menu Component (src/app/core/pure-components/pure-menu/pure-menu.component.scss).
+// It'll prevent angular create a alots of unnecessary css code.
 
-  .content {
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    top: 0px;
-    bottom: 0px;
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    padding-left: 22px;
+@mixin pureMenuItemStyles {
 
-    .icon {
-      font-size: 20px;
-      min-width: 20px;
-      max-width: 20px;
-      min-height: 23px;
-      max-height: 23px;
-      margin-bottom: -3px;
-      margin-right: 12px;
-    }
+  .pure-menu-item {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    height: 48px;
+    width: 100%;
 
-    .replace-icon {
+    .content {
       position: absolute;
-      top: 17px;
-      right: 25px;
-      font-size: 14px;
-      min-width: 14px;
-      min-height: 14px;
-      width: 14px;
-      height: 14px;
-      line-height: 14px;
-      opacity: 0;
+      left: 0px;
+      right: 0px;
+      top: 0px;
+      bottom: 0px;
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      padding-left: 22px;
+
+      .icon {
+        font-size: 20px;
+        min-width: 20px;
+        max-width: 20px;
+        min-height: 23px;
+        max-height: 23px;
+        margin-bottom: -3px;
+        margin-right: 12px;
+      }
+
+      .replace-icon {
+        position: absolute;
+        top: 17px;
+        right: 25px;
+        font-size: 14px;
+        min-width: 14px;
+        min-height: 14px;
+        width: 14px;
+        height: 14px;
+        line-height: 14px;
+        opacity: 0;
+      }
+
+      .name {
+        font-size: 14px;
+        flex: 1 1 auto;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        opacity: 0;
+      }
+
+      .badge {
+        height: 14px;
+        line-height: 14px;
+        text-decoration: none;
+        padding: 4px 8px;
+        font-size: 12px;
+        border-radius: 16px;
+        opacity: 0;
+      }
+
+      .expand-icon {
+        font-size: 18px;
+        line-height: 18px;
+        min-width: 18px;
+        max-width: 18px;
+        min-height: 18px;
+        max-height: 18px;
+        margin-bottom: -2px;
+        opacity: 0;
+        transition: transform .2s ease-in-out;
+      }
+
+      .expand-icon.expanded {
+        transform: rotate(90deg);
+      }
     }
 
-    .name {
-      font-size: 14px;
-      flex: 1 1 auto;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      opacity: 0;
+    .content.active {
+      &:before {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0px;
+        height: 2px;
+      }
+
+      &:after {
+        content: " ";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0px;
+        height: 2px;
+      }
     }
 
-    .badge {
-      height: 14px;
-      line-height: 14px;
-      text-decoration: none;
-      padding: 4px 8px;
-      font-size: 12px;
-      border-radius: 16px;
-      opacity: 0;
+    .pure-menu-content.fullwidth {
+      .icon {
+        margin-right: 22px;
+      }
     }
 
-    .expand-icon {
-      font-size: 18px;
-      line-height: 18px;
-      min-width: 18px;
-      max-width: 18px;
-      min-height: 18px;
-      max-height: 18px;
-      margin-bottom: -2px;
-      opacity: 0;
-      transition: transform .2s ease-in-out;
+    .pure-menu-content.opened-or-hovering-menu {
+      flex-direction: row;
+      padding-right: 10px;
+
+      .icon {
+        margin-right: 12px;
+      }
     }
 
-    .expand-icon.expanded {
-      transform: rotate(90deg);
+    /**
+      * LEVELS
+      */
+
+    .content.level-1 {
+      padding-left: 54px;
+    }
+
+    .content.level-2 {
+      padding-left: 86px;
+    }
+
+    .content.level-3 {
+      padding-left: 118px;
+    }
+
+    .content.level-4 {
+      padding-left: 150px;
+    }
+
+    .content.level-1,
+    .content.level-2,
+    .content.level-3,
+    .content.level-4 {
+      .icon {
+        opacity: 0;
+      }
+    }
+
+    .pure-menu-content.no-icon {
+      .replace-icon {
+        opacity: 1;
+      }
+    }
+
+    /**
+    * TRANSITION FOR MENU ITEMS
+    */
+
+    .pure-menu-content.opened-or-hovering-menu {
+
+      .name,
+      .expand-icon {
+        opacity: 1;
+        margin-right: 12px;
+      }
+
+      .badge {
+        opacity: 1;
+        transition: opacity 200ms ease-in-out;
+      }
+
+      .replace-icon {
+        opacity: 0;
+      }
+    }
+
+    .content.opened-or-hovering-menu.level-1,
+    .content.opened-or-hovering-menu.level-2,
+    .content.opened-or-hovering-menu.level-3,
+    .content.opened-or-hovering-menu.level-4 {
+      .icon {
+        opacity: 1;
+      }
     }
   }
 
-  .content.active {
+  .children {
+    overflow: hidden;
+    box-sizing: border-box;
+    height: 0px;
+    transition: height 450ms cubic-bezier(.4, 0, .2, 1);
+    position: relative;
+
     &:before {
       content: " ";
       position: absolute;
       top: 0;
       left: 0;
-      right: 0px;
+      width: 100%;
       height: 2px;
     }
 
@@ -90,202 +205,95 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      right: 0px;
+      width: 100%;
       height: 2px;
     }
-  }
 
-  .pure-menu-content.fullwidth {
-    .icon {
-      margin-right: 22px;
-    }
-  }
+    .children {
 
-  .pure-menu-content.opened-or-hovering-menu {
-    flex-direction: row;
-    padding-right: 10px;
-
-    .icon {
-      margin-right: 12px;
+      &:before,
+      &:after {
+        display: none;
+      }
     }
   }
 
   /**
-    * LEVELS
-    */
+  * RTL SUPPORT
+  */
 
-  .content.level-1 {
-    padding-left: 54px;
-  }
+  .pure-menu-item.RTL {
+    .content {
+      padding-left: 0px;
+      padding-right: 22px;
 
-  .content.level-2 {
-    padding-left: 86px;
-  }
+      .icon {
+        margin-right: auto;
+        margin-left: 12px;
+      }
 
-  .content.level-3 {
-    padding-left: 118px;
-  }
+      .replace-icon {
+        left: 25px;
+        right: auto;
+      }
 
-  .content.level-4 {
-    padding-left: 150px;
-  }
+      .expand-icon {
+        margin-right: auto;
+        transform: rotate(-180deg);
+      }
 
-  .content.level-1,
-  .content.level-2,
-  .content.level-3,
-  .content.level-4 {
-    .icon {
-      opacity: 0;
-    }
-  }
-
-  .pure-menu-content.no-icon {
-    .replace-icon {
-      opacity: 1;
-    }
-  }
-
-  /**
-   * TRANSITION FOR MENU ITEMS
-   */
-
-  .pure-menu-content.opened-or-hovering-menu {
-
-    .name,
-    .expand-icon {
-      opacity: 1;
-      margin-right: 12px;
+      .expand-icon.expanded {
+        transform: rotate(-270deg);
+      }
     }
 
-    .badge {
-      opacity: 1;
-      transition: opacity 200ms ease-in-out;
+    .pure-menu-content.fullwidth {
+      .icon {
+        margin-right: auto;
+        margin-left: 22px;
+      }
     }
 
-    .replace-icon {
-      opacity: 0;
-    }
-  }
+    .pure-menu-content.opened-or-hovering-menu {
+      padding-right: auto;
+      padding-left: 10px;
 
-  .content.opened-or-hovering-menu.level-1,
-  .content.opened-or-hovering-menu.level-2,
-  .content.opened-or-hovering-menu.level-3,
-  .content.opened-or-hovering-menu.level-4 {
-    .icon {
-      opacity: 1;
-    }
-  }
-}
-
-.children {
-  overflow: hidden;
-  box-sizing: border-box;
-  height: 0px;
-  transition: height 450ms cubic-bezier(.4, 0, .2, 1);
-  position: relative;
-
-  &:before {
-    content: " ";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-  }
-
-  &:after {
-    content: " ";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-  }
-
-  .children {
-
-    &:before,
-    &:after {
-      display: none;
-    }
-  }
-}
-
-/**
- * RTL SUPPORT
- */
-
-.pure-menu-item.RTL {
-  .content {
-    padding-left: 0px;
-    padding-right: 22px;
-
-    .icon {
-      margin-right: auto;
-      margin-left: 12px;
+      .icon {
+        margin-right: auto;
+        margin-left: 12px;
+      }
     }
 
-    .replace-icon {
-      left: 25px;
-      right: auto;
+    /**
+      * LEVELS
+      */
+
+    .content.level-1 {
+      padding-left: auto;
+      padding-right: 54px;
     }
 
-    .expand-icon {
-      margin-right: auto;
-      transform: rotate(-180deg);
+    .content.level-2 {
+      padding-left: auto;
+      padding-right: 86px;
     }
 
-    .expand-icon.expanded {
-      transform: rotate(-270deg);
+    .content.level-3 {
+      padding-left: auto;
+      padding-right: 118px;
     }
-  }
 
-  .pure-menu-content.fullwidth {
-    .icon {
-      margin-right: auto;
-      margin-left: 22px;
+    .content.level-4 {
+      padding-left: auto;
+      padding-right: 150px;
     }
-  }
 
-  .pure-menu-content.opened-or-hovering-menu {
-    padding-right: auto;
-    padding-left: 10px;
-
-    .icon {
-      margin-right: auto;
-      margin-left: 12px;
-    }
-  }
-
-  /**
-    * LEVELS
-    */
-
-  .content.level-1 {
-    padding-left: auto;
-    padding-right: 54px;
-  }
-
-  .content.level-2 {
-    padding-left: auto;
-    padding-right: 86px;
-  }
-
-  .content.level-3 {
-    padding-left: auto;
-    padding-right: 118px;
-  }
-
-  .content.level-4 {
-    padding-left: auto;
-    padding-right: 150px;
-  }
-
-  .pure-menu-content.opened-or-hovering-menu {
-    .name,
-    .expand-icon {
-      margin-right: auto;
-      margin-left: 12px;
+    .pure-menu-content.opened-or-hovering-menu {
+      .name,
+      .expand-icon {
+        margin-right: auto;
+        margin-left: 12px;
+      }
     }
   }
 }

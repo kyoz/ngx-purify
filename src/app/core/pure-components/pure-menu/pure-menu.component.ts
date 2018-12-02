@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, ViewEncapsulation } from '@angular/core';
 import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 import { PureMenuService } from './pure-menu.service';
 import { PureMenuContainerService } from '../../pure-containers/pure-menu-container/pure-menu-container.service';
@@ -11,7 +11,8 @@ import { MENU_CONFIG } from '../../../configs/menu';
 @Component({
   selector: 'pure-menu',
   templateUrl: './pure-menu.component.html',
-  styleUrls: ['./pure-menu.component.scss']
+  styleUrls: ['./pure-menu.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class PureMenu implements OnInit, AfterViewInit {
   @ViewChild('PURE_MENU') pureMenuScrollbar?: PerfectScrollbarDirective;
