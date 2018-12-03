@@ -5,7 +5,7 @@
     [ngClass]="{
       'active': (active | async),
       'opened': (opened | async),
-      'opened-or-hovering-menu': (isMenuOpened | async),
+      'opened-or-hovering-menu': (isOpenedOrHoveringMenu | async),
       'no-icon': (!menuItemData?.icon && !(isMenuOpened | async)) || level !== 0,
       'fullwidth': (isMainFullWidth | async)
     }">

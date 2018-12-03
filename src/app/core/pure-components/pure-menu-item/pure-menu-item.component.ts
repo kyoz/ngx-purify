@@ -8,7 +8,6 @@ import { Subscription, BehaviorSubject } from 'rxjs';
 @Component({
   selector: 'pure-menu-item',
   templateUrl: './pure-menu-item.component.html',
-  styleUrls: ['./pure-menu-item.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
