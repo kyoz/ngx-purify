@@ -1,8 +1,4 @@
-@import '../pure-menu-item/pure-menu-item.component';
-
 .pure-menu {
-
-  @include pureMenuItemStyles();
 
   position: absolute;
   left: 0px;

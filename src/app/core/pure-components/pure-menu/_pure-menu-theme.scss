@@ -1,4 +1,5 @@
 @import '../../../../assets/scss/pure-style-functions';
+@import '../pure-menu-item/pure-menu-item.component';
 
 @mixin pure-menu-theme($theme) {
   $primary: map-get($theme, primary);
@@ -9,6 +10,10 @@
   $is-dark: map-get($theme, is-dark);
 
   .pure-menu {
+
+    // Global Styles for Menu Items
+    @include pureMenuItemStyles();
+
     .group {
       .group-name {
         color: mat-color($primary, .9);

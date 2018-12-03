@@ -11,8 +11,7 @@ import { MENU_CONFIG } from '../../../configs/menu';
 @Component({
   selector: 'pure-menu',
   templateUrl: './pure-menu.component.html',
-  styleUrls: ['./pure-menu.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./pure-menu.component.scss']
 })
 export class PureMenu implements OnInit, AfterViewInit {
   @ViewChild('PURE_MENU') pureMenuScrollbar?: PerfectScrollbarDirective;

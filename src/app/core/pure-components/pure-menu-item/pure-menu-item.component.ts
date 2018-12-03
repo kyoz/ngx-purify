@@ -7,8 +7,7 @@ import { Subscription, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'pure-menu-item',
-  templateUrl: './pure-menu-item.component.html',
-  encapsulation: ViewEncapsulation.None
+  templateUrl: './pure-menu-item.component.html'
 })
 export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   @ViewChildren(PureMenuItem) childMenuItems: QueryList<PureMenuItem>;

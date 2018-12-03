@@ -1,6 +1,6 @@
 // Pure menu item is nested and is inside pure-menu. So it's not a good idea to create each style
-// for each Pure Menu Item, instead, i use ViewEncapsulateion.None and put Pure Menu Item in the
-// Pure Menu Component (src/app/core/pure-components/pure-menu/pure-menu.component.scss).
+// for each Pure Menu Item, instead, i put Pure Menu Item in the
+// Pure Menu Theme (src/app/core/pure-components/pure-menu/_pure-menu.theme.scss). Which is globally
 // It'll prevent angular create a alots of unnecessary css code.
 
 @mixin pureMenuItemStyles {
