@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, Input, ViewChild, ElementRef } from '@angular/core';
 import { RESPONSIVE_BREAKPOINTS } from '../../pure-utils/pure-configs';
+import { Router, Event as RouterEvent, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 
 // Services
 import { PureMenuContainerService } from '../pure-menu-container/pure-menu-container.service';
@@ -21,7 +22,8 @@ import { distinctUntilChanged } from 'rxjs/operators';
 })
 export class PureMainContainer implements OnInit, OnDestroy {
 
-  isBackdropVisible = false;
+  isLoading: Boolean = false;
+  isBackdropVisible: Boolean = false;
   combineSubscription: Subscription;
 
   _onWindowResize = this.onWindowResize.bind(this);
@@ -36,7 +38,8 @@ export class PureMainContainer implements OnInit, OnDestroy {
     public _notificationContainer: PureNotificationContainerService,
     public _settingsContainer: PureSettingsContainerService,
     public _settings: PureSettingsService,
-    private _deviceDetection: DeviceDetectorService
+    private _deviceDetection: DeviceDetectorService,
+    private _router: Router
   ) {
     const combineBehaviorSubjects = combineLatest(
       _menuContainer.isOpened$,
@@ -56,6 +59,11 @@ export class PureMainContainer implements OnInit, OnDestroy {
       } else {
         this.isBackdropVisible = false;
       }
+    });
+
+    // Subscript for router navigations
+    this._router.events.subscribe((event: RouterEvent) => {
+      this.navigationInterceptor(event);
     });
    }
 
@@ -90,5 +98,25 @@ export class PureMainContainer implements OnInit, OnDestroy {
     }
     this._chatboxContainer.close();
     this._notificationContainer.close();
+  }
+
+   // Shows and hides the loading spinner during RouterEvent changes
+   navigationInterceptor(event: RouterEvent): void {
+    if (event instanceof NavigationStart) {
+      this.isLoading = true;
+    }
+
+    if (event instanceof NavigationEnd) {
+      this.isLoading = false;
+    }
+
+    // Set loading state to false in both of the below events to hide the spinner in case a request fails
+    if (event instanceof NavigationCancel) {
+      this.isLoading = false;
+    }
+
+    if (event instanceof NavigationError) {
+      this.isLoading = false;
+    }
   }
 }

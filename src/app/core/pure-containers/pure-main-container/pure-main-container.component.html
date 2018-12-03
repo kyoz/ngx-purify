@@ -1,6 +1,7 @@
 <div #PURE_MAIN_CONTAINER id="PURE_MAIN_CONTAINER" class="pure-main-container" [ngClass]="{
   'RTL' : (_settings.currentTextDir$ | async) === 'RTL'
 }">
+  <mat-progress-bar class="loader" mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
   <div class="content pure-theme" [ngClass]="{
     'menu-content-small-screen' : !(_mainContainer.isFullWidth$ | async),
     'menu-content-opened' : (_mainContainer.isFullWidth$ | async) && (_menuContainer.isOpened$ | async),

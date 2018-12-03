@@ -7,6 +7,15 @@
   display: inline-block;
   margin: 0 auto;
 
+  .loader {
+    position: absolute;
+    display: flex;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 1000000;
+  }
+
   .content {
     position: absolute;
     left: 64px;
