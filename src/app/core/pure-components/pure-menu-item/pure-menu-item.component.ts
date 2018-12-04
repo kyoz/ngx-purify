@@ -13,14 +13,14 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   @ViewChildren(PureMenuItem) childMenuItems: QueryList<PureMenuItem>;
 
   @Input() menuItemData: IMenuItem;
-  @Input() level: Number = 0;
+  @Input() level: number = 0;
   @Input() active: boolean;
   @Input() opened: boolean;
   @Input() parent: PureMenuItem;
   @Input() isOpenedOrHoveringMenu: boolean;
   @Input() isMenuOpened: boolean;
   @Input() isMainFullWidth: boolean;
-  @Input() isRTL: string;
+  @Input() textDirection: string;
 
   private routeSubscription: Subscription;
   private _parent: PureMenuItem = this;

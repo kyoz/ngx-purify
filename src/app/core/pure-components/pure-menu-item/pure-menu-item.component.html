@@ -1,5 +1,5 @@
 <a class="pure-menu-item" (click)="onMenuItemClicked()" [routerLink]="menuItemData?.url" [ngClass]="{
-  'RTL' : isRTL === 'RTL'
+  'RTL' : textDirection === 'RTL'
  }">
   <div class="pure-menu-content content level-{{level}}"
     [ngClass]="{
@@ -17,8 +17,8 @@
     <span class="badge" *ngIf="menuItemData?.badge"
       [ngClass]="fixBadgeColor(menuItemData?.badgeColor)"
       [ngStyle]="{
-        'margin-right' : hasChildren && (isRTL !== 'RTL') ? '12px' : '16px',
-        'margin-left' : hasChildren && (isRTL === 'RTL') ? '12px' : '16px'
+        'margin-right' : hasChildren && (textDirection !== 'RTL') ? '12px' : '16px',
+        'margin-left' : hasChildren && (textDirection === 'RTL') ? '12px' : '16px'
       }">
       {{ menuItemData?.badge }}
     </span>
@@ -34,7 +34,7 @@
     [level]="level+1"
     [isMenuOpened]="isMenuOpened"
     [isMainFullWidth]="isMainFullWidth"
-    [isRTL]="isRTL"
+    [textDirection]="textDirection"
     [isOpenedOrHoveringMenu]="isOpenedOrHoveringMenu">
   </pure-menu-item>
 </div>
