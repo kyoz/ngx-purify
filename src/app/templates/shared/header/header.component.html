@@ -8,7 +8,7 @@
       <mat-icon>home</mat-icon>
       </span>
       <span *ngFor="let route of routes" fxLayoutAlign="start center">
-        <mat-icon class="arrow">{{ (_settings.currentTextDir$ | async) === 'LTR' ? 'keyboard_arrow_right' : 'keyboard_arrow_left' }}</mat-icon>
+        <mat-icon class="arrow">{{ _settings.currentTextDir === 'LTR' ? 'keyboard_arrow_right' : 'keyboard_arrow_left' }}</mat-icon>
         <span>{{ route }}</span>
       </span>
     </div>

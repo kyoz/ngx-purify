@@ -6,7 +6,13 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 export class PureNotificationContainerService {
   isOpened$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
+  isOpened: boolean;
+
   constructor() {
+    this.isOpened$.pipe(distinctUntilChanged()).subscribe(isOpened => {
+      this.isOpened = isOpened;
+    });
+
     this.isOpened$.pipe(debounceTime(300), distinctUntilChanged()).subscribe(isOpened => {
       if (!isOpened) {
         // Scroll the notification to top when closed

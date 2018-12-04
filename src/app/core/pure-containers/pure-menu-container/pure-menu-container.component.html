@@ -1,10 +1,10 @@
 <div #pure_menu_container class="pure-menu-container"
   [ngClass]="{
-    'fullwidth' : (_mainContainer.isFullWidth$ | async),
-    'non-fullwidth' : !(_mainContainer.isFullWidth$ | async),
-    'opened' : (isOpenedOrHoveringMenu$ | async),
-    'RTL' : (_settings.currentTextDir$ | async) === 'RTL',
-    'disable-animation': (_settings.disableAnimation$ | async)
+    'fullwidth' : _mainContainer.isFullWidth,
+    'non-fullwidth' : !_mainContainer.isFullWidth,
+    'opened' : _menuContainer.isOpenedOrHoveringMenu,
+    'RTL' : _settings.currentTextDir === 'RTL',
+    'disable-animation': _settings.disableAnimation
   }">
   <mat-toolbar color="primary" class="toolbar">
     <img class="logo" src="assets/logo/pure.svg" height="28">
@@ -14,7 +14,7 @@
     <button mat-icon-button class="menu-button"
       (click)="_menuContainer.toggle()">
       <mat-icon>
-        {{!(_menuContainer.isOpened$ | async) ? 'menu' : (_settings.currentTextDir$ | async) === 'LTR' ? 'arrow_back' : 'arrow_forward'}}
+        {{!_menuContainer.isOpened ? 'menu' : _settings.currentTextDir === 'LTR' ? 'arrow_back' : 'arrow_forward'}}
       </mat-icon>
     </button>
   </mat-toolbar>

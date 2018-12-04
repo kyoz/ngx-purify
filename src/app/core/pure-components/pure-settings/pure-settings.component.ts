@@ -13,7 +13,8 @@ export class PureSettings {
   constructor(
     public _settingsContainer: PureSettingsContainerService,
     public _settings: PureSettingsService
-  ) {}
+  ) {
+  }
 
   onChangeTheme(e) {
     this._settings.saveThemeSetting(e.value);

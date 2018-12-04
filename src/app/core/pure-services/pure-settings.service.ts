@@ -29,6 +29,12 @@ export class PureSettingsService {
   currentWidthLayout$: BehaviorSubject<string> = new BehaviorSubject('');
   disableAnimation$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
+  currentTheme;
+  currentLang;
+  currentTextDir;
+  currentWidthLayout;
+  disableAnimation;
+
   constructor(
     private _storage: PureSettingsStorageService,
     private _translate: TranslateService) {
@@ -41,6 +47,26 @@ export class PureSettingsService {
           }, 300);
         }
       });
+
+      this.initSupscription();
+  }
+
+  initSupscription() {
+    this.currentTheme$.pipe(distinctUntilChanged()).subscribe(currentTheme => {
+      this.currentTheme = currentTheme;
+    });
+    this.currentLang$.pipe(distinctUntilChanged()).subscribe(currentLang => {
+      this.currentLang = currentLang;
+    });
+    this.currentTextDir$.pipe(distinctUntilChanged()).subscribe(currentTextDir => {
+      this.currentTextDir = currentTextDir;
+    });
+    this.currentWidthLayout$.pipe(distinctUntilChanged()).subscribe(currentWidthLayout => {
+      this.currentWidthLayout = currentWidthLayout;
+    });
+    this.disableAnimation$.pipe(distinctUntilChanged()).subscribe(disableAnimation => {
+      this.disableAnimation = disableAnimation;
+    });
   }
 
   /**

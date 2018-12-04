@@ -1,13 +1,13 @@
 <div #pure_chatbox_container class="pure-chatbox-container"
   [ngClass]="{ 
-    'fullwidth' : (_mainContainer.isFullWidth$ | async),
-    'non-fullwidth' : !(_mainContainer.isFullWidth$ | async),
-    'opened' : (_chatboxContainer.isOpened$ | async),
-    'RTL' : (_settings.currentTextDir$ | async) === 'RTL',
-    'disable-animation' : (_settings.disableAnimation$ | async)
+    'fullwidth' : _mainContainer.isFullWidth,
+    'non-fullwidth' : !_mainContainer.isFullWidth,
+    'opened' : _chatboxContainer.isOpened,
+    'RTL' : _settings.currentTextDir === 'RTL',
+    'disable-animation' : _settings.disableAnimation
   }">
   <mat-toolbar color="primary" class="toolbar" (click)="openChatbox()"
-    [ngSwitch]="_chatbox.inConversation && (_chatboxContainer.isOpened$ | async)">
+    [ngSwitch]="_chatbox.inConversation && _chatboxContainer.isOpened">
     <mat-icon class="chatbox-icon" *ngSwitchCase="false">
       chat
     </mat-icon>

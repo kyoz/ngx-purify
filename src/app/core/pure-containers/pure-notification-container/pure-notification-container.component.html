@@ -1,7 +1,7 @@
 <div #pure_notification_container class="pure-notification-container"
   [ngClass]="{
-    'opened' : (_notificationContainer.isOpened$ | async),
-    'RTL' : (_settings.currentTextDir$ | async) === 'RTL'
+    'opened' : _notificationContainer.isOpened,
+    'RTL' : _settings.currentTextDir === 'RTL'
   }">
   <div class="notification-wrapper">
     <pure-notification></pure-notification>

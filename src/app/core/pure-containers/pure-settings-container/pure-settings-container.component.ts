@@ -9,5 +9,5 @@ import { PureSettingsContainerService } from './pure-settings-container.service'
 export class PureSettingsContainer {
   @ViewChild('pure_settings_container') pureSettingsContainer: ElementRef;
 
-  constructor(public _settingsContainer: PureSettingsContainerService) { }
+  constructor(public _settingsContainer: PureSettingsContainerService) {}
 }

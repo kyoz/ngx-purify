@@ -22,8 +22,8 @@ import { distinctUntilChanged } from 'rxjs/operators';
 })
 export class PureMainContainer implements OnInit, OnDestroy {
 
-  isLoading: Boolean = false;
-  isBackdropVisible: Boolean = false;
+  isLoading: boolean = false;
+  isBackdropVisible: boolean = false;
   combineSubscription: Subscription;
 
   _onWindowResize = this.onWindowResize.bind(this);
@@ -41,25 +41,7 @@ export class PureMainContainer implements OnInit, OnDestroy {
     private _deviceDetection: DeviceDetectorService,
     private _router: Router
   ) {
-    const combineBehaviorSubjects = combineLatest(
-      _menuContainer.isOpened$,
-      _chatboxContainer.isOpened$,
-      _notificationContainer.isOpened$,
-      _mainContainer.isFullWidth$
-    );
-
-    this.combineSubscription = combineBehaviorSubjects.pipe(distinctUntilChanged()).subscribe(([
-      isMenuOpened,
-      isChatboxOpened,
-      isNotificationOpened,
-      isFullWidth
-    ]) => {
-      if (((isMenuOpened || isChatboxOpened) && !isFullWidth) || isNotificationOpened) {
-        this.isBackdropVisible = true;
-      } else {
-        this.isBackdropVisible = false;
-      }
-    });
+    this.initSubscriptionToDetectChange();
 
     // Subscript for router navigations
     this._router.events.subscribe((event: RouterEvent) => {
@@ -81,6 +63,31 @@ export class PureMainContainer implements OnInit, OnDestroy {
     if (this.combineSubscription) {
       this.combineSubscription.unsubscribe();
     }
+  }
+
+  // To boost perfectly performance, i'v do use OnPush Strategy and just detectChange when necessary
+  // With the large app and much more components, it'll boost the performance to best of possible
+  initSubscriptionToDetectChange() {
+    const combineBehaviorSubjects = combineLatest(
+      this._mainContainer.isFullWidth$,
+      this._menuContainer.isOpened$,
+      this._chatboxContainer.isOpened$,
+      this._notificationContainer.isOpened$
+    ).pipe(distinctUntilChanged());
+
+    this.combineSubscription = combineBehaviorSubjects.subscribe(([
+      isFullWidth,
+      isMenuOpened,
+      isChatboxOpened,
+      isNotificationOpened
+    ]) => {
+      // Check when backdrop should show
+      if (((isMenuOpened || isChatboxOpened) && !isFullWidth) || isNotificationOpened) {
+        this.isBackdropVisible = true;
+      } else {
+        this.isBackdropVisible = false;
+      }
+    });
   }
 
   onWindowResize() {

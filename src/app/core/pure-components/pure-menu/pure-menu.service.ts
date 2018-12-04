@@ -15,7 +15,7 @@ export class PureMenuService {
 
   setExpandingMenuItem(menuItem: PureMenuItem) {
     this.expandingMenuItem = menuItem;
-    this.expandingMenuItem.opened.next(true);
+    this.expandingMenuItem.opened = true;
 
     // Dispatch event to know when the menu is expand
     this.onActivatingMenuItem$.next(new Date());
@@ -35,7 +35,7 @@ export class PureMenuService {
 
     // Activate for new menu item
     this.activatingMenuItem = menuItem;
-    this.activatingMenuItem.active.next(true);
+    this.activatingMenuItem.active = true;
 
     // Close Menu Container if menu is not pinned and page is not full screen
     if (!this._mainContainer.isFullWidth$.value) {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChildren, QueryList, AfterViewInit, OnDestroy, ChangeDetectorRef, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, ViewChildren, QueryList, AfterViewInit, OnDestroy, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { IMenuItem } from '../../pure-interfaces/menu';
 import { PureMenuService } from '../pure-menu/pure-menu.service';
@@ -13,14 +13,14 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   @ViewChildren(PureMenuItem) childMenuItems: QueryList<PureMenuItem>;
 
   @Input() menuItemData: IMenuItem;
-  @Input() level = 0;
-  @Input() active: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  @Input() opened: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  @Input() level: Number = 0;
+  @Input() active: boolean;
+  @Input() opened: boolean;
   @Input() parent: PureMenuItem;
-  @Input() isOpenedOrHoveringMenu: BehaviorSubject<boolean>;
-  @Input() isMenuOpened: BehaviorSubject<boolean>;
-  @Input() isMainFullWidth: BehaviorSubject<boolean>;
-  @Input() isRTL: BehaviorSubject<boolean>;
+  @Input() isOpenedOrHoveringMenu: boolean;
+  @Input() isMenuOpened: boolean;
+  @Input() isMainFullWidth: boolean;
+  @Input() isRTL: string;
 
   private routeSubscription: Subscription;
   private _parent: PureMenuItem = this;
@@ -79,7 +79,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   }
 
   get height(): number {
-    if (!this.opened.value) {
+    if (!this.opened) {
       return 0;
     }
 
@@ -124,7 +124,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   }
 
   deactivate() {
-    this.active.next(false);
+    this.active = false;
   }
 
   onMenuItemClicked() {
@@ -134,7 +134,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   }
 
   toggleDropdown() {
-    if (this.opened.value) {
+    if (this.opened) {
       this.collapseDropdown();
     } else {
       // Collapse expanding menu item to open a new one (Just for root menu item)
@@ -143,7 +143,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
         this._menuService.setExpandingMenuItem(this); // Set this root menu item as expanding menu item
       }
 
-      this.opened.next(true);
+      this.opened = true;
     }
   }
 
@@ -161,12 +161,12 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   }
 
   collapseDropdown() {
-    this.opened.next(false);
+    this.opened = false;
 
     // Collapse all child item if possible
-    if (!this.opened.value && this.childMenuItems) {
+    if (!this.opened && this.childMenuItems) {
       this.childMenuItems.forEach(childComponent => {
-        if (childComponent.opened.value) {
+        if (childComponent.opened) {
           childComponent.toggleDropdown();
         }
       });

@@ -1,10 +1,9 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { PureMenuContainerService } from './pure-menu-container.service';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { PureMainContainerService } from '../pure-main-container/pure-main-container.service';
-import { Subscription, combineLatest, BehaviorSubject } from 'rxjs';
-import { distinctUntilChanged } from 'rxjs/operators';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'pure-menu-container',
@@ -12,10 +11,6 @@ import { DeviceDetectorService } from 'ngx-device-detector';
   styleUrls: ['./pure-menu-container.component.scss']
 })
 export class PureMenuContainer implements OnInit {
-  isOpenedOrHoveringMenu$: BehaviorSubject<boolean> = new BehaviorSubject(undefined);
-  combineBehaviorSubjects$;
-  combineSubscription: Subscription;
-
   _onMouseOver = this.onMouseOver.bind(this);
   _onMouseLeave = this.onMouseLeave.bind(this);
 
@@ -25,35 +20,19 @@ export class PureMenuContainer implements OnInit {
     public _mainContainer: PureMainContainerService,
     public _menuContainer: PureMenuContainerService,
     public _settings: PureSettingsService,
-    private _deviceDetect: DeviceDetectorService
+    private _deviceDetect: DeviceDetectorService,
+    private _changeDetection: ChangeDetectorRef
   ) {
-    const combineBehaviorSubjects = combineLatest(
-      _menuContainer.canHover$,
-      _menuContainer.isHovering$,
-      _menuContainer.isOpened$,
-    );
-
-    this.combineSubscription = combineBehaviorSubjects.pipe(distinctUntilChanged()).subscribe(([
-      canHover,
-      isHovering,
-      isOpened,
-    ]) => {
-      if (canHover && (isHovering || isOpened)) {
-        if (!this.isOpenedOrHoveringMenu$.value) {
-          this.isOpenedOrHoveringMenu$.next(true);
-        }
-      } else {
-        if (this.isOpenedOrHoveringMenu$.value) {
-          this.isOpenedOrHoveringMenu$.next(false);
-        }
-      }
-    });
   }
 
   ngOnInit() {
     if (this._deviceDetect.isDesktop()) {
       this.addEventListeners();
     }
+
+    this._menuContainer.isOpenedOrHoveringMenu$.pipe(distinctUntilChanged()).subscribe(() => {
+      this._changeDetection.detectChanges();
+    });
   }
 
   addEventListeners() {
@@ -62,10 +41,14 @@ export class PureMenuContainer implements OnInit {
   }
 
   onMouseLeave() {
-    this._menuContainer.isHovering$.next(false);
+    if (this._menuContainer.isHovering) {
+      this._menuContainer.isHovering$.next(false);
+    }
   }
 
   onMouseOver() {
-    this._menuContainer.isHovering$.next(true);
+    if (!this._menuContainer.isHovering) {
+      this._menuContainer.isHovering$.next(true);
+    }
   }
 }
