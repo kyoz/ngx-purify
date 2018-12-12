@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { RESPONSIVE_BREAKPOINTS } from '../../pure-utils/pure-configs';
 import { Router, Event as RouterEvent, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 
@@ -39,7 +39,8 @@ export class PureMainContainer implements OnInit, OnDestroy {
     public _settingsContainer: PureSettingsContainerService,
     public _settings: PureSettingsService,
     private _deviceDetection: DeviceDetectorService,
-    private _router: Router
+    private _router: Router,
+    private _changeDetector: ChangeDetectorRef
   ) {
     this.initSubscriptionToDetectChange();
 
@@ -93,10 +94,14 @@ export class PureMainContainer implements OnInit, OnDestroy {
   onWindowResize() {
     // Disable animation
     this._settings.disableAnimation$.next(true);
+
     // Init for side menu & chatbox
     this._mainContainer.isFullWidth$.next(window.innerWidth >= RESPONSIVE_BREAKPOINTS.NORMAL ? true : false);
     this._menuContainer.reset();
     this._notificationContainer.reset();
+
+    // Detect changes
+    this._changeDetector.detectChanges();
   }
 
   closeBackdrop() {

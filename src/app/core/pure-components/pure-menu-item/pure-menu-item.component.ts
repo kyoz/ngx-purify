@@ -28,7 +28,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   constructor(
     private _menuService: PureMenuService,
     private _route: Router,
-    private _changeDetectionRef: ChangeDetectorRef) {
+    private _changeDetectorRef: ChangeDetectorRef) {
   }
 
   ngOnInit() {
@@ -58,7 +58,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
     }
 
     // To detect when you change value of a parent components when inside child components
-    this._changeDetectionRef.detectChanges();
+    this._changeDetectorRef.detectChanges();
   }
 
   ngOnDestroy(): void {

@@ -21,7 +21,7 @@ export class PureMenuContainer implements OnInit {
     public _menuContainer: PureMenuContainerService,
     public _settings: PureSettingsService,
     private _deviceDetect: DeviceDetectorService,
-    private _changeDetection: ChangeDetectorRef
+    private _changeDetector: ChangeDetectorRef
   ) {
   }
 
@@ -31,7 +31,7 @@ export class PureMenuContainer implements OnInit {
     }
 
     this._menuContainer.isOpenedOrHoveringMenu$.pipe(distinctUntilChanged()).subscribe(() => {
-      this._changeDetection.detectChanges();
+      this._changeDetector.detectChanges();
     });
   }
 

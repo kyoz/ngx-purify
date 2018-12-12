@@ -17,7 +17,7 @@ export class PureChatbox implements OnInit {
   messageInput;
 
   constructor(
-    private _changeDetectionRef: ChangeDetectorRef,
+    private _changeDetector: ChangeDetectorRef,
     private _deviceDetector: DeviceDetectorService,
     public _chatbox: PureChatboxService,
     public _chatboxContainer: PureChatboxContainerService,
@@ -84,7 +84,7 @@ export class PureChatbox implements OnInit {
   }
 
   scrollChatboxToBottom() {
-    this._changeDetectionRef.detectChanges();
+    this._changeDetector.detectChanges();
 
     if (this.messagesContentScrollbar) {
       this.messagesContentScrollbar.update();
