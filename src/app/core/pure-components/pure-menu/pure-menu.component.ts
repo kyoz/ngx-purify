@@ -37,7 +37,7 @@ export class PureMenu implements OnInit, AfterViewInit {
       // Menu has scroll all the way to bottom
       const pureMenu = this.pureMenuScrollbar.elementRef.nativeElement;
 
-      // // 64 is the height of toolbar, 24 is half of the item height
+      // 64 is the height of toolbar, 24 is half of the item height
       const centerScreenHeight = (window.innerHeight - 64) / 2 - 24;
 
       pureMenu.scrollTop -= centerScreenHeight;
