@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 
 // Pure Services
 import { PureMenuContainerService } from '../../pure-containers/pure-menu-container/pure-menu-container.service';
@@ -7,6 +7,7 @@ import { PureNotificationContainerService } from '../../pure-containers/pure-not
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { PureMainContainerService } from '../../pure-containers/pure-main-container/pure-main-container.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'pure-toolbar',
@@ -25,7 +26,8 @@ export class PureToolbar implements OnInit {
     public _chatboxContainer: PureChatboxContainerService,
     public _notificationContainer: PureNotificationContainerService,
     public _settings: PureSettingsService,
-    private _deviceDetector: DeviceDetectorService
+    private _deviceDetector: DeviceDetectorService,
+    private _changeDetector: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
@@ -36,6 +38,10 @@ export class PureToolbar implements OnInit {
       window.addEventListener('mozfullscreenchange', this._onWindowFullScreenChange);
       window.addEventListener('msfullscreenchange', this._onWindowFullScreenChange);
     }
+
+    this._mainContainer.isFullWidth$.pipe(debounceTime(200)).subscribe(() => {
+      this._changeDetector.detectChanges();
+    });
   }
 
   toggleSearch() {

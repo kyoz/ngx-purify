@@ -12,8 +12,8 @@ import { PureMainContainerService } from './pure-main-container.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 // Rxjs
-import { combineLatest, Subscription } from 'rxjs';
-import { distinctUntilChanged } from 'rxjs/operators';
+import { combineLatest, Subscription, BehaviorSubject } from 'rxjs';
+import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'pure-main-container',
@@ -27,6 +27,8 @@ export class PureMainContainer implements OnInit, OnDestroy {
   combineSubscription: Subscription;
 
   _onWindowResize = this.onWindowResize.bind(this);
+
+  windowResize$: BehaviorSubject<any> = new BehaviorSubject(undefined);
 
   @Input() minimalMode = false;
   @ViewChild('PURE_MAIN_CONTAINER') pureMainContainer: ElementRef;
@@ -44,9 +46,25 @@ export class PureMainContainer implements OnInit, OnDestroy {
   ) {
     this.initSubscriptionToDetectChange();
 
-    // Subscript for router navigations
+    // Subscribe for router navigations
     this._router.events.subscribe((event: RouterEvent) => {
       this.navigationInterceptor(event);
+    });
+
+    // Subscribe for window resize
+    this.windowResize$.pipe(debounceTime(200)).subscribe(res => {
+      if (res) {
+        // Disable animation
+        this._settings.disableAnimation$.next(true);
+
+        // Init for side menu & chatbox
+        this._mainContainer.isFullWidth$.next(window.innerWidth >= RESPONSIVE_BREAKPOINTS.NORMAL ? true : false);
+        this._menuContainer.reset();
+        this._notificationContainer.reset();
+
+        // Detect changes
+        this._changeDetector.detectChanges();
+      }
     });
    }
 
@@ -92,16 +110,7 @@ export class PureMainContainer implements OnInit, OnDestroy {
   }
 
   onWindowResize() {
-    // Disable animation
-    this._settings.disableAnimation$.next(true);
-
-    // Init for side menu & chatbox
-    this._mainContainer.isFullWidth$.next(window.innerWidth >= RESPONSIVE_BREAKPOINTS.NORMAL ? true : false);
-    this._menuContainer.reset();
-    this._notificationContainer.reset();
-
-    // Detect changes
-    this._changeDetector.detectChanges();
+    this.windowResize$.next(new Date());
   }
 
   closeBackdrop() {
