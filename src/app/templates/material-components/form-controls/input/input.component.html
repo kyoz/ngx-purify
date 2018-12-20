@@ -1,3 +1,42 @@
-<p>
-  input works!
-</p>
+<div>
+  <page-header
+    [title]="'Input'"
+    [routes]="['Material Components', 'Form Controls']"
+    [referenceUrl]="'https://material.angular.io/components/input/overview'">
+  </page-header>
+  <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="24px" style="padding: 32px">
+
+    <material-example title="Simple inputs" [code]="simpleInputCode">
+      <simple-input-example></simple-input-example>
+    </material-example>
+
+    <material-example title="Input with a custom ErrorStateMatcher" [code]="errorStateMatcherInputCode">
+      <error-state-matcher-input-example></error-state-matcher-input-example>
+    </material-example>
+
+    <material-example title="Auto-resizing textarea" [code]="autoResizingTextareaCode">
+      <auto-resize-textarea-example></auto-resize-textarea-example>
+    </material-example>
+
+    <material-example title="Input with a clear button" [code]="inputWithClearButtonCode">
+      <input-with-clear-button-example></input-with-clear-button-example>
+    </material-example>
+
+    <material-example title="Input with error messages" [code]="inputWithErrorMessagesCode">
+      <input-with-error-message-example></input-with-error-message-example>
+    </material-example>
+
+    <material-example title="Input in a form" [code]="inputInFormCode">
+      <input-in-form-example></input-in-form-example>
+    </material-example>
+
+    <material-example title="Input with hints" [code]="inputWithHintsCode">
+      <input-with-hint-example></input-with-hint-example>
+    </material-example>
+
+    <material-example title="Input with prefixes and suffixes" [code]="inputWithPrefixSuffixCode">
+      <input-with-prefix-suffix-example></input-with-prefix-suffix-example>
+    </material-example>
+
+  </div>
+</div>

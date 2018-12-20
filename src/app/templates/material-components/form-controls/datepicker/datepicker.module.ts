@@ -4,10 +4,10 @@ import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
-// Checkbox Components
+// Datepicker Components
 import { DatepickerComponent } from './datepicker.component';
 
-// Checkbox Examples
+// Datepicker Examples
 import { SimpleDatepickerExample } from './examples/simple-datepicker-example/simple-datepicker-example';
 import { TouchUIDatepickerExample } from './examples/touch-ui-datepicker-example/touch-ui-datepicker-example';
 import { OpenMethodDatepickerExample } from './examples/open-method-datepicker-example/open-method-datepicker-example';
@@ -15,7 +15,7 @@ import { DisabledDatepickerExample } from './examples/disabled-datepicker-exampl
 
 @NgModule({
   declarations: [
-    // Checkbox Components
+    // Datepicker Components
     DatepickerComponent,
 
     // Examples
