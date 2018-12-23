@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+import * as NGMODEL_RADIO_BUTTON from './examples/ngmodel-radio-button-example/ngmodel-radio-button-code';
 
 @Component({
   selector: 'app-radio-button',
   templateUrl: './radio-button.component.html',
-  styleUrls: ['./radio-button.component.css']
+  styleUrls: ['./radio-button.component.scss']
 })
-export class RadioButtonComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class RadioButtonComponent {
+  ngModelRadioButton = NGMODEL_RADIO_BUTTON;
 }
