@@ -1,3 +1,22 @@
-<p>
-  select works!
-</p>
+<div>
+  <page-header
+    [title]="'Select'"
+    [routes]="['Material Components', 'Form Controls']"
+    [referenceUrl]="'https://material.angular.io/components/select/overview'">
+  </page-header>
+  <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="24px" style="padding: 32px">
+    
+    <material-example title="Simple select" [code]="simpleSelectCode">
+      <simple-select-example></simple-select-example>
+    </material-example>
+
+    <material-example title="Select with 2-way value binding" [code]="twoWaysBindingSelectCode">
+      <two-way-binding-select-example></two-way-binding-select-example>
+    </material-example>
+
+    <material-example title="Select in a form" [code]="selectInAFormCode">
+      <select-in-a-form-example></select-in-a-form-example>
+    </material-example>
+
+  </div>
+</div>

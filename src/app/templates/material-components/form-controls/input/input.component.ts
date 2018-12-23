@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import * as SIMPLE_INPUT_CODE from './examples/simple-input-example/simple-input-code';
 import * as ERROR_STATE_MATCHER_INPUT_CODE from './examples/error-state-matcher-input-example/error-state-matcher-input-code';
