@@ -3,13 +3,7 @@ import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../shared/shared.module';
 
-// Will remove soon
-import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
-
 @NgModule({
-  declarations: [
-    SlideToggleComponent
-  ],
   imports: [
     // Modules
     SharedModule,
@@ -24,7 +18,7 @@ import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
       { path: 'radio-button', loadChildren: './radio-button/radio-button.module#RadioButtonModule' },
       { path: 'select', loadChildren: './select/select.module#SelectModule' },
       { path: 'slider', loadChildren: './slider/slider.module#SliderModule' },
-      { path: 'slide-toggle', component: SlideToggleComponent }
+      { path: 'slide-toggle', loadChildren: './slide-toggle/slide-toggle.module#SlideToggleModule' }
     ])
   ]
 })
