@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+import * as CONFIGURABLE_SLIDER_CODE from './examples/configurable-slider-example/configurable-slider-code';
 
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.css']
 })
-export class SliderComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class SliderComponent {
+  configurableSliderCode = CONFIGURABLE_SLIDER_CODE;
 }

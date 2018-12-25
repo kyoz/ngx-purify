@@ -37,6 +37,10 @@ body {
   -moz-osx-font-smoothing: auto;
 }
 
+h1, h2 {
+  font-weight: 400;
+}
+
 /* Perfect Scrollbar Fix Styles to Work Perfectly on all devices */
 [pureperfectscrollbar] {
   overflow-x: hidden;

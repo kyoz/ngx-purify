@@ -5,12 +5,10 @@ import { SharedModule } from '../../shared/shared.module';
 
 // Will remove soon
 import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
-import { SliderComponent } from './slider/slider.component';
 
 @NgModule({
   declarations: [
-    SlideToggleComponent,
-    SliderComponent
+    SlideToggleComponent
   ],
   imports: [
     // Modules
@@ -24,9 +22,9 @@ import { SliderComponent } from './slider/slider.component';
       { path: 'form-field', loadChildren: './form-field/form-field.module#FormFieldModule' },
       { path: 'input', loadChildren: './input/input.module#InputModule' },
       { path: 'radio-button', loadChildren: './radio-button/radio-button.module#RadioButtonModule' },
-      { path: 'select', loadChildren: './select/select.module#SelectModule'},
-      { path: 'slide-toggle', component: SlideToggleComponent },
-      { path: 'slider', component: SliderComponent }
+      { path: 'select', loadChildren: './select/select.module#SelectModule' },
+      { path: 'slider', loadChildren: './slider/slider.module#SliderModule' },
+      { path: 'slide-toggle', component: SlideToggleComponent }
     ])
   ]
 })
