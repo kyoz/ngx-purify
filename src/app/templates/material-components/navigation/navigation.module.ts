@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { MenuComponent } from './menu/menu.component';
+// Remove soon
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
-    MenuComponent,
     SidenavComponent,
     ToolbarComponent
   ],
   imports: [
     RouterModule.forChild([
-      { path: 'menu', component: MenuComponent },
+      { path: 'menu', loadChildren: './menu/menu.module#MenuModule' },
       { path: 'sidenav', component: SidenavComponent },
       { path: 'toolbar', component: ToolbarComponent }
     ])
