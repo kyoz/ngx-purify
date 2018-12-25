@@ -33,6 +33,7 @@ export class AutosizeSidenavExample {
 export const scss = `
 .example-container {
   width: 500px;
+  max-width: 100%;
   height: 300px;
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
