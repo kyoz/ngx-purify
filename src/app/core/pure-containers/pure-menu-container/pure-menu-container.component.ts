@@ -11,7 +11,7 @@ import { distinctUntilChanged } from 'rxjs/operators';
   styleUrls: ['./pure-menu-container.component.scss']
 })
 export class PureMenuContainer implements OnInit {
-  _onMouseOver = this.onMouseOver.bind(this);
+  _onMouseEnter = this.onMouseEnter.bind(this);
   _onMouseLeave = this.onMouseLeave.bind(this);
 
   @ViewChild('pure_menu_container') pureSideMenuContainer: ElementRef;
@@ -36,7 +36,7 @@ export class PureMenuContainer implements OnInit {
   }
 
   addEventListeners() {
-    this.pureSideMenuContainer.nativeElement.addEventListener('mouseover', this._onMouseOver);
+    this.pureSideMenuContainer.nativeElement.addEventListener('mouseenter', this._onMouseEnter);
     this.pureSideMenuContainer.nativeElement.addEventListener('mouseleave', this._onMouseLeave);
   }
 
@@ -46,7 +46,7 @@ export class PureMenuContainer implements OnInit {
     }
   }
 
-  onMouseOver() {
+  onMouseEnter() {
     if (!this._menuContainer.isHovering) {
       this._menuContainer.isHovering$.next(true);
     }
