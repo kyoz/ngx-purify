@@ -1,3 +1,14 @@
-<p>
-  grid-list works!
-</p>
+<div>
+  <page-header
+    [title]="'Grid list'"
+    [routes]="['Material Components', 'Layout']"
+    [referenceUrl]="'https://material.angular.io/components/grid-list/overview'">
+  </page-header>
+  <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="24px" style="padding: 32px">
+
+    <material-example title="Simple grid list" [code]="simpleGridListCode">
+      <simple-grid-list-example></simple-grid-list-example>
+    </material-example>
+
+  </div>
+</div>
