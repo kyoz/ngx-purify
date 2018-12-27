@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 // Remove soon
-import { ExpansionPanelComponent } from './expansion-panel/expansion-panel.component';
 import { GridListComponent } from './grid-list/grid-list.component';
 import { ListComponent } from './list/list.component';
 import { StepperComponent } from './stepper/stepper.component';
@@ -11,7 +10,6 @@ import { TreeComponent } from './tree/tree.component';
 
 @NgModule({
   declarations: [
-    ExpansionPanelComponent,
     GridListComponent,
     ListComponent,
     StepperComponent,
@@ -22,7 +20,7 @@ import { TreeComponent } from './tree/tree.component';
     RouterModule.forChild([
       { path: 'card', loadChildren: './card/card.module#CardModule' },
       { path: 'divider', loadChildren: './divider/divider.module#DividerModule' },
-      { path: 'expansion-panel', component: ExpansionPanelComponent },
+      { path: 'expansion-panel', loadChildren: './expansion-panel/expansion-panel.module#ExpansionPanelModule' },
       { path: 'grid-list', component: GridListComponent },
       { path: 'list', component: ListComponent },
       { path: 'stepper', component: StepperComponent },
