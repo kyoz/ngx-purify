@@ -1,3 +1,14 @@
-<p>
-  card works!
-</p>
+<div>
+  <page-header
+    [title]="'Card'"
+    [routes]="['Material Components', 'Layout']"
+    [referenceUrl]="'https://material.angular.io/components/card/overview'">
+  </page-header>
+  <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="24px" style="padding: 32px">
+
+    <material-example title="Simple card" [code]="simpleCardCode">
+      <simple-card-example></simple-card-example>
+    </material-example>
+
+  </div>
+</div>

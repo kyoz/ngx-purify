@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { CardComponent } from './card/card.component';
+// Remove soon
 import { DividerComponent } from './divider/divider.component';
 import { ExpansionPanelComponent } from './expansion-panel/expansion-panel.component';
 import { GridListComponent } from './grid-list/grid-list.component';
@@ -12,7 +12,6 @@ import { TreeComponent } from './tree/tree.component';
 
 @NgModule({
   declarations: [
-    CardComponent,
     DividerComponent,
     ExpansionPanelComponent,
     GridListComponent,
@@ -23,7 +22,7 @@ import { TreeComponent } from './tree/tree.component';
   ],
   imports: [
     RouterModule.forChild([
-      { path: 'card', component: CardComponent },
+      { path: 'card', loadChildren: './card/card.module#CardModule' },
       { path: 'divider', component: DividerComponent },
       { path: 'expansion-panel', component: ExpansionPanelComponent },
       { path: 'grid-list', component: GridListComponent },
