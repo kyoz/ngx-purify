@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+import * as SIMPLE_STEPPER_CODE from './examples/simple-stepper-example/simple-stepper-code';
 
 @Component({
   selector: 'app-stepper',
   templateUrl: './stepper.component.html',
-  styleUrls: ['./stepper.component.css']
+  styleUrls: ['./stepper.component.scss']
 })
-export class StepperComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class StepperComponent {
+  simpleStepperCode = SIMPLE_STEPPER_CODE;
 }

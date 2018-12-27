@@ -2,13 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 // Remove soon
-import { StepperComponent } from './stepper/stepper.component';
 import { TabComponent } from './tab/tab.component';
 import { TreeComponent } from './tree/tree.component';
 
 @NgModule({
   declarations: [
-    StepperComponent,
     TabComponent,
     TreeComponent
   ],
@@ -19,7 +17,7 @@ import { TreeComponent } from './tree/tree.component';
       { path: 'expansion-panel', loadChildren: './expansion-panel/expansion-panel.module#ExpansionPanelModule' },
       { path: 'grid-list', loadChildren: './grid-list/grid-list.module#GridListModule' },
       { path: 'list', loadChildren: './list/list.module#ListModule' },
-      { path: 'stepper', component: StepperComponent },
+      { path: 'stepper', loadChildren: './stepper/stepper.module#StepperModule' },
       { path: 'tab', component: TabComponent },
       { path: 'tree', component: TreeComponent}
     ])
