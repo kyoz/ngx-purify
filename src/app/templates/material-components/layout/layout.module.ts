@@ -2,12 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 // Remove soon
-import { TabComponent } from './tab/tab.component';
 import { TreeComponent } from './tree/tree.component';
 
 @NgModule({
   declarations: [
-    TabComponent,
     TreeComponent
   ],
   imports: [
@@ -18,7 +16,7 @@ import { TreeComponent } from './tree/tree.component';
       { path: 'grid-list', loadChildren: './grid-list/grid-list.module#GridListModule' },
       { path: 'list', loadChildren: './list/list.module#ListModule' },
       { path: 'stepper', loadChildren: './stepper/stepper.module#StepperModule' },
-      { path: 'tab', component: TabComponent },
+      { path: 'tab', loadChildren: './tab/tab.module#TabModule' },
       { path: 'tree', component: TreeComponent}
     ])
   ]

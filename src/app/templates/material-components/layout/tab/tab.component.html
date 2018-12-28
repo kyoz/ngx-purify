@@ -1,3 +1,50 @@
-<p>
-  tab works!
-</p>
+<div>
+  <page-header
+    [title]="'Tabs'"
+    [routes]="['Material Components', 'Layout']"
+    [referenceUrl]="'https://material.angular.io/components/tabs/overview'">
+  </page-header>
+  <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="24px" style="padding: 32px">
+
+    <material-example title="Simple tab group" [code]="simpleTabCode">
+      <simple-tab-example></simple-tab-example>
+    </material-example>
+
+    <material-example title="Using tabs with a custom label template" [code]="tabCustomLabelCode">
+      <tab-custom-label-example></tab-custom-label-example>
+    </material-example>
+
+    <material-example title="Tag group with dynamic height based on tab contents" [code]="tabDynamicHeightCode">
+      <tab-dynamic-height-example></tab-dynamic-height-example>
+    </material-example>
+
+    <material-example title="Tab group with dynamically changing tabs" [code]="tabDynamicCode">
+      <tab-dynamic-example></tab-dynamic-example>
+    </material-example>
+
+    <material-example title="Tab group with the headers on the bottom" [code]="headerBelowTabCode">
+      <header-below-tab-example></header-below-tab-example>
+    </material-example>
+
+    <material-example title="Tab group where the tab content is loaded lazily (when activated)" [code]="tabLazyloadCode">
+      <tab-lazyload-example></tab-lazyload-example>
+    </material-example>
+
+    <material-example title="Tab group with stretched labels" [code]="tabStretchedLabelsCode">
+      <tab-stretched-labels-example></tab-stretched-labels-example>
+    </material-example>
+
+    <material-example title="Customizing the theme options on the tab group" [code]="tabThemeCode">
+      <tab-theme-example></tab-theme-example>
+    </material-example>
+
+    <material-example title="Tab group with asynchronously loading tab contents" [code]="tabAsyncCode">
+      <tab-async-example></tab-async-example>
+    </material-example>
+
+    <material-example title="Basic use of the tab nav bar" [code]="tabNavbarCode">
+      <tab-navbar-example></tab-navbar-example>
+    </material-example>
+
+  </div>
+</div>
