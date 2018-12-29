@@ -1,3 +1,14 @@
-<p>
-  button works!
-</p>
+<div>
+  <page-header
+    [title]="'Button'"
+    [routes]="['Material Components', 'Buttons & Indicators']"
+    [referenceUrl]="'https://material.angular.io/components/button/overview'">
+  </page-header>
+  <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="24px" style="padding: 32px">
+
+    <material-example title="Button varieties" [code]="buttonVarietiesCode">
+      <button-varieties-example></button-varieties-example>
+    </material-example>
+    
+  </div>
+</div>

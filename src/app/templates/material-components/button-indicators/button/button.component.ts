@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+import * as BUTTON_VARIETIES_CODE from './examples/button-varieties-example/button-varieties-code';
 
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.css']
+  styleUrls: ['./button.component.scss']
 })
-export class ButtonComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class ButtonComponent {
+  buttonVarietiesCode = BUTTON_VARIETIES_CODE;
 }
