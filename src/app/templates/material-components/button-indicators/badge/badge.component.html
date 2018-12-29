@@ -1,3 +1,14 @@
-<p>
-  badge works!
-</p>
+<div>
+  <page-header
+    [title]="'Badge'"
+    [routes]="['Material Components', 'Buttons & Indicators']"
+    [referenceUrl]="'https://material.angular.io/components/badge/overview'">
+  </page-header>
+  <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="24px" style="padding: 32px">
+
+    <material-example title="Badge overview" [code]="badgeOverviewCode">
+      <simple-badge-example></simple-badge-example>
+    </material-example>
+    
+  </div>
+</div>
