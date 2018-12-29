@@ -8,7 +8,7 @@ import { SharedModule } from '../../../shared/shared.module';
 import { ButtonToggleComponent } from './button-toggle.component';
 
 // Button Toggle Examples
-import { SimpleButtonToggleExample } from './examples/simple-button-toggle-example/simple-button-toggle-example';
+import { ButtonToggleOverviewExample } from './examples/button-toggle-overview-example/button-toggle-overview-example';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { SimpleButtonToggleExample } from './examples/simple-button-toggle-examp
     ButtonToggleComponent,
 
     // Examples
-    SimpleButtonToggleExample
+    ButtonToggleOverviewExample
   ],
   imports: [
     CommonModule,

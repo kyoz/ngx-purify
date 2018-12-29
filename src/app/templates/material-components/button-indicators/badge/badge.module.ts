@@ -8,7 +8,7 @@ import { SharedModule } from '../../../shared/shared.module';
 import { BadgeComponent } from './badge.component';
 
 // Badge Examples
-import { SimpleBadgeExample } from './examples/simple-badge-example/simple-badge-example';
+import { BadgeOverviewExample } from './examples/badge-overview-example/badge-overview-example';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { SimpleBadgeExample } from './examples/simple-badge-example/simple-badge
     BadgeComponent,
 
     // Examples
-    SimpleBadgeExample
+    BadgeOverviewExample
   ],
   imports: [
     CommonModule,

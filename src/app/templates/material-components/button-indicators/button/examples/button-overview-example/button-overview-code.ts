@@ -89,11 +89,11 @@ export const ts = `
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'button-varieties-example',
-  templateUrl: './button-varieties-example.html',
-  styleUrls: ['./button-varieties-example.scss']
+  selector: 'button-overview-example',
+  templateUrl: './button-overview-example.html',
+  styleUrls: ['./button-overview-example.scss']
 })
-export class ButtonVarietiesExample {
+export class ButtonOverviewExample {
 }
 `;
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import * as BADGE_OVERVIEW_CODE from './examples/simple-badge-example/simple-badge-code';
+import * as BADGE_OVERVIEW_CODE from './examples/badge-overview-example/badge-overview-code';
 
 @Component({
   selector: 'app-material-badge',

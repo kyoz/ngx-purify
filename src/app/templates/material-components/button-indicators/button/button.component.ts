@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import * as BUTTON_VARIETIES_CODE from './examples/button-varieties-example/button-varieties-code';
+import * as BUTTON_OVERVIEW_CODE from './examples/button-overview-example/button-overview-code';
 
 @Component({
   selector: 'app-material-button',
@@ -8,5 +8,5 @@ import * as BUTTON_VARIETIES_CODE from './examples/button-varieties-example/butt
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent {
-  buttonVarietiesCode = BUTTON_VARIETIES_CODE;
+  buttonOverviewCode = BUTTON_OVERVIEW_CODE;
 }

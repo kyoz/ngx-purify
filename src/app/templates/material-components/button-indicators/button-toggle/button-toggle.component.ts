@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import * as SIMPLE_BUTTON_TOGGLE_CODE from './examples/simple-button-toggle-example/simple-button-toggle-code';
+import * as BUTTON_TOGGLE_OVERVIEW_CODE from './examples/button-toggle-overview-example/button-toggle-overview-code';
 
 @Component({
   selector: 'app-material-button-toggle',
@@ -8,5 +8,5 @@ import * as SIMPLE_BUTTON_TOGGLE_CODE from './examples/simple-button-toggle-exam
   styleUrls: ['./button-toggle.component.scss']
 })
 export class ButtonToggleComponent {
-  simpleButtonToggleCode = SIMPLE_BUTTON_TOGGLE_CODE;
+  buttonToggleOverviewCode = BUTTON_TOGGLE_OVERVIEW_CODE;
 }

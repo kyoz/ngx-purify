@@ -8,7 +8,7 @@ import { SharedModule } from '../../../shared/shared.module';
 import { ButtonComponent } from './button.component';
 
 // Button Examples
-import { ButtonVarietiesExample } from './examples/button-varieties-example/button-varieties-example';
+import { ButtonOverviewExample } from './examples/button-overview-example/button-overview-example';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { ButtonVarietiesExample } from './examples/button-varieties-example/butt
     ButtonComponent,
 
     // Examples
-    ButtonVarietiesExample
+    ButtonOverviewExample
   ],
   imports: [
     CommonModule,

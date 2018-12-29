@@ -21,11 +21,11 @@ export const ts = `
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'simple-badge-example',
-  templateUrl: './simple-badge-example.html',
-  styleUrls: ['./simple-badge-example.scss']
+  selector: 'badge-overview-example',
+  templateUrl: './badge-overview-example.html',
+  styleUrls: ['./badge-overview-example.scss']
 })
-export class SimpleBadgeExample {
+export class BadgeOverviewExample {
 }
 `;
 
