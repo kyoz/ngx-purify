@@ -1,13 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-// Remove soon
-import { TreeComponent } from './tree/tree.component';
-
 @NgModule({
-  declarations: [
-    TreeComponent
-  ],
   imports: [
     RouterModule.forChild([
       { path: 'card', loadChildren: './card/card.module#CardModule' },
@@ -17,7 +11,7 @@ import { TreeComponent } from './tree/tree.component';
       { path: 'list', loadChildren: './list/list.module#ListModule' },
       { path: 'stepper', loadChildren: './stepper/stepper.module#StepperModule' },
       { path: 'tab', loadChildren: './tab/tab.module#TabModule' },
-      { path: 'tree', component: TreeComponent}
+      { path: 'tree', loadChildren: './tree/tree.module#TreeModule' }
     ])
   ]
 })
