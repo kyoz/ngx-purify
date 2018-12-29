@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
-import * as SIMPLE_MENU_CODE from './examples/simple-menu-example/simple-menu-code';
-import * as ICON_MENU_CODE from './examples/icon-menu-example/icon-menu-code';
-import * as NESTED_MENU_CODE from './examples/nested-menu-example/nested-menu-code';
+import * as MENU_OVERVIEW_CODE from './examples/menu-overview-example/menu-overview-code';
+import * as MENU_ICON_CODE from './examples/menu-icon-example/menu-icon-code';
+import * as MENU_NESTED_CODE from './examples/menu-nested-example/menu-nested-code';
 
 @Component({
   selector: 'app-material-menu',
@@ -10,7 +10,7 @@ import * as NESTED_MENU_CODE from './examples/nested-menu-example/nested-menu-co
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent {
-  simpleMenuCode = SIMPLE_MENU_CODE;
-  iconMenuCode = ICON_MENU_CODE;
-  nestedMenuCode = NESTED_MENU_CODE;
+  menuOverviewCode = MENU_OVERVIEW_CODE;
+  menuIconCode = MENU_ICON_CODE;
+  menuNestedCode = MENU_NESTED_CODE;
 }

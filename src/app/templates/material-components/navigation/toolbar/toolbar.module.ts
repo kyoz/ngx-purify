@@ -8,7 +8,7 @@ import { SharedModule } from '../../../shared/shared.module';
 import { ToolbarComponent } from './toolbar.component';
 
 // Toolbar Examples
-import { SimpleToolbarExample } from './examples/simple-toolbar-example/simple-toolbar-example';
+import { ToolbarOverviewExample } from './examples/toolbar-overview-example/toolbar-overview-example';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { SimpleToolbarExample } from './examples/simple-toolbar-example/simple-t
     ToolbarComponent,
 
     // Examples
-    SimpleToolbarExample
+    ToolbarOverviewExample
   ],
   imports: [
     CommonModule,

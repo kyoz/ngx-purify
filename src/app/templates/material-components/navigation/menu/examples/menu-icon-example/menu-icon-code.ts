@@ -22,11 +22,11 @@ export const ts = `
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'icon-menu-example',
-  templateUrl: './icon-menu-example.html',
-  styleUrls: ['./icon-menu-example.scss']
+  selector: 'menu-icon-example',
+  templateUrl: './menu-icon-example.html',
+  styleUrls: ['./menu-icon-example.scss']
 })
-export class IconMenuExample {
+export class MenuIconExample {
 }
 `;
 

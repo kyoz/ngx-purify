@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import * as SIMPLE_TOOLBAR_CODE from './examples/simple-toolbar-example/simple-toolbar-code';
+import * as TOOLBAR_OVERVIEW_CODE from './examples/toolbar-overview-example/toolbar-overview-code';
 
 @Component({
   selector: 'app-material-toolbar',
@@ -8,5 +8,5 @@ import * as SIMPLE_TOOLBAR_CODE from './examples/simple-toolbar-example/simple-t
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent {
-  simpleToolbarCode = SIMPLE_TOOLBAR_CODE;
+  toolbarOverviewCode = TOOLBAR_OVERVIEW_CODE;
 }

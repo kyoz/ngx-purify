@@ -10,11 +10,11 @@ export const ts = `
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'simple-menu-example',
-  templateUrl: './simple-menu-example.html',
-  styleUrls: ['./simple-menu-example.scss']
+  selector: 'menu-overview-example',
+  templateUrl: './menu-overview-example.html',
+  styleUrls: ['./menu-overview-example.scss']
 })
-export class SimpleMenuExample {
+export class MenuOverviewExample {
 }
 `;
 

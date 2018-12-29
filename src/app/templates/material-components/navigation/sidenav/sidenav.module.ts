@@ -8,8 +8,8 @@ import { SharedModule } from '../../../shared/shared.module';
 import { SidenavComponent } from './sidenav.component';
 
 // Sidenav Examples
-import { SimpleSidenavExample } from './examples/simple-sidenav-example/simple-sidenav-example';
-import { AutosizeSidenavExample } from './examples/autosize-sidenav-example/autosize-sidenav-example';
+import { SidenavOverviewExample } from './examples/sidenav-overview-example/sidenav-overview-example';
+import { SidenavAutosizeExample } from './examples/sidenav-autosize-example/sidenav-autosize-example';
 
 @NgModule({
   declarations: [
@@ -17,8 +17,8 @@ import { AutosizeSidenavExample } from './examples/autosize-sidenav-example/auto
     SidenavComponent,
 
     // Examples
-    SimpleSidenavExample,
-    AutosizeSidenavExample
+    SidenavOverviewExample,
+    SidenavAutosizeExample
   ],
   imports: [
     CommonModule,

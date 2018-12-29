@@ -9,11 +9,11 @@ export const ts = `
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'simple-sidenav-example',
-  templateUrl: './simple-sidenav-example.html',
-  styleUrls: ['./simple-sidenav-example.scss']
+  selector: 'sidenav-overview-example',
+  templateUrl: './sidenav-overview-example.html',
+  styleUrls: ['./sidenav-overview-example.scss']
 })
-export class SimpleSidenavExample {
+export class SidenavOverviewExample {
 }
 `;
 

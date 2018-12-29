@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import * as SIMPLE_SIDENAV_CODE from './examples/simple-sidenav-example/simple-sidenav-code';
-import * as AUTOSIZE_SIDENAV_CODE from './examples/autosize-sidenav-example/autosize-sidenav-code';
+import * as SIDENAV_OVERVIEW_CODE from './examples/sidenav-overview-example/sidenav-overview-code';
+import * as SIDENAV_AUTOSIZE_CODE from './examples/sidenav-autosize-example/sidenav-autosize-code';
 
 @Component({
   selector: 'app-material-sidenav',
@@ -9,6 +9,6 @@ import * as AUTOSIZE_SIDENAV_CODE from './examples/autosize-sidenav-example/auto
   styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent {
-  simpleSidenavCode = SIMPLE_SIDENAV_CODE;
-  autosizeSidenavCode = AUTOSIZE_SIDENAV_CODE;
+  sidenavOverviewCode = SIDENAV_OVERVIEW_CODE;
+  sidenavAutosizeCode = SIDENAV_AUTOSIZE_CODE;
 }

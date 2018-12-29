@@ -23,11 +23,11 @@ export const ts = `
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'simple-toolbar-example',
-  templateUrl: './simple-toolbar-example.html',
-  styleUrls: ['./simple-toolbar-example.scss']
+  selector: 'toolbar-overview-example',
+  templateUrl: './toolbar-overview-example.html',
+  styleUrls: ['./toolbar-overview-example.scss']
 })
-export class SimpleToolbarExample {
+export class ToolbarOverviewExample {
 }
 `;
 

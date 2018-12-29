@@ -8,9 +8,9 @@ import { SharedModule } from '../../../shared/shared.module';
 import { MenuComponent } from './menu.component';
 
 // Menu Examples
-import { SimpleMenuExample } from './examples/simple-menu-example/simple-menu-example';
-import { IconMenuExample } from './examples/icon-menu-example/icon-menu-example';
-import { NestedMenuExample } from './examples/nested-menu-example/nested-menu-example';
+import { MenuOverviewExample } from './examples/menu-overview-example/menu-overview-example';
+import { MenuIconExample } from './examples/menu-icon-example/menu-icon-example';
+import { MenuNestedExample } from './examples/menu-nested-example/menu-nested-example';
 
 @NgModule({
   declarations: [
@@ -18,9 +18,9 @@ import { NestedMenuExample } from './examples/nested-menu-example/nested-menu-ex
     MenuComponent,
 
     // Examples
-    SimpleMenuExample,
-    IconMenuExample,
-    NestedMenuExample
+    MenuOverviewExample,
+    MenuIconExample,
+    MenuNestedExample
   ],
   imports: [
     CommonModule,
