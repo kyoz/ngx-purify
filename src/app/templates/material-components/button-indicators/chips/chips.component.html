@@ -1,3 +1,26 @@
-<p>
-  chips works!
-</p>
+<div>
+  <page-header
+    [title]="'Chips'"
+    [routes]="['Material Components', 'Buttons & Indicators']"
+    [referenceUrl]="'https://material.angular.io/components/chips/overview'">
+  </page-header>
+  <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="24px" style="padding: 32px">
+
+    <material-example title="Chips overview" [code]="chipsOverviewCode">
+      <chips-overview-example></chips-overview-example>
+    </material-example>
+
+    <material-example title="Chips autocomplete" [code]="chipAutocompleteCode">
+      <chips-autocomplete-example></chips-autocomplete-example>
+    </material-example>
+
+    <material-example title="Chips with input" [code]="chipInputCode">
+      <chips-input-example></chips-input-example>
+    </material-example>
+    
+    <material-example title="Stacked chips" [code]="chipStackedCode">
+      <chips-stacked-example></chips-stacked-example>
+    </material-example>
+
+  </div>
+</div>
