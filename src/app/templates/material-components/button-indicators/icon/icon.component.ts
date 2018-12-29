@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-icon',
+  selector: 'app-material-icon',
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.css']
 })

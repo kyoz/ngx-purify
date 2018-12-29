@@ -4,7 +4,7 @@ import * as SIMPLE_CHECKBOX_CODE from './examples/simple-checkbox-example/simple
 import * as CONFIGURATION_CHECKBOX_CODE from './examples/configuration-checkbox-example/configuration-checkbox-code';
 
 @Component({
-  selector: 'app-checkbox',
+  selector: 'app-material-checkbox',
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.scss']
 })

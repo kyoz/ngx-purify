@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-sort-header',
+  selector: 'app-material-sort-header',
   templateUrl: './sort-header.component.html',
   styleUrls: ['./sort-header.component.css']
 })

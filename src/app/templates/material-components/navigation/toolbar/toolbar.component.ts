@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import * as SIMPLE_TOOLBAR_CODE from './examples/simple-toolbar-example/simple-toolbar-code';
 
 @Component({
-  selector: 'app-toolbar',
+  selector: 'app-material-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss']
 })

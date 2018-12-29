@@ -7,7 +7,7 @@ import * as TREE_NESTED_CODE from './examples/tree-nested-example/tree-nested-co
 import * as TREE_LOADMORE_CODE from './examples/tree-loadmore-example/tree-loadmore-code';
 
 @Component({
-  selector: 'app-tree',
+  selector: 'app-material-tree',
   templateUrl: './tree.component.html',
   styleUrls: ['./tree.component.scss']
 })

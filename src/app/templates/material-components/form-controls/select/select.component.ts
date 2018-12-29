@@ -14,7 +14,7 @@ import * as CUSTOM_STYLE_SELECT_CODE from './examples/custom-style-select-exampl
 import * as CUSTOM_ERROR_STATE_MATCHER_CODE from './examples/custom-error-matcher-example/custom-error-matcher-select-code';
 
 @Component({
-  selector: 'app-select',
+  selector: 'app-material-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss']
 })

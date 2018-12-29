@@ -8,7 +8,7 @@ import * as PREFIX_SUFFIX_FORM_FIELD_CODE from './examples/prefix-suffix-form-fi
 import * as THEMING_FORM_FIELD_CODE from './examples/theming-form-field-example/theming-form-field-code';
 
 @Component({
-  selector: 'app-form-field',
+  selector: 'app-material-form-field',
   templateUrl: './form-field.component.html',
   styleUrls: ['./form-field.component.scss']
 })

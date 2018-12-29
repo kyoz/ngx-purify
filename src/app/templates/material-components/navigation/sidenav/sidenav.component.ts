@@ -4,7 +4,7 @@ import * as SIMPLE_SIDENAV_CODE from './examples/simple-sidenav-example/simple-s
 import * as AUTOSIZE_SIDENAV_CODE from './examples/autosize-sidenav-example/autosize-sidenav-code';
 
 @Component({
-  selector: 'app-sidenav',
+  selector: 'app-material-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss']
 })

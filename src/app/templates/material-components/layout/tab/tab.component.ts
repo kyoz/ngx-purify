@@ -12,7 +12,7 @@ import * as TAB_ASYNC_CODE from './examples/tab-async-example/tab-async-code';
 import * as TAB_NAVBAR_CODE from './examples/tab-navbar-example/tab-navbar-code';
 
 @Component({
-  selector: 'app-tab',
+  selector: 'app-material-tab',
   templateUrl: './tab.component.html',
   styleUrls: ['./tab.component.scss']
 })

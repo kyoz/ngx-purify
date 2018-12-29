@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-chips',
+  selector: 'app-material-chips',
   templateUrl: './chips.component.html',
   styleUrls: ['./chips.component.css']
 })

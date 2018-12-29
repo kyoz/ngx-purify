@@ -10,7 +10,7 @@ import * as INPUT_WITH_HINTS_CODE from './examples/input-with-hint-example/input
 import * as INPUT_WITH_PREFIX_SUFFIX_CODE from './examples/input-with-prefix-suffix-example/input-with-prefix-suffix-code';
 
 @Component({
-  selector: 'app-input',
+  selector: 'app-material-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss']
 })

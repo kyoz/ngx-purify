@@ -5,7 +5,7 @@ import * as ICON_MENU_CODE from './examples/icon-menu-example/icon-menu-code';
 import * as NESTED_MENU_CODE from './examples/nested-menu-example/nested-menu-code';
 
 @Component({
-  selector: 'app-menu',
+  selector: 'app-material-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })

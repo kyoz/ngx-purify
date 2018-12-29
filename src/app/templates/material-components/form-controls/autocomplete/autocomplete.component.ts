@@ -8,7 +8,7 @@ import * as OPTION_GROUPS_AUTOCOMPLETE_CODE from './examples/option-groups-autoc
 import * as FOCUS_FIRST_OPTION_AUTOCOMPLETE_CODE from './examples/focus-first-option-autocomplete-example/focus-first-option-autocomplete-code';
 
 @Component({
-  selector: 'app-autocomplete',
+  selector: 'app-material-autocomplete',
   templateUrl: './autocomplete.component.html',
   styleUrls: ['./autocomplete.component.scss']
 })

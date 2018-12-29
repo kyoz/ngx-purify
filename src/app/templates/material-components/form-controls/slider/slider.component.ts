@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import * as CONFIGURABLE_SLIDER_CODE from './examples/configurable-slider-example/configurable-slider-code';
 
 @Component({
-  selector: 'app-slider',
+  selector: 'app-material-slider',
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss']
 })

@@ -6,7 +6,7 @@ import * as OPEN_METHOD_DATEPICKER_CODE from './examples/open-method-datepicker-
 import * as DISABLED_DATEPICKER_CODE from './examples/disabled-datepicker-example/disabled-datepicker-code';
 
 @Component({
-  selector: 'app-datepicker',
+  selector: 'app-material-datepicker',
   templateUrl: './datepicker.component.html',
   styleUrls: ['./datepicker.component.scss']
 })
