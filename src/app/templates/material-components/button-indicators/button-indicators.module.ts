@@ -2,13 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 // Remove soon
-import { IconComponent } from './icon/icon.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.component';
 
 @NgModule({
   declarations: [
-    IconComponent,
     ProgressBarComponent,
     ProgressSpinnerComponent
   ],
@@ -18,7 +16,7 @@ import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.co
       { path: 'button', loadChildren: './button/button.module#ButtonModule' },
       { path: 'button-toggle', loadChildren: './button-toggle/button-toggle.module#ButtonToggleModule' },
       { path: 'chips', loadChildren: './chips/chips.module#ChipsModule' },
-      { path: 'icon', component: IconComponent },
+      { path: 'icon', loadChildren: './icon/icon.module#IconModule' },
       { path: 'progress-bar', component: ProgressBarComponent },
       { path: 'progress-spinner', component: ProgressSpinnerComponent }
     ])
