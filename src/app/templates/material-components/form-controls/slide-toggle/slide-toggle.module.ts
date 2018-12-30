@@ -8,7 +8,7 @@ import { SharedModule } from '../../../shared/shared.module';
 import { SlideToggleComponent } from './slide-toggle.component';
 
 // Slide Toggle Examples
-import { ConfigurableSlideToggleExample } from './examples/configurable-slide-toggle-example/configurable-slide-toggle-example';
+import { SlideToggleConfigurableExample } from './examples/slide-toggle-configurable-example/slide-toggle-configurable-example';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { ConfigurableSlideToggleExample } from './examples/configurable-slide-to
     SlideToggleComponent,
 
     // Examples
-    ConfigurableSlideToggleExample
+    SlideToggleConfigurableExample
   ],
   imports: [
     CommonModule,

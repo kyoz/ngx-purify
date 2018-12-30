@@ -8,7 +8,7 @@ import { SharedModule } from '../../../shared/shared.module';
 import { RadioButtonComponent } from './radio-button.component';
 
 // Radio Button Examples
-import { NgModelRadioButtonExample } from './examples/ngmodel-radio-button-example/ngmodel-radio-button-example';
+import { RadioButtonNgModelExample } from './examples/radio-button-ngmodel-example/radio-button-ngmodel-example';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { NgModelRadioButtonExample } from './examples/ngmodel-radio-button-examp
     RadioButtonComponent,
 
     // Examples
-    NgModelRadioButtonExample
+    RadioButtonNgModelExample
   ],
   imports: [
     CommonModule,

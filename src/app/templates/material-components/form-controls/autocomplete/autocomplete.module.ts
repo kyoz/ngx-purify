@@ -8,11 +8,11 @@ import { SharedModule } from '../../../shared/shared.module';
 import { AutocompleteComponent } from './autocomplete.component';
 
 // Autocomplete Examples
-import { SimpleAutocompleteExample } from './examples/simple-autocomplete-example/simple-autocomplete-example';
-import { DisplayValueAutocompleteExample } from './examples/display-value-autocomplete-example/display-value-autocomplete-example';
-import { FilterAutocompleteExample } from './examples/filter-autocomplete-example/filter-autocomplete-example';
-import { OptionGroupsAutocompleteExample } from './examples/option-groups-autocomplete-example/option-groups-autocomplete-example';
-import { FocusFirstOptionAutocompleteExample } from './examples/focus-first-option-autocomplete-example/focus-first-option-autocomplete-example';
+import { AutocompleteOverviewExample } from './examples/autocomplete-overview-example/autocomplete-overview-example';
+import { AutocompleteDisplayValueExample } from './examples/autocomplete-display-value-example/autocomplete-display-value-example';
+import { AutocompleteFilterExample } from './examples/autocomplete-filter-example/autocomplete-filter-example';
+import { AutocompleteOptionGroupsExample } from './examples/autocomplete-option-groups-example/autocomplete-option-groups-example';
+import { AutocompleteFocusFirstOptionExample } from './examples/autocomplete-focus-first-option-example/autocomplete-focus-first-option-example';
 
 @NgModule({
   declarations: [
@@ -20,11 +20,11 @@ import { FocusFirstOptionAutocompleteExample } from './examples/focus-first-opti
     AutocompleteComponent,
 
     // Examples
-    SimpleAutocompleteExample,
-    DisplayValueAutocompleteExample,
-    FilterAutocompleteExample,
-    OptionGroupsAutocompleteExample,
-    FocusFirstOptionAutocompleteExample
+    AutocompleteOverviewExample,
+    AutocompleteDisplayValueExample,
+    AutocompleteFilterExample,
+    AutocompleteOptionGroupsExample,
+    AutocompleteFocusFirstOptionExample
   ],
   imports: [
     CommonModule,

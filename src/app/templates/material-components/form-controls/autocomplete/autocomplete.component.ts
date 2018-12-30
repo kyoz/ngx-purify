@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 // Examples Code
-import * as SIMPLE_AUTOCOMPLETE_CODE from './examples/simple-autocomplete-example/simple-autocomplete-code';
-import * as DISPLAY_VALUE_AUTOCOMPLETE_CODE from './examples/display-value-autocomplete-example/display-value-autocomplete-code';
-import * as FILTER_AUTOCOMPLETE_CODE from './examples/filter-autocomplete-example/filter-autocomplete-code';
-import * as OPTION_GROUPS_AUTOCOMPLETE_CODE from './examples/option-groups-autocomplete-example/option-groups-autocomplete-code';
-import * as FOCUS_FIRST_OPTION_AUTOCOMPLETE_CODE from './examples/focus-first-option-autocomplete-example/focus-first-option-autocomplete-code';
+import * as AUTOCOMPLETE_OVERVIEW_CODE from './examples/autocomplete-overview-example/autocomplete-overview-code';
+import * as AUTOCOMPLETE_DISPLAY_VALUE_CODE from './examples/autocomplete-display-value-example/autocomplete-display-value-code';
+import * as AUTOCOMPLETE_FILTER_CODE from './examples/autocomplete-filter-example/autocomplete-filter-code';
+import * as AUTOCOMPLETE_OPTION_GROUPS_CODE from './examples/autocomplete-option-groups-example/autocomplete-option-groups-code';
+import * as AUTOCOMPLETE_FOCUS_FIRST_OPTION_CODE from './examples/autocomplete-focus-first-option-example/autocomplete-focus-first-option-code';
 
 @Component({
   selector: 'app-material-autocomplete',
@@ -14,9 +14,9 @@ import * as FOCUS_FIRST_OPTION_AUTOCOMPLETE_CODE from './examples/focus-first-op
 })
 export class AutocompleteComponent {
 
-  simpleAutoCompleteCode = SIMPLE_AUTOCOMPLETE_CODE;
-  displayValueAutocompleteCode = DISPLAY_VALUE_AUTOCOMPLETE_CODE;
-  filterAutocompleteCode = FILTER_AUTOCOMPLETE_CODE;
-  optionGroupsAutocompleteCode = OPTION_GROUPS_AUTOCOMPLETE_CODE;
-  focusFirstOptionAutocompleteCode = FOCUS_FIRST_OPTION_AUTOCOMPLETE_CODE;
+  autocompleteOverviewCode = AUTOCOMPLETE_OVERVIEW_CODE;
+  autocompleteDisplayValueCode = AUTOCOMPLETE_DISPLAY_VALUE_CODE;
+  autocompleteFilterCode = AUTOCOMPLETE_FILTER_CODE;
+  autocompleteOptionGroupsCode = AUTOCOMPLETE_OPTION_GROUPS_CODE;
+  autocompleteFocusFirstOptionCode = AUTOCOMPLETE_FOCUS_FIRST_OPTION_CODE;
 }

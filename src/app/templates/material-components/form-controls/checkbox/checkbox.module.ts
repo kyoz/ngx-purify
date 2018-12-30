@@ -8,8 +8,8 @@ import { SharedModule } from '../../../shared/shared.module';
 import { CheckboxComponent } from './checkbox.component';
 
 // Checkbox Examples
-import { SimpleCheckboxExample } from './examples/simple-checkbox-example/simple-checkbox-example';
-import { ConfigurationCheckboxExample } from './examples/configuration-checkbox-example/configuration-checkbox-example';
+import { CheckboxOverviewExample } from './examples/checkbox-overview-example/checkbox-overview-example';
+import { CheckboxConfigurationExample } from './examples/checkbox-configuration-example/checkbox-configuration-example';
 
 @NgModule({
   declarations: [
@@ -17,8 +17,8 @@ import { ConfigurationCheckboxExample } from './examples/configuration-checkbox-
     CheckboxComponent ,
 
     // Examples
-    SimpleCheckboxExample,
-    ConfigurationCheckboxExample
+    CheckboxOverviewExample,
+    CheckboxConfigurationExample
   ],
   imports: [
     CommonModule,

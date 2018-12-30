@@ -8,10 +8,10 @@ import { SharedModule } from '../../../shared/shared.module';
 import { DatepickerComponent } from './datepicker.component';
 
 // Datepicker Examples
-import { SimpleDatepickerExample } from './examples/simple-datepicker-example/simple-datepicker-example';
-import { TouchUIDatepickerExample } from './examples/touch-ui-datepicker-example/touch-ui-datepicker-example';
-import { OpenMethodDatepickerExample } from './examples/open-method-datepicker-example/open-method-datepicker-example';
-import { DisabledDatepickerExample } from './examples/disabled-datepicker-example/disabled-datepicker-example';
+import { DatepickerOverviewExample } from './examples/datepicker-overview-example/datepicker-overview-example';
+import { DatepickerTouchUIExample } from './examples/datepicker-touch-ui-example/datepicker-touch-ui-example';
+import { DatepickerOpenMethodExample } from './examples/datepicker-open-method-example/datepicker-open-method-example';
+import { DatepickerDisabledExample } from './examples/datepicker-disabled-example/datepicker-disabled-example';
 
 @NgModule({
   declarations: [
@@ -19,10 +19,10 @@ import { DisabledDatepickerExample } from './examples/disabled-datepicker-exampl
     DatepickerComponent,
 
     // Examples
-    SimpleDatepickerExample,
-    TouchUIDatepickerExample,
-    OpenMethodDatepickerExample,
-    DisabledDatepickerExample
+    DatepickerOverviewExample,
+    DatepickerTouchUIExample,
+    DatepickerOpenMethodExample,
+    DatepickerDisabledExample
   ],
   imports: [
     CommonModule,

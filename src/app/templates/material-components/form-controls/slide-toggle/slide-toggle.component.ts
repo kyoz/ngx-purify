@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import * as CONFIGURABLE_SLIDE_TOGGLE_CODE from './examples/configurable-slide-toggle-example/configurable-slide-toggle-code';
+import * as SLIDE_TOGGLE_CONFIGURABLE_CODE from './examples/slide-toggle-configurable-example/slide-toggle-configurable-code';
 
 @Component({
   selector: 'app-material-slide-toggle',
@@ -8,5 +8,5 @@ import * as CONFIGURABLE_SLIDE_TOGGLE_CODE from './examples/configurable-slide-t
   styleUrls: ['./slide-toggle.component.scss']
 })
 export class SlideToggleComponent {
-  configurableSlideToggleCode = CONFIGURABLE_SLIDE_TOGGLE_CODE;
+  slideToggleConfigurableCode = SLIDE_TOGGLE_CONFIGURABLE_CODE;
 }

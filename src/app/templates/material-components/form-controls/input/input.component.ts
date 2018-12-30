@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import * as SIMPLE_INPUT_CODE from './examples/simple-input-example/simple-input-code';
-import * as ERROR_STATE_MATCHER_INPUT_CODE from './examples/error-state-matcher-input-example/error-state-matcher-input-code';
+import * as INPUT_OVERVIEW_CODE from './examples/input-overview-example/input-overview-code';
+import * as INPUT_ERROR_STATE_MATCHER_CODE from './examples/input-error-state-matcher-example/input-error-state-matcher-code';
 import * as AUTO_RESIZING_TEXTAREA_CODE from './examples/auto-resize-textarea-example/auto-resize-textarea-code';
 import * as INPUT_WITH_CLEAR_BUTTON_CODE from './examples/input-with-clear-button-example/input-with-clear-button-code';
 import * as INPUT_WITH_ERROR_MESSAGES_CODE from './examples/input-with-error-message-example/input-with-error-message-code';
@@ -15,8 +15,8 @@ import * as INPUT_WITH_PREFIX_SUFFIX_CODE from './examples/input-with-prefix-suf
   styleUrls: ['./input.component.scss']
 })
 export class InputComponent {
-  simpleInputCode = SIMPLE_INPUT_CODE;
-  errorStateMatcherInputCode = ERROR_STATE_MATCHER_INPUT_CODE;
+  inputOverviewCode = INPUT_OVERVIEW_CODE;
+  inputErrorStateMatcherCode = INPUT_ERROR_STATE_MATCHER_CODE;
   autoResizingTextareaCode = AUTO_RESIZING_TEXTAREA_CODE;
   inputWithClearButtonCode = INPUT_WITH_CLEAR_BUTTON_CODE;
   inputWithErrorMessagesCode = INPUT_WITH_ERROR_MESSAGES_CODE;

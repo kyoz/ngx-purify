@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
-import * as SIMPLE_DATEPICKER_CODE from './examples/simple-datepicker-example/simple-datepicker-code';
-import * as TOUCH_UI_DATEPICKER_CODE from './examples/touch-ui-datepicker-example/touch-ui-datepicker-code';
-import * as OPEN_METHOD_DATEPICKER_CODE from './examples/open-method-datepicker-example/open-method-datepicker-code';
-import * as DISABLED_DATEPICKER_CODE from './examples/disabled-datepicker-example/disabled-datepicker-code';
+import * as DATEPICKER_OVERVIEW_CODE from './examples/datepicker-overview-example/datepicker-overview-code';
+import * as DATEPICKER_TOUCH_UI_CODE from './examples/datepicker-touch-ui-example/datepicker-touch-ui-code';
+import * as DATEPICKER_OPEN_METHOD_CODE from './examples/datepicker-open-method-example/datepicker-open-method-code';
+import * as DATEPICKER_DISABLED_CODE from './examples/datepicker-disabled-example/datepicker-disabled-code';
 
 @Component({
   selector: 'app-material-datepicker',
@@ -11,8 +11,8 @@ import * as DISABLED_DATEPICKER_CODE from './examples/disabled-datepicker-exampl
   styleUrls: ['./datepicker.component.scss']
 })
 export class DatepickerComponent {
-  simpleDatepickerCode = SIMPLE_DATEPICKER_CODE;
-  touchUIDatepickerCode = TOUCH_UI_DATEPICKER_CODE;
-  openMethodDatepickerCode = OPEN_METHOD_DATEPICKER_CODE;
-  disabledDatepickerCode = DISABLED_DATEPICKER_CODE;
+  datepickerOverviewCode = DATEPICKER_OVERVIEW_CODE;
+  datepickerTouchUICode = DATEPICKER_TOUCH_UI_CODE;
+  datepickerOpenMethodCode = DATEPICKER_OPEN_METHOD_CODE;
+  datepickerDisabledCode = DATEPICKER_DISABLED_CODE;
 }

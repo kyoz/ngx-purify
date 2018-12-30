@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import * as SIMPLE_CHECKBOX_CODE from './examples/simple-checkbox-example/simple-checkbox-code';
-import * as CONFIGURATION_CHECKBOX_CODE from './examples/configuration-checkbox-example/configuration-checkbox-code';
+import * as CHECKBOX_OVERIVEW_CODE from './examples/checkbox-overview-example/checkbox-overview-code';
+import * as CHECKBOX_CONFIGURATION_CODE from './examples/checkbox-configuration-example/checkbox-configuration-code';
 
 @Component({
   selector: 'app-material-checkbox',
@@ -9,6 +9,6 @@ import * as CONFIGURATION_CHECKBOX_CODE from './examples/configuration-checkbox-
   styleUrls: ['./checkbox.component.scss']
 })
 export class CheckboxComponent {
-  simpleCheckboxCode = SIMPLE_CHECKBOX_CODE;
-  configurationCheckboxCode = CONFIGURATION_CHECKBOX_CODE;
+  checkboxOverviewCode = CHECKBOX_OVERIVEW_CODE;
+  checkboxConfigurationCode = CHECKBOX_CONFIGURATION_CODE;
 }

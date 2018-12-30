@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import * as NGMODEL_RADIO_BUTTON from './examples/ngmodel-radio-button-example/ngmodel-radio-button-code';
+import * as RADIO_BUTTON_NGMODEL_CODE from './examples/radio-button-ngmodel-example/radio-button-ngmodel-code';
 
 @Component({
   selector: 'app-material-radio-button',
@@ -8,5 +8,5 @@ import * as NGMODEL_RADIO_BUTTON from './examples/ngmodel-radio-button-example/n
   styleUrls: ['./radio-button.component.scss']
 })
 export class RadioButtonComponent {
-  ngModelRadioButton = NGMODEL_RADIO_BUTTON;
+  radioButtonNgModelCode = RADIO_BUTTON_NGMODEL_CODE;
 }

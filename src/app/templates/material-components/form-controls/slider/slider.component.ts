@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import * as CONFIGURABLE_SLIDER_CODE from './examples/configurable-slider-example/configurable-slider-code';
+import * as SLIDER_CONFIGURABLE_CODE from './examples/slider-configurable-example/slider-configurable-code';
 
 @Component({
   selector: 'app-material-slider',
@@ -8,5 +8,5 @@ import * as CONFIGURABLE_SLIDER_CODE from './examples/configurable-slider-exampl
   styleUrls: ['./slider.component.scss']
 })
 export class SliderComponent {
-  configurableSliderCode = CONFIGURABLE_SLIDER_CODE;
+  sliderConfigurableCode = SLIDER_CONFIGURABLE_CODE;
 }

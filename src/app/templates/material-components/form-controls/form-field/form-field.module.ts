@@ -8,12 +8,12 @@ import { SharedModule } from '../../../shared/shared.module';
 import { FormFieldComponent } from './form-field.component';
 
 // Formfield Examples
-import { SimpleFormFieldExample } from './examples/simple-form-field-example/simple-form-field-example';
-import { LabelFormFieldExample } from './examples/label-form-field-example/label-form-field-example';
-import { HintFormFieldExample } from './examples/hint-form-field-example/hint-form-field-example';
-import { ErrorFormFieldExample } from './examples/error-form-field-example/error-form-field-example';
-import { PrefixSuffixFormFieldExample } from './examples/prefix-suffix-form-field-example/prefix-suffix-form-field-example';
-import { ThemingFormFieldExample } from './examples/theming-form-field-example/theming-form-field-example';
+import { FormFieldOverviewExample } from './examples/form-field-overview-example/form-field-overview-example';
+import { FormFieldLabelExample } from './examples/form-field-label-example/form-field-label-example';
+import { FormFieldHintExample } from './examples/form-field-hint-example/form-field-hint-example';
+import { FormFieldErrorExample } from './examples/form-field-error-example/form-field-error-example';
+import { FormFieldPrefixSuffixExample } from './examples/form-field-prefix-suffix-example/form-field-prefix-suffix-example';
+import { FormFieldThemingExample } from './examples/form-field-theming-example/form-field-theming-example';
 
 @NgModule({
   declarations: [
@@ -21,12 +21,12 @@ import { ThemingFormFieldExample } from './examples/theming-form-field-example/t
     FormFieldComponent,
 
     // Examples
-    SimpleFormFieldExample,
-    LabelFormFieldExample,
-    HintFormFieldExample,
-    ErrorFormFieldExample,
-    PrefixSuffixFormFieldExample,
-    ThemingFormFieldExample
+    FormFieldOverviewExample,
+    FormFieldLabelExample,
+    FormFieldHintExample,
+    FormFieldErrorExample,
+    FormFieldPrefixSuffixExample,
+    FormFieldThemingExample
   ],
   imports: [
     CommonModule,

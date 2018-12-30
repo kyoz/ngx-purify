@@ -8,7 +8,7 @@ import { SharedModule } from '../../../shared/shared.module';
 import { SliderComponent } from './slider.component';
 
 // Slider Examples
-import { ConfigurableSliderExample } from './examples/configurable-slider-example/configurable-slider-example';
+import { SliderConfigurableExample } from './examples/slider-configurable-example/slider-configurable-example';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { ConfigurableSliderExample } from './examples/configurable-slider-exampl
     SliderComponent,
 
     // Examples
-    ConfigurableSliderExample
+    SliderConfigurableExample
   ],
   imports: [
     CommonModule,

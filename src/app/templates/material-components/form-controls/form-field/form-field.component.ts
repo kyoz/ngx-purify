@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
-import * as SIMPLE_FORM_FIELD_CODE from './examples/simple-form-field-example/simple-form-field-code';
-import * as LABEL_FORM_FIELD_CODE from './examples/label-form-field-example/label-form-field-code';
-import * as HINT_FORM_FIELD_CODE from './examples/hint-form-field-example/hint-form-field-code';
-import * as ERROR_FORM_FIELD_CODE from './examples/error-form-field-example/error-form-field-code';
-import * as PREFIX_SUFFIX_FORM_FIELD_CODE from './examples/prefix-suffix-form-field-example/prefix-suffix-form-field-code';
-import * as THEMING_FORM_FIELD_CODE from './examples/theming-form-field-example/theming-form-field-code';
+import * as FORM_FIELD_OVERVIEW_CODE from './examples/form-field-overview-example/form-field-overview-code';
+import * as FORM_FIELD_LABEL_CODE from './examples/form-field-label-example/form-field-label-code';
+import * as FORM_FIELD_HINT_CODE from './examples/form-field-hint-example/form-field-hint-code';
+import * as FORM_FIELD_ERROR_CODE from './examples/form-field-error-example/form-field-error-code';
+import * as FORM_FIELD_PREFIX_SUFFIX_CODE from './examples/form-field-prefix-suffix-example/form-field-prefix-suffix-code';
+import * as FORM_FIELD_THEMING_CODE from './examples/form-field-theming-example/form-field-theming-code';
 
 @Component({
   selector: 'app-material-form-field',
@@ -13,10 +13,10 @@ import * as THEMING_FORM_FIELD_CODE from './examples/theming-form-field-example/
   styleUrls: ['./form-field.component.scss']
 })
 export class FormFieldComponent {
-  simpleFormFieldCode = SIMPLE_FORM_FIELD_CODE;
-  labelFormFieldCode = LABEL_FORM_FIELD_CODE;
-  hintFormFieldCode = HINT_FORM_FIELD_CODE;
-  errorFormFieldCode = ERROR_FORM_FIELD_CODE;
-  prefixSuffixFormFieldCode = PREFIX_SUFFIX_FORM_FIELD_CODE;
-  themingFormFieldCode = THEMING_FORM_FIELD_CODE;
+  formFieldOverviewCode = FORM_FIELD_OVERVIEW_CODE;
+  formFieldLabelCode = FORM_FIELD_LABEL_CODE;
+  formFieldHintCode = FORM_FIELD_HINT_CODE;
+  formFieldErrorCode = FORM_FIELD_ERROR_CODE;
+  formFieldPrefixSuffixCode = FORM_FIELD_PREFIX_SUFFIX_CODE;
+  formFieldThemingCode = FORM_FIELD_THEMING_CODE;
 }
