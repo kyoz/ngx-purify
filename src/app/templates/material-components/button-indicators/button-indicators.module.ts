@@ -10,7 +10,8 @@ import { RouterModule } from '@angular/router';
       { path: 'chips', loadChildren: './chips/chips.module#ChipsModule' },
       { path: 'icon', loadChildren: './icon/icon.module#IconModule' },
       { path: 'progress-bar', loadChildren: './progress-bar/progress-bar.module#ProgressBarModule' },
-      { path: 'progress-spinner', loadChildren: './progress-spinner/progress-spinner.module#ProgressSpinnerModule' }
+      { path: 'progress-spinner', loadChildren: './progress-spinner/progress-spinner.module#ProgressSpinnerModule' },
+      { path: 'ripples', loadChildren: './ripples/ripples.module#RipplesModule' }
     ])
   ]
 })

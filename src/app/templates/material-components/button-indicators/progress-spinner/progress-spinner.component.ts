@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import * as PROGRESS_SPINNER_OVERVIEW_CODE from './examples/progress-spinner-overview-example/progress-spinner-overview-code';
 
@@ -7,6 +7,6 @@ import * as PROGRESS_SPINNER_OVERVIEW_CODE from './examples/progress-spinner-ove
   templateUrl: './progress-spinner.component.html',
   styleUrls: ['./progress-spinner.component.scss']
 })
-export class ProgressSpinnerComponent implements OnInit {
+export class ProgressSpinnerComponent {
   progressSpinnerOverviewCode = PROGRESS_SPINNER_OVERVIEW_CODE;
 }

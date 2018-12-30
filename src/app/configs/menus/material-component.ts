@@ -41,7 +41,8 @@ export const MaterialComponentMenu: IMenuItem[] = [
      { name: 'Chips', url: '/material-components/button-indicators/chips' },
      { name: 'Icon', url: '/material-components/button-indicators/icon' },
      { name: 'Progress spinner', url: '/material-components/button-indicators/progress-spinner' },
-     { name: 'Progress bar', url: '/material-components/button-indicators/progress-bar' }
+     { name: 'Progress bar', url: '/material-components/button-indicators/progress-bar' },
+     { name: 'Ripples', url: '/material-components/button-indicators/ripples' }
     ]
   },
   {
