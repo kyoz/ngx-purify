@@ -1,3 +1,14 @@
-<p>
-  progress-bar works!
-</p>
+<div>
+  <page-header
+    [title]="'Progress bar'"
+    [routes]="['Material Components', 'Buttons & Indicators']"
+    [referenceUrl]="'https://material.angular.io/components/progress-bar/overview'">
+  </page-header>
+  <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="24px" style="padding: 32px">
+
+    <material-example title="Progress bar overview" [code]="progressBarOverviewCode">
+      <progress-bar-overview-example></progress-bar-overview-example>
+    </material-example>
+    
+  </div>
+</div>
