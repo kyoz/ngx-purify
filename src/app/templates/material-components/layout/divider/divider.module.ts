@@ -8,7 +8,7 @@ import { SharedModule } from '../../../shared/shared.module';
 import { DividerComponent } from './divider.component';
 
 // Divider Examples
-import { SimpleDividerExample } from './examples/simple-divider-example/simple-divider-example';
+import { DividerOverviewExample } from './examples/divider-overview-example/divider-overview-example';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { SimpleDividerExample } from './examples/simple-divider-example/simple-d
     DividerComponent,
 
     // Examples
-    SimpleDividerExample
+    DividerOverviewExample
   ],
   imports: [
     CommonModule,

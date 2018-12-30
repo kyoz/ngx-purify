@@ -8,7 +8,7 @@ import { SharedModule } from '../../../shared/shared.module';
 import { CardComponent } from './card.component';
 
 // Card Examples
-import { SimpleCardExample } from './examples/simple-card-example/simple-card-example';
+import { CardOverviewExample } from './examples/card-overview-example/card-overview-example';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { SimpleCardExample } from './examples/simple-card-example/simple-card-ex
     CardComponent,
 
     // Examples
-    SimpleCardExample
+    CardOverviewExample
   ],
   imports: [
     CommonModule,

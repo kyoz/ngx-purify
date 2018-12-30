@@ -8,7 +8,7 @@ import { SharedModule } from '../../../shared/shared.module';
 import { StepperComponent } from './stepper.component';
 
 // Stepper Examples
-import { SimpleStepperExample } from './examples/simple-stepper-example/simple-stepper-example';
+import { StepperOverviewExample } from './examples/stepper-overview-example/stepper-overview-example';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { SimpleStepperExample } from './examples/simple-stepper-example/simple-s
     StepperComponent,
 
     // Examples
-    SimpleStepperExample
+    StepperOverviewExample
   ],
   imports: [
     CommonModule,

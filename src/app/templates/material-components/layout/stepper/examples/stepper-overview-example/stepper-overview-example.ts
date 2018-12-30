@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'simple-stepper-example',
-  templateUrl: './simple-stepper-example.html',
-  styleUrls: ['./simple-stepper-example.scss']
+  selector: 'stepper-overview-example',
+  templateUrl: './stepper-overview-example.html',
+  styleUrls: ['./stepper-overview-example.scss']
 })
-export class SimpleStepperExample {
+export class StepperOverviewExample {
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;

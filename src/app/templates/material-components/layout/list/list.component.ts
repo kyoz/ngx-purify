@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import * as SIMPLE_LIST_CODE from './examples/simple-list-example/simple-list-code';
+import * as LIST_OVERVIEW_CODE from './examples/list-overview-example/list-overview-code';
 
 @Component({
   selector: 'app-material-list',
@@ -8,5 +8,5 @@ import * as SIMPLE_LIST_CODE from './examples/simple-list-example/simple-list-co
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent {
-  simpleListCode = SIMPLE_LIST_CODE;
+  listOverviewCode = LIST_OVERVIEW_CODE;
 }

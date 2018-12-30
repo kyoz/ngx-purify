@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import * as SIMPLE_DIVIDER_CODE from './examples/simple-divider-example/simple-divider-code';
+import * as DIVIDER_OVERVIEW_CODE from './examples/divider-overview-example/divider-overview-code';
 
 @Component({
   selector: 'app-material-divider',
@@ -8,5 +8,5 @@ import * as SIMPLE_DIVIDER_CODE from './examples/simple-divider-example/simple-d
   styleUrls: ['./divider.component.scss']
 })
 export class DividerComponent {
-  simpleDividerCode = SIMPLE_DIVIDER_CODE;
+  dividerOverviewCode = DIVIDER_OVERVIEW_CODE;
 }

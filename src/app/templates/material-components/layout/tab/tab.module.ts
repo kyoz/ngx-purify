@@ -8,13 +8,13 @@ import { SharedModule } from '../../../shared/shared.module';
 import { TabComponent } from './tab.component';
 
 // Tab Examples
-import { HeaderBelowTabExample } from './examples/header-below-tab-example/header-below-tab-example';
-import { SimpleTabExample } from './examples/simple-tab-example/simple-tab-example';
+import { TabOverviewExample } from './examples/tab-overview-example/tab-overview-example';
 import { TabCustomLabelExample } from './examples/tab-custom-label-example/tab-custom-label-example';
 import { TabDynamicHeightExample } from './examples/tab-dynamic-height-example/tab-dynamic-height-example';
 import { TabDynamicExample } from './examples/tab-dynamic-example/tab-dynamic-example';
 import { TabLazyloadExample } from './examples/tab-lazyload-example/tab-lazyload-example';
 import { TabStretchedLabelsExample } from './examples/tab-stretched-labels-example/tab-stretched-labels-example';
+import { TabHeaderBelowExample } from './examples/tab-header-below-example/tab-header-below-example';
 import { TabThemeExample } from './examples/tab-theme-example/tab-theme-example';
 import { TabAsyncExample } from './examples/tab-async-example/tab-async-example';
 import { TabNavbarExample } from './examples/tab-navbar-example/tab-navbar-example';
@@ -25,12 +25,12 @@ import { TabNavbarExample } from './examples/tab-navbar-example/tab-navbar-examp
     TabComponent,
 
     // Examples
-    HeaderBelowTabExample,
-    SimpleTabExample,
+    TabOverviewExample,
     TabCustomLabelExample,
     TabDynamicHeightExample,
     TabDynamicExample,
     TabLazyloadExample,
+    TabHeaderBelowExample,
     TabStretchedLabelsExample,
     TabThemeExample,
     TabAsyncExample,

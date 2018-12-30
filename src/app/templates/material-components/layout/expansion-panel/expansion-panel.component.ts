@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import * as SIMPLE_EXPANSION_CODE from './examples/simple-expansion-example/simple-expansion-code';
-import * as ACCORDION_EXPANSION_CODE from './examples/accordion-expansion-example/accordion-expansion-code';
+import * as EXPANSION_OVERVIEW_CODE from './examples/expansion-overview-example/expansion-overview-code';
+import * as EXPANSION_ACCORDION_CODE from './examples/expansion-accordion-example/expansion-accordion-code';
 
 @Component({
   selector: 'app-material-expansion-panel',
@@ -9,6 +9,6 @@ import * as ACCORDION_EXPANSION_CODE from './examples/accordion-expansion-exampl
   styleUrls: ['./expansion-panel.component.scss']
 })
 export class ExpansionPanelComponent {
-  simpleExpansionCode = SIMPLE_EXPANSION_CODE;
-  accordionExpansionCode = ACCORDION_EXPANSION_CODE;
+  expansionOverviewCode = EXPANSION_OVERVIEW_CODE;
+  expansionAccordionCode = EXPANSION_ACCORDION_CODE;
 }

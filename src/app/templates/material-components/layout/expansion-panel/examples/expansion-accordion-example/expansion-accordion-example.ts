@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'accordion-expansion-example',
-  templateUrl: './accordion-expansion-example.html',
-  styleUrls: ['./accordion-expansion-example.scss']
+  selector: 'expansion-accordion-example',
+  templateUrl: './expansion-accordion-example.html',
+  styleUrls: ['./expansion-accordion-example.scss']
 })
-export class AccordionExpansionExample {
+export class ExpansionAccordionExample {
   step = 0;
 
   setStep(index: number) {

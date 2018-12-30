@@ -37,11 +37,11 @@ export const ts = `
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'simple-expansion-example',
-  templateUrl: './simple-expansion-example.html',
-  styleUrls: ['./simple-expansion-example.scss']
+  selector: 'expansion-overview-example',
+  templateUrl: './expansion-overview-example.html',
+  styleUrls: ['./expansion-overview-example.scss']
 })
-export class SimpleExpansionExample {
+export class ExpansionOverviewExample {
   panelOpenState = false;
 }
 `;

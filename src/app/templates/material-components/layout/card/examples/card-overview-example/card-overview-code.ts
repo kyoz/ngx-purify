@@ -24,11 +24,11 @@ export const ts = `
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'simple-card-example',
-  templateUrl: './simple-card-example.html',
-  styleUrls: ['./simple-card-example.scss']
+  selector: 'card-overview-example',
+  templateUrl: './card-overview-example.html',
+  styleUrls: ['./card-overview-example.scss']
 })
-export class SimpleCardExample {
+export class CardOverviewExample {
 }
 `;
 

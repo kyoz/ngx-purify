@@ -8,8 +8,8 @@ import { SharedModule } from '../../../shared/shared.module';
 import { ExpansionPanelComponent } from './expansion-panel.component';
 
 // Expansion Panel Examples
-import { SimpleExpansionExample } from './examples/simple-expansion-example/simple-expansion-example';
-import { AccordionExpansionExample } from './examples/accordion-expansion-example/accordion-expansion-example';
+import { ExpansionOverviewExample } from './examples/expansion-overview-example/expansion-overview-example';
+import { ExpansionAccordionExample } from './examples/expansion-accordion-example/expansion-accordion-example';
 
 @NgModule({
   declarations: [
@@ -17,8 +17,8 @@ import { AccordionExpansionExample } from './examples/accordion-expansion-exampl
     ExpansionPanelComponent,
 
     // Examples
-    SimpleExpansionExample,
-    AccordionExpansionExample
+    ExpansionOverviewExample,
+    ExpansionAccordionExample
   ],
   imports: [
     CommonModule,

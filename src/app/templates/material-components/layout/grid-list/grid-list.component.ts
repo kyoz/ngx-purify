@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import * as SIMPLE_GRID_LIST_CODE from './examples/simple-grid-list-example/simple-grid-list-code';
+import * as GRID_LIST_OVERVIEW_CODE from './examples/grid-list-overview-example/grid-list-overview-code';
 
 @Component({
   selector: 'app-material-grid-list',
@@ -8,5 +8,5 @@ import * as SIMPLE_GRID_LIST_CODE from './examples/simple-grid-list-example/simp
   styleUrls: ['./grid-list.component.scss']
 })
 export class GridListComponent {
-  simpleGridListCode = SIMPLE_GRID_LIST_CODE;
+  gridListOverviewCode = GRID_LIST_OVERVIEW_CODE;
 }

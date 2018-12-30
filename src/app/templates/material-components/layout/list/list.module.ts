@@ -8,7 +8,7 @@ import { SharedModule } from '../../../shared/shared.module';
 import { ListComponent } from './list.component';
 
 // List Examples
-import { SimpleListExample } from './examples/simple-list-example/simple-list-example';
+import { ListOverviewExample } from './examples/list-overview-example/list-overview-example';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { SimpleListExample } from './examples/simple-list-example/simple-list-ex
     ListComponent,
 
     // Examples
-    SimpleListExample
+    ListOverviewExample
   ],
   imports: [
     CommonModule,

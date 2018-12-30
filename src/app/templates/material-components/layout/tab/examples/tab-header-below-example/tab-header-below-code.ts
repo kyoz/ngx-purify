@@ -10,11 +10,11 @@ export const ts = `
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'header-below-tab-example',
-  templateUrl: './header-below-tab-example.html',
-  styleUrls: ['./header-below-tab-example.scss']
+  selector: 'tab-header-below-example',
+  templateUrl: './tab-header-below-example.html',
+  styleUrls: ['./tab-header-below-example.scss']
 })
-export class HeaderBelowTabExample {
+export class TabHeaderBelowExample {
 }
 `;
 

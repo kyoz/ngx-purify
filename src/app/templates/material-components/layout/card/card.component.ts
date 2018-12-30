@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import * as SIMPLE_CARD_CODE from './examples/simple-card-example/simple-card-code';
+import * as CARD_OVERVIEW_CODE from './examples/card-overview-example/card-overview-code';
 
 @Component({
   selector: 'app-material-card',
@@ -8,5 +8,5 @@ import * as SIMPLE_CARD_CODE from './examples/simple-card-example/simple-card-co
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
-  simpleCardCode = SIMPLE_CARD_CODE;
+  cardOverviewCode = CARD_OVERVIEW_CODE;
 }

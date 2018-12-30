@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import * as SIMPLE_STEPPER_CODE from './examples/simple-stepper-example/simple-stepper-code';
+import * as STEPPER_OVERVIEW_CODE from './examples/stepper-overview-example/stepper-overview-code';
 
 @Component({
   selector: 'app-material-stepper',
@@ -8,5 +8,5 @@ import * as SIMPLE_STEPPER_CODE from './examples/simple-stepper-example/simple-s
   styleUrls: ['./stepper.component.scss']
 })
 export class StepperComponent {
-  simpleStepperCode = SIMPLE_STEPPER_CODE;
+  stepperOverviewCode = STEPPER_OVERVIEW_CODE;
 }

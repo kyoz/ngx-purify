@@ -21,11 +21,11 @@ export interface Tile {
 }
 
 @Component({
-  selector: 'simple-grid-list-example',
-  templateUrl: './simple-grid-list-example.html',
-  styleUrls: ['./simple-grid-list-example.scss']
+  selector: 'grid-list-overview-example',
+  templateUrl: './grid-list-overview-example.html',
+  styleUrls: ['./grid-list-overview-example.scss']
 })
-export class SimpleGridListExample {
+export class GridListOverviewExample {
   tiles: Tile[] = [
     {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
     {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},

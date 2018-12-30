@@ -25,11 +25,11 @@ export interface Section {
 }
 
 @Component({
-  selector: 'simple-list-example',
-  templateUrl: './simple-list-example.html',
-  styleUrls: ['./simple-list-example.scss']
+  selector: 'list-overview-example',
+  templateUrl: './list-overview-example.html',
+  styleUrls: ['./list-overview-example.scss']
 })
-export class SimpleListExample {
+export class ListOverviewExample {
   folders: Section[] = [
     {
       name: 'Photos',

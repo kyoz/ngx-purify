@@ -8,7 +8,7 @@ import { SharedModule } from '../../../shared/shared.module';
 import { GridListComponent } from './grid-list.component';
 
 // GridList Examples
-import { SimpleGridListExample } from './examples/simple-grid-list-example/simple-grid-list-example';
+import { GridListOverviewExample } from './examples/grid-list-overview-example/grid-list-overview-example';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { SimpleGridListExample } from './examples/simple-grid-list-example/simpl
     GridListComponent,
 
     // Examples
-    SimpleGridListExample
+    GridListOverviewExample
   ],
   imports: [
     CommonModule,
