@@ -1,3 +1,14 @@
-<p>
-  paginator works!
-</p>
+<div>
+  <page-header
+    [title]="'Paginator'"
+    [routes]="['Material Components', 'Datatable']"
+    [referenceUrl]="'https://material.angular.io/components/paginator/overview'">
+  </page-header>
+  <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="24px" style="padding: 32px">
+
+    <material-example title="Paginator overview" [code]="paginatorOverviewCode">
+      <paginator-overview-example></paginator-overview-example>
+    </material-example>
+    
+  </div>
+</div>

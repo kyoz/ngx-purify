@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
       { path: 'layout', loadChildren: './layout/layout.module#LayoutModule' },
       { path: 'button-indicators', loadChildren: './button-indicators/button-indicators.module#ButtonIndicatorsModule' },
       { path: 'popups-modals', loadChildren: './popups-modals/popups-modals.module#PopupsModalsModule' },
-      // { path: 'datatable', loadChildren: './datatable/datatable.module#DatatableModule' }
+      { path: 'datatable', loadChildren: './datatable/datatable.module#DatatableModule' }
     ])
   ],
   exports: []
