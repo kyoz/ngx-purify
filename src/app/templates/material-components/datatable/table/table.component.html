@@ -1,3 +1,62 @@
-<p>
-  table works!
-</p>
+<div>
+  <page-header
+    [title]="'Table'"
+    [routes]="['Material Components', 'Datatable']"
+    [referenceUrl]="'https://material.angular.io/components/table/overview'">
+  </page-header>
+  <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="24px" style="padding: 32px">
+
+    <material-example title="Basic use of `<table mat-table>`" [code]="tableOverviewCode">
+      <table-overview-example></table-overview-example>
+    </material-example>
+
+    <material-example title="Basic use of `<mat-table>` (uses display flex)" [code]="tableFlexCode">
+      <table-flex-example></table-flex-example>
+    </material-example>
+
+    <material-example title="Table dynamically changing the columns displayed" [code]="tableDynamicColumnCode">
+      <table-dynamic-column-example></table-dynamic-column-example>
+    </material-example>
+
+    <material-example title="Table with expandable rows" [code]="tableExpandableRowCode">
+      <table-expandable-row-example></table-expandable-row-example>
+    </material-example>
+
+    <material-example title="Table with filtering" [code]="tableFilteringCode">
+      <table-filtering-example></table-filtering-example>
+    </material-example>
+
+    <material-example title="Footer row table" [code]="tableFooterRowCode">
+      <table-footer-row-example></table-footer-row-example>
+    </material-example>
+
+    <material-example title="Table retrieving data through HTTP" [code]="tableHttpCode">
+      <table-http-example></table-http-example>
+    </material-example>
+
+    <material-example title="Table with multiple header and footer rows" [code]="tableMultipleHeaderFooterCode">
+      <table-multiple-header-footer-example></table-multiple-header-footer-example>
+    </material-example>
+
+    <material-example title="Data table with sorting, pagination, and filtering" [code]="tableSortingPaginationFilteringCode">
+      <table-sorting-pagination-filtering-example></table-sorting-pagination-filtering-example>
+    </material-example>
+
+    <material-example title="Table with selection" [code]="tableSelectionCode">
+      <table-selection-example></table-selection-example>
+    </material-example>
+
+    <material-example title="Table with a sticky columns" [code]="tableStickyColumnsCode">
+      <table-sticky-columns-example></table-sticky-columns-example>
+    </material-example>
+
+    <material-example title="Table with sticky header" [code]="tableStickyHeaderCode">
+      <table-sticky-header-example></table-sticky-header-example>
+    </material-example>
+
+    <material-example title="Table with sticky footer" [code]="tableStickyFooterCode">
+      <table-sticky-footer-example></table-sticky-footer-example>
+    </material-example>
+    
+  </div>
+</div>
