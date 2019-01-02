@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -10,21 +8,23 @@ import { ProgressBarComponent } from './progress-bar.component';
 // Progress Bar Examples
 import { ProgressBarOverviewExample } from './examples/progress-bar-overview-example/progress-bar-overview-example';
 
+const COMPONENTS = [
+  // Progress Bar Components
+  ProgressBarComponent,
+
+  // Examples
+  ProgressBarOverviewExample
+];
+
 @NgModule({
   declarations: [
-    // Progress Bar Components
-    ProgressBarComponent,
-
-    // Examples
-    ProgressBarOverviewExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: ProgressBarComponent }
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class ProgressBarModule {}

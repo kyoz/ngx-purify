@@ -109,6 +109,7 @@ const MATERIAL_MODULES = [
   ],
   exports: [
     // Angular Modules
+    CommonModule,
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
@@ -118,7 +119,7 @@ const MATERIAL_MODULES = [
 
     // Components
     HeaderComponent,
-    MaterialExampleComponent,
+    MaterialExampleComponent
   ]
 })
 export class SharedModule {}

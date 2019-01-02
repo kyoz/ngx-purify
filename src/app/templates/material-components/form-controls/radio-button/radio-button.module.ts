@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -10,21 +8,23 @@ import { RadioButtonComponent } from './radio-button.component';
 // Radio Button Examples
 import { RadioButtonNgModelExample } from './examples/radio-button-ngmodel-example/radio-button-ngmodel-example';
 
+const COMPONENTS = [
+  // Checkbox Components
+  RadioButtonComponent,
+
+  // Examples
+  RadioButtonNgModelExample
+];
+
 @NgModule({
   declarations: [
-    // Checkbox Components
-    RadioButtonComponent,
-
-    // Examples
-    RadioButtonNgModelExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: RadioButtonComponent }
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class RadioButtonModule {}

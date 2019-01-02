@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -15,26 +13,28 @@ import { TooltipDisabledExample } from './examples/tooltip-disabled-example/tool
 import { TooltipManualExample } from './examples/tooltip-manual-example/tooltip-manual-example';
 import { TooltipMessageExample } from './examples/tooltip-message-example/tooltip-message-example';
 
+const COMPONENTS = [
+  // Tooltip Components
+  TooltipComponent,
+
+  // Examples
+  TooltipOverviewExample,
+  TooltipPositionExample,
+  TooltipDelayExample,
+  TooltipDisabledExample,
+  TooltipManualExample,
+  TooltipMessageExample
+];
+
 @NgModule({
   declarations: [
-    // Tooltip Components
-    TooltipComponent,
-
-    // Examples
-    TooltipOverviewExample,
-    TooltipPositionExample,
-    TooltipDelayExample,
-    TooltipDisabledExample,
-    TooltipManualExample,
-    TooltipMessageExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: TooltipComponent }
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class TooltipModule {}

@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -17,28 +15,30 @@ import { InputInFormExample } from './examples/input-in-form-example/input-in-fo
 import { InputWithHintExample } from './examples/input-with-hint-example/input-with-hint-example';
 import { InputWithPrefixSuffixExample } from './examples/input-with-prefix-suffix-example/input-with-prefix-suffix-example';
 
+const COMPONENTS = [
+  // Input Components
+  InputComponent,
+
+  // Examples
+  InputOverviewExample,
+  InputErrorStateMatcherExample,
+  AutoResizeTextareaExample,
+  InputWithClearButtonExample,
+  InputWithErrorMessageExample,
+  InputInFormExample,
+  InputWithHintExample,
+  InputWithPrefixSuffixExample
+];
+
 @NgModule({
   declarations: [
-    // Input Components
-    InputComponent,
-
-    // Examples
-    InputOverviewExample,
-    InputErrorStateMatcherExample,
-    AutoResizeTextareaExample,
-    InputWithClearButtonExample,
-    InputWithErrorMessageExample,
-    InputInFormExample,
-    InputWithHintExample,
-    InputWithPrefixSuffixExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: InputComponent }
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class InputModule {}

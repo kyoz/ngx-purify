@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -15,26 +13,28 @@ import { FormFieldErrorExample } from './examples/form-field-error-example/form-
 import { FormFieldPrefixSuffixExample } from './examples/form-field-prefix-suffix-example/form-field-prefix-suffix-example';
 import { FormFieldThemingExample } from './examples/form-field-theming-example/form-field-theming-example';
 
+const COMPONENTS = [
+  // Formfield Components
+  FormFieldComponent,
+
+  // Examples
+  FormFieldOverviewExample,
+  FormFieldLabelExample,
+  FormFieldHintExample,
+  FormFieldErrorExample,
+  FormFieldPrefixSuffixExample,
+  FormFieldThemingExample
+];
+
 @NgModule({
   declarations: [
-    // Formfield Components
-    FormFieldComponent,
-
-    // Examples
-    FormFieldOverviewExample,
-    FormFieldLabelExample,
-    FormFieldHintExample,
-    FormFieldErrorExample,
-    FormFieldPrefixSuffixExample,
-    FormFieldThemingExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: FormFieldComponent }
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class FormFieldModule {}

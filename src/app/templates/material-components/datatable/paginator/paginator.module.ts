@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -10,21 +8,23 @@ import { PaginatorComponent } from './paginator.component';
 // Paginator Examples
 import { PaginatorOverviewExample } from './examples/paginator-overview-example/paginator-overview-example';
 
+const COMPONENTS = [
+  // Paginator Components
+  PaginatorComponent,
+
+  // Examples
+  PaginatorOverviewExample
+];
+
 @NgModule({
   declarations: [
-    // Paginator Components
-    PaginatorComponent,
-
-    // Examples
-    PaginatorOverviewExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: PaginatorComponent }
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class PaginatorModule {}

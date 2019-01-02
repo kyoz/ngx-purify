@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -11,22 +9,24 @@ import { CheckboxComponent } from './checkbox.component';
 import { CheckboxOverviewExample } from './examples/checkbox-overview-example/checkbox-overview-example';
 import { CheckboxConfigurationExample } from './examples/checkbox-configuration-example/checkbox-configuration-example';
 
+const COMPONENTS = [
+  // Checkbox Components
+  CheckboxComponent ,
+
+  // Examples
+  CheckboxOverviewExample,
+  CheckboxConfigurationExample
+];
+
 @NgModule({
   declarations: [
-    // Checkbox Components
-    CheckboxComponent ,
-
-    // Examples
-    CheckboxOverviewExample,
-    CheckboxConfigurationExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: CheckboxComponent }
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class CheckboxModule {}

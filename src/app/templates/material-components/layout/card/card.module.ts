@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -10,21 +8,23 @@ import { CardComponent } from './card.component';
 // Card Examples
 import { CardOverviewExample } from './examples/card-overview-example/card-overview-example';
 
+const COMPONENTS = [
+  // Card Components
+  CardComponent,
+
+  // Examples
+  CardOverviewExample
+];
+
 @NgModule({
   declarations: [
-    // Card Components
-    CardComponent,
-
-    // Examples
-    CardOverviewExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: CardComponent }
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class CardModule {}

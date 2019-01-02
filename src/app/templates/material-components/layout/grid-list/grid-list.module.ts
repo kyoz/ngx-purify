@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -10,21 +8,23 @@ import { GridListComponent } from './grid-list.component';
 // GridList Examples
 import { GridListOverviewExample } from './examples/grid-list-overview-example/grid-list-overview-example';
 
+const COMPONENTS = [
+  // GridList Components
+  GridListComponent,
+
+  // Examples
+  GridListOverviewExample
+];
+
 @NgModule({
   declarations: [
-    // GridList Components
-    GridListComponent,
-
-    // Examples
-    GridListOverviewExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: GridListComponent}
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class GridListModule {}

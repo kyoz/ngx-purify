@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -13,24 +11,26 @@ import { DatepickerTouchUIExample } from './examples/datepicker-touch-ui-example
 import { DatepickerOpenMethodExample } from './examples/datepicker-open-method-example/datepicker-open-method-example';
 import { DatepickerDisabledExample } from './examples/datepicker-disabled-example/datepicker-disabled-example';
 
+const COMPONENTS = [
+  // Datepicker Components
+  DatepickerComponent,
+
+  // Examples
+  DatepickerOverviewExample,
+  DatepickerTouchUIExample,
+  DatepickerOpenMethodExample,
+  DatepickerDisabledExample
+];
+
 @NgModule({
   declarations: [
-    // Datepicker Components
-    DatepickerComponent,
-
-    // Examples
-    DatepickerOverviewExample,
-    DatepickerTouchUIExample,
-    DatepickerOpenMethodExample,
-    DatepickerDisabledExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: DatepickerComponent }
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class DatePickerModule {}

@@ -12,7 +12,6 @@ import { RouterModule } from '@angular/router';
       { path: 'popups-modals', loadChildren: './popups-modals/popups-modals.module#PopupsModalsModule' },
       { path: 'datatable', loadChildren: './datatable/datatable.module#DatatableModule' }
     ])
-  ],
-  exports: []
+  ]
 })
 export class MaterialComponentsModule {}

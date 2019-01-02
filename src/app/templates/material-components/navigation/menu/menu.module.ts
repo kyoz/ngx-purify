@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-
-import { SharedModule } from '../../../shared/shared.module';
+import { SharedModule } from 'src/app/templates/shared/shared.module';
 
 // Menu Components
 import { MenuComponent } from './menu.component';
@@ -12,23 +9,25 @@ import { MenuOverviewExample } from './examples/menu-overview-example/menu-overv
 import { MenuIconExample } from './examples/menu-icon-example/menu-icon-example';
 import { MenuNestedExample } from './examples/menu-nested-example/menu-nested-example';
 
+const COMPONENTS = [
+  // Menu Components
+  MenuComponent,
+
+  // Examples
+  MenuOverviewExample,
+  MenuIconExample,
+  MenuNestedExample
+];
+
 @NgModule({
   declarations: [
-    // Menu Components
-    MenuComponent,
-
-    // Examples
-    MenuOverviewExample,
-    MenuIconExample,
-    MenuNestedExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: MenuComponent }
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class MenuModule {}

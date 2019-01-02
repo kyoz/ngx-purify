@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -10,21 +8,23 @@ import { ButtonComponent } from './button.component';
 // Button Examples
 import { ButtonOverviewExample } from './examples/button-overview-example/button-overview-example';
 
+const COMPONENTS = [
+  // Button Components
+  ButtonComponent,
+
+  // Examples
+  ButtonOverviewExample
+];
+
 @NgModule({
   declarations: [
-    // Button Components
-    ButtonComponent,
-
-    // Examples
-    ButtonOverviewExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: ButtonComponent }
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class ButtonModule {}

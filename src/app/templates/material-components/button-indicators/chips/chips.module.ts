@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -13,24 +11,26 @@ import { ChipsAutocompleteExample } from './examples/chips-autocomplete-example/
 import { ChipsInputExample } from './examples/chips-input-example/chips-input-example';
 import { ChipsStackedExample } from './examples/chips-stacked-example/chips-stacked-example';
 
+const COMPONENTS = [
+  // Chips Components
+  ChipsComponent,
+
+  // Examples
+  ChipsOverviewExample,
+  ChipsAutocompleteExample,
+  ChipsInputExample,
+  ChipsStackedExample
+];
+
 @NgModule({
   declarations: [
-    // Chips Components
-    ChipsComponent,
-
-    // Examples
-    ChipsOverviewExample,
-    ChipsAutocompleteExample,
-    ChipsInputExample,
-    ChipsStackedExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: ChipsComponent }
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class ChipsModule {}

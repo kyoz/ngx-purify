@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -12,25 +10,27 @@ import {
   DialogOverviewExample, DialogOverviewExampleDialog
 } from './examples/dialog-overview-example/dialog-overview-example';
 
+const COMPONENTS = [
+  // Dialog Components
+  DialogComponent,
+
+  // Examples
+  DialogOverviewExample,
+  DialogOverviewExampleDialog
+];
+
 @NgModule({
   declarations: [
-    // Dialog Components
-    DialogComponent,
-
-    // Examples
-    DialogOverviewExample,
-    DialogOverviewExampleDialog
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: DialogComponent }
-    ])
+    SharedModule
   ],
   entryComponents: [
     DialogOverviewExampleDialog
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class DialogModule {}

@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-
-import { SharedModule } from '../../../shared/shared.module';
+import { SharedModule } from 'src/app/templates/shared/shared.module';
 
 // Toolbar Components
 import { ToolbarComponent } from './toolbar.component';
@@ -10,21 +7,23 @@ import { ToolbarComponent } from './toolbar.component';
 // Toolbar Examples
 import { ToolbarOverviewExample } from './examples/toolbar-overview-example/toolbar-overview-example';
 
+const COMPONENTS = [
+  // Toolbar Components
+  ToolbarComponent,
+
+  // Examples
+  ToolbarOverviewExample
+];
+
 @NgModule({
   declarations: [
-    // Toolbar Components
-    ToolbarComponent,
-
-    // Examples
-    ToolbarOverviewExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: ToolbarComponent }
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class ToolbarModule {}

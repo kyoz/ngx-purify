@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -10,21 +8,23 @@ import { BadgeComponent } from './badge.component';
 // Badge Examples
 import { BadgeOverviewExample } from './examples/badge-overview-example/badge-overview-example';
 
+const COMPONENTS =[
+  // Badge Components
+  BadgeComponent,
+
+  // Examples
+  BadgeOverviewExample
+];
+
 @NgModule({
   declarations: [
-    // Badge Components
-    BadgeComponent,
-
-    // Examples
-    BadgeOverviewExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: BadgeComponent }
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class BadgeModule {}

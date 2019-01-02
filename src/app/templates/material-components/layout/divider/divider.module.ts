@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -10,21 +8,23 @@ import { DividerComponent } from './divider.component';
 // Divider Examples
 import { DividerOverviewExample } from './examples/divider-overview-example/divider-overview-example';
 
+const COMPONENTS = [
+  // Divider Components
+  DividerComponent,
+
+  // Examples
+  DividerOverviewExample
+];
+
 @NgModule({
   declarations: [
-    // Divider Components
-    DividerComponent,
-
-    // Examples
-    DividerOverviewExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: DividerComponent }
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class DividerModule {}

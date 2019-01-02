@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -14,25 +12,27 @@ import { TreeChecklistExample } from './examples/tree-checklist-example/tree-che
 import { TreeNestedExample } from './examples/tree-nested-example/tree-nested-example';
 import { TreeLoadmoreExample } from './examples/tree-loadmore-example/tree-loadmore-example';
 
+const COMPONENTS = [
+  // Tree Components
+  TreeComponent,
+
+  // Examples
+  TreeDynamicExample,
+  TreeFlatExample,
+  TreeChecklistExample,
+  TreeNestedExample,
+  TreeLoadmoreExample
+];
+
 @NgModule({
   declarations: [
-    // Tree Components
-    TreeComponent,
-
-    // Examples
-    TreeDynamicExample,
-    TreeFlatExample,
-    TreeChecklistExample,
-    TreeNestedExample,
-    TreeLoadmoreExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: TreeComponent}
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class TreeModule {}

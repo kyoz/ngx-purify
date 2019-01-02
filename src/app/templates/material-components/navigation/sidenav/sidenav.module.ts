@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-
-import { SharedModule } from '../../../shared/shared.module';
+import { SharedModule } from 'src/app/templates/shared/shared.module';
 
 // Sidenav Components
 import { SidenavComponent } from './sidenav.component';
@@ -11,22 +8,24 @@ import { SidenavComponent } from './sidenav.component';
 import { SidenavOverviewExample } from './examples/sidenav-overview-example/sidenav-overview-example';
 import { SidenavAutosizeExample } from './examples/sidenav-autosize-example/sidenav-autosize-example';
 
+const COMPONENTS = [
+  // Sidenav Components
+  SidenavComponent,
+
+  // Examples
+  SidenavOverviewExample,
+  SidenavAutosizeExample
+];
+
 @NgModule({
   declarations: [
-    // Sidenav Components
-    SidenavComponent,
-
-    // Examples
-    SidenavOverviewExample,
-    SidenavAutosizeExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: SidenavComponent }
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class SidenavModule {}

@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -19,30 +17,32 @@ import { TabThemeExample } from './examples/tab-theme-example/tab-theme-example'
 import { TabAsyncExample } from './examples/tab-async-example/tab-async-example';
 import { TabNavbarExample } from './examples/tab-navbar-example/tab-navbar-example';
 
+const COMPONENTS = [
+  // Tab Components
+  TabComponent,
+
+  // Examples
+  TabOverviewExample,
+  TabCustomLabelExample,
+  TabDynamicHeightExample,
+  TabDynamicExample,
+  TabLazyloadExample,
+  TabHeaderBelowExample,
+  TabStretchedLabelsExample,
+  TabThemeExample,
+  TabAsyncExample,
+  TabNavbarExample
+];
+
 @NgModule({
   declarations: [
-    // Tab Components
-    TabComponent,
-
-    // Examples
-    TabOverviewExample,
-    TabCustomLabelExample,
-    TabDynamicHeightExample,
-    TabDynamicExample,
-    TabLazyloadExample,
-    TabHeaderBelowExample,
-    TabStretchedLabelsExample,
-    TabThemeExample,
-    TabAsyncExample,
-    TabNavbarExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: TabComponent}
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class TabModule {}

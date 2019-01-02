@@ -1,24 +1,51 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { SharedModule } from '../../shared/shared.module';
+// Modules
+import { AutocompleteModule } from './autocomplete/autocomplete.module';
+import { CheckboxModule } from './checkbox/checkbox.module';
+import { DatePickerModule } from './datepicker/datepicker.module';
+import { FormFieldModule } from './form-field/form-field.module';
+import { InputModule } from './input/input.module';
+import { RadioButtonModule } from './radio-button/radio-button.module';
+import { SelectModule } from './select/select.module';
+import { SliderModule } from './slider/slider.module';
+import { SlideToggleModule } from './slide-toggle/slide-toggle.module';
+
+// Components
+import { AutocompleteComponent } from './autocomplete/autocomplete.component';
+import { CheckboxComponent } from './checkbox/checkbox.component';
+import { DatepickerComponent } from './datepicker/datepicker.component';
+import { FormFieldComponent } from './form-field/form-field.component';
+import { InputComponent } from './input/input.component';
+import { RadioButtonComponent } from './radio-button/radio-button.component';
+import { SelectComponent } from './select/select.component';
+import { SliderComponent } from './slider/slider.component';
+import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
 
 @NgModule({
   imports: [
-    // Modules
-    SharedModule,
+    AutocompleteModule,
+    CheckboxModule,
+    DatePickerModule,
+    FormFieldModule,
+    InputModule,
+    RadioButtonModule,
+    SelectModule,
+    SliderModule,
+    SlideToggleModule,
 
     // Router
     RouterModule.forChild([
-      { path: 'autocomplete', loadChildren: './autocomplete/autocomplete.module#AutocompleteModule' },
-      { path: 'checkbox', loadChildren: './checkbox/checkbox.module#CheckboxModule' },
-      { path: 'datepicker', loadChildren: './datepicker/datepicker.module#DatePickerModule' },
-      { path: 'form-field', loadChildren: './form-field/form-field.module#FormFieldModule' },
-      { path: 'input', loadChildren: './input/input.module#InputModule' },
-      { path: 'radio-button', loadChildren: './radio-button/radio-button.module#RadioButtonModule' },
-      { path: 'select', loadChildren: './select/select.module#SelectModule' },
-      { path: 'slider', loadChildren: './slider/slider.module#SliderModule' },
-      { path: 'slide-toggle', loadChildren: './slide-toggle/slide-toggle.module#SlideToggleModule' }
+      { path: 'autocomplete', component: AutocompleteComponent },
+      { path: 'checkbox', component: CheckboxComponent },
+      { path: 'datepicker', component: DatepickerComponent },
+      { path: 'form-field', component: FormFieldComponent },
+      { path: 'input', component: InputComponent },
+      { path: 'radio-button', component: RadioButtonComponent },
+      { path: 'select', component: SelectComponent },
+      { path: 'slider', component: SliderComponent },
+      { path: 'slide-toggle', component: SlideToggleComponent }
     ])
   ]
 })

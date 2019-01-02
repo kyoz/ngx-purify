@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -14,25 +12,27 @@ import { AutocompleteFilterExample } from './examples/autocomplete-filter-exampl
 import { AutocompleteOptionGroupsExample } from './examples/autocomplete-option-groups-example/autocomplete-option-groups-example';
 import { AutocompleteFocusFirstOptionExample } from './examples/autocomplete-focus-first-option-example/autocomplete-focus-first-option-example';
 
+const COMPONENTS = [
+  // Autocomplete Components
+  AutocompleteComponent,
+
+  // Examples
+  AutocompleteOverviewExample,
+  AutocompleteDisplayValueExample,
+  AutocompleteFilterExample,
+  AutocompleteOptionGroupsExample,
+  AutocompleteFocusFirstOptionExample
+];
+
 @NgModule({
   declarations: [
-    // Autocomplete Components
-    AutocompleteComponent,
-
-    // Examples
-    AutocompleteOverviewExample,
-    AutocompleteDisplayValueExample,
-    AutocompleteFilterExample,
-    AutocompleteOptionGroupsExample,
-    AutocompleteFocusFirstOptionExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: AutocompleteComponent }
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class AutocompleteModule {}

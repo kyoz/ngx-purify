@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -10,21 +8,23 @@ import { StepperComponent } from './stepper.component';
 // Stepper Examples
 import { StepperOverviewExample } from './examples/stepper-overview-example/stepper-overview-example';
 
+const COMPONENTS = [
+  // Stepper Components
+  StepperComponent,
+
+  // Examples
+  StepperOverviewExample
+];
+
 @NgModule({
   declarations: [
-    // Stepper Components
-    StepperComponent,
-
-    // Examples
-    StepperOverviewExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: StepperComponent}
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class StepperModule {}

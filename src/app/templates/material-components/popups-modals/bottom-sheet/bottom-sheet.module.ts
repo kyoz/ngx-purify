@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -12,25 +10,27 @@ import {
   BottomSheetOverviewExample, BottomSheetOverviewExampleSheet
 } from './examples/bottom-sheet-overview-example/bottom-sheet-overview-example';
 
+const COMPONENTS = [
+  // Bottom Sheet Components
+  BottomSheetComponent,
+
+  // Examples
+  BottomSheetOverviewExample,
+  BottomSheetOverviewExampleSheet
+];
+
 @NgModule({
   declarations: [
-    // Bottom Sheet Components
-    BottomSheetComponent,
-
-    // Examples
-    BottomSheetOverviewExample,
-    BottomSheetOverviewExampleSheet
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: BottomSheetComponent }
-    ])
+    SharedModule
   ],
   entryComponents: [
     BottomSheetOverviewExampleSheet
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class BottomSheetModule {}

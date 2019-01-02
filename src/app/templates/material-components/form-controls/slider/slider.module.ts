@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -10,21 +8,23 @@ import { SliderComponent } from './slider.component';
 // Slider Examples
 import { SliderConfigurableExample } from './examples/slider-configurable-example/slider-configurable-example';
 
+const COMPONENTS = [
+  // Slider Components
+  SliderComponent,
+
+  // Examples
+  SliderConfigurableExample
+];
+
 @NgModule({
   declarations: [
-    // Slider Components
-    SliderComponent,
-
-    // Examples
-    SliderConfigurableExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: SliderComponent }
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class SliderModule {}

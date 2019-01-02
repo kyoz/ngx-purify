@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -10,21 +8,23 @@ import { ProgressSpinnerComponent } from './progress-spinner.component';
 // Progress Spinner Examples
 import { ProgressSpinnerOverviewExample } from './examples/progress-spinner-overview-example/progress-spinner-overview-example';
 
+const COMPONENTS = [
+  // Progress Spinner Components
+  ProgressSpinnerComponent,
+
+  // Examples
+  ProgressSpinnerOverviewExample
+];
+
 @NgModule({
   declarations: [
-    // Progress Spinner Components
-    ProgressSpinnerComponent,
-
-    // Examples
-    ProgressSpinnerOverviewExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: ProgressSpinnerComponent }
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class ProgressSpinnerModule {}

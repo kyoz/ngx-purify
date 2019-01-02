@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -10,21 +8,23 @@ import { SortHeaderComponent } from './sort-header.component';
 // Sort Header Examples
 import { SortHeaderOverviewExample } from './examples/sort-header-overview-example/sort-header-overview-example';
 
+const COMPONENTS = [
+  // Sort Header Components
+  SortHeaderComponent,
+
+  // Examples
+  SortHeaderOverviewExample
+];
+
 @NgModule({
   declarations: [
-    // Sort Header Components
-    SortHeaderComponent,
-
-    // Examples
-    SortHeaderOverviewExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: SortHeaderComponent }
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class SortHeaderModule {}

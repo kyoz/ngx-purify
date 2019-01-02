@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -22,33 +20,35 @@ import { TableStickyColumnsExample } from './examples/table-sticky-columns-examp
 import { TableStickyHeaderExample } from './examples/table-sticky-header-example/table-sticky-header-example';
 import { TableStickyFooterExample } from './examples/table-sticky-footer-example/table-sticky-footer-example';
 
+const COMPONENTS = [
+  // Table Components
+  TableComponent,
+
+  // Examples
+  TableOverviewExample,
+  TableFlexExample,
+  TableDynamicColumnExample,
+  TableExpandableRowExample,
+  TableFilteringExample,
+  TableFooterRowExample,
+  TableHttpExample,
+  TableMultipleHeaderFooterExample,
+  TableSortingPaginationFilteringExample,
+  TableSelectionExample,
+  TableStickyColumnsExample,
+  TableStickyHeaderExample,
+  TableStickyFooterExample
+];
+
 @NgModule({
   declarations: [
-    // Table Components
-    TableComponent,
-
-    // Examples
-    TableOverviewExample,
-    TableFlexExample,
-    TableDynamicColumnExample,
-    TableExpandableRowExample,
-    TableFilteringExample,
-    TableFooterRowExample,
-    TableHttpExample,
-    TableMultipleHeaderFooterExample,
-    TableSortingPaginationFilteringExample,
-    TableSelectionExample,
-    TableStickyColumnsExample,
-    TableStickyHeaderExample,
-    TableStickyFooterExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: TableComponent }
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class TableModule {}

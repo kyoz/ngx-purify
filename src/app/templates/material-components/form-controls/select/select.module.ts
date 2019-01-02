@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../../../shared/shared.module';
 
@@ -21,32 +19,34 @@ import { SelectNoRippleExample } from './examples/select-no-ripple-example/selec
 import { SelectCustomStyleExample } from './examples/select-custom-style-example/select-custom-style-example';
 import { SelectCustomErrorMatcherExample } from './examples/select-custom-error-matcher-example/select-custom-error-matcher-example';
 
+const COMPONENTS = [
+  // Select Components
+  SelectComponent,
+
+  // Examples
+  SelectOverviewExample,
+  SelectTwoWaysBindingExample,
+  SelectInAFormExample,
+  SelectFormFieldFeaturesExample,
+  SelectDisabledExample,
+  SelectWithResetExample,
+  SelectOptionGroupsExample,
+  SelectMultipleSelectionExample,
+  SelectCustomTriggerTextExample,
+  SelectNoRippleExample,
+  SelectCustomStyleExample,
+  SelectCustomErrorMatcherExample
+];
+
 @NgModule({
   declarations: [
-    // Select Components
-    SelectComponent,
-
-    // Examples
-    SelectOverviewExample,
-    SelectTwoWaysBindingExample,
-    SelectInAFormExample,
-    SelectFormFieldFeaturesExample,
-    SelectDisabledExample,
-    SelectWithResetExample,
-    SelectOptionGroupsExample,
-    SelectMultipleSelectionExample,
-    SelectCustomTriggerTextExample,
-    SelectNoRippleExample,
-    SelectCustomStyleExample,
-    SelectCustomErrorMatcherExample
+    COMPONENTS
   ],
   imports: [
-    CommonModule,
-    SharedModule,
-
-    RouterModule.forChild([
-      { path: '', component: SelectComponent }
-    ])
+    SharedModule
+  ],
+  exports: [
+    COMPONENTS
   ]
 })
 export class SelectModule {}
