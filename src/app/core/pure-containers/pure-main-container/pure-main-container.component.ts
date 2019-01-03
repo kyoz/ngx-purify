@@ -24,7 +24,8 @@ export class PureMainContainer implements OnInit, OnDestroy {
 
   isLoading: boolean = false;
   isBackdropVisible: boolean = false;
-  combineSubscription: Subscription;
+
+  subscriptions: Subscription[] = [];
 
   _onWindowResize = this.onWindowResize.bind(this);
 
@@ -52,7 +53,7 @@ export class PureMainContainer implements OnInit, OnDestroy {
     });
 
     // Subscribe for window resize
-    this.windowResize$.pipe(debounceTime(200)).subscribe(res => {
+    const windowResizeSubscription = this.windowResize$.pipe(debounceTime(200)).subscribe(res => {
       if (res) {
         // Disable animation
         this._settings.disableAnimation$.next(true);
@@ -66,6 +67,8 @@ export class PureMainContainer implements OnInit, OnDestroy {
         this._changeDetector.detectChanges();
       }
     });
+
+    this.subscriptions.push(windowResizeSubscription);
    }
 
   ngOnInit() {
@@ -79,8 +82,10 @@ export class PureMainContainer implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.combineSubscription) {
-      this.combineSubscription.unsubscribe();
+    for (const subscription of this.subscriptions) {
+      if (subscription) {
+        subscription.unsubscribe();
+      }
     }
   }
 
@@ -94,7 +99,7 @@ export class PureMainContainer implements OnInit, OnDestroy {
       this._notificationContainer.isOpened$
     ).pipe(distinctUntilChanged());
 
-    this.combineSubscription = combineBehaviorSubjects.subscribe(([
+    const combineSubscription = combineBehaviorSubjects.subscribe(([
       isFullWidth,
       isMenuOpened,
       isChatboxOpened,
@@ -107,6 +112,8 @@ export class PureMainContainer implements OnInit, OnDestroy {
         this.isBackdropVisible = false;
       }
     });
+
+    this.subscriptions.push(combineSubscription);
   }
 
   onWindowResize() {

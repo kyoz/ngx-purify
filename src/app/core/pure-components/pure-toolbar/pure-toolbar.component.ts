@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 
 // Pure Services
 import { PureMenuContainerService } from '../../pure-containers/pure-menu-container/pure-menu-container.service';
@@ -8,6 +8,7 @@ import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { PureMainContainerService } from '../../pure-containers/pure-main-container/pure-main-container.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { debounceTime } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'pure-toolbar',
@@ -17,6 +18,8 @@ import { debounceTime } from 'rxjs/operators';
 export class PureToolbar implements OnInit {
   isSearching = false;
   isFullScreen = false;
+
+  subscriptions: Subscription[] = [];
 
   _onWindowFullScreenChange = this.onWindowFullScreenChange.bind(this);
 
@@ -39,9 +42,19 @@ export class PureToolbar implements OnInit {
       window.addEventListener('msfullscreenchange', this._onWindowFullScreenChange);
     }
 
-    this._mainContainer.isFullWidth$.pipe(debounceTime(200)).subscribe(() => {
+    const subscription = this._mainContainer.isFullWidth$.pipe(debounceTime(200)).subscribe(() => {
       this._changeDetector.detectChanges();
     });
+
+    this.subscriptions.push(subscription);
+  }
+
+  ngOnDestroy() {
+    for (const subscription of this.subscriptions) {
+      if (subscription) {
+        subscription.unsubscribe();
+      }
+    }
   }
 
   toggleSearch() {
