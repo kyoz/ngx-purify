@@ -27,6 +27,10 @@
     color: mat-color($foreground, icon);
   }
 
+  .pure-primary-foreground {
+    color: mat-color($primary);
+  }
+
   // Set background with current material theme
   .pure-background {
     background: mat-color($background, background);

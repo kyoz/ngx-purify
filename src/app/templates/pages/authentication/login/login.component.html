@@ -1,3 +1,36 @@
-<p>
-  login works!
-</p>
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
+  <mat-card class="login-form" fxLayout="column" fxLayoutAlign="center center">
+    <img class="logo" src="/assets/logo/pure.svg" width="92px">
+    <div class="title">LOGIN TO PURE</div>
+
+    <mat-form-field appearance="outline" class="input-form-field">
+      <mat-label>Email</mat-label>
+      <mat-icon matSuffix class="input-icon">email</mat-icon>
+      <input matInput placeholder="Email" [formControl]="formCtrl.email">
+      <mat-error *ngIf="formCtrl.email.invalid" align="end">{{getEmailErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="input-form-field">
+      <mat-label>Password</mat-label>
+      <mat-icon matSuffix>vpn_key</mat-icon>
+      <input matInput placeholder="Password" type="password" [formControl]="formCtrl.password">
+      <mat-error *ngIf="formCtrl.password.invalid" align="end">You must enter your password</mat-error>
+    </mat-form-field>
+
+    <div style="width: 100%" fxLayout="row" fxLayoutAlign="space-between center">
+      <mat-checkbox class="remember-me">Remember me</mat-checkbox>
+      <span>
+        <a class="forgot-password pure-primary-foreground" href="forgot-pass">Forgot Password ?</a>
+      </span>
+    </div>
+
+    <div class="buttons">
+      <button mat-raised-button color="primary">LOGIN</button>
+      <div class="divider"></div>
+      <button mat-raised-button>LOGIN</button>
+      <button mat-raised-button>LOGIN</button>
+      <button mat-raised-button>LOGIN</button>
+    </div>
+
+  </mat-card>
+</div>
