@@ -28,13 +28,22 @@
 
       <div class="buttons">
         <button mat-raised-button class="login-button" color="primary" [disabled]="loginForm.invalid">LOGIN</button>
-        <div class="divider">
-          <div class="social-login-title pure-background">Or login with</div>
+
+        <div class="divider-wrapper" fxLayout="row" fxLayoutAlign="center center">
+          <div class="divider"></div>
+          <div class="social-login-label">Or login with</div>
+          <div class="divider"></div>
         </div>
+
         <div class="social-buttons" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="16px">
           <button mat-icon-button><mat-icon svgIcon="google" matTooltip="Login with Google account"></mat-icon></button>
           <button mat-icon-button><mat-icon svgIcon="facebook" matTooltip="Login with Facebook account"></mat-icon></button>
           <button mat-icon-button><mat-icon svgIcon="twitter" matTooltip="Login with Twitter account"></mat-icon></button>
+        </div>
+
+        <div class="register-label">Doesn't have an account ?</div>
+        <div class="register-button">
+          <a mat-button color="primary">CREATE AN ACCOUNT</a>
         </div>
       </div>
 
