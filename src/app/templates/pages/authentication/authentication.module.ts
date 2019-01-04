@@ -12,11 +12,13 @@ import {
   MatIconModule,
   MatButtonModule,
   MatCardModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatTooltipModule
 } from '@angular/material';
 
 // Other Modules
 import { PureSharedModule } from '../../../shared/shared.module';
+import { PureDirectivesModule } from 'src/app/core/pure-directives/pure-directives.module';
 
 @NgModule({
   declarations: [
@@ -29,12 +31,14 @@ import { PureSharedModule } from '../../../shared/shared.module';
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,
+    MatTooltipModule,
 
     // Routing Module
     AuthenticationRoutingModule,
 
     // Other Modules
-    PureSharedModule
+    PureSharedModule,
+    PureDirectivesModule
   ]
 })
 export class AuthenticationModule {}
