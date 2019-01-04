@@ -19,7 +19,7 @@
   <pure-settings-container></pure-settings-container>
   <!--Main Backdrop-->
   <div class="pure-main-container-backdrop"
-    [ngClass]="{ 'visible' : isBackdropVisible }"
+    [ngClass]="{ 'visible' : isBackdropVisible && !minimalMode }"
     (click)="closeBackdrop()"></div>
   <!--Setting Backdrop-->
   <div class="pure-settings-backdrop"
