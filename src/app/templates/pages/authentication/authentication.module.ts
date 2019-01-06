@@ -3,9 +3,6 @@ import { NgModule } from '@angular/core';
 // Routing Module
 import { AuthenticationRoutingModule } from './authentication.routing';
 
-// Components
-import { LoginComponent } from './login/login.component';
-
 // Material Modules
 import {
   MatInputModule,
@@ -20,9 +17,14 @@ import {
 import { PureSharedModule } from '../../../shared/shared.module';
 import { PureDirectivesModule } from 'src/app/core/pure-directives/pure-directives.module';
 
+// Components
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     // Material Modules

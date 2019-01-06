@@ -1,0 +1,55 @@
+<div class="container" purePerfectScrollbar fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="login-form">
+    <form [formGroup]="loginForm" fxLayout="column" fxLayoutAlign="center center">
+
+      <img class="logo" src="/assets/logo/pure.svg" width="84px">
+      <div class="title">CREATE AN ACCOUNT</div>
+
+      <mat-form-field appearance="outline" class="input-form-field">
+        <mat-label>Name</mat-label>
+        <mat-icon matSuffix class="input-icon" svgIcon="account"></mat-icon>
+        <input matInput pureAutofocus placeholder="Name" formControlName="name">
+        <mat-error *ngIf="name.invalid" align="end">You must enter your name</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="input-form-field">
+        <mat-label>Email</mat-label>
+        <mat-icon matSuffix class="input-icon">email</mat-icon>
+        <input matInput placeholder="Email" formControlName="email">
+        <mat-error *ngIf="email.invalid" align="end">{{getEmailErrorMessage()}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="input-form-field">
+        <mat-label>Password</mat-label>
+        <mat-icon matSuffix>vpn_key</mat-icon>
+        <input matInput placeholder="Password" type="password" formControlName="password">
+        <mat-error *ngIf="password.invalid" align="end">You must enter your password</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="input-form-field">
+        <mat-label>Confirm Password</mat-label>
+        <mat-icon matSuffix>vpn_key</mat-icon>
+        <input matInput placeholder="Confirm Password" type="password" formControlName="confirmPassword">
+        <mat-error *ngIf="confirmPassword.invalid" align="end">You must confirm your password</mat-error>
+        <mat-error *ngIf="confirmPassword.value === '123'" align="end">You must confirm your password</mat-error>
+      </mat-form-field>
+
+      <div style="width: 100%; margin: 12px 0" fxLayout="row" fxLayoutAlign="space-between center">
+        <mat-checkbox class="remember-me">Remember me</mat-checkbox>
+        <span>
+          <a class="forgot-password pure-primary-foreground" href="forgot-pass">Forgot Password ?</a>
+        </span>
+      </div>
+
+      <div class="buttons">
+        <button mat-raised-button class="login-button" color="primary" [disabled]="loginForm.invalid">CREATE ACCOUNT</button>
+
+        <div class="register-label">Already have an account ?</div>
+        <div class="register-button">
+          <a mat-button color="primary">SIGN IN</a>
+        </div>
+      </div>
+
+    </form>
+  </mat-card>
+</div>
