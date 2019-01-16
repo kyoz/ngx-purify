@@ -1,53 +1,46 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormControl, Validators, FormGroup, FormBuilder, FormGroupDirective, NgForm } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material';
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const invalidCtrl = !!(control && control.invalid && control.parent.dirty);
+    const invalidParent = !!(control && control.parent && control.parent.invalid && control.parent.dirty);
+
+    return (invalidCtrl || invalidParent);
+  }
+}
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
   loginForm: FormGroup;
+  errorStateMatcher: ErrorStateMatcher = new MyErrorStateMatcher();
 
-  name: FormControl;
-  email: FormControl;
-  password: FormControl;
-  confirmPassword: FormControl;
-
-  model = {
-    name: undefined,
-    email: undefined,
-    password: undefined,
-    confirmPassword: undefined
-  };
-
-  createFormControls() {
-    this.name = new FormControl('', [Validators.required]);
-    this.email = new FormControl('', [
-      Validators.required,
-      Validators.email
-    ]);
-    this.password = new FormControl('', [Validators.required]);
-    this.confirmPassword = new FormControl('', [Validators.required]);
-  }
-
-  createForm() {
-    this.loginForm = new FormGroup({
-      name: this.name,
-      email: this.email,
-      password: this.password,
-      confirmPassword: this.confirmPassword
+  constructor(private _formBuilder: FormBuilder) {
+    this.loginForm = this._formBuilder.group({
+      name: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      passwords: this._formBuilder.group({
+        password: ['', [Validators.required]],
+        confirmPassword: ['', [Validators.required]]
+      }, { validator: this.checkConfirmPasswords })
     });
   }
 
-  ngOnInit() {
-    this.createFormControls();
-    this.createForm();
+  checkConfirmPasswords(group: FormGroup) {
+    const password = group.controls.password.value;
+    const confirmPassword = group.controls.confirmPassword.value;
+
+    return password === confirmPassword ? null : { notSamePassword: true };
   }
 
   getEmailErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter an email' :
-        this.email.hasError('email') ? 'This is not a valid email' : '';
+    return this.loginForm.get('email').hasError('required') ? 'You must enter an email' :
+      this.loginForm.get('email').hasError('email') ? 'This is not a valid email' : '';
   }
 }
