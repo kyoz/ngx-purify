@@ -1,0 +1,59 @@
+.input-form-field {
+  width: 100%;
+}
+
+.remember-me {
+  font-size: .9em;
+  margin-bottom: -2px;
+}
+
+.forgot-password {
+  font-size: .9em;
+}
+
+.buttons {
+  width: 100%;
+  margin-top: 16px;
+
+  .divider-wrapper {
+    margin: 12px 0;
+
+    .divider {
+      border-top: 1px solid #dddddd;
+      width: 20%;
+    }
+
+    .social-login-label {
+      font-size: .8em;
+      opacity: .3;
+      margin: 0 8px;
+    }
+  }
+
+  .login-button {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .social-buttons {
+    width: 100%;
+  }
+
+  .register-label {
+    width: 100%;
+    text-align: center;
+    margin: 16px 0 8px 0;
+    font-size: .9em;
+    opacity: .7;
+  }
+
+  .register-button {
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+
+    a {
+      font-weight: 400;
+    }
+  }
+}

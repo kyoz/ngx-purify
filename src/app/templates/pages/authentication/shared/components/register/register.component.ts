@@ -12,7 +12,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 }
 
 @Component({
-  selector: 'app-register',
+  selector: 'auth-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
