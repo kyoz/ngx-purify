@@ -16,13 +16,13 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent {
+export class AuthRegisterComponent {
 
-  loginForm: FormGroup;
+  registerForm: FormGroup;
   errorStateMatcher: ErrorStateMatcher = new MyErrorStateMatcher();
 
   constructor(private _formBuilder: FormBuilder) {
-    this.loginForm = this._formBuilder.group({
+    this.registerForm = this._formBuilder.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       passwords: this._formBuilder.group({
@@ -40,7 +40,7 @@ export class RegisterComponent {
   }
 
   getEmailErrorMessage() {
-    return this.loginForm.get('email').hasError('required') ? 'You must enter an email' :
-      this.loginForm.get('email').hasError('email') ? 'This is not a valid email' : '';
+    return this.registerForm.get('email').hasError('required') ? 'You must enter an email' :
+      this.registerForm.get('email').hasError('email') ? 'This is not a valid email' : '';
   }
 }

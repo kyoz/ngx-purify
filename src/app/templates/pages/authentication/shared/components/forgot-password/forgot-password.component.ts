@@ -2,26 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'auth-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'auth-forgot-password',
+  templateUrl: './forgot-password.component.html',
+  styleUrls: ['./forgot-password.component.scss']
 })
-export class AuthLoginComponent implements OnInit {
+export class AuthForgotPasswordComponent implements OnInit {
 
-  loginForm: FormGroup;
+  forgotPasswordForm: FormGroup;
   email: FormControl;
-  password: FormControl;
 
   createFormControls() {
     this.email = new FormControl('', [Validators.required, Validators.email]);
-    this.password = new FormControl('', [Validators.required]);
   }
 
   createForm() {
-    this.loginForm = new FormGroup({
-      email: this.email,
-      password: this.password
-    });
+    this.forgotPasswordForm = new FormGroup({ email: this.email });
   }
 
   ngOnInit() {
@@ -30,7 +25,7 @@ export class AuthLoginComponent implements OnInit {
   }
 
   getEmailErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter an email' :
+    return this.email.hasError('required') ? 'You must enter your email' :
         this.email.hasError('email') ? 'This is not a valid email' : '';
   }
 }
