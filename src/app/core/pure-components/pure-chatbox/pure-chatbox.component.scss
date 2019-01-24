@@ -301,7 +301,7 @@
 /**
 * RTL SUPPORT
 */
-.pure-chatbox.RTL {
+.pure-chatbox[dir='rtl'] {
   .chatbox-contacts-wrapper>.chatbox-contacts>.contact-item-wrapper {
 
     .contact-item-selected {

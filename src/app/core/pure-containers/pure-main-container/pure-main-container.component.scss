@@ -82,7 +82,7 @@
 * RTL SUPPORT
 */
 
-.pure-main-container.RTL {
+.pure-main-container[dir='rtl'] {
   .menu-content-small-screen {
     right: 0px;
     left: 0px;

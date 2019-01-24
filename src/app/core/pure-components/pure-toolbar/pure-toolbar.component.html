@@ -1,6 +1,4 @@
-<mat-toolbar class="pure-toolbar" color="primary" [ngClass]="{
-  'RTL' : _settings.currentTextDir === 'RTL'
-}">
+<mat-toolbar class="pure-toolbar" color="primary" [dir]="_settings.currentTextDir">
   <button mat-button class="button left-side" *ngIf="!_mainContainer.isFullWidth" (click)="_menuContainer.open()">
     <mat-icon>menu</mat-icon>
   </button> 

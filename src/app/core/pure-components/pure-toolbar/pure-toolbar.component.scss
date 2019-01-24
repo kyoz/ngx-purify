@@ -117,7 +117,7 @@
 * RTL SUPPORT
 */
 
-.pure-toolbar.RTL {
+.pure-toolbar[dir='rtl'] {
   .right-side {
     border-right: 1px solid rgba(white,.15);
     border-left: none;

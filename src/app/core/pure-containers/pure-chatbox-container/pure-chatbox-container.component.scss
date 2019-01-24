@@ -100,7 +100,7 @@
 /**
 * RTL SUPPORT
 */
-.pure-chatbox-container.RTL {
+.pure-chatbox-container[dir='rtl'] {
   right: auto;
   left: -352px;
 
@@ -134,16 +134,16 @@
   }
 }
 
-.pure-chatbox-container.fullwidth.RTL {
+.pure-chatbox-container.fullwidth[dir='rtl'] {
   right: auto;
   left: -288px;
 }
 
-.pure-chatbox-container.fullwidth.opened.RTL {
+.pure-chatbox-container.fullwidth.opened[dir='rtl'] {
   transform: translateX(288px);
 }
 
-.pure-chatbox-container.non-fullwidth.opened.RTL {
+.pure-chatbox-container.non-fullwidth.opened[dir='rtl'] {
   transform: translateX(352px);
 }
 

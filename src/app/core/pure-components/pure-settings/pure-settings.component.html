@@ -1,6 +1,4 @@
-<div class="pure-settings" [ngClass]="{
-  'RTL' : _settings.currentTextDir === 'RTL'
-}">
+<div class="pure-settings" [dir]="_settings.currentTextDir">
   <mat-toolbar class="toolbar" color="primary">
     <mat-icon>settings</mat-icon>
     <span class="pure-spacer-8"></span>
@@ -46,7 +44,7 @@
         <mat-list-item class="setting" *ngFor="let dir of SETTINGS.TEXT_DIRECTIONS">
           <span class="pure-spacer-16"></span>
           <mat-radio-button [value]="dir">
-            {{ dir }}
+            {{ dir | uppercase }}
           </mat-radio-button>
         </mat-list-item>
       </mat-radio-group>

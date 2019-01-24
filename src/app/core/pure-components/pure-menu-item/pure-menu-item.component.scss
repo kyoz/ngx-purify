@@ -222,7 +222,7 @@
   * RTL SUPPORT
   */
 
-  .pure-menu-item.RTL {
+  .pure-menu-item[dir='rtl'] {
     .content {
       padding-left: 0px;
       padding-right: 22px;

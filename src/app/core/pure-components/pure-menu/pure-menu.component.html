@@ -1,8 +1,8 @@
 <div #PURE_MENU=purePerfectScrollbar class="pure-menu pure-theme" purePerfectScrollbar
+  [dir]="_settings.currentTextDir"
   [ngClass]="{ 
     'opened-or-hovering-menu': _menuContainer.isOpenedOrHoveringMenu,
-    'fullwidth': _mainContainer.isFullWidth,
-    'RTL' : _settings.currentTextDir === 'RTL'
+    'fullwidth': _mainContainer.isFullWidth
   }">
   <div class="group" *ngFor="let group of menuData">
     <div class="group-name-wrapper">

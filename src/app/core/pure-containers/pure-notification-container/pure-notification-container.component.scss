@@ -31,12 +31,12 @@
 * RTL SUPPORT
 */
 
-.pure-notification-container.RTL {
+.pure-notification-container[dir='rtl'] {
   right: auto;
   left: -288px;
   transform: translateX(0px);
 }
 
-.pure-notification-container.opened.RTL {
+.pure-notification-container.opened[dir='rtl'] {
   transform: translateX(288px);
 }

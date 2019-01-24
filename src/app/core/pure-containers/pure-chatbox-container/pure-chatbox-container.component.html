@@ -1,9 +1,9 @@
 <div #pure_chatbox_container class="pure-chatbox-container"
+  [dir]="_settings.currentTextDir"
   [ngClass]="{ 
     'fullwidth' : _mainContainer.isFullWidth,
     'non-fullwidth' : !_mainContainer.isFullWidth,
     'opened' : _chatboxContainer.isOpened,
-    'RTL' : _settings.currentTextDir === 'RTL',
     'disable-animation' : _settings.disableAnimation
   }">
   <mat-toolbar color="primary" class="toolbar" (click)="openChatbox()"

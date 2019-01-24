@@ -110,7 +110,7 @@
 * RTL SUPPORT
 */
 
-.pure-menu-container.RTL {
+.pure-menu-container[dir='rtl'] {
   left: auto;
   right: -224px;
 
@@ -126,7 +126,7 @@
   }
 }
 
-.pure-menu-container.opened.RTL {
+.pure-menu-container.opened[dir='rtl'] {
   .toolbar {
     .logo {
       transform: translateX(0px);
@@ -134,16 +134,16 @@
   }
 }
 
-.pure-menu-container.non-fullwidth.RTL {
+.pure-menu-container.non-fullwidth[dir='rtl'] {
   left: auto;
   right: -288px;
 }
 
-.pure-menu-container.fullwidth.opened.RTL {
+.pure-menu-container.fullwidth.opened[dir='rtl'] {
   transform: translateX(-224px);
 }
 
-.pure-menu-container.non-fullwidth.opened.RTL {
+.pure-menu-container.non-fullwidth.opened[dir='rtl'] {
   transform: translateX(-288px);
 }
 

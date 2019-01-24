@@ -4,7 +4,7 @@ import { LANGUAGES } from '../../configs/languages';
 import { PureSettingsStorageService } from './pure-settings.storage';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 export const SETTING_STORAGE_KEYS = {
   theme: 'pure-current-theme',
@@ -16,7 +16,7 @@ export const SETTING_STORAGE_KEYS = {
 export const SETTINGS = {
   THEMES: THEMES,
   LANGUAGES: LANGUAGES,
-  TEXT_DIRECTIONS: ['LTR', 'RTL'],
+  TEXT_DIRECTIONS: ['ltr', 'rtl'],
   WIDTH_LAYOUTS: ['Fullwidth', 'Boxed']
 };
 
@@ -167,13 +167,13 @@ export class PureSettingsService {
 
   updateTextDirection(textDirection: string) {
     switch (textDirection) {
-      case 'RTL':
-        document.getElementById('PURE_MAIN_CONTAINER').setAttribute('dir', 'rtl');
-        this.currentTextDir$.next('RTL');
+      case 'rtl':
+        // document.body.setAttribute('dir', 'rtl');
+        this.currentTextDir$.next('rtl');
         break;
       default:
-        document.getElementById('PURE_MAIN_CONTAINER').removeAttribute('dir');
-        this.currentTextDir$.next('LTR');
+        // document.body.removeAttribute('dir');
+        this.currentTextDir$.next('ltr');
     }
 
     // Disable animation

@@ -59,7 +59,7 @@
  * RTL SUPPORT
  */
 
-.pure-menu.RTL {
+.pure-menu[dir='rtl'] {
   .group {
     .group-name-wrapper {
       .group-name {

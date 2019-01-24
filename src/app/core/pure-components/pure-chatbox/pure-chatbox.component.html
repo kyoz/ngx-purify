@@ -1,6 +1,4 @@
-<div class="pure-chatbox" fxLayout="row" fxLayoutAlign="space-between stretch" [ngClass]="{
-  'RTL': _settings.currentTextDir === 'RTL'
-}">
+<div class="pure-chatbox" fxLayout="row" fxLayoutAlign="space-between stretch" [dir]="_settings.currentTextDir">
   <div class="chatbox-contacts-wrapper">
     <div fxFlex="64px" class="chatbox-contacts" purePerfectScrollbar>
       <div class="contact-item-wrapper" *ngFor="let contact of _chatbox.contacts$ | async">

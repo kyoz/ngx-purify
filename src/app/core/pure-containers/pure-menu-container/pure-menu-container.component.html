@@ -1,9 +1,9 @@
 <div #pure_menu_container class="pure-menu-container"
+  [dir]="_settings.currentTextDir"
   [ngClass]="{
     'fullwidth' : _mainContainer.isFullWidth,
     'non-fullwidth' : !_mainContainer.isFullWidth,
     'opened' : _menuContainer.isOpenedOrHoveringMenu,
-    'RTL' : _settings.currentTextDir === 'RTL',
     'disable-animation': _settings.disableAnimation
   }">
   <mat-toolbar color="primary" class="toolbar">
@@ -14,7 +14,7 @@
     <button mat-icon-button class="menu-button"
       (click)="_menuContainer.toggle()">
       <mat-icon>
-        {{!_menuContainer.isOpened ? 'menu' : _settings.currentTextDir === 'LTR' ? 'arrow_back' : 'arrow_forward'}}
+        {{!_menuContainer.isOpened ? 'menu' : _settings.currentTextDir === 'ltr' ? 'arrow_back' : 'arrow_forward'}}
       </mat-icon>
     </button>
   </mat-toolbar>
