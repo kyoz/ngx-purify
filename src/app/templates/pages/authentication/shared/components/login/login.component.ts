@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { PureSettingsService } from 'src/app/core/pure-services/pure-settings.service';
 
 @Component({
   selector: 'auth-login',
@@ -11,6 +12,8 @@ export class AuthLoginComponent implements OnInit {
   loginForm: FormGroup;
   email: FormControl;
   password: FormControl;
+
+  constructor(public _settings: PureSettingsService) {}
 
   createFormControls() {
     this.email = new FormControl('', [Validators.required, Validators.email]);
