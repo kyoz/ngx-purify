@@ -25,11 +25,13 @@ import { AuthSideLayoutComponent } from './shared/layouts/side-layout/side-layou
 import { AuthLoginComponent } from './shared/components/login/login.component';
 import { AuthRegisterComponent } from './shared/components/register/register.component';
 import { AuthForgotPasswordComponent } from './shared/components/forgot-password/forgot-password.component';
+import { AuthChangePasswordComponent } from './shared/components/change-password/change-password.component';
 
 // Auth Components
 import { AuthLoginV1Component } from './login/login-v1/login-v1.component';
 import { AuthRegisterV1Component } from './register/register-v1/register-v1.component';
 import { AuthForgotPasswordV1Component } from './forgot-password/forgot-password-v1/forgot-password-v1.component';
+import { AuthChangePasswordV1Component } from './change-password/change-password-v1/change-password-v1.component';
 
 @NgModule({
   declarations: [
@@ -41,11 +43,13 @@ import { AuthForgotPasswordV1Component } from './forgot-password/forgot-password
     AuthLoginComponent,
     AuthRegisterComponent,
     AuthForgotPasswordComponent,
+    AuthChangePasswordComponent,
 
     // Auth Components
     AuthLoginV1Component,
     AuthRegisterV1Component,
-    AuthForgotPasswordV1Component
+    AuthForgotPasswordV1Component,
+    AuthChangePasswordV1Component
   ],
   imports: [
     // Material Modules

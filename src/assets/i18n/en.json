@@ -28,7 +28,8 @@
         "TITLE": "Authentication",
         "LOGIN": "Login",
         "REGISTER": "Register",
-        "FORGOT_PASSWORD": "Forgot Password"
+        "FORGOT_PASSWORD": "Forgot Password",
+        "CHANGE_PASSWORD": "Change Password"
       },
       "ERRORS": {
         "TITLE": "Errors",

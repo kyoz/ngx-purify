@@ -5,9 +5,10 @@ export const PageMenu: IMenuItem[] = [
     name: 'MENU.PAGES.AUTHENTICATION.TITLE',
     icon: 'security',
     children: [
-      { name: 'MENU.PAGES.AUTHENTICATION.LOGIN', icon: 'lock', url: '/page/auth/login' },
+      { name: 'MENU.PAGES.AUTHENTICATION.LOGIN', url: '/page/auth/login' },
       { name: 'MENU.PAGES.AUTHENTICATION.REGISTER', url: '/page/auth/register' },
-      { name: 'MENU.PAGES.AUTHENTICATION.FORGOT_PASSWORD', url: '/page/auth/forgot_password' }
+      { name: 'MENU.PAGES.AUTHENTICATION.FORGOT_PASSWORD', url: '/page/auth/forgot-password' },
+      { name: 'MENU.PAGES.AUTHENTICATION.CHANGE_PASSWORD', url: '/page/auth/change-password' }
     ]
   },
   {

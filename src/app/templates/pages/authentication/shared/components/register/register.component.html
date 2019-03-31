@@ -4,7 +4,9 @@
     <mat-label>Name</mat-label>
     <mat-icon matSuffix class="input-icon" svgIcon="account"></mat-icon>
     <input matInput pureAutofocus placeholder="Name" formControlName="name">
-    <mat-error *ngIf="registerForm.hasError('required', 'name')" align="end">You must enter your name</mat-error>
+    <mat-error *ngIf="registerForm.hasError('required', 'name')" align="end">
+      You must enter your name
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="input-form-field">
@@ -19,15 +21,21 @@
       <mat-label>Password</mat-label>
       <mat-icon matSuffix>vpn_key</mat-icon>
       <input matInput placeholder="Password" type="password" formControlName="password">
-      <mat-error *ngIf="registerForm.hasError('required', 'passwords.password')" align="end">You must enter your password</mat-error>
+      <mat-error *ngIf="registerForm.hasError('required', 'passwords.password')" align="end">
+        You must enter your password
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="input-form-field">
       <mat-label>Confirm Password</mat-label>
       <mat-icon matSuffix>vpn_key</mat-icon>
       <input matInput placeholder="Confirm Password" type="password" formControlName="confirmPassword" [errorStateMatcher]="errorStateMatcher">
-      <mat-error *ngIf="!registerForm.hasError('required', 'passwords.password') && registerForm.hasError('required', 'passwords.confirmPassword')" align="end">You must confirm your password</mat-error>
-      <mat-error *ngIf="!registerForm.hasError('required', 'passwords.confirmPassword') && registerForm.hasError('notSamePassword', 'passwords')" align="end">Password do not match</mat-error>
+      <mat-error *ngIf="!registerForm.hasError('required', 'passwords.password') && registerForm.hasError('required', 'passwords.confirmPassword')" align="end">
+        You must confirm your password
+      </mat-error>
+      <mat-error *ngIf="!registerForm.hasError('required', 'passwords.confirmPassword') && registerForm.hasError('notSamePassword', 'passwords')" align="end">
+        Password do not match
+      </mat-error>
     </mat-form-field>
   </form>
 
