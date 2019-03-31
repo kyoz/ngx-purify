@@ -29,7 +29,9 @@
         "LOGIN": "Login",
         "REGISTER": "Registro",
         "FORGOT_PASSWORD": "Olvidé mi contraseña",
-        "CHANGE_PASSWORD": "Cambia la contraseña"
+        "CHANGE_PASSWORD": "Cambia la contraseña",
+        "VERIFY": "Verificar",
+        "VERIFY_WITH_CODE": "Verificar con codigo"
       },
       "ERRORS": {
         "TITLE": "Errores",

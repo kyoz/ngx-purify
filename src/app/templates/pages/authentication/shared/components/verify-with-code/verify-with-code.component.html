@@ -1,0 +1,18 @@
+<form>
+
+  <div class="title">
+    Please enter your verification code
+  </div>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Verification Code</mat-label>
+    <input matInput placeholder="Verification Code" name="verification-code" [(ngModel)]="verifyCode">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" [disabled]="!verifyCode">SUBMIT</button>
+
+  <div class="back-button">
+    <a mat-button color="primary" [routerLink]="['../login']">Back to login</a>
+  </div>
+
+</form>
