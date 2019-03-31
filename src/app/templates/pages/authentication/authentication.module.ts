@@ -26,12 +26,14 @@ import { AuthLoginComponent } from './shared/components/login/login.component';
 import { AuthRegisterComponent } from './shared/components/register/register.component';
 import { AuthForgotPasswordComponent } from './shared/components/forgot-password/forgot-password.component';
 import { AuthChangePasswordComponent } from './shared/components/change-password/change-password.component';
+import { AuthVerifyComponent } from './shared/components/verify/verify.component';
 
 // Auth Components
-import { AuthLoginV1Component } from './login/login-v1/login-v1.component';
-import { AuthRegisterV1Component } from './register/register-v1/register-v1.component';
-import { AuthForgotPasswordV1Component } from './forgot-password/forgot-password-v1/forgot-password-v1.component';
-import { AuthChangePasswordV1Component } from './change-password/change-password-v1/change-password-v1.component';
+import { AuthLoginV1Component } from './v1/login-v1/login-v1.component';
+import { AuthRegisterV1Component } from './v1/register-v1/register-v1.component';
+import { AuthForgotPasswordV1Component } from './v1/forgot-password-v1/forgot-password-v1.component';
+import { AuthChangePasswordV1Component } from './v1/change-password-v1/change-password-v1.component';
+import { AuthVerifyV1Component } from './v1/verify-v1/verify-v1.component';
 
 @NgModule({
   declarations: [
@@ -44,12 +46,14 @@ import { AuthChangePasswordV1Component } from './change-password/change-password
     AuthRegisterComponent,
     AuthForgotPasswordComponent,
     AuthChangePasswordComponent,
+    AuthVerifyComponent,
 
     // Auth Components
     AuthLoginV1Component,
     AuthRegisterV1Component,
     AuthForgotPasswordV1Component,
-    AuthChangePasswordV1Component
+    AuthChangePasswordV1Component,
+    AuthVerifyV1Component
   ],
   imports: [
     // Material Modules
