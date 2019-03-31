@@ -2,8 +2,8 @@
   <mat-card class="content">
     <div fxLayout="column" fxLayoutAlign="center center">
 
-      <img class="logo" src="/assets/logo/pure.svg" width="84px">
-      <div class="title">{{ title }}</div>
+      <img class="logo" src="/assets/logo/pure.svg" width="84px" *ngIf="showLogo">
+      <div class="title" *ngIf="showTitle">{{ title }}</div>
 
       <ng-content></ng-content>
 

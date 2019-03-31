@@ -7,4 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class AuthCenterLayoutComponent {
   @Input() title: string;
+  @Input() showLogo: boolean = true;
+  @Input() showTitle: boolean = true;
 }

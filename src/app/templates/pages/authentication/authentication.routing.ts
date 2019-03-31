@@ -8,6 +8,7 @@ import { AuthForgotPasswordV1Component } from './v1/forgot-password-v1/forgot-pa
 import { AuthChangePasswordV1Component } from './v1/change-password-v1/change-password-v1.component';
 import { AuthVerifyV1Component } from './v1/verify-v1/verify-v1.component';
 import { AuthVerifyWithCodeV1Component } from './v1/verify-with-code-v1/verify-with-code-v1.component';
+import { AuthSessionV1Component } from './v1/session-v1/session-v1.component';
 
 const routes: Routes = [
   { path: 'login', component: AuthLoginV1Component },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'forgot-password', component: AuthForgotPasswordV1Component },
   { path: 'change-password', component: AuthChangePasswordV1Component },
   { path: 'verify', component: AuthVerifyV1Component },
-  { path: 'verify-with-code', component: AuthVerifyWithCodeV1Component }
+  { path: 'verify-with-code', component: AuthVerifyWithCodeV1Component },
+  { path: 'session', component: AuthSessionV1Component },
 ];
 
 @NgModule({

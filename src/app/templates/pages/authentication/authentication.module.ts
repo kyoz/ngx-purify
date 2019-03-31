@@ -28,6 +28,7 @@ import { AuthForgotPasswordComponent } from './shared/components/forgot-password
 import { AuthChangePasswordComponent } from './shared/components/change-password/change-password.component';
 import { AuthVerifyComponent } from './shared/components/verify/verify.component';
 import { AuthVerifyWithCodeComponent } from './shared/components/verify-with-code/verify-with-code.component';
+import { AuthSessionComponent } from './shared/components/session/session.component';
 
 // Auth Components
 import { AuthLoginV1Component } from './v1/login-v1/login-v1.component';
@@ -36,6 +37,7 @@ import { AuthForgotPasswordV1Component } from './v1/forgot-password-v1/forgot-pa
 import { AuthChangePasswordV1Component } from './v1/change-password-v1/change-password-v1.component';
 import { AuthVerifyV1Component } from './v1/verify-v1/verify-v1.component';
 import { AuthVerifyWithCodeV1Component } from './v1/verify-with-code-v1/verify-with-code-v1.component';
+import { AuthSessionV1Component } from './v1/session-v1/session-v1.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import { AuthVerifyWithCodeV1Component } from './v1/verify-with-code-v1/verify-w
     AuthChangePasswordComponent,
     AuthVerifyComponent,
     AuthVerifyWithCodeComponent,
+    AuthSessionComponent,
 
     // Auth Components
     AuthLoginV1Component,
@@ -57,7 +60,8 @@ import { AuthVerifyWithCodeV1Component } from './v1/verify-with-code-v1/verify-w
     AuthForgotPasswordV1Component,
     AuthChangePasswordV1Component,
     AuthVerifyV1Component,
-    AuthVerifyWithCodeV1Component
+    AuthVerifyWithCodeV1Component,
+    AuthSessionV1Component
   ],
   imports: [
     // Material Modules
