@@ -32,6 +32,8 @@ import { AuthSessionComponent } from './shared/components/session/session.compon
 
 // Auth Components
 import { AuthLoginV1Component } from './v1/login-v1/login-v1.component';
+import { AuthLoginV2Component } from './v2/login-v2/login-v2.component';
+
 import { AuthRegisterV1Component } from './v1/register-v1/register-v1.component';
 import { AuthForgotPasswordV1Component } from './v1/forgot-password-v1/forgot-password-v1.component';
 import { AuthChangePasswordV1Component } from './v1/change-password-v1/change-password-v1.component';
@@ -56,6 +58,7 @@ import { AuthSessionV1Component } from './v1/session-v1/session-v1.component';
 
     // Auth Components
     AuthLoginV1Component,
+    AuthLoginV2Component,
     AuthRegisterV1Component,
     AuthForgotPasswordV1Component,
     AuthChangePasswordV1Component,

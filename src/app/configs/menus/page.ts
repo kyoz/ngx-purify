@@ -6,6 +6,7 @@ export const PageMenu: IMenuItem[] = [
     icon: 'security',
     children: [
       { name: 'MENU.PAGES.AUTHENTICATION.LOGIN', url: '/page/auth/login' },
+      { name: 'MENU.PAGES.AUTHENTICATION.LOGIN_V2', url: '/page/auth/login-v2' },
       { name: 'MENU.PAGES.AUTHENTICATION.REGISTER', url: '/page/auth/register' },
       { name: 'MENU.PAGES.AUTHENTICATION.FORGOT_PASSWORD', url: '/page/auth/forgot-password' },
       { name: 'MENU.PAGES.AUTHENTICATION.CHANGE_PASSWORD', url: '/page/auth/change-password' },

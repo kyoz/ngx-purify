@@ -27,6 +27,7 @@
       "AUTHENTICATION": {
         "TITLE": "Authentication",
         "LOGIN": "Login",
+        "LOGIN_V2": "Login v2",
         "REGISTER": "Register",
         "FORGOT_PASSWORD": "Forgot Password",
         "CHANGE_PASSWORD": "Change Password",

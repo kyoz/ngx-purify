@@ -27,6 +27,7 @@
       "AUTHENTICATION": {
         "TITLE": "身份验证",
         "LOGIN": "登录",
+        "LOGIN_V2": "登录v2",
         "REGISTER": "注册",
         "FORGOT_PASSWORD": "忘记密码",
         "CHANGE_PASSWORD": "更改密码",
