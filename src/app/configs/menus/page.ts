@@ -11,6 +11,7 @@ export const PageMenu: IMenuItem[] = [
       { name: 'MENU.PAGES.AUTHENTICATION.CHANGE_PASSWORD', url: '/page/auth/change-password' },
       { name: 'MENU.PAGES.AUTHENTICATION.VERIFY', url: '/page/auth/verify' },
       { name: 'MENU.PAGES.AUTHENTICATION.VERIFY_WITH_CODE', url: '/page/auth/verify-with-code' },
+      { name: 'MENU.PAGES.AUTHENTICATION.SESSION', url: '/page/auth/session' },
     ]
   },
   {

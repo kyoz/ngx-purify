@@ -31,7 +31,8 @@
         "FORGOT_PASSWORD": "Forgot Password",
         "CHANGE_PASSWORD": "Change Password",
         "VERIFY": "Verify",
-        "VERIFY_WITH_CODE": "Verify With Code"
+        "VERIFY_WITH_CODE": "Verify With Code",
+        "SESSION": "Session"
       },
       "ERRORS": {
         "TITLE": "Errors",

@@ -31,7 +31,8 @@
         "FORGOT_PASSWORD": "忘记密码",
         "CHANGE_PASSWORD": "更改密码",
         "VERIFY": "校验",
-        "VERIFY_WITH_CODE": "验证代码"
+        "VERIFY_WITH_CODE": "验证代码",
+        "SESSION": "会议"
       },
       "ERRORS": {
         "TITLE": "错误",

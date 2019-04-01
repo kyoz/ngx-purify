@@ -1,13 +1,17 @@
-<form>
+<div class="container" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="16px">
+
+  <img class="avatar" src="assets/image/avatar/kyoz.jpg" width="80px">
 
   <div class="title">
     Welcome back, Kyoz
   </div>
 
-  <button mat-raised-button color="primary" [disabled]="!verifyCode">CONTINUE YOUR SESSION</button>
+  <button class="login-btn" mat-raised-button color="primary">
+    CONTINUE YOUR SESSION
+  </button>
 
-  <div class="back-button">
-    <a mat-button color="primary" [routerLink]="['../login']">Back to login</a>
+  <div class="signout-btn">
+    <a mat-button color="default" [routerLink]="['/']">Logout</a>
   </div>
 
-</form>
+</div>
