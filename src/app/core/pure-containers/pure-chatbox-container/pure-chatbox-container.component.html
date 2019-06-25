@@ -1,16 +1,14 @@
 <div #pure_chatbox_container class="pure-chatbox-container"
-  [dir]="_settings.currentTextDir"
-  [ngClass]="{ 
-    'fullwidth' : _mainContainer.isFullWidth,
-    'non-fullwidth' : !_mainContainer.isFullWidth,
-    'opened' : _chatboxContainer.isOpened,
-    'disable-animation' : _settings.disableAnimation
-  }">
+     [dir]="_settings.currentTextDir"
+     [ngClass]="{ 
+       'fullwidth' : _mainContainer.isFullWidth,
+       'non-fullwidth' : !_mainContainer.isFullWidth,
+       'opened' : _chatboxContainer.isOpened,
+       'disable-animation' : _settings.disableAnimation
+     }">
   <mat-toolbar color="primary" class="toolbar" (click)="openChatbox()"
-    [ngSwitch]="_chatbox.inConversation && _chatboxContainer.isOpened">
-    <mat-icon class="chatbox-icon" *ngSwitchCase="false">
-      chat
-    </mat-icon>
+               [ngSwitch]="_chatbox.inConversation && _chatboxContainer.isOpened">
+    <mat-icon class="chatbox-icon" *ngSwitchCase="false"> chat </mat-icon>
     <span class="content">
       <span *ngSwitchCase="false" class="title">Chatbox</span>
       <div *ngSwitchCase="true" class="user-info" fxLayout="row" fxLayoutAlign="start center">

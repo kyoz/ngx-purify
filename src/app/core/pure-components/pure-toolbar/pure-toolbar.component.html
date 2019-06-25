@@ -40,7 +40,7 @@
 
   <!--USER MENU-->
   <mat-menu #userInfoMenu="matMenu" overlapTrigger="false"
-    [xPosition]="_settings.currentTextDir === 'LTR' ? 'before' : 'after'">
+            [xPosition]="_settings.currentTextDir === 'LTR' ? 'before' : 'after'">
     <button mat-menu-item>
       <mat-icon svgIcon="account"></mat-icon>
       <span>User Profile</span>
@@ -58,7 +58,7 @@
 
   <!--USER MENU-->
   <mat-menu #languageMenu="matMenu" overlapTrigger="false"
-    [xPosition]="_settings.currentTextDir === 'LTR' ? 'before' : 'after'">
+            [xPosition]="_settings.currentTextDir === 'LTR' ? 'before' : 'after'">
     <button mat-menu-item (click)="changeLanguage('en')">
       <span fxLayout="row" fxLayoutAlign="start center">
         <img src="assets/icon/nations/usa.png" width="24" style="padding-right: 12px">
