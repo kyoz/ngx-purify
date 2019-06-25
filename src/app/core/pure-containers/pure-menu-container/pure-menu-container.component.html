@@ -10,13 +10,16 @@
     <img class="logo" src="assets/logo/pure.svg" height="28">
     <span style="display: inline-block; width: 12px;"></span>
     <span (click)="_menuContainer.open()" class="title">PURE</span>
+
     <div class="pure-spacer"></div>
+
     <button mat-icon-button class="menu-button" (click)="_menuContainer.toggle()">
       <mat-icon>
         {{!_menuContainer.isOpened ? 'menu' : _settings.currentTextDir === 'ltr' ? 'arrow_back' : 'arrow_forward'}}
       </mat-icon>
     </button>
   </mat-toolbar>
+
   <div class="menu-wrapper pure-background">
     <pure-menu></pure-menu>
   </div>

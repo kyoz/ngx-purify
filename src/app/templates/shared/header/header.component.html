@@ -4,17 +4,17 @@
   <div fxFlex fxLayout="column" fxLayoutAlign="center stretch">
     <div class="navigation" fxLayout="row" fxLayoutAlign="start center">
       <span>
-      <mat-icon>home</mat-icon>
+        <mat-icon>home</mat-icon>
       </span>
+
       <span *ngFor="let route of routes" fxLayoutAlign="start center">
         <mat-icon class="arrow">{{ _settings.currentTextDir === 'LTR' ? 'keyboard_arrow_right' : 'keyboard_arrow_left' }}</mat-icon>
         <span>{{ route }}</span>
       </span>
     </div>
-    <div class="title">
-      {{ title }}
-    </div>
+    <div class="title">{{ title }}</div>
   </div>
+
   <div class="reference">
     <a mat-raised-button [href]="referenceUrl">
       <mat-icon>link</mat-icon>

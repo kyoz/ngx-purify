@@ -12,7 +12,8 @@
                   'offline' : contact.status === 'offline',
                   'busy' : contact.status === 'busy',
                   'do-not-disturb' : contact.status === 'do-not-disturb'
-          }"></span>
+                }">
+          </span>
           <span class="contact-unread-count" *ngIf="contact.unreadCount > 0">
             {{contact.unreadCount >= 100 ? '99+' : contact.unreadCount}}
           </span>
@@ -23,15 +24,18 @@
       </div>
     </div>
   </div>
-  <div class="chatbox" fxFlex fxLayoutAlign="center center" [ngClass]="{
-      'chatbox-opened': _chatboxContainer.isOpened
-  }">
+
+  <div class="chatbox" fxFlex fxLayoutAlign="center center"
+       [ngClass]="{
+         'chatbox-opened': _chatboxContainer.isOpened
+       }">
     <div class="no-conversation-selected" *ngIf="!_chatbox.inConversation && _chatboxContainer.isOpened">
       <div>
         <mat-icon>chat</mat-icon>
       </div>
       Select a contact to start<br>a conversation
     </div>
+
     <div class="have-conversation" fxLayout="column" fxLayoutAlign="space-between stretch"
          [hidden]="!(_chatbox.inConversation && _chatbox.currentConversation.messages.length > 0)">
       <div #messages_content=purePerfectScrollbar class="messages" purePerfectScrollbar>
@@ -41,7 +45,7 @@
                'their' : message.sender !== 0,
                'first-of-group': isFirstOfGroup(i, message, _chatbox.currentConversation.messages), 
                'last-of-group': isLastOfGroup(i, message, _chatbox.currentConversation.messages)
-          }">
+             }">
           <img class="avatar" *ngIf="message.sender !== 0" 
                src="assets/image/avatar/{{_chatbox.currentConversation.contactInfo.avatar}}" width="36">
           <div class="message">
@@ -69,10 +73,8 @@
                   (keyup.enter)="sendMessage()"></textarea>
       </div>
       <button mat-icon-button color="primary" class="message-send-btn" (click)="sendMessage()"
-        *ngIf="_chatbox.inConversation && _chatboxContainer.isOpened">
-        <mat-icon>
-          send
-        </mat-icon>
+              *ngIf="_chatbox.inConversation && _chatboxContainer.isOpened">
+        <mat-icon>send</mat-icon>
       </button>
     </div>
   </div>

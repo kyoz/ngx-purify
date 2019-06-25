@@ -11,6 +11,7 @@
       <!--Group name-->
       <div class="group-name">{{ group.groupName | translate }}</div>
     </div>
+
     <pure-menu-item *ngFor="let menuItem of group.menuItems" 
                     [menuItemData]="menuItem"
                     [isMenuOpened]="_menuContainer.isOpened"

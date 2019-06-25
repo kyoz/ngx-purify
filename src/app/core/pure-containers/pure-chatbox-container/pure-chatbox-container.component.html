@@ -9,6 +9,7 @@
   <mat-toolbar color="primary" class="toolbar" (click)="openChatbox()"
                [ngSwitch]="_chatbox.inConversation && _chatboxContainer.isOpened">
     <mat-icon class="chatbox-icon" *ngSwitchCase="false"> chat </mat-icon>
+
     <span class="content">
       <span *ngSwitchCase="false" class="title">Chatbox</span>
       <div *ngSwitchCase="true" class="user-info" fxLayout="row" fxLayoutAlign="start center">
@@ -16,7 +17,9 @@
         <span class="name">{{_chatbox.currentConversation.contactInfo.name}}</span>
       </div>
     </span>
+
     <div class="pure-spacer"></div>
+
     <button mat-icon-button class="content close-btn" (click)="closeChatbox($event)">
       <mat-icon>close</mat-icon>
     </button>
