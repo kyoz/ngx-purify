@@ -6,13 +6,25 @@ export const PageMenu: IMenuItem[] = [
     icon: 'security',
     children: [
       { name: 'MENU.PAGES.AUTHENTICATION.LOGIN', url: '/page/auth/login' },
-      { name: 'MENU.PAGES.AUTHENTICATION.LOGIN_V2', url: '/page/auth/login-v2' },
       { name: 'MENU.PAGES.AUTHENTICATION.REGISTER', url: '/page/auth/register' },
       { name: 'MENU.PAGES.AUTHENTICATION.FORGOT_PASSWORD', url: '/page/auth/forgot-password' },
       { name: 'MENU.PAGES.AUTHENTICATION.CHANGE_PASSWORD', url: '/page/auth/change-password' },
       { name: 'MENU.PAGES.AUTHENTICATION.VERIFY', url: '/page/auth/verify' },
       { name: 'MENU.PAGES.AUTHENTICATION.VERIFY_WITH_CODE', url: '/page/auth/verify-with-code' },
       { name: 'MENU.PAGES.AUTHENTICATION.SESSION', url: '/page/auth/session' },
+    ]
+  },
+  {
+    name: 'MENU.PAGES.AUTHENTICATION.TITLE_V2',
+    icon: 'security',
+    children: [
+      { name: 'MENU.PAGES.AUTHENTICATION.LOGIN', url: '/page/auth/login-v2' },
+      { name: 'MENU.PAGES.AUTHENTICATION.REGISTER', url: '/page/auth/register-v2' },
+      { name: 'MENU.PAGES.AUTHENTICATION.FORGOT_PASSWORD', url: '/page/auth/forgot-password-v2' },
+      { name: 'MENU.PAGES.AUTHENTICATION.CHANGE_PASSWORD', url: '/page/auth/change-password-v2' },
+      { name: 'MENU.PAGES.AUTHENTICATION.VERIFY', url: '/page/auth/verify-v2' },
+      { name: 'MENU.PAGES.AUTHENTICATION.VERIFY_WITH_CODE', url: '/page/auth/verify-with-code-v2' },
+      { name: 'MENU.PAGES.AUTHENTICATION.SESSION', url: '/page/auth/session-v2' },
     ]
   },
   {

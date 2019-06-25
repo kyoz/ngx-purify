@@ -26,8 +26,8 @@
       "TITLE": "网页",
       "AUTHENTICATION": {
         "TITLE": "身份验证",
+        "TITLE_V2": "身份验证v2",
         "LOGIN": "登录",
-        "LOGIN_V2": "登录v2",
         "REGISTER": "注册",
         "FORGOT_PASSWORD": "忘记密码",
         "CHANGE_PASSWORD": "更改密码",

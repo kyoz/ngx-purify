@@ -8,6 +8,9 @@
       <div class="title" *ngIf="showTitle">{{ title }}</div>
 
       <ng-content></ng-content>
+
+      <!-- Add padding for bottom -->
+      <div style="width: 100%; height: 100px"></div>
     </div>
   </div>
 

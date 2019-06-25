@@ -31,15 +31,26 @@ import { AuthVerifyWithCodeComponent } from './shared/components/verify-with-cod
 import { AuthSessionComponent } from './shared/components/session/session.component';
 
 // Auth Components
-import { AuthLoginV1Component } from './v1/login-v1/login-v1.component';
-import { AuthLoginV2Component } from './v2/login-v2/login-v2.component';
+import { AuthLoginV1Component } from './version-1/login-v1.component';
+import { AuthLoginV2Component } from './version-2/login-v2.component';
 
-import { AuthRegisterV1Component } from './v1/register-v1/register-v1.component';
-import { AuthForgotPasswordV1Component } from './v1/forgot-password-v1/forgot-password-v1.component';
-import { AuthChangePasswordV1Component } from './v1/change-password-v1/change-password-v1.component';
-import { AuthVerifyV1Component } from './v1/verify-v1/verify-v1.component';
-import { AuthVerifyWithCodeV1Component } from './v1/verify-with-code-v1/verify-with-code-v1.component';
-import { AuthSessionV1Component } from './v1/session-v1/session-v1.component';
+import { AuthRegisterV1Component } from './version-1/register-v1.component';
+import { AuthRegisterV2Component } from './version-2/register-v2.component';
+
+import { AuthForgotPasswordV1Component } from './version-1/forgot-password-v1.component';
+import { AuthForgotPasswordV2Component } from './version-2/forgot-password-v2.component';
+
+import { AuthChangePasswordV1Component } from './version-1/change-password-v1.component';
+import { AuthChangePasswordV2Component } from './version-2/change-password-v2.component';
+
+import { AuthVerifyV1Component } from './version-1/verify-v1.component';
+import { AuthVerifyV2Component } from './version-2/verify-v2.component';
+
+import { AuthVerifyWithCodeV1Component } from './version-1/verify-with-code-v1.component';
+import { AuthVerifyWithCodeV2Component } from './version-2/verify-with-code-v2.component';
+
+import { AuthSessionV1Component } from './version-1/session-v1.component';
+import { AuthSessionV2Component } from './version-2/session-v2.component';
 
 @NgModule({
   declarations: [
@@ -59,12 +70,24 @@ import { AuthSessionV1Component } from './v1/session-v1/session-v1.component';
     // Auth Components
     AuthLoginV1Component,
     AuthLoginV2Component,
+
     AuthRegisterV1Component,
+    AuthRegisterV2Component,
+
     AuthForgotPasswordV1Component,
+    AuthForgotPasswordV2Component,
+
     AuthChangePasswordV1Component,
+    AuthChangePasswordV2Component,
+
     AuthVerifyV1Component,
+    AuthVerifyV2Component,
+
     AuthVerifyWithCodeV1Component,
-    AuthSessionV1Component
+    AuthVerifyWithCodeV2Component,
+
+    AuthSessionV1Component,
+    AuthSessionV2Component
   ],
   imports: [
     // Material Modules

@@ -26,8 +26,8 @@
       "TITLE": "PAGINAS",
       "AUTHENTICATION": {
         "TITLE": "Autenticación",
+        "TITLE_V2": "Autenticación v2",
         "LOGIN": "Login",
-        "LOGIN_V2": "Login v2",
         "REGISTER": "Registro",
         "FORGOT_PASSWORD": "Olvidé mi contraseña",
         "CHANGE_PASSWORD": "Cambia la contraseña",
