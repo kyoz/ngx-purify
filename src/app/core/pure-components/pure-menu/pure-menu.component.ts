@@ -13,7 +13,7 @@ import { MENU_CONFIG } from '../../../configs/menu';
   styleUrls: ['./pure-menu.component.scss']
 })
 export class PureMenu implements OnInit, AfterViewInit {
-  @ViewChild('PURE_MENU') pureMenuScrollbar?: PerfectScrollbarDirective;
+  @ViewChild('PURE_MENU', { static: false }) pureMenuScrollbar?: PerfectScrollbarDirective;
 
   menuData = MENU_CONFIG;
 

@@ -15,7 +15,7 @@ export class PureMenuContainer implements OnInit, OnDestroy {
   _onMouseEnter = this.onMouseEnter.bind(this);
   _onMouseLeave = this.onMouseLeave.bind(this);
 
-  @ViewChild('pure_menu_container') pureSideMenuContainer: ElementRef;
+  @ViewChild('pure_menu_container', { static: true }) pureSideMenuContainer: ElementRef;
 
   subscriptions: Subscription[] = [];
 
@@ -25,8 +25,7 @@ export class PureMenuContainer implements OnInit, OnDestroy {
     public _settings: PureSettingsService,
     private _deviceDetect: DeviceDetectorService,
     private _changeDetector: ChangeDetectorRef
-  ) {
-  }
+  ) { }
 
   ngOnInit() {
     if (this._deviceDetect.isDesktop()) {

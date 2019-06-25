@@ -8,7 +8,7 @@ import { PureSettingsService } from '../../pure-services/pure-settings.service';
   styleUrls: ['./pure-notification-container.component.scss']
 })
 export class PureNotificationContainer {
-  @ViewChild('pure_notification_container') pureSideNotificationContainer: ElementRef;
+  @ViewChild('pure_notification_container', { static: false }) pureSideNotificationContainer: ElementRef;
 
   constructor(
     public _notificationContainer: PureNotificationContainerService,

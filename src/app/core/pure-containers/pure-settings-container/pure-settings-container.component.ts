@@ -7,7 +7,7 @@ import { PureSettingsContainerService } from './pure-settings-container.service'
   styleUrls: ['./pure-settings-container.component.scss']
 })
 export class PureSettingsContainer {
-  @ViewChild('pure_settings_container') pureSettingsContainer: ElementRef;
+  @ViewChild('pure_settings_container', { static: false }) pureSettingsContainer: ElementRef;
 
   constructor(public _settingsContainer: PureSettingsContainerService) {}
 }
