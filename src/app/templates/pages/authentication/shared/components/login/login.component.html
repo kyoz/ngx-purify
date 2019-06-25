@@ -17,7 +17,7 @@
   <div style="width: 100%; margin: 12px 0" fxLayout="row" fxLayoutAlign="space-between center">
     <mat-checkbox class="remember-me">Remember me</mat-checkbox>
     <span>
-      <a class="forgot-password pure-primary-foreground" [routerLink]="['../forgot-password']">Forgot Password ?</a>
+      <a class="forgot-password pure-primary-foreground" [routerLink]="[getCorrectVersionLink('../forgot-password')]">Forgot Password ?</a>
     </span>
   </div>
 
@@ -38,7 +38,7 @@
 
     <div class="register-label">Doesn't have an account ?</div>
     <div class="register-button">
-      <a mat-button color="primary" [routerLink]="['../register']">CREATE AN ACCOUNT</a>
+      <a mat-button color="primary" [routerLink]="[getCorrectVersionLink('../register')]">CREATE AN ACCOUNT</a>
     </div>
   </div>
 

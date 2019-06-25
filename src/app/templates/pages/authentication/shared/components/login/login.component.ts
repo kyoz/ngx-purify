@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { PureSettingsService } from 'src/app/core/pure-services/pure-settings.service';
 
@@ -13,7 +14,23 @@ export class AuthLoginComponent implements OnInit {
   email: FormControl;
   password: FormControl;
 
-  constructor(public _settings: PureSettingsService) {}
+  versionSuffix: string = '';
+
+  constructor(
+    public _settings: PureSettingsService,
+    private _router: Router
+  ) {}
+
+  ngOnInit() {
+    this.createLinks();
+    this.createFormControls();
+    this.createForm();
+  }
+
+  // This is just an attemp to give better experience with two versions of this page
+  createLinks() {
+    this.versionSuffix = this._router.url === '/page/auth/login' ? '' : '-v2';
+  }
 
   createFormControls() {
     this.email = new FormControl('', [Validators.required, Validators.email]);
@@ -27,13 +44,12 @@ export class AuthLoginComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    this.createFormControls();
-    this.createForm();
-  }
-
   getEmailErrorMessage() {
     return this.email.hasError('required') ? 'You must enter an email' :
         this.email.hasError('email') ? 'This is not a valid email' : '';
+  }
+
+  getCorrectVersionLink(link: string) {
+    return link + this.versionSuffix;
   }
 }
