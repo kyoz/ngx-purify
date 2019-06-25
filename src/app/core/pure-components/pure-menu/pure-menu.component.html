@@ -1,9 +1,9 @@
 <div #PURE_MENU=purePerfectScrollbar class="pure-menu pure-theme" purePerfectScrollbar
-  [dir]="_settings.currentTextDir"
-  [ngClass]="{ 
-    'opened-or-hovering-menu': _menuContainer.isOpenedOrHoveringMenu,
-    'fullwidth': _mainContainer.isFullWidth
-  }">
+     [dir]="_settings.currentTextDir"
+     [ngClass]="{ 
+       'opened-or-hovering-menu': _menuContainer.isOpenedOrHoveringMenu,
+       'fullwidth': _mainContainer.isFullWidth
+     }">
   <div class="group" *ngFor="let group of menuData">
     <div class="group-name-wrapper">
       <!--Icon to replace group name when the menu shrink-->
@@ -12,10 +12,10 @@
       <div class="group-name">{{ group.groupName | translate }}</div>
     </div>
     <pure-menu-item *ngFor="let menuItem of group.menuItems" 
-      [menuItemData]="menuItem"
-      [isMenuOpened]="_menuContainer.isOpened"
-      [isMainFullWidth]="_mainContainer.isFullWidth"
-      [textDirection]="_settings.currentTextDir"
-      [isOpenedOrHoveringMenu]="_menuContainer.isOpenedOrHoveringMenu"></pure-menu-item>
+                    [menuItemData]="menuItem"
+                    [isMenuOpened]="_menuContainer.isOpened"
+                    [isMainFullWidth]="_mainContainer.isFullWidth"
+                    [textDirection]="_settings.currentTextDir"
+                    [isOpenedOrHoveringMenu]="_menuContainer.isOpenedOrHoveringMenu"></pure-menu-item>
   </div>
 </div>

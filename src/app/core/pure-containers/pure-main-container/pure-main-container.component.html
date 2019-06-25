@@ -1,12 +1,13 @@
 <div #PURE_MAIN_CONTAINER id="PURE_MAIN_CONTAINER" class="pure-main-container" [dir]="_settings.currentTextDir">
   <mat-progress-bar class="loader" mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
-  <div class="content pure-theme" [ngClass]="{
-    'menu-content-small-screen' : !_mainContainer.isFullWidth,
-    'menu-content-opened' : _mainContainer.isFullWidth && _menuContainer.isOpened,
-    'chatbox-content-small-screen' : !_mainContainer.isFullWidth,
-    'disable-animation': _settings.disableAnimation,
-    'minimal-mode': minimalMode
-  }">
+  <div class="content pure-theme"
+       [ngClass]="{
+         'menu-content-small-screen' : !_mainContainer.isFullWidth,
+         'menu-content-opened' : _mainContainer.isFullWidth && _menuContainer.isOpened,
+         'chatbox-content-small-screen' : !_mainContainer.isFullWidth,
+         'disable-animation': _settings.disableAnimation,
+         'minimal-mode': minimalMode
+       }">
     <ng-content></ng-content>
     <pure-setting-button></pure-setting-button>
   </div>
@@ -17,10 +18,10 @@
   <pure-settings-container></pure-settings-container>
   <!--Main Backdrop-->
   <div class="pure-main-container-backdrop"
-    [ngClass]="{ 'visible' : isBackdropVisible && !minimalMode }"
-    (click)="closeBackdrop()"></div>
+       [ngClass]="{ 'visible' : isBackdropVisible && !minimalMode }"
+       (click)="closeBackdrop()"></div>
   <!--Setting Backdrop-->
   <div class="pure-settings-backdrop"
-    [hidden]="!_settingsContainer.isOpened"
-    (click)="_settingsContainer.close()"></div>
+       [hidden]="!_settingsContainer.isOpened"
+       (click)="_settingsContainer.close()"></div>
 </div>
