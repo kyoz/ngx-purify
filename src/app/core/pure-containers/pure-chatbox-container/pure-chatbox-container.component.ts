@@ -10,7 +10,7 @@ import { PureMainContainerService } from '../pure-main-container/pure-main-conta
   styleUrls: ['./pure-chatbox-container.component.scss']
 })
 export class PureChatboxContainer {
-  @ViewChild('pure_chatbox_container') pureChatboxContainer: ElementRef;
+  @ViewChild('pure_chatbox_container', { static: false }) pureChatboxContainer: ElementRef;
 
   constructor(
     public _mainContainer: PureMainContainerService,

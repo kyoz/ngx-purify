@@ -21,6 +21,8 @@ import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
   styleUrls: ['./pure-main-container.component.scss']
 })
 export class PureMainContainer implements OnInit, OnDestroy {
+  @Input() minimalMode = false;
+  @ViewChild('PURE_MAIN_CONTAINER', { static: false }) pureMainContainer: ElementRef;
 
   isLoading: boolean = false;
   isBackdropVisible: boolean = false;
@@ -28,11 +30,7 @@ export class PureMainContainer implements OnInit, OnDestroy {
   subscriptions: Subscription[] = [];
 
   _onWindowResize = this.onWindowResize.bind(this);
-
   windowResize$: BehaviorSubject<any> = new BehaviorSubject(undefined);
-
-  @Input() minimalMode = false;
-  @ViewChild('PURE_MAIN_CONTAINER') pureMainContainer: ElementRef;
 
   constructor(
     public _mainContainer: PureMainContainerService,

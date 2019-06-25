@@ -11,8 +11,8 @@ import { DeviceDetectorService } from 'ngx-device-detector';
   styleUrls: ['./pure-chatbox.component.scss']
 })
 export class PureChatbox implements OnInit {
-  @ViewChild('message_input') messageInputRef: ElementRef;
-  @ViewChild('messages_content') messagesContentScrollbar?: PerfectScrollbarDirective;
+  @ViewChild('message_input', { static: false }) messageInputRef: ElementRef;
+  @ViewChild('messages_content', { static: false }) messagesContentScrollbar?: PerfectScrollbarDirective;
 
   messageInput;
 
