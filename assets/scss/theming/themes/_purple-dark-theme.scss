@@ -1,0 +1,5 @@
+$primary: mat-palette($mat-purple, 700, 500, 800);
+$accent: mat-palette($mat-green, A200, A100, A400);
+$warn: mat-palette($mat-red, 500);
+
+$pure-purple-dark-theme: mat-dark-theme($primary, $accent, $warn);

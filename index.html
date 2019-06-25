@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="keywords" content="Html, Css, Angular, Angular 2, Angular 4, Angular 5, Angular 6, Angular 7, Material Design, Material 2, NG, NGX">
+  <meta name="description" content="Angular Material Design Admin Template">
+  <meta name="author" content="banminkyoz">
+  <title>Pure - Angular 7+ Material Design Admin Template</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300" rel="stylesheet">
+  
+  <style>
+    .pure-splash-screen {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      pointer-events: none;
+      background: rgb(49, 56, 70);
+      z-index: 999999;
+      opacity: 1;
+    }
+
+    .pure-splash-screen-logo {
+      -webkit-filter: drop-shadow(0px 10px 6px rgba(0, 0, 0, 0.18));
+      filter: drop-shadow(0px 10px 6px rgba(0, 0, 0, 0.2));
+    }
+
+    .pure-splash-screen-loaded {
+      opacity: 0;
+      -webkit-transition: opacity .5s ease-out;
+      -o-transition: opacity .5s ease-out;
+      transition: opacity .5s ease-out;
+    }
+
+    /*Loading animation*/
+    .loading-dot {
+      display: inline-block;
+      position: relative;
+      width: 64px;
+      height: 64px;
+    }
+
+    .loading-dot div {
+      position: absolute;
+      top: 27px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: rgb(103, 162, 245);
+      -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);
+      animation-timing-function: cubic-bezier(0, 1, 1, 0);
+      -webkit-box-shadow: 0px 1px 1px 1px rgba(0,0,0,.3);
+      -moz-box-shadow: 0px 1px 1px 1px rgba(0,0,0,.3);
+      box-shadow: 0px 1px 1px 1px rgba(0,0,0,.3);
+    }
+
+    .loading-dot div:nth-child(1) {
+      left: 6px;
+      -webkit-animation: loading-dot1 0.6s infinite;
+      animation: loading-dot1 0.6s infinite;
+    }
+
+    .loading-dot div:nth-child(2) {
+      left: 6px;
+      -webkit-animation: loading-dot2 0.6s infinite;
+      animation: loading-dot2 0.6s infinite;
+    }
+
+    .loading-dot div:nth-child(3) {
+      left: 26px;
+      -webkit-animation: loading-dot2 0.6s infinite;
+      animation: loading-dot2 0.6s infinite;
+    }
+
+    .loading-dot div:nth-child(4) {
+      left: 45px;
+      -webkit-animation: loading-dot3 0.6s infinite;
+      animation: loading-dot3 0.6s infinite;
+    }
+
+    @-webkit-keyframes loading-dot1 {
+      0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      }
+
+      100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+    }
+
+    @keyframes loading-dot1 {
+      0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      }
+
+      100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+    }
+
+    @-webkit-keyframes loading-dot3 {
+      0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+
+      100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      }
+    }
+
+    @keyframes loading-dot3 {
+      0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+
+      100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      }
+    }
+
+    @-webkit-keyframes loading-dot2 {
+      0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+      }
+
+      100% {
+        -webkit-transform: translate(19px, 0);
+        transform: translate(19px, 0);
+      }
+    }
+
+    @keyframes loading-dot2 {
+      0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+      }
+
+      100% {
+        -webkit-transform: translate(19px, 0);
+        transform: translate(19px, 0);
+      }
+    }
+
+  </style>
+
+<link rel="stylesheet" href="styles.7c83e316aa08e6ef89bc.css"></head>
+
+<body id="PURE_ADMIN_DASHBOARD" class="pure-default-theme">
+
+  <div id="PURE_SPLASH_SCREEN" class="pure-splash-screen">
+    <div>
+      <img class="pure-splash-screen-logo" src="./assets/logo/pure.svg" width="128" height="128">
+    </div>
+    <div>
+      <div class="loading-dot">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+
+  <app-root></app-root>
+
+<script src="runtime.60c82292f7d2171ea42f.js"></script><script src="polyfills-es5.b63b52cacc0241d57e06.js" nomodule></script><script src="polyfills.32bed08578899ff7eda8.js"></script><script src="main.b0181ec6cb362b1bbfde.js"></script></body>
+
+</html>

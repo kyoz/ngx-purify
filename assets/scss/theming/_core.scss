@@ -1,0 +1,32 @@
+@import '~@angular/material/theming';
+@import "./pure-theme.scss";
+
+// Themes
+@import "./themes/_default-theme";
+@import "./themes/_blue-light-theme";
+@import "./themes/_purple-dark-theme";
+@import "./themes/_pink-dark-theme";
+
+@mixin pure-themes-init {
+  @include mat-core();
+
+  .pure-default-theme {
+    @include angular-material-theme($pure-default-theme);
+    @include pure-theme($pure-default-theme);
+  }
+
+  .pure-blue-light-theme {
+    @include angular-material-theme($pure-blue-light-theme);
+    @include pure-theme($pure-blue-light-theme);
+  }
+
+  .pure-purple-dark-theme {
+    @include angular-material-theme($pure-purple-dark-theme);
+    @include pure-theme($pure-purple-dark-theme);
+  }
+
+  .pure-pink-dark-theme {
+    @include angular-material-theme($pure-pink-dark-theme);
+    @include pure-theme($pure-pink-dark-theme);
+  }
+}

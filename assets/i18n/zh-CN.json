@@ -1,0 +1,98 @@
+{
+  "MENU": {
+    "APPLICATIONS": {
+      "TITLE": "申请",
+      "DASHBOARD": {
+        "TITLE": "仪表板",
+        "ANALYTICAL": "分析",
+        "OPERATIONAL": "运营",
+        "STRATEGIC": "战略"
+      },
+      "E_COMMERCE": {
+        "TITLE": "电子商务",
+        "FRONT_PAGE": "首页",
+        "MANAGEMENT": "管理"
+      },
+      "CALENDER": "日历",
+      "CONTACT": "联系方式",
+      "MAIL": "邮件",
+      "MESSENGER": "使者",
+      "TODO": "Todo",
+      "SCRUMBOARD": "Scrumboard",
+      "FILE_MANAGER": "文件管理器",
+      "SEARCH": "搜索"
+    },
+    "PAGES": {
+      "TITLE": "网页",
+      "AUTHENTICATION": {
+        "TITLE": "身份验证",
+        "TITLE_V2": "身份验证v2",
+        "LOGIN": "登录",
+        "REGISTER": "注册",
+        "FORGOT_PASSWORD": "忘记密码",
+        "CHANGE_PASSWORD": "更改密码",
+        "VERIFY": "校验",
+        "VERIFY_WITH_CODE": "验证代码",
+        "SESSION": "会议"
+      },
+      "ERRORS": {
+        "TITLE": "错误",
+        "SESSION_EXPIRED": "会话已过期"
+      },
+      "PRICING": {
+        "TITLE": "价钱",
+        "STYLE_1": "风格 1",
+        "STYLE_2": "风格 2",
+        "STYLE_3": "风格 3"
+      },
+      "FAQ": "FAQ"
+     },
+    "DOCUMENTATION": {
+      "TITLE": "文档",
+      "GETTING_STARTED": {
+        "TITLE": "入门",
+        "INTRODUCTION": "简介",
+        "INSTALLATION": "安装"
+      },
+      "CONFIGURATION": {
+        "TITLE": "配置",
+        "MENU": "菜单",
+        "THEMES": "主题",
+        "LANGUAGE_TRANSLATION": "语言翻译"
+      },
+      "DEVELOPING": {
+        "TITLE": "发展中",
+        "START_SERVER": "启动服务器",
+        "PRODUCTION": "生产"
+      },
+      "COMPONENTS": "Components",
+      "DIRECTIVES": "Directives",
+      "SERVICES": "Services",
+      "3RD_PARTY_COMPONENTS": "3rd Party Components",
+      "CHANGELOG": "Changelog"
+    },
+    "OTHERS": {
+      "TITLE": "其他人",
+      "MULTI_LEVEL_MENU": {
+        "TITLE": "多级菜单",
+        "LEVEL_2": "等级2",
+        "LEVEL_3": "3级",
+        "LEVEL_4": "等级4",
+        "LEVEL_5": "等级5"
+      },
+      "MULTI_LEVEL_MENU_WITH_ICON": {
+        "TITLE": "多级菜单 (带图标)",
+        "LEVEL_2": "等级2",
+        "LEVEL_3": "3级",
+        "LEVEL_4": "等级4",
+        "LEVEL_5": "等级5"
+      },
+      "NAVIGATION": {
+        "TITLE": "导航",
+        "NORMAL_ROUTE": "正常路线",
+        "ROUTE_WITH_QUERIES": "路由查询",
+        "EXTERNAL_LINK": "外部链接"
+      }
+    }
+  }
+}
