@@ -1,15 +1,39 @@
-<div class="container">
+<div class="container" [dir]="_settings.currentTextDir">
   <div class="content pure-background" purePerfectScrollbar
        [ngClass]="{
          'content-ltr': _settings.currentTextDir === 'ltr',
          'content-rtl': _settings.currentTextDir === 'rtl'}">
     <div class="wrapper" fxLayout="column" fxLayoutAlign="center center">
-
       <img class="logo" src="/assets/logo/pure.svg" width="84px" *ngIf="showLogo">
       <div class="title" *ngIf="showTitle">{{ title }}</div>
 
       <ng-content></ng-content>
+    </div>
+  </div>
 
+  <div class="info" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px"
+       [ngClass]="{
+         'info-ltr': _settings.currentTextDir === 'ltr',
+         'info-rtl': _settings.currentTextDir === 'rtl'}">
+    <div class="title">Welcome to Pure Angular</div>
+
+    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta harum dolorum?</div>
+
+    <div class="heroes" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="32px">
+      <div class="hero" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="8px">
+        <mat-icon>star</mat-icon>
+        <div>Lorem</div>
+      </div>
+
+      <div class="hero" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="8px">
+        <mat-icon>wifi</mat-icon>
+        <div>Ipsum</div>
+      </div>
+
+      <div class="hero" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="8px">
+        <mat-icon>thumb_up</mat-icon>
+        <div>Dolor</div>
+      </div>
     </div>
   </div>
 </div>
