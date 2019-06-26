@@ -6,8 +6,16 @@ import { MinimalContainer } from './containers/minimal-container/minimal-contain
 
 const routes: Routes = [
   { path: 'app', component: MainContainer, loadChildren: './templates/applications/applications.module#ApplicationsModule' },
-  { path: 'material-components', component: MainContainer,
-      loadChildren: './templates/material-components/material-components.module#MaterialComponentsModule' },
+  {
+    path: 'material-components',
+    component: MainContainer,
+    loadChildren: './templates/material-components/material-components.module#MaterialComponentsModule'
+  },
+  {
+    path: 'errors',
+    component: MainContainer,
+    loadChildren: './templates/pages/errors/errors.module#ErrorsModule'
+  },
   { path: 'page', component: MinimalContainer, loadChildren: './templates/pages/pages.module#PagesModule' },
   { path: '', redirectTo: 'app', pathMatch: 'full' },
   { path: '**', redirectTo: 'app', pathMatch: 'full' },

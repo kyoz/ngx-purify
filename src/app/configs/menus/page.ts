@@ -32,9 +32,9 @@ export const PageMenu: IMenuItem[] = [
     icon: 'error',
     badge: 14,
     children: [
-      { name: '404', icon: 'error_outline', url: '/page/errors/error-404' },
-      { name: '408', icon: 'error_outline', url: '/page/errors/error-408' },
-      { name: '500', icon: 'error_outline', url: '/page/errors/error-500' }
+      { name: '404', icon: 'error_outline', url: '/errors/error-404' },
+      { name: '408', icon: 'error_outline', url: '/errors/error-408' },
+      { name: '500', icon: 'error_outline', url: '/errors/error-500' }
     ]
   },
   {
