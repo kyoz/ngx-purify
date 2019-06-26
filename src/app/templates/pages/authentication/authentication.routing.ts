@@ -23,6 +23,9 @@ import { AuthVerifyWithCodeV2Component } from './version-2/verify-with-code-v2.c
 import { AuthSessionV1Component } from './version-1/session-v1.component';
 import { AuthSessionV2Component } from './version-2/session-v2.component';
 
+import { AuthSessionExpiredV1Component } from './version-1/session-expired-v1.component';
+import { AuthSessionExpiredV2Component } from './version-2/session-expired-v2.component';
+
 const routes: Routes = [
   { path: 'login', component: AuthLoginV1Component },
   { path: 'login-v2', component: AuthLoginV2Component },
@@ -37,7 +40,9 @@ const routes: Routes = [
   { path: 'verify-with-code', component: AuthVerifyWithCodeV1Component },
   { path: 'verify-with-code-v2', component: AuthVerifyWithCodeV2Component },
   { path: 'session', component: AuthSessionV1Component },
-  { path: 'session-v2', component: AuthSessionV2Component }
+  { path: 'session-v2', component: AuthSessionV2Component },
+  { path: 'session-expired', component: AuthSessionExpiredV1Component },
+  { path: 'session-expired-v2', component: AuthSessionExpiredV2Component }
 ];
 
 @NgModule({

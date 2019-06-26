@@ -12,6 +12,7 @@ export const PageMenu: IMenuItem[] = [
       { name: 'MENU.PAGES.AUTHENTICATION.VERIFY', url: '/pages/auth/verify' },
       { name: 'MENU.PAGES.AUTHENTICATION.VERIFY_WITH_CODE', url: '/pages/auth/verify-with-code' },
       { name: 'MENU.PAGES.AUTHENTICATION.SESSION', url: '/pages/auth/session' },
+      { name: 'MENU.PAGES.AUTHENTICATION.SESSION_EXPIRED', url: '/pages/auth/session-expired' }
     ]
   },
   {
@@ -25,6 +26,7 @@ export const PageMenu: IMenuItem[] = [
       { name: 'MENU.PAGES.AUTHENTICATION.VERIFY', url: '/pages/auth/verify-v2' },
       { name: 'MENU.PAGES.AUTHENTICATION.VERIFY_WITH_CODE', url: '/pages/auth/verify-with-code-v2' },
       { name: 'MENU.PAGES.AUTHENTICATION.SESSION', url: '/pages/auth/session-v2' },
+      { name: 'MENU.PAGES.AUTHENTICATION.SESSION_EXPIRED', url: '/pages/auth/session-expired-v2' }
     ]
   },
   {

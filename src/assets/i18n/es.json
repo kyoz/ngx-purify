@@ -33,7 +33,8 @@
         "CHANGE_PASSWORD": "Cambia la contraseña",
         "VERIFY": "Verificar",
         "VERIFY_WITH_CODE": "Verificar con codigo",
-        "SESSION": "Sesión"
+        "SESSION": "Sesión",
+        "SESSION_EXPIRED": "Sesión expirada"
       },
       "ERRORS": {
         "TITLE": "Errores"

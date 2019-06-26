@@ -29,6 +29,7 @@ import { AuthChangePasswordComponent } from './shared/components/change-password
 import { AuthVerifyComponent } from './shared/components/verify/verify.component';
 import { AuthVerifyWithCodeComponent } from './shared/components/verify-with-code/verify-with-code.component';
 import { AuthSessionComponent } from './shared/components/session/session.component';
+import { AuthSessionExpiredComponent } from './shared/components/session-expired/session-expired.component';
 
 // Auth Components
 import { AuthLoginV1Component } from './version-1/login-v1.component';
@@ -52,6 +53,9 @@ import { AuthVerifyWithCodeV2Component } from './version-2/verify-with-code-v2.c
 import { AuthSessionV1Component } from './version-1/session-v1.component';
 import { AuthSessionV2Component } from './version-2/session-v2.component';
 
+import { AuthSessionExpiredV1Component } from './version-1/session-expired-v1.component';
+import { AuthSessionExpiredV2Component } from './version-2/session-expired-v2.component';
+
 @NgModule({
   declarations: [
     // Shared Layouts
@@ -66,6 +70,7 @@ import { AuthSessionV2Component } from './version-2/session-v2.component';
     AuthVerifyComponent,
     AuthVerifyWithCodeComponent,
     AuthSessionComponent,
+    AuthSessionExpiredComponent,
 
     // Auth Components
     AuthLoginV1Component,
@@ -87,7 +92,10 @@ import { AuthSessionV2Component } from './version-2/session-v2.component';
     AuthVerifyWithCodeV2Component,
 
     AuthSessionV1Component,
-    AuthSessionV2Component
+    AuthSessionV2Component,
+
+    AuthSessionExpiredV1Component,
+    AuthSessionExpiredV2Component
   ],
   imports: [
     // Material Modules
