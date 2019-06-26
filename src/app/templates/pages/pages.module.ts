@@ -5,7 +5,8 @@ import { RouterModule } from '@angular/router';
   declarations: [],
   imports: [
     RouterModule.forChild([
-      { path: 'auth', loadChildren: './authentication/authentication.module#AuthenticationModule' }
+      { path: 'auth', loadChildren: './authentication/authentication.module#AuthenticationModule' },
+      { path: 'errors', loadChildren: './errors/errors.module#ErrorsModule' }
     ])
   ]
 })
