@@ -1,0 +1,27 @@
+.container {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  overflow: hidden;
+
+  .title {
+    font-size: 8em;
+  }
+
+  .message {
+    font-size: 2em;
+    opacity: .48;
+  }
+
+  .detail-message {
+    font-size: 1em;
+    opacity: .32;
+    margin-top: 8px;
+  }
+
+  button {
+    margin-top: 16px;
+  }
+}

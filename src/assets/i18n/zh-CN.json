@@ -36,8 +36,7 @@
         "SESSION": "会议"
       },
       "ERRORS": {
-        "TITLE": "错误",
-        "SESSION_EXPIRED": "会话已过期"
+        "TITLE": "错误"
       },
       "PRICING": {
         "TITLE": "价钱",

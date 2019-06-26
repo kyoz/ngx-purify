@@ -36,8 +36,7 @@
         "SESSION": "Session"
       },
       "ERRORS": {
-        "TITLE": "Errors",
-        "SESSION_EXPIRED": "Session Expired"
+        "TITLE": "Errors"
       },
       "PRICING": {
         "TITLE": "Pricing",

@@ -34,8 +34,7 @@ export const PageMenu: IMenuItem[] = [
     children: [
       { name: '404', icon: 'error_outline', url: '/page/errors/error-404' },
       { name: '408', icon: 'error_outline', url: '/page/errors/error-408' },
-      { name: '500', icon: 'error_outline', url: '/page/errors/error-500' },
-      { name: 'MENU.PAGES.ERRORS.SESSION_EXPIRED', url: '/page/errors/error-session-expired' }
+      { name: '500', icon: 'error_outline', url: '/page/errors/error-500' }
     ]
   },
   {
