@@ -26,7 +26,7 @@ export class AuthForgotPasswordComponent implements OnInit {
 
   // This is just an attemp to give better experience with two versions of this page
   createLinks() {
-    this.versionSuffix = this._router.url === '/page/auth/forgot-password' ? '' : '-v2';
+    this.versionSuffix = this._router.url === '/pages/auth/forgot-password' ? '' : '-v2';
   }
 
   createFormControls() {

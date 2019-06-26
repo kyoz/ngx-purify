@@ -16,7 +16,7 @@ const routes: Routes = [
     component: MainContainer,
     loadChildren: './templates/pages/errors/errors.module#ErrorsModule'
   },
-  { path: 'page', component: MinimalContainer, loadChildren: './templates/pages/pages.module#PagesModule' },
+  { path: 'pages', component: MinimalContainer, loadChildren: './templates/pages/pages.module#PagesModule' },
   { path: '', redirectTo: 'app', pathMatch: 'full' },
   { path: '**', redirectTo: 'app', pathMatch: 'full' },
 ];

@@ -29,7 +29,7 @@ export class AuthLoginComponent implements OnInit {
 
   // This is just an attemp to give better experience with two versions of this page
   createLinks() {
-    this.versionSuffix = this._router.url === '/page/auth/login' ? '' : '-v2';
+    this.versionSuffix = this._router.url === '/pages/auth/login' ? '' : '-v2';
   }
 
   createFormControls() {
