@@ -13,6 +13,7 @@ import { OthersRouteWithParamsComponent } from './route-with-params/route-with-p
       { path: 'multi-level/level-5', component: OthersMultilevelMenuComponent },
       { path: 'multi-level/level-5-with-icon', component: OthersMultilevelMenuWithIconComponent },
       { path: 'normal-route', component: OthersNormalRouteComponent },
+      { path: 'route-with-params/:id/:isCute', component: OthersRouteWithParamsComponent },
       { path: 'route-with-params', component: OthersRouteWithParamsComponent }
     ])
   ]
