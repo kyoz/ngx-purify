@@ -90,7 +90,7 @@
       "NAVIGATION": {
         "TITLE": "Navigation",
         "NORMAL_ROUTE": "Normal Route",
-        "ROUTE_WITH_QUERIES": "Route With Queries",
+        "ROUTE_WITH_PARAMS": "Route With Params",
         "EXTERNAL_LINK": "External Link"
       }
     }

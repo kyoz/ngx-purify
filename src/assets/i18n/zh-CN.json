@@ -90,7 +90,7 @@
       "NAVIGATION": {
         "TITLE": "导航",
         "NORMAL_ROUTE": "正常路线",
-        "ROUTE_WITH_QUERIES": "路由查询",
+        "ROUTE_WITH_PARAMS": "路线与Params",
         "EXTERNAL_LINK": "外部链接"
       }
     }

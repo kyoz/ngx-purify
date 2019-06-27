@@ -18,11 +18,13 @@ export class PureStringUtils {
     return sourceString.toLowerCase().substring(0, startWith.length) === startWith.toLowerCase();
   }
 
-  public static cleanRouteLink(link) {
+  public static cleanRouteLink(link: string) {
     if (PureStringUtils.isEmpty(link)) {
       return '';
     }
 
-    return link.charAt(0) && link.charAt(0) === '/' ? link.substring(1) : link;
+    const newLink = link.charAt(0) && link.charAt(0) === '/' ? link.substring(1) : link;
+
+    return newLink ? newLink.includes('?') ? newLink.split('?')[0] : newLink : newLink;
   }
 }

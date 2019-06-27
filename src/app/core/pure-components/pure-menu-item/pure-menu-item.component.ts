@@ -154,7 +154,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
       window.location.href = this.menuItemData.url;
     } else {
       // Change route
-      this._route.navigate([this.menuItemData.url]).catch(e => {
+      this._route.navigate([this.menuItemData.url], { queryParams: this.menuItemData.params }).catch(e => {
         console.error(e);
       });
     }

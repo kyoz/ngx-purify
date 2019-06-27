@@ -1,4 +1,7 @@
-<a class="pure-menu-item" (click)="onMenuItemClicked()" [routerLink]="menuItemData?.url" [dir]="textDirection">
+<a class="pure-menu-item" (click)="onMenuItemClicked()"
+   [routerLink]="menuItemData?.url"
+   [queryParams]="menuItemData?.params"
+   [dir]="textDirection">
   <div class="pure-menu-content content level-{{level}}"
        [ngClass]="{
          'active': active,

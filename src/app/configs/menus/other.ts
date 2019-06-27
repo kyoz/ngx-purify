@@ -58,7 +58,14 @@ export const OtherMenu: IMenuItem[] = [
   {
     name: 'MENU.OTHERS.NAVIGATION.TITLE', icon: 'launch', children: [
       { name: 'MENU.OTHERS.NAVIGATION.NORMAL_ROUTE', url: '/others/normal-route' },
-      { name: 'MENU.OTHERS.NAVIGATION.ROUTE_WITH_QUERIES', url: '/others/route-with-queries' },
+      {
+        name: 'MENU.OTHERS.NAVIGATION.ROUTE_WITH_PARAMS',
+        url: '/others/route-with-params',
+        params: {
+          id: 'Hello',
+          isCute: true
+        }
+      },
       { name: 'MENU.OTHERS.NAVIGATION.EXTERNAL_LINK', url: 'https://google.com' }
     ]
   }
