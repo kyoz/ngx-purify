@@ -1,5 +1,5 @@
 // Interfaces
-import { IMenuGroup } from "../core/pure-interfaces/menu";
+import { IMenuGroup } from '../core/pure-interfaces/menu';
 
 // Menus
 import { ApplicationMenu } from './menus/application';

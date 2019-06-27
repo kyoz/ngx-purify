@@ -1,4 +1,4 @@
-import { IPureTheme } from "../core/pure-interfaces/settings";
+import { IPureTheme } from '../core/pure-interfaces/settings';
 
 export const THEMES: IPureTheme[] = [
   { 

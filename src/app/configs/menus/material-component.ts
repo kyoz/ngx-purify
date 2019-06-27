@@ -1,4 +1,4 @@
-import { IMenuItem } from "../../core/pure-interfaces/menu";
+import { IMenuItem } from '../../core/pure-interfaces/menu';
 
 export const MaterialComponentMenu: IMenuItem[] = [
   {

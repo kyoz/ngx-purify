@@ -111,7 +111,7 @@ export class PureSettingsService {
     // Set default settings
     storedTheme = storedTheme ? storedTheme : THEMES[0].class;
     storedLanguage = storedLanguage ? storedLanguage : LANGUAGES[0].key;
-    storedTextDirection = storedTextDirection ? storedTextDirection : 'LTR';
+    storedTextDirection = storedTextDirection ? storedTextDirection : 'ltr';
     storedWidthLayout = storedWidthLayout ? storedWidthLayout : 'Fullwidth';
 
     // Update settings to view
@@ -168,11 +168,9 @@ export class PureSettingsService {
   updateTextDirection(textDirection: string) {
     switch (textDirection) {
       case 'rtl':
-        // document.body.setAttribute('dir', 'rtl');
         this.currentTextDir$.next('rtl');
         break;
       default:
-        // document.body.removeAttribute('dir');
         this.currentTextDir$.next('ltr');
     }
 
