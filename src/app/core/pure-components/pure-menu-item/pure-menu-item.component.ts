@@ -111,6 +111,23 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
        PureStringUtils.startsWith(this.menuItemData.url, 'https://'));
   }
 
+  get menuContentClasses() {
+     return {
+       'active': this.active,
+       'opened': this.opened,
+       'opened-or-hovering-menu': this.isOpenedOrHoveringMenu,
+       'no-icon': (!this.menuItemData && this.menuItemData.icon && !this.isMenuOpened) || this.level !== 0,
+       'fullwidth': this.isMainFullWidth
+     };
+  }
+
+  get badgeStyles() {
+    return {
+      'margin-right' : this.hasChildren && (this.textDirection !== 'rtl') ? '12px' : '16px',
+      'margin-left' : this.hasChildren && (this.textDirection === 'rtl') ? '12px' : '16px'
+    };
+  }
+
   /**
    * FUNCTIONS
    */
