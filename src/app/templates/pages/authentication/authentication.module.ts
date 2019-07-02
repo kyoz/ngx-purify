@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 // Routing Module
-import { AuthenticationRoutingModule } from './authentication.routing';
+import { AuthenticationRoutingModule } from './authentication-routing.module';
 
 // Material Modules
 import {

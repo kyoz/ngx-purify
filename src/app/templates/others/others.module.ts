@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
-import { OthersRoutingModule } from './others.routing';
 
 // Components
 import { OthersMultilevelMenuComponent } from './multi-level-menu/multi-level-menu.component';
@@ -11,7 +11,14 @@ import { OthersRouteWithParamsComponent } from './route-with-params/route-with-p
 @NgModule({
   imports: [
     SharedModule,
-    OthersRoutingModule
+
+    RouterModule.forChild([
+      { path: 'multi-level/level-5', component: OthersMultilevelMenuComponent },
+      { path: 'multi-level/level-5-with-icon', component: OthersMultilevelMenuWithIconComponent },
+      { path: 'normal-route', component: OthersNormalRouteComponent },
+      { path: 'route-with-params/:id/:isCute', component: OthersRouteWithParamsComponent },
+      { path: 'route-with-params', component: OthersRouteWithParamsComponent }
+    ])
   ],
   declarations: [
     OthersMultilevelMenuComponent,
