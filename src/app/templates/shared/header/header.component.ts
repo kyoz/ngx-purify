@@ -8,9 +8,9 @@ import { PureSettingsService } from 'src/app/core/pure-services/pure-settings.se
 })
 export class HeaderComponent {
 
-  @Input() title;
-  @Input() routes;
-  @Input() referenceUrl;
+  @Input() title: string;
+  @Input() routes: string[];
+  @Input() referenceUrl: string;
 
   constructor(public _settings: PureSettingsService) { }
 }
