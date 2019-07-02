@@ -2,7 +2,13 @@
    [routerLink]="menuItemData?.url"
    [queryParams]="menuItemData?.params"
    [dir]="textDirection">
-  <div class="pure-menu-content content level-{{level}}" [ngClass]="menuContentClasses">
+  <div class="pure-menu-content content level-{{level}}" [ngClass]="{
+    'active': active,
+    'opened': opened,
+    'opened-or-hovering-menu': isOpenedOrHoveringMenu,
+    'no-icon': (!menuItemData && menuItemData.icon && !isMenuOpened) || level !== 0,
+    'fullwidth': isMainFullWidth
+  }">
     <!-- Icon to replace menu item that doesn't have icon when shrink -->
     <mat-icon class="replace-icon">{{ menuItemData?.icon ? menuItemData?.icon : 'layers' }}</mat-icon>
     <!-- Original icon -->
@@ -10,7 +16,10 @@
     <span class="name">{{ menuItemData?.name | translate }}</span>
     <span class="badge" *ngIf="menuItemData?.badge"
           [ngClass]="fixBadgeColor(menuItemData?.badgeColor)"
-          [ngStyle]="badgeStyles">
+          [ngStyle]="{
+            'margin-right' : hasChildren && (textDirection !== 'rtl') ? '12px' : '16px',
+            'margin-left' : hasChildren && (textDirection === 'rtl') ? '12px' : '16px'
+          }">
       {{ menuItemData?.badge }}
     </span>
     <mat-icon class="expand-icon" [ngClass]="{ 'expanded': opened }" *ngIf="hasChildren">
