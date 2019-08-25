@@ -4,9 +4,9 @@
 
   <div class="title"> Welcome back, Kyoz </div>
 
-  <button class="login-btn" mat-raised-button color="primary">
+  <a class="login-btn" mat-raised-button color="primary" [routerLink]="['/']">
     CONTINUE YOUR SESSION
-  </button>
+  </a>
 
   <div class="signout-btn">
     <a mat-button color="default" [routerLink]="['/']">Logout</a>
