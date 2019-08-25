@@ -5,9 +5,7 @@
   left: 0px;
   bottom: 0px;
   background-color: #313846;
-  background-image: url('/assets/image/background/material-background.jpg');
-  background-repeat:no-repeat;
-  background-position: center center;
+  background: url('/assets/image/background/material-background.jpg') 0 0/cover no-repeat;
   overflow: hidden;
 
   .content {
