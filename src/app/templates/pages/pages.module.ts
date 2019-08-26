@@ -6,8 +6,14 @@ import { RouterModule } from '@angular/router';
   imports: [
     RouterModule.forChild([
       {
-        path: 'auth',
-        loadChildren: () => import('./authentication/authentication.module').then(module => module.AuthenticationModule)
+        path: 'errors',
+        loadChildren: () => import('./errors/errors.module')
+          .then(module => module.ErrorsModule)
+      },
+      {
+        path: 'pricing',
+        loadChildren: () => import('./pricing/pricing.module')
+          .then(module => module.PricingModule)
       }
     ])
   ]

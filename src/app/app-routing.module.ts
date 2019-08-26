@@ -12,28 +12,22 @@ const routes: Routes = [
       .then(module => module.ApplicationsModule)
   },
   {
+    path: 'pages',
+    component: MinimalContainer,
+    loadChildren: () => import('./templates/pages/auth-pages.module')
+      .then(module => module.AuthPagesModule)
+  },
+  {
+    path: 'pages',
+    component: MainContainer,
+    loadChildren: () => import('./templates/pages/pages.module')
+      .then(module => module.PagesModule)
+  },
+  {
     path: 'material-components',
     component: MainContainer,
     loadChildren: () => import('./templates/material-components/material-components.module')
       .then(module => module.MaterialComponentsModule)
-  },
-  {
-    path: 'pages/errors',
-    component: MainContainer,
-    loadChildren: () => import('./templates/pages/errors/errors.module')
-      .then(module => module.ErrorsModule)
-  },
-  {
-    path: 'pages/pricing',
-    component: MainContainer,
-    loadChildren: () => import('./templates/pages/pricing/pricing.module')
-      .then(module => module.PricingModule)
-  },
-  {
-    path: 'pages',
-    component: MinimalContainer,
-    loadChildren: () => import('./templates/pages/pages.module')
-      .then(module => module.PagesModule)
   },
   {
     path: 'others',
