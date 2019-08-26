@@ -10,7 +10,7 @@ import { Error500Component } from './500/500.component';
 @NgModule({
   imports: [
     SharedModule,
-    ErrorsRoutingModule,
+    ErrorsRoutingModule
   ],
   declarations: [
     Error404Component,

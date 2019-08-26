@@ -43,9 +43,9 @@ export const PageMenu: IMenuItem[] = [
     name: 'MENU.PAGES.PRICING.TITLE',
     icon: 'local_atm',
     children: [
-      { name: 'MENU.PAGES.PRICING.STYLE_1', url: '' },
-      { name: 'MENU.PAGES.PRICING.STYLE_2', url: '' },
-      { name: 'MENU.PAGES.PRICING.STYLE_3', url: '' }
+      { name: 'MENU.PAGES.PRICING.STYLE_1', url: '/pages/pricing/style-1' },
+      { name: 'MENU.PAGES.PRICING.STYLE_2', url: '/pages/pricing/style-2' },
+      { name: 'MENU.PAGES.PRICING.STYLE_3', url: '/pages/pricing/style-3' }
     ]
   },
   { name: 'FAQ', icon: 'live_help', url: '/page/faq' }

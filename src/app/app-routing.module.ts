@@ -24,6 +24,12 @@ const routes: Routes = [
       .then(module => module.ErrorsModule)
   },
   {
+    path: 'pages/pricing',
+    component: MainContainer,
+    loadChildren: () => import('./templates/pages/pricing/pricing.module')
+      .then(module => module.PricingModule)
+  },
+  {
     path: 'pages',
     component: MinimalContainer,
     loadChildren: () => import('./templates/pages/pages.module')
