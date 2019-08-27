@@ -1,0 +1,93 @@
+.container {
+
+  .header {
+    min-height: 680px;
+    width: 100%;
+    text-align: center;
+    background: #00c6ff;
+    background: linear-gradient(to right, #0072ff, #00c6ff);
+    color: white !important;
+
+    .header-wrapper {
+      transform: translateY(-98px);
+
+      .icon {
+        font-size: 2em;
+      }
+
+      .title {
+        font-size: 2.5em;
+      }
+
+      .description {
+        width: 324px;
+        max-width: 80%;
+        line-height: 1.5em;
+        opacity: .68;
+      }
+    }
+  }
+
+  .content {
+    width: 100%;
+    padding: 0 32px 32px 32px;
+    box-sizing: border-box;
+    transform: translateY(-256px);
+
+    .card {
+      padding: 40px 16px 24px 16px;
+      max-width: 100%;
+      text-align: center;
+
+      &:hover {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+      }
+
+      .plan {
+        font-size: 1.8em;
+        padding-bottom: 8px;
+      }
+
+      .plan-description {
+        font-size: 1.15em;
+        opacity: .5;
+        padding-bottom: 24px;
+      }
+
+      .pricing {
+        .currency {
+          padding-right: 4px;
+          padding-top: 6px;
+          font-size: 1em;
+        }
+
+        .price {
+          font-size: 2em;
+        }
+
+        .period {
+          padding-left: 6px;
+          padding-top: 6px;
+          font-size: 1em;
+          opacity: .5;
+        }
+      }
+
+      .option {
+        margin: 24px auto;
+        font-size: .9em;
+      }
+
+      .mini-seperator {
+        width: 100px;
+        height: 1px;
+        margin: 20px auto 32px auto;
+        opacity: .78;
+      }
+
+      button {
+        margin-top: 16px;
+      }
+    }
+  }
+}

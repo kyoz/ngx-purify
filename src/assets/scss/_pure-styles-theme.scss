@@ -31,6 +31,10 @@
     color: mat-color($primary);
   }
 
+  .pure-primary-background {
+    background: mat-color($primary);
+  }
+
   // Set background with current material theme
   .pure-background {
     background: mat-color($background, background);
