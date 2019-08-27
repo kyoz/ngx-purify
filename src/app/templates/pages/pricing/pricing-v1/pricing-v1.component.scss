@@ -1,7 +1,7 @@
 .container {
 
   .header {
-    min-height: 680px;
+    min-height: 620px;
     width: 100%;
     text-align: center;
     background: #00c6ff;
@@ -9,7 +9,7 @@
     color: white !important;
 
     .header-wrapper {
-      transform: translateY(-98px);
+      transform: translateY(-132px);
 
       .icon {
         font-size: 2em;
@@ -32,7 +32,7 @@
     width: 100%;
     padding: 0 32px 32px 32px;
     box-sizing: border-box;
-    transform: translateY(-256px);
+    transform: translateY(-272px);
 
     .card {
       padding: 40px 16px 24px 16px;
