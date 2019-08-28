@@ -14,9 +14,11 @@
   </div>
 
   <!--Pure Containers-->
-  <pure-menu-container *ngIf="!minimalMode"></pure-menu-container>
-  <pure-chatbox-container *ngIf="!minimalMode"></pure-chatbox-container>
-  <pure-notification-container *ngIf="!minimalMode"></pure-notification-container>
+  <ng-template [ngIf]="!minimalMode">
+    <pure-menu-container></pure-menu-container>
+    <pure-chatbox-container></pure-chatbox-container>
+    <pure-notification-container></pure-notification-container>
+  </ng-template>
   <pure-settings-container></pure-settings-container>
 
   <!--Main Backdrop-->
