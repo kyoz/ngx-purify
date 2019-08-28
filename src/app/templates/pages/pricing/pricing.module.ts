@@ -6,6 +6,7 @@ import { PricingRoutingModule } from './pricing-routing.module';
 import { PricingV1Component } from './pricing-v1/pricing-v1.component';
 import { PricingV2Component } from './pricing-v2/pricing-v2.component';
 import { PricingV3Component } from './pricing-v3/pricing-v3.component';
+import { PricingV4Component } from './pricing-v4/pricing-v4.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { PricingV3Component } from './pricing-v3/pricing-v3.component';
   declarations: [
     PricingV1Component,
     PricingV2Component,
-    PricingV3Component
+    PricingV3Component,
+    PricingV4Component
   ]
 })
 export class PricingModule {	}
