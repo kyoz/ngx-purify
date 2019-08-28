@@ -36,6 +36,7 @@
 
     .card {
       padding: 40px 16px 24px 16px;
+      width: 256px;
       max-width: 100%;
       text-align: center;
       animation: push-up-anim 500ms ease-in-out;
@@ -117,6 +118,7 @@
     }
 
     .questions {
+      width: 920px;
       max-width: 100%;
       padding: 38px 24px 0 24px;
 
