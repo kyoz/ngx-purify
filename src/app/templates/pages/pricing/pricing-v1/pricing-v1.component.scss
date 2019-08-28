@@ -1,5 +1,13 @@
 .container {
 
+  .title {
+    font-size: 2.5em;
+  }
+
+  .icon {
+    font-size: 2em;
+  }
+
   .header {
     min-height: 620px;
     width: 100%;
@@ -11,14 +19,6 @@
     .header-wrapper {
       transform: translateY(-132px);
 
-      .icon {
-        font-size: 2em;
-      }
-
-      .title {
-        font-size: 2.5em;
-      }
-
       .description {
         width: 324px;
         max-width: 80%;
@@ -28,16 +28,17 @@
     }
   }
 
-  .content {
+  .pricing-cards {
     width: 100%;
     padding: 0 32px 32px 32px;
     box-sizing: border-box;
-    transform: translateY(-272px);
+    margin-top: -272px;
 
     .card {
       padding: 40px 16px 24px 16px;
       max-width: 100%;
       text-align: center;
+      animation: push-up-anim 500ms ease-in-out;
 
       &:hover {
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
@@ -87,6 +88,52 @@
 
       button {
         margin-top: 16px;
+      }
+    }
+
+    @keyframes push-up-anim {
+      from {
+        opacity: 0;
+        transform: translateY(150px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+  }
+
+  .common-questions {
+    padding-top: 56px;
+    padding-bottom: 84px;
+
+    .title {
+      font-size: 2em;
+      opacity: .84;
+    }
+
+    .icon {
+      opacity: .84;
+    }
+
+    .questions {
+      max-width: 100%;
+      padding: 38px 24px 0 24px;
+
+      .question {
+        margin: 8px;
+        margin-bottom: 24px;
+
+        .title {
+          font-size: 1em;
+          font-weight: 500;
+        }
+
+        .description {
+          opacity: 0.48;
+          margin-top: 12px;
+          font-size: .9em;
+        }
       }
     }
   }

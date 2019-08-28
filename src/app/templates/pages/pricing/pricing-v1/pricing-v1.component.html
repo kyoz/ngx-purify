@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" [dir]="settings.currentTextDir">
   <div class="header" fxLayoutAlign="center center">
     <div class="header-wrapper" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
       <div class="title">Choose your perfect pricing plan</div>
@@ -6,7 +6,7 @@
       <mat-icon class="icon">favorite_border</mat-icon>
     </div>
   </div>
-  <div class="content" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="24px"
+  <div class="pricing-cards" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="24px"
        fxLayout.lt-md="column" fxLayoutAlign.lt-md="start stretch">
   
       <mat-card class="card" fxFlex="0 1 256px" fxFlex.lt-md="auto">
@@ -59,6 +59,20 @@
         <div class="option"><b>100</b> Database</div>
         <button mat-raised-button color="primary">Get started</button>
       </mat-card>
+  </div>
 
+  <div class="common-questions" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="16px">
+    <div class="title">Common Questions</div>
+    <mat-icon class="icon">menu_book</mat-icon>
+
+    <div class="questions" fxLayout="row wrap" fxLayoutAlign="center center"
+       fxLayout.lt-md="column" fxLayoutAlign.lt-md="start stretch">
+
+      <div class="question" fxFlex="0 1 388px" fxFlex.lt-md="auto" *ngFor="let i of [1,2,3,4,5,6]">
+        <div class="title">Questions {{ i }}</div>
+        <div class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit amet libero aperiam sapiente</div>
+      </div>
+
+    </div>
   </div>
 </div>
