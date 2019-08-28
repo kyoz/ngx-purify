@@ -1,0 +1,183 @@
+.container {
+
+  .title {
+    font-size: 2.5em;
+  }
+
+  .icon {
+    font-size: 2em;
+  }
+
+  .header {
+    min-height: 620px;
+    width: 100%;
+    text-align: center;
+    background: #00c6ff;
+    background: linear-gradient(to right, #0072ff, #00c6ff);
+    color: white !important;
+
+    .header-wrapper {
+      transform: translateY(-132px);
+
+      .description {
+        width: 324px;
+        max-width: 80%;
+        line-height: 1.5em;
+        opacity: .68;
+      }
+    }
+  }
+
+  .pricing-cards {
+    width: 100%;
+    padding: 0 32px 32px 32px;
+    box-sizing: border-box;
+    margin-top: -272px;
+
+    .card {
+      padding: 40px 16px 24px 16px;
+      width: 256px;
+      max-width: 100%;
+      text-align: center;
+      animation: push-up-anim 500ms ease-in-out;
+
+      &:nth-child(1) {
+        z-index: 1;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+
+      &:nth-child(2) {
+        z-index: 2;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+      }
+
+      &:nth-child(3) {
+        z-index: 1;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+      }
+
+      .plan {
+        font-size: 1.8em;
+        padding-bottom: 8px;
+      }
+
+      .plan-description {
+        font-size: 1.15em;
+        opacity: .5;
+        padding-bottom: 24px;
+      }
+
+      .pricing {
+        .currency {
+          padding-right: 4px;
+          padding-top: 6px;
+          font-size: 1em;
+        }
+
+        .price {
+          font-size: 2em;
+        }
+
+        .period {
+          padding-left: 6px;
+          padding-top: 6px;
+          font-size: 1em;
+          opacity: .5;
+        }
+      }
+
+      .option {
+        margin: 24px auto;
+        font-size: .9em;
+      }
+
+      .mini-seperator {
+        width: 100px;
+        height: 1px;
+        margin: 20px auto 32px auto;
+        opacity: .78;
+      }
+
+      button {
+        margin-top: 16px;
+      }
+    }
+
+    @keyframes push-up-anim {
+      from {
+        opacity: 0;
+        transform: translateY(150px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+  }
+
+  .common-questions {
+    padding-top: 56px;
+    padding-bottom: 84px;
+
+    .title {
+      font-size: 2em;
+      opacity: .84;
+    }
+
+    .icon {
+      opacity: .84;
+    }
+
+    .questions {
+      width: 920px;
+      max-width: 100%;
+      padding: 38px 24px 0 24px;
+
+      .question {
+        margin: 8px;
+        margin-bottom: 24px;
+
+        .title {
+          font-size: 1em;
+          font-weight: 500;
+        }
+
+        .description {
+          opacity: 0.48;
+          margin-top: 12px;
+          font-size: .9em;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 960px) {
+    .card {
+      box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) !important;
+      margin-bottom: 32px;
+      border-radius: 4px !important;
+    }
+  }
+}
+
+/**
+ * RTL SUPPORT
+ */
+
+.container[dir='rtl'] > .pricing-cards > .card {
+  &:nth-child(1) {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+
+  &:nth-child(3) {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+}

@@ -1,1 +1,78 @@
-<p>pricing-v3 works!</p>
+<div class="container" [dir]="settings.currentTextDir">
+  <div class="header" fxLayoutAlign="center center">
+    <div class="header-wrapper" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
+      <div class="title">Choose your perfect pricing plan</div>
+      <div class="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus amet rem tempore commodi. Sunt, qui!</div>
+      <mat-icon class="icon">favorite_border</mat-icon>
+    </div>
+  </div>
+  <div class="pricing-cards" fxLayout="row" fxLayoutAlign="center center"
+       fxLayout.lt-md="column" fxLayoutAlign.lt-md="start center">
+  
+      <mat-card class="card">
+        <div class="plan">Basic</div>
+        <div class="plan-description">For small team</div>
+        <div class="pricing" fxLayout="row" fxLayoutAlign="center start">
+          <span class="currency pure-primary-foreground">$</span>
+          <span class="price pure-primary-foreground">19</span>
+          <span class="period">/ monthly</span>
+        </div>
+        <div class="mini-seperator pure-primary-background"></div>
+        <div class="option"><b>10GB</b> Space amount</div>
+        <div class="option"><b>50GB</b> Bandwidth</div>
+        <div class="option"><b>Unlimited</b> Users</div>
+        <div class="option"><b>10</b> Database</div>
+        <button mat-raised-button color="primary">Get started</button>
+      </mat-card>
+
+      <mat-card class="card">
+        <div class="plan">Professional</div>
+        <div class="plan-description">For large team</div>
+        <div class="pricing" fxLayout="row" fxLayoutAlign="center start">
+          <span class="currency pure-primary-foreground">$</span>
+          <span class="price pure-primary-foreground">169</span>
+          <span class="period">/ monthly</span>
+        </div>
+        <div class="mini-seperator pure-primary-background"></div>
+        <div class="option"><b>Unlimited</b> Space amount</div>
+        <div class="option"><b>Unlimited</b> Bandwidth</div>
+        <div class="option"><b>Unlimited</b> Users</div>
+        <div class="option"><b>Unlimited</b> Database</div>
+        <div class="option"><b>Advanced</b> Features</div>
+        <div class="option"><b>Advanced</b> Reporting</div>
+        <div class="option"><b>24/7</b> Support</div>
+        <button mat-raised-button color="primary">Get started</button>
+      </mat-card>
+
+      <mat-card class="card">
+        <div class="plan">Business</div>
+        <div class="plan-description">For company</div>
+        <div class="pricing" fxLayout="row" fxLayoutAlign="center start">
+          <span class="currency pure-primary-foreground">$</span>
+          <span class="price pure-primary-foreground">69</span>
+          <span class="period">/ monthly</span>
+        </div>
+        <div class="mini-seperator pure-primary-background"></div>
+        <div class="option"><b>50GB</b> Space amount</div>
+        <div class="option"><b>100GB</b> Bandwidth</div>
+        <div class="option"><b>Unlimited</b> Users</div>
+        <div class="option"><b>100</b> Database</div>
+        <button mat-raised-button color="primary">Get started</button>
+      </mat-card>
+  </div>
+
+  <div class="common-questions" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="16px">
+    <div class="title">Common Questions</div>
+    <mat-icon class="icon">menu_book</mat-icon>
+
+    <div class="questions" fxLayout="row wrap" fxLayoutAlign="center center"
+       fxLayout.lt-md="column" fxLayoutAlign.lt-md="start stretch">
+
+      <div class="question" fxFlex="0 1 388px" fxFlex.lt-md="auto" *ngFor="let i of [1,2,3,4,5,6]">
+        <div class="title">Questions {{ i }}</div>
+        <div class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit amet libero aperiam sapiente</div>
+      </div>
+
+    </div>
+  </div>
+</div>

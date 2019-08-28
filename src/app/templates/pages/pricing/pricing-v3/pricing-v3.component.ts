@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PureSettingsService } from '../../../../core/pure-services/pure-settings.service';
 
 @Component({
   selector: 'pricing-v3',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PricingV3Component implements OnInit {
 
-  constructor() { }
+  constructor(public settings: PureSettingsService) { }
 
   ngOnInit() {
   }
