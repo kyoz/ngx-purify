@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewChecked, Input, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { RESPONSIVE_BREAKPOINTS } from '../../pure-utils/pure-configs';
 import { Router, Event as RouterEvent, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 
@@ -20,7 +20,7 @@ import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
   templateUrl: './pure-main-container.component.html',
   styleUrls: ['./pure-main-container.component.scss']
 })
-export class PureMainContainer implements OnInit, OnDestroy {
+export class PureMainContainer implements OnInit, OnDestroy, AfterViewChecked {
   @Input() minimalMode = false;
   @ViewChild('PURE_MAIN_CONTAINER', { static: false }) pureMainContainer: ElementRef;
 
@@ -43,6 +43,9 @@ export class PureMainContainer implements OnInit, OnDestroy {
     private _router: Router,
     private _changeDetectorRef: ChangeDetectorRef
   ) {
+    // Detach change detections for performance
+    this._changeDetectorRef.detach();
+
     this.initSubscriptionToDetectChange();
 
     // Subscribe for router navigations
@@ -77,6 +80,10 @@ export class PureMainContainer implements OnInit, OnDestroy {
     if (this._deviceDetection.isDesktop()) {
       window.addEventListener('resize', this._onWindowResize);
     }
+  }
+
+  ngAfterViewChecked() {
+    this._changeDetectorRef.detectChanges();
   }
 
   ngOnDestroy() {
