@@ -8,6 +8,6 @@ import { PureSettingsService } from '../../../../core/pure-services/pure-setting
 })
 export class PricingV1Component {
 
-  constructor(public settings: PureSettingsService) { }
+  constructor(public _settings: PureSettingsService) { }
 
 }

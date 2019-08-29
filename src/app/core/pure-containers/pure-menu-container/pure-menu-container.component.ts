@@ -23,17 +23,17 @@ export class PureMenuContainer implements OnInit, OnDestroy {
     public _mainContainer: PureMainContainerService,
     public _menuContainer: PureMenuContainerService,
     public _settings: PureSettingsService,
-    private _deviceDetect: DeviceDetectorService,
-    private _changeDetector: ChangeDetectorRef
+    private _deviceDetector: DeviceDetectorService,
+    private _changeDetectorRef: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
-    if (this._deviceDetect.isDesktop()) {
+    if (this._deviceDetector.isDesktop()) {
       this.addEventListeners();
     }
 
     const subscription = this._menuContainer.isOpenedOrHoveringMenu$.pipe(distinctUntilChanged()).subscribe(() => {
-      this._changeDetector.detectChanges();
+      this._changeDetectorRef.detectChanges();
     });
 
     this.subscriptions.push(subscription);
