@@ -41,7 +41,7 @@ export class PureMainContainer implements OnInit, OnDestroy {
     public _settings: PureSettingsService,
     private _deviceDetection: DeviceDetectorService,
     private _router: Router,
-    private _changeDetector: ChangeDetectorRef
+    private _changeDetectorRef: ChangeDetectorRef
   ) {
     this.initSubscriptionToDetectChange();
 
@@ -62,7 +62,7 @@ export class PureMainContainer implements OnInit, OnDestroy {
         this._notificationContainer.reset();
 
         // Detect changes
-        this._changeDetector.detectChanges();
+        this._changeDetectorRef.detectChanges();
       }
     });
 
