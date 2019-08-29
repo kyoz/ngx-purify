@@ -30,7 +30,7 @@ export class PureToolbar implements OnInit {
     public _notificationContainer: PureNotificationContainerService,
     public _settings: PureSettingsService,
     private _deviceDetector: DeviceDetectorService,
-    private _changeDetector: ChangeDetectorRef
+    private _changeDetectorRef: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
@@ -43,7 +43,7 @@ export class PureToolbar implements OnInit {
     }
 
     const subscription = this._mainContainer.isFullWidth$.pipe(debounceTime(200)).subscribe(() => {
-      this._changeDetector.detectChanges();
+      this._changeDetectorRef.detectChanges();
     });
 
     this.subscriptions.push(subscription);
