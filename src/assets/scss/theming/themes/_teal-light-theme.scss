@@ -1,0 +1,5 @@
+$primary: mat-palette($mat-teal, 600);
+$accent: mat-palette($mat-pink, A200, A100, A400);
+$warn: mat-palette($mat-red, 500);
+
+$pure-teal-light-theme: mat-light-theme($primary, $accent);

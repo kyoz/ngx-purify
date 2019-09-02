@@ -10,12 +10,20 @@ export const THEMES: IPureTheme[] = [
     class: 'pure-indigo-light-theme'
   },
   {
+    name: 'Teal (Light)',
+    class: 'pure-teal-light-theme'
+  },
+  {
     name: 'Deep Orange (Dark)',
     class: 'pure-deep-orange-dark-theme'
   },
   {
     name: 'Pink (Dark)',
     class: 'pure-pink-dark-theme'
+  },
+  {
+    name: 'Green (Dark)',
+    class: 'pure-green-dark-theme'
   }
 ];
 

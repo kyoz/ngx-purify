@@ -4,8 +4,10 @@
 // Themes
 @import "./themes/_default-theme";
 @import "./themes/_indigo-light-theme";
+@import "./themes/_teal-light-theme";
 @import "./themes/_deep-orange-dark-theme";
 @import "./themes/_pink-dark-theme";
+@import "./themes/_green-dark-theme";
 
 @mixin pure-themes-init {
   @include mat-core();
@@ -20,6 +22,11 @@
     @include pure-theme($pure-indigo-light-theme);
   }
 
+  .pure-teal-light-theme {
+    @include angular-material-theme($pure-teal-light-theme);
+    @include pure-theme($pure-teal-light-theme);
+  }
+
   .pure-deep-orange-dark-theme {
     @include angular-material-theme($pure-deep-orange-dark-theme);
     @include pure-theme($pure-deep-orange-dark-theme);
@@ -28,5 +35,10 @@
   .pure-pink-dark-theme {
     @include angular-material-theme($pure-pink-dark-theme);
     @include pure-theme($pure-pink-dark-theme);
+  }
+
+  .pure-green-dark-theme {
+    @include angular-material-theme($pure-green-dark-theme);
+    @include pure-theme($pure-green-dark-theme);
   }
 }
