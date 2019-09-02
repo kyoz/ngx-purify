@@ -70,12 +70,7 @@
         "TITLE": "En desarrollo",
         "START_SERVER": "Iniciar servidor",
         "PRODUCTION": "Producción"
-      },
-      "COMPONENTS": "Components",
-      "DIRECTIVES": "Directives",
-      "SERVICES": "Services",
-      "3RD_PARTY_COMPONENTS": "3rd Party Components",
-      "CHANGELOG": "Changelog"
+      }
     },
     "OTHERS": {
       "TITLE": "OTROS",
