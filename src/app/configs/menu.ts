@@ -9,9 +9,9 @@ import { DocumentationMenu } from './menus/documentation';
 import { MaterialComponentMenu } from './menus/material-component';
 
 export const MENU_CONFIG: IMenuGroup[] = [
-  { groupName: 'MENU.APPLICATIONS.TITLE', menuItems: ApplicationMenu, i18n: true },
-  { groupName: 'MENU.PAGES.TITLE', menuItems: PageMenu, i18n: true },
+  { groupName: 'MENU.APPLICATIONS.TITLE', menuItems: ApplicationMenu },
+  { groupName: 'MENU.PAGES.TITLE', menuItems: PageMenu },
   { groupName: 'MATERIAL COMPONENTS', menuItems: MaterialComponentMenu },
-  { groupName: 'MENU.OTHERS.TITLE', menuItems: OtherMenu, i18n: true },
-  { groupName: 'MENU.DOCUMENTATION.TITLE', menuItems: DocumentationMenu, i18n: true }
+  { groupName: 'MENU.OTHERS.TITLE', menuItems: OtherMenu },
+  { groupName: 'MENU.DOCUMENTATION.TITLE', menuItems: DocumentationMenu }
 ];
