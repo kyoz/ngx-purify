@@ -3,8 +3,8 @@
 
 // Themes
 @import "./themes/_default-theme";
-@import "./themes/_blue-light-theme";
-@import "./themes/_purple-dark-theme";
+@import "./themes/_indigo-light-theme";
+@import "./themes/_deep-orange-dark-theme";
 @import "./themes/_pink-dark-theme";
 
 @mixin pure-themes-init {
@@ -15,14 +15,14 @@
     @include pure-theme($pure-default-theme);
   }
 
-  .pure-blue-light-theme {
-    @include angular-material-theme($pure-blue-light-theme);
-    @include pure-theme($pure-blue-light-theme);
+  .pure-indigo-light-theme {
+    @include angular-material-theme($pure-indigo-light-theme);
+    @include pure-theme($pure-indigo-light-theme);
   }
 
-  .pure-purple-dark-theme {
-    @include angular-material-theme($pure-purple-dark-theme);
-    @include pure-theme($pure-purple-dark-theme);
+  .pure-deep-orange-dark-theme {
+    @include angular-material-theme($pure-deep-orange-dark-theme);
+    @include pure-theme($pure-deep-orange-dark-theme);
   }
 
   .pure-pink-dark-theme {
