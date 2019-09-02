@@ -1,0 +1,55 @@
+<div class="container" [dir]="_settings.currentTextDir">
+
+  <div class="header" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="38px">
+    <div class="title">How can we help you ?</div>
+
+    <div class="search-bar" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+      <div style="width: 4px; height: 100%"></div>
+      <mat-icon class="search-icon">search</mat-icon>
+      <input #searchTerm type="text" placeholder="Search for faq..." fxFlex
+            (keyup)="searchTerm$.next($event.target.value)">
+      <button mat-icon-button color="warn" *ngIf="searchTerm.value.length > 0"
+              (click)="searchTerm.value=''; filterFaq('')">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+
+    <div class="description">You can also browse the topics below to find what you are looking for</div>
+  </div>
+
+  <div class="body">
+    <div class="title" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="24px">
+      <div>Frequently Asked Questions</div>
+      <mat-icon class="icon">menu_book</mat-icon>
+    </div>
+
+    <div class="faqs">
+
+      <ng-template [ngIf]="(filteredFaqs$ | async).length > 0" [ngIfElse]="noFaqGroup">
+        <div class="faq-group" *ngFor="let group of filteredFaqs$ | async">
+          <div class="group-title pure-primary-foreground">{{ group.name }}</div>
+
+          <mat-accordion>
+            <mat-expansion-panel *ngFor="let faq of group.faqs">
+              <mat-expansion-panel-header collapsedHeight="64px">
+                <mat-panel-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+                  <mat-icon style="opacity: .72">help_outline</mat-icon>
+                  <span>{{ faq.question }}</span>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div>{{ faq.answer }}</div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </ng-template>
+
+      <ng-template #noFaqGroup>
+        <div class="no-faq-group">
+          No faqs found
+        </div>
+      </ng-template>
+
+    </div>
+  </div>
+
+</div>

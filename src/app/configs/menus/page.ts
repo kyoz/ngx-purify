@@ -49,5 +49,5 @@ export const PageMenu: IMenuItem[] = [
       { name: 'MENU.PAGES.PRICING.STYLE_4', url: '/pages/pricing/style-4' }
     ]
   },
-  { name: 'FAQ', icon: 'live_help', url: '/page/faq' }
+  { name: 'FAQ', icon: 'live_help', url: '/pages/faq' }
 ];

@@ -1,0 +1,85 @@
+.container {
+
+  .header {
+    height: 320px;
+    min-height: 320px;
+    max-height: 320px;
+    background: #00c6ff;
+    background: linear-gradient(to right, #0072ff, #00c6ff);
+    color: white !important;
+
+    .title {
+      font-size: 2.2em;
+    }
+
+    .search-bar {
+      position: relative;
+      width: 680px;
+      max-width: 90%;
+      height: 48px;
+      border-radius:48px; 
+      border: 1px solid rgba(0,0,0,.12);
+      background: white;
+      padding: 4px 8px;
+
+      .search-icon {
+        color: rgba(0,0,0,.32);
+      }
+
+      input {
+        font-size: 1em;
+        outline: none;
+        border: none;
+      }
+
+      input::placeholder {
+        color: rgba(0,0,0,.32);
+      }
+    }
+
+    .description {
+      margin-top: 8px;
+      text-align: center;
+    }
+  }
+
+  .body {
+    padding-bottom: 32px;
+
+    .title {
+      width: 100%;
+      padding-top: 40px;
+      font-size: 1.6em;
+      text-align: center;
+      opacity: .8;
+
+      .icon {
+        font-size: 1.3em;
+      }
+    }
+
+    .faqs {
+      width: 920px;
+      max-width: 100%;
+      box-sizing: border-box;
+      padding: 38px 32px 0 32px;
+      margin: auto;
+
+      .faq-group {
+        margin-bottom: 32px;
+
+        .group-title {
+          margin-bottom: 24px;
+          font-size: 1.2em;
+        }
+      }
+
+      .no-faq-group {
+        font-size: 1.4em;
+        opacity: .32;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
