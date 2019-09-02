@@ -30,6 +30,14 @@ export const PageMenu: IMenuItem[] = [
     ]
   },
   {
+    name: 'MENU.PAGES.ANNOUNCEMENT.TITLE',
+    icon: 'announcement',
+    children: [
+      { name: 'MENU.PAGES.ANNOUNCEMENT.COMING_SOON', url: '/pages/announcement/coming-soon' },
+      { name: 'MENU.PAGES.ANNOUNCEMENT.MAINTENANCE', url: '/pages/announcement/maintenance' },
+    ]
+  },
+  {
     name: 'MENU.PAGES.ERRORS.TITLE',
     icon: 'error',
     badge: 14,

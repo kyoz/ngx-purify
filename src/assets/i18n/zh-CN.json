@@ -36,6 +36,11 @@
         "SESSION": "会议",
         "SESSION_EXPIRED": "会话已过期"
       },
+      "ANNOUNCEMENT": {
+        "TITLE": "公告",
+        "COMING_SOON": "快来了",
+        "MAINTENANCE": "保养"
+      },
       "ERRORS": {
         "TITLE": "错误"
       },

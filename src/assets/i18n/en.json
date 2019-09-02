@@ -36,6 +36,11 @@
         "SESSION": "Session",
         "SESSION_EXPIRED": "Session Expired"
       },
+      "ANNOUNCEMENT": {
+        "TITLE": "Announcement",
+        "COMING_SOON": "Coming soon",
+        "MAINTENANCE": "Maintenance"
+      },
       "ERRORS": {
         "TITLE": "Errors"
       },

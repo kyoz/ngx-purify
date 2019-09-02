@@ -36,6 +36,11 @@
         "SESSION": "Sesión",
         "SESSION_EXPIRED": "Sesión expirada"
       },
+      "ANNOUNCEMENT": {
+        "TITLE": "Anuncio",
+        "COMING_SOON": "Próximamente",
+        "MAINTENANCE": "Mantenimiento"
+      },
       "ERRORS": {
         "TITLE": "Errores"
       },
