@@ -1,0 +1,49 @@
+.background {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  background-color: #313846;
+  background: url('/assets/image/background/under-construction.jpg') 0 0/cover no-repeat;
+  overflow: hidden;
+}
+
+.container {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  overflow: hidden;
+
+  .content {
+    padding: 8px 32px 40px 32px;
+    width: 360px;
+    max-width: 90vw;
+    max-height: 90vh;
+    box-sizing: border-box;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    text-align: center;
+    overflow-y: auto;
+    animation: push-up-anim 500ms ease-in-out;
+
+    .logo {
+      box-sizing: border-box;
+      margin-top: 32px;
+      height: auto;
+    }
+    
+    .title {
+      font-size: 1.4em;
+      padding: 28px 0 12px 0;
+      color: #2472CC;
+    }
+
+    .description {
+      font-size: .9em;
+      opacity: .5;
+      padding-bottom:4px;
+    }
+  }
+}
