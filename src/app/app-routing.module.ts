@@ -14,8 +14,8 @@ const routes: Routes = [
   {
     path: 'pages',
     component: MinimalContainer,
-    loadChildren: () => import('./templates/pages/auth-pages.module')
-      .then(module => module.AuthPagesModule)
+    loadChildren: () => import('./templates/pages/fullscreen-pages.module')
+      .then(module => module.FullscreenPagesModule)
   },
   {
     path: 'pages',

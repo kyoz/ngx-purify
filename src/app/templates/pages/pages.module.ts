@@ -6,11 +6,6 @@ import { RouterModule } from '@angular/router';
   imports: [
     RouterModule.forChild([
       {
-        path: 'announcement',
-        loadChildren: () => import('./announcement/announcement.module')
-          .then(module => module.AnnoucementModule)
-      },
-      {
         path: 'errors',
         loadChildren: () => import('./errors/errors.module')
           .then(module => module.ErrorsModule)

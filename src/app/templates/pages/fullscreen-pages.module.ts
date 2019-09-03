@@ -8,8 +8,13 @@ import { RouterModule } from '@angular/router';
       {
         path: 'auth',
         loadChildren: () => import('./authentication/authentication.module').then(module => module.AuthenticationModule)
+      },
+      {
+        path: 'announcement',
+        loadChildren: () => import('./announcement/announcement.module')
+          .then(module => module.AnnoucementModule)
       }
     ])
   ]
 })
-export class AuthPagesModule {}
+export class FullscreenPagesModule {}
