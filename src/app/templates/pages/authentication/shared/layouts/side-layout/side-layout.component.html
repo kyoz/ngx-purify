@@ -1,8 +1,5 @@
 <div class="container" [dir]="_settings.currentTextDir">
-  <div class="content pure-background" purePerfectScrollbar
-       [ngClass]="{
-         'content-ltr': _settings.currentTextDir === 'ltr',
-         'content-rtl': _settings.currentTextDir === 'rtl'}">
+  <div class="content pure-background" purePerfectScrollbar>
     <div class="wrapper" fxLayout="column" fxLayoutAlign="center center">
       <img class="logo" src="/assets/logo/pure.svg" width="84px" *ngIf="showLogo">
       <div class="title" *ngIf="showTitle">{{ title }}</div>
@@ -14,10 +11,7 @@
     </div>
   </div>
 
-  <div class="info" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px"
-       [ngClass]="{
-         'info-ltr': _settings.currentTextDir === 'ltr',
-         'info-rtl': _settings.currentTextDir === 'rtl'}">
+  <div class="info" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
     <div class="title">Welcome to Pure Angular</div>
 
     <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta harum dolorum?</div>
