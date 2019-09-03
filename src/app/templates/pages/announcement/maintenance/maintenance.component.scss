@@ -1,4 +1,4 @@
-.background {
+.container {
   position: absolute;
   top: 0px;
   right: 0px;
@@ -6,15 +6,6 @@
   bottom: 0px;
   background-color: #313846;
   background: url('/assets/image/background/under-construction.jpg') 0 0/cover no-repeat;
-  overflow: hidden;
-}
-
-.container {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  left: 0px;
-  bottom: 0px;
   overflow: hidden;
 
   .content {
