@@ -1,0 +1,128 @@
+.background {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  background: url('/assets/image/background/night-mountain.jpg') 0 0/cover no-repeat;
+  overflow: hidden;
+  filter: grayscale(20%);
+}
+.container {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  padding-bottom: 84px;
+  overflow: hidden;
+
+  .content {
+    padding: 8px 32px 40px 32px;
+    max-width: 90vw;
+    max-height: 90vh;
+    box-sizing: border-box;
+    text-align: center;
+    overflow-y: auto;
+
+    .logo {
+      box-sizing: border-box;
+      margin-top: 32px;
+      height: auto;
+    }
+    
+    .title {
+      font-size: 2.5em;
+      font-weight: 100;
+      padding: 16px 0 8px 0;
+      color: white;
+    }
+
+    .description {
+      font-weight: 100;
+      opacity: .72;
+      color: white;
+    }
+
+    .timers {
+      padding-top: 24px;
+      color: white;
+
+      .timer {
+        width: 120px;
+        height: 120px;
+        border: 1px solid white;
+        border-radius: 50%;
+
+        .time {
+          font-size: 2.5em;
+          font-weight: 100;
+        }
+
+        .unit {
+          font-size: .9em;
+          font-weight: 100;
+          transform: translateY(-4px);
+        }
+      }
+    }
+
+    .subscribe {
+      width: 480px;
+      max-width: 90vw;
+      margin-top: 48px;
+      padding: 4px 12px 4px 16px;
+      border: 1px solid white;
+      border-radius: 28px;
+      box-sizing: none;
+
+      input {
+        width: 100%;
+        height: 24px;
+        color: white;
+        font-size: 1em;
+        font-weight: 100;
+        background: transparent;
+        border: none;
+        outline: none;
+        caret-color: white;
+      }
+
+      input::placeholder {
+        color: white;
+      }
+
+      button {
+        transform: translate(9px, -1px);
+
+        mat-icon {
+          color: white;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    .timers {
+      padding-top: 4px;
+      transform: scale(0.65);
+    }
+
+    .subscribe {
+      margin-top: 4px !important;
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+    .content {
+      .title {
+        font-size: 2em;
+      }
+
+      .timers {
+        padding-top: 4px;
+        transform: scale(0.5);
+      }
+    }
+  }
+}

@@ -4,7 +4,6 @@
   right: 0px;
   left: 0px;
   bottom: 0px;
-  background-color: #313846;
   background: url('/assets/image/background/under-construction.jpg') 0 0/cover no-repeat;
   overflow: hidden;
 
@@ -17,7 +16,6 @@
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     text-align: center;
     overflow-y: auto;
-    animation: push-up-anim 500ms ease-in-out;
 
     .logo {
       box-sizing: border-box;
