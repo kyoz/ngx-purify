@@ -4,6 +4,7 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatIconRegistry } from '@angular/material';
+import { environment } from '../../environments/environment';
 
 // Pure Modules
 import { PureSharedModule } from '../shared/shared.module';
@@ -12,10 +13,11 @@ import { PureComponentsModule } from './pure-components/pure-components.module';
 import { PureContainersModule } from './pure-containers/pure-containers.module';
 import { PureDirectivesModule } from './pure-directives/pure-directives.module';
 
-// Ngrx Redux Modules
-import { EffectsModule } from '@ngrx/effects';
-import { AppStateModule } from '../app-state.module';
-import { PureChatboxEffects } from './pure-components/pure-chatbox/pure-chatbox.effect';
+// Store Modules
+import { NgxsModule } from '@ngxs/store';
+
+// States
+import { PureSideChatboxState } from './pure-stores/chatbox/chatbox.state';
 
 // Device Detectors
 import { DeviceDetectorModule } from 'ngx-device-detector';
@@ -75,23 +77,24 @@ const PURE_CORE_MODULES = [
     PureMockApiModule,
     ...PURE_CORE_MODULES,
 
-     // Ngrx Redux Modules
-     AppStateModule,
-     EffectsModule.forRoot([
-       PureChatboxEffects
-     ]),
+    // Store Modules
+    NgxsModule.forRoot([
+      PureSideChatboxState
+    ], {
+      developmentMode: environment.production
+    }),
 
-     // Device Detectors
-     DeviceDetectorModule.forRoot(),
+    // Device Detectors
+    DeviceDetectorModule.forRoot(),
 
-     // Translator
-     TranslateModule.forRoot({
-       loader: {
-         provide: TranslateLoader,
-         useFactory: HttpLoaderFactory,
-         deps: [HttpClient]
-       }
-     }),
+    // Translator
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
 
     // Highlightjs
     HighlightModule.forRoot({

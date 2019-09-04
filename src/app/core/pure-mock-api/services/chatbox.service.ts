@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CHATBOX_CONTACTS, CHATBOX_CONVERSASIONS } from '../data/chatbox';
-import { ICurrentConversation } from '../../pure-interfaces/chatbox';
+import { CurrentConversation } from '../../pure-models/chatbox';
 
 @Injectable()
 export class ChatBoxMockApiService {
@@ -13,7 +13,7 @@ export class ChatBoxMockApiService {
     });
   }
 
-  public getConversationByContact(contactId): Observable<ICurrentConversation> {
+  public getConversationByContact(contactId): Observable<CurrentConversation> {
     return new Observable(observer => {
       const conversation: any = CHATBOX_CONVERSASIONS.filter(d => d.withContact === contactId);
 

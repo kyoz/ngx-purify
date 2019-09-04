@@ -1,6 +1,6 @@
-import { IMenuItem } from '../../core/pure-interfaces/menu';
+import { MenuItem } from '../../core/pure-models/menu';
 
-export const OtherMenu: IMenuItem[] = [
+export const OtherMenu: MenuItem[] = [
   {
     name: 'MENU.OTHERS.MULTI_LEVEL_MENU.TITLE',
     icon: 'sort',

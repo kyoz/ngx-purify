@@ -3,9 +3,6 @@ import { HttpClient } from '@angular/common/http';
 
 import { PureChatboxContainer } from './pure-chatbox-container.component';
 import { PureCoreModule } from '../../core.module';
-import { AppStateModule } from '../../../app-state.module';
-import { EffectsModule } from '@ngrx/effects';
-import { PureChatboxEffects } from '../../pure-components/pure-chatbox/pure-chatbox.effect';
 
 import { TranslateService, TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpLoaderFactory } from 'src/app/core/core.module';
@@ -19,10 +16,6 @@ describe('PureChatboxContainer', () => {
     TestBed.configureTestingModule({
       imports: [
         PureCoreModule,
-        AppStateModule,
-        EffectsModule.forRoot([
-          PureChatboxEffects
-        ]),
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,

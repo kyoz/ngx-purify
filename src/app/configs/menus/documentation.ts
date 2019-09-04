@@ -1,6 +1,6 @@
-import { IMenuItem } from '../../core/pure-interfaces/menu';
+import { MenuItem } from '../../core/pure-models/menu';
 
-export const DocumentationMenu: IMenuItem[] = [
+export const DocumentationMenu: MenuItem[] = [
   {
     name: 'Getting Started', icon: 'chrome_reader_mode', children: [
       { name: 'Introduction', icon: 'chrome_reader_mode' },

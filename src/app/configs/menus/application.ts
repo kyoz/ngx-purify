@@ -1,4 +1,4 @@
-import { IMenuItem } from '../../core/pure-interfaces/menu';
+import { MenuItem } from '../../core/pure-models/menu';
 
 /**
  * DEFINE MENUS
@@ -7,7 +7,7 @@ import { IMenuItem } from '../../core/pure-interfaces/menu';
  * And with object key, its more easier for us when we have update.
  */
 
-export const ApplicationMenu: IMenuItem[] = [
+export const ApplicationMenu: MenuItem[] = [
   {
     name: 'MENU.APPLICATIONS.DASHBOARD.TITLE', icon: 'dashboard', children: [
       { name: 'MENU.APPLICATIONS.DASHBOARD.ANALYTICAL', url: '/app/dashboard/analytical' },

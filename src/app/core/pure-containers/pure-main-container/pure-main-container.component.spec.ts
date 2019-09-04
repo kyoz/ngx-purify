@@ -4,9 +4,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { PureCoreModule } from '../../core.module';
 import { PureMainContainer } from './pure-main-container.component';
-import { AppStateModule } from '../../../app-state.module';
-import { EffectsModule } from '@ngrx/effects';
-import { PureChatboxEffects } from '../../pure-components/pure-chatbox/pure-chatbox.effect';
 
 import { TranslateModule, TranslateService, TranslateLoader } from '@ngx-translate/core';
 import { HttpLoaderFactory } from 'src/app/core/core.module';
@@ -21,12 +18,8 @@ describe('PureMainContainer', () => {
     TestBed.configureTestingModule({
       imports: [
         PureCoreModule,
-        AppStateModule,
         HttpClientModule,
         RouterTestingModule,
-        EffectsModule.forRoot([
-          PureChatboxEffects
-        ]),
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,

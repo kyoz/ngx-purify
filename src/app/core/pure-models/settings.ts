@@ -1,4 +1,4 @@
-export interface IPureTheme {
+export interface PureTheme {
   name: string;
   class: string;
 }

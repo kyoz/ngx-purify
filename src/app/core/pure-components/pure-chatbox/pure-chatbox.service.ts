@@ -1,27 +1,23 @@
 import { Injectable } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, Select } from '@ngxs/store';
 import { Observable, Subject } from 'rxjs';
-import { IAppState } from '../../../types/app-state';
-import { getContacts, getCurrentConversation } from './pure-chatbox.selector';
+import { GetContacts, GetConversation, ClearConversation, SendMessage } from '../../pure-stores/chatbox/chatbox.actions';
+import { PureSideChatboxState } from '../../pure-stores/chatbox/chatbox.state';
+import { CurrentConversation } from '../../pure-models/chatbox';
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
-import { ICurrentConversation } from '../../pure-interfaces/chatbox';
 import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
-import * as SideChatboxActions from './pure-chatbox.action';
 
 @Injectable()
 export class PureChatboxService {
-  contacts$: Observable<any>;
-  currentConversation$: Observable<any>;
+  @Select(PureSideChatboxState.getContacts) contacts$: Observable<any>;
+  @Select(PureSideChatboxState.getCurrentConversation) currentConversation$: Observable<any>;
 
-  currentConversation: ICurrentConversation;
+  currentConversation: CurrentConversation;
 
   // To simulate the other user send message back
   sendMessageBack$ = new Subject<Date>();
 
-  constructor(private _store: Store<IAppState>, private _chatboxContainer: PureChatboxContainerService) {
-    this.contacts$ = this._store.pipe(getContacts());
-    this.currentConversation$ = this._store.pipe(getCurrentConversation());
-
+  constructor(private _store: Store, private _chatboxContainer: PureChatboxContainerService) {
     this.currentConversation$.subscribe(currentConversation => {
       this.currentConversation = currentConversation;
       if (this.inConversation) {
@@ -47,19 +43,19 @@ export class PureChatboxService {
    */
 
   public getContacts() {
-    this._store.dispatch(new SideChatboxActions.GetContacts());
+    this._store.dispatch(new GetContacts());
   }
 
   public chooseContact(contactId: number) {
-    this._store.dispatch(new SideChatboxActions.GetConversation(contactId));
+    this._store.dispatch(new GetConversation(contactId));
   }
 
   public clearConversation() {
-    this._store.dispatch(new SideChatboxActions.ClearConversation());
+    this._store.dispatch(new ClearConversation());
   }
 
-  public sendMessage(message) {
-    this._store.dispatch(new SideChatboxActions.SendMessage({
+  public sendMessage(message: string) {
+    this._store.dispatch(new SendMessage({
       sender: 0, // Me
       message,
       createAt: new Date()
@@ -70,7 +66,7 @@ export class PureChatboxService {
   }
 
   private sendMessageBack() {
-    this._store.dispatch(new SideChatboxActions.SendMessage({
+    this._store.dispatch(new SendMessage({
       sender: this.currentConversation.contactInfo.id,
       message: 'I am Grootttt',
       createAt: new Date()

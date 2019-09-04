@@ -4,6 +4,7 @@ import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { ChatboxContact, ChatboxMessage } from '../../pure-models/chatbox';
 
 @Component({
   selector: 'pure-chatbox',
@@ -33,7 +34,7 @@ export class PureChatbox implements OnInit {
     });
   }
 
-  startConversation(contact) {
+  startConversation(contact: ChatboxContact) {
     this.clearMessageInput();
     this._chatbox.chooseContact(contact.id);
     this.focusMessageInput();
@@ -79,7 +80,7 @@ export class PureChatbox implements OnInit {
     }
   }
 
-  preventEnterKey(event) {
+  preventEnterKey(event: any) {
     event.preventDefault();
   }
 
@@ -92,7 +93,7 @@ export class PureChatbox implements OnInit {
     }
   }
 
-  isFirstOfGroup(index, message, messageList) {
+  isFirstOfGroup(index: number, message: ChatboxMessage, messageList: ChatboxMessage[]) {
     if (index === 0) {
       return true;
     }
@@ -104,7 +105,7 @@ export class PureChatbox implements OnInit {
     return false;
   }
 
-  isLastOfGroup(index, message, messageList) {
+  isLastOfGroup(index: number, message: ChatboxMessage, messageList: ChatboxMessage[]) {
     if (index === messageList.length - 1) {
       return true;
     }
@@ -114,5 +115,13 @@ export class PureChatbox implements OnInit {
     }
 
     return false;
+  }
+
+  trackByContact(index: number, contact: ChatboxContact) {
+    return contact.id;
+  }
+
+  trackByMessage(index: number) {
+    return index;
   }
 }

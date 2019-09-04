@@ -1,6 +1,6 @@
-import { IMenuItem } from '../../core/pure-interfaces/menu';
+import { MenuItem } from '../../core/pure-models/menu';
 
-export const MaterialComponentMenu: IMenuItem[] = [
+export const MaterialComponentMenu: MenuItem[] = [
   {
     name: 'Form Controls', icon: 'layers', children: [
       { name: 'Autocomplete', url: '/material-components/form-controls/autocomplete' },

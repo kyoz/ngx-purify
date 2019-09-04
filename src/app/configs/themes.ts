@@ -1,6 +1,6 @@
-import { IPureTheme } from '../core/pure-interfaces/settings';
+import { PureTheme } from '../core/pure-models/settings';
 
-export const THEMES: IPureTheme[] = [
+export const THEMES: PureTheme[] = [
   {
     name: 'Default (Light)',
     class: 'pure-default-theme'

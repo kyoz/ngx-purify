@@ -1,14 +1,14 @@
-export interface IMenuGroup {
+export interface MenuGroup {
   groupName: string;
-  menuItems: IMenuItem[];
+  menuItems: MenuItem[];
 }
 
-export interface IMenuItem {
+export interface MenuItem {
   name: string;
   icon?: string;
   url?: string;
   params?: object;
-  children?: IMenuItem[];
+  children?: MenuItem[];
   badge?: number;
   badgeColor?: string;
 }

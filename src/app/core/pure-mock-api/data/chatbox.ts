@@ -1,4 +1,4 @@
-import { IChatboxContact, IChatBoxConversation } from "../../pure-interfaces/chatbox";
+import { ChatboxContact, ChatboxConversation } from '../../pure-models/chatbox';
 
 /**
  * NOTE
@@ -7,7 +7,7 @@ import { IChatboxContact, IChatBoxConversation } from "../../pure-interfaces/cha
  * and modified everything you want
  */
 
-export const CHATBOX_CONTACTS: IChatboxContact[] = [
+export const CHATBOX_CONTACTS: ChatboxContact[] = [
   { id: 1, name: 'Tom Robertson', status: 'online', unreadCount: 100, avatar: 'tom.jpg' },
   { id: 2, name: 'Nathaniel Blackburn', status: 'offline', unreadCount: 23, avatar: 'nathaniel.jpg' },
   { id: 3, name: 'Kaitlyn Jimenez', status: 'online', unreadCount: 10, avatar: 'kaitlyn.jpg' },
@@ -30,7 +30,7 @@ export const CHATBOX_CONTACTS: IChatboxContact[] = [
   { id: 20, name: 'Taylor Nguyen', status: 'online', unreadCount: 0, avatar: 'taylor.jpg' },
 ];
 
-export const CHATBOX_CONVERSASIONS: IChatBoxConversation[] = [
+export const CHATBOX_CONVERSASIONS: ChatboxConversation[] = [
   {
     owner: 0,
     withContact: 1,

@@ -1,6 +1,6 @@
-import { IMenuItem } from '../../core/pure-interfaces/menu';
+import { MenuItem } from '../../core/pure-models/menu';
 
-export const PageMenu: IMenuItem[] = [
+export const PageMenu: MenuItem[] = [
   {
     name: 'MENU.PAGES.AUTHENTICATION.TITLE',
     icon: 'security',

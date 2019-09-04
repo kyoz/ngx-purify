@@ -3,7 +3,6 @@ import { PureCoreModule } from '../../core.module';
 import { HttpClient } from '@angular/common/http';
 
 import { AppStateModule } from '../../../app-state.module';
-import { EffectsModule } from '@ngrx/effects';
 import { PureChatboxEffects } from './pure-chatbox.effect';
 import { PureChatbox } from './pure-chatbox.component';
 
@@ -20,9 +19,6 @@ describe('PureChatbox', () => {
       imports: [
         PureCoreModule,
         AppStateModule,
-        EffectsModule.forRoot([
-          PureChatboxEffects
-        ]),
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,
