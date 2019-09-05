@@ -29,6 +29,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
     private _menuService: PureMenuService,
     private _route: Router,
     private _changeDetectorRef: ChangeDetectorRef) {
+      this.fixBadgeColor();
   }
 
   ngOnInit() {
@@ -197,9 +198,9 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  fixBadgeColor(color) {
-    if (color === 'primary' || color === 'accent') {
-      return color;
+  fixBadgeColor() {
+    if (this.menuItemData && (this.menuItemData.badgeColor === 'primary' || this.menuItemData .badgeColor === 'accent')) {
+      return this.menuItemData.badgeColor;
     }
 
     return 'warn';
