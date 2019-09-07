@@ -22,39 +22,27 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   @Input() isMainFullWidth: boolean;
   @Input() textDirection: string;
 
-  private routeSubscription: Subscription;
   private _parent: PureMenuItem = this;
+  private subscriptions: Map<String, Subscription> = new Map();
 
   constructor(
     private _menuService: PureMenuService,
     private _route: Router,
     private _changeDetectorRef: ChangeDetectorRef) {
       this.fixBadgeColor();
+      this.fixMenuLevel();
+      this.detectWhenRouteChanged();
   }
 
   ngOnInit() {
-    // Menu with so much level with shrink the text. It doens't provide a good UI experience.
-    // So i limit it at 5 levels. From 0 (Default level) to 4
-    // In this case i recommend create multi groups for menu items
-    if (this.level > 4) {
-      this.level = 4;
-    }
-
     // Set menu item is active when first load
-    this.activate();
+    this.setActivatingMenu();
   }
 
   ngAfterViewInit() {
-    // Subscribe to set menu item is active when change route
-    this.routeSubscription = this._route.events.subscribe(e => {
-      if (e instanceof NavigationEnd) {
-        // Deactivate current activating menu item
-        this.activate();
-      }
-    });
 
-     // Expanding menu on load when there is activating menu item
-     if (this._menuService.activatingMenuItem && this._menuService.activatingMenuItem === this) {
+    // Expanding menu on load when there is activating menu item
+    if (this._menuService.activatingMenuItem && this._menuService.activatingMenuItem === this) {
       this.expandDropdownOnLoad();
     }
 
@@ -63,9 +51,11 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnDestroy(): void {
-    if (this.routeSubscription) {
-      this.routeSubscription.unsubscribe();
-    }
+    this.subscriptions.forEach(subscription => {
+      if (subscription) {
+        subscription.unsubscribe();
+      }
+    });
   }
 
   /**
@@ -116,7 +106,22 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
    * FUNCTIONS
    */
 
-  activate() {
+  detectWhenRouteChanged() {
+
+    if (this.subscriptions.get('detectWhenRouteChanged') !== undefined) {
+      return;
+    }
+
+    // Subscribe to set menu item is active when change route
+    this.subscriptions.set('detectWhenRouteChanged', this._route.events.subscribe(e => {
+      if (e instanceof NavigationEnd) {
+        // Deactivate current activating menu item
+        this.setActivatingMenu();
+      }
+    }));
+  }
+
+  setActivatingMenu() {
     if (this.menuItemData && this.menuItemData.url && !this.hasChildren) {
       if (PureStringUtils.cleanRouteLink(this._route.url) === PureStringUtils.cleanRouteLink(this.menuItemData.url)) {
         this._menuService.setActivatingMenuItem(this);
@@ -195,6 +200,15 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
 
     if (rootParent) {
       this._menuService.setExpandingMenuItem(rootParent);
+    }
+  }
+
+  fixMenuLevel() {
+    // Menu with so much level with shrink the text. It doens't provide a good UI experience.
+    // So i limit it at 5 levels. From 0 (Default level) to 4
+    // In this case i recommend create multi groups for menu items
+    if (this.level > 4) {
+      this.level = 4;
     }
   }
 

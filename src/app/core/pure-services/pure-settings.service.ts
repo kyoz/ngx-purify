@@ -162,6 +162,7 @@ export class PureSettingsService {
   updateLanguage(langKey: string) {
     langKey = langKey ? langKey : LANGUAGES[0].key; // If stored langKey is not exist in app, set first lang found
     this._translate.setDefaultLang(langKey);
+    this._translate.use(langKey);
     this.currentLang$.next(langKey);
   }
 

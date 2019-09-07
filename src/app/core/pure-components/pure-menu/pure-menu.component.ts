@@ -1,31 +1,65 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, AfterViewInit } from '@angular/core';
 import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 import { PureMenuService } from './pure-menu.service';
 import { PureMenuContainerService } from '../../pure-containers/pure-menu-container/pure-menu-container.service';
 import { PureMainContainerService } from '../../pure-containers/pure-main-container/pure-main-container.service';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
+import { Subscription } from 'rxjs';
 import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
 import { MENU_CONFIG } from '../../../configs/menu';
+import { MenuGroup } from '../../../core/pure-models/menu';
 
 @Component({
   selector: 'pure-menu',
   templateUrl: './pure-menu.component.html',
   styleUrls: ['./pure-menu.component.scss']
 })
-export class PureMenu implements OnInit, AfterViewInit {
+export class PureMenu implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('PURE_MENU', { static: false }) pureMenuScrollbar?: PerfectScrollbarDirective;
 
-  menuData = MENU_CONFIG;
+  private menuGroups: MenuGroup[] = MENU_CONFIG;
+  private subscriptions: Map<String, Subscription> = new Map();
 
   constructor(
     private _menuService: PureMenuService,
     public _menuContainer: PureMenuContainerService,
     public _mainContainer: PureMainContainerService,
     public _settings: PureSettingsService) {
+      this.detectMenuItemActive();
+  }
+
+  ngOnInit() {
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(subscription => {
+      if (subscription) {
+        subscription.unsubscribe();
+      }
+    });
   }
 
   ngAfterViewInit() {
+    this.focusActiveMenu();
+  }
 
+  detectMenuItemActive() {
+    // The menu have animation on height when menu expanding. Have to wait for animation done.
+    // If no, there'll be a gap at bottom in some case.
+
+    if (this.subscriptions.get('detectMenuItemActive') !== undefined) {
+      return;
+    }
+
+    this.subscriptions.set('detectMenuItemActive', this._menuService.onActivatingMenuItem$
+      .pipe(debounceTime(100), distinctUntilChanged()).subscribe(() => {
+        setTimeout(() => {
+          this.pureMenuScrollbar.update();
+        }, 300);
+    }));
+  }
+
+  focusActiveMenu() {
     /**
      * If there is activated memu item, scroll to it and make it is center of the menu
      */
@@ -42,15 +76,5 @@ export class PureMenu implements OnInit, AfterViewInit {
 
       pureMenu.scrollTop -= centerScreenHeight;
     }
-  }
-
-  ngOnInit() {
-    this._menuService.onActivatingMenuItem$.pipe(debounceTime(100), distinctUntilChanged()).subscribe(() => {
-      // The menu have animation on height when menu expanding. Have to wait for animation done.
-      // If no, there'll be a gap at bottom in some case.
-      setTimeout(() => {
-        this.pureMenuScrollbar.update();
-      }, 300);
-    });
   }
 }
