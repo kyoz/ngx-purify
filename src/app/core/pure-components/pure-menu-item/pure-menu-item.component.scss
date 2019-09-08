@@ -102,21 +102,6 @@
       }
     }
 
-    .pure-menu-content.fullwidth {
-      .icon {
-        margin-right: 22px;
-      }
-    }
-
-    .pure-menu-content.opened-or-hovering-menu {
-      flex-direction: row;
-      padding-right: 10px;
-
-      .icon {
-        margin-right: 12px;
-      }
-    }
-
     /**
       * LEVELS
       */
@@ -152,36 +137,6 @@
       }
     }
 
-    /**
-    * TRANSITION FOR MENU ITEMS
-    */
-
-    .pure-menu-content.opened-or-hovering-menu {
-
-      .name,
-      .expand-icon {
-        opacity: 1;
-        margin-right: 12px;
-      }
-
-      .badge {
-        opacity: 1;
-        transition: opacity 200ms ease-in-out;
-      }
-
-      .replace-icon {
-        opacity: 0;
-      }
-    }
-
-    .content.opened-or-hovering-menu.level-1,
-    .content.opened-or-hovering-menu.level-2,
-    .content.opened-or-hovering-menu.level-3,
-    .content.opened-or-hovering-menu.level-4 {
-      .icon {
-        opacity: 1;
-      }
-    }
   }
 
   .children {
@@ -219,8 +174,8 @@
   }
 
   /**
-  * RTL SUPPORT
-  */
+   * RTL SUPPORT
+   */
 
   .pure-menu-item[dir='rtl'] {
     .content {
@@ -247,53 +202,28 @@
       }
     }
 
-    .pure-menu-content.fullwidth {
-      .icon {
-        margin-right: auto;
-        margin-left: 22px;
-      }
-    }
-
-    .pure-menu-content.opened-or-hovering-menu {
-      padding-right: auto;
-      padding-left: 10px;
-
-      .icon {
-        margin-right: auto;
-        margin-left: 12px;
-      }
-    }
-
     /**
       * LEVELS
       */
 
+    .content {
+      padding-left: 10px !important;
+    }
+
     .content.level-1 {
-      padding-left: auto;
-      padding-right: 54px;
+      padding-right: 54px !important;
     }
 
     .content.level-2 {
-      padding-left: auto;
-      padding-right: 86px;
+      padding-right: 86px !important;
     }
 
     .content.level-3 {
-      padding-left: auto;
-      padding-right: 118px;
+      padding-right: 118px !important;
     }
 
     .content.level-4 {
-      padding-left: auto;
-      padding-right: 150px;
-    }
-
-    .pure-menu-content.opened-or-hovering-menu {
-      .name,
-      .expand-icon {
-        margin-right: auto;
-        margin-left: 12px;
-      }
+      padding-right: 150px !important;
     }
   }
 }

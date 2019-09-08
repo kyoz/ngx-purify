@@ -6,9 +6,7 @@
   <div class="pure-menu-content content level-{{level}}" [ngClass]="{
     'active': active,
     'opened': opened,
-    'opened-or-hovering-menu': isOpenedOrHoveringMenu,
-    'no-icon': (!menuItemData && menuItemData?.icon && !isMenuOpened) || level !== 0,
-    'fullwidth': isMainFullWidth
+    'no-icon': (!menuItemData && menuItemData?.icon && !isMenuOpened) || level !== 0
   }">
     <!-- Icon to replace menu item that doesn't have icon when shrink -->
     <mat-icon class="replace-icon">{{ menuItemData?.icon ? menuItemData?.icon : 'layers' }}</mat-icon>
@@ -34,9 +32,7 @@
   <a class="pure-menu-item" [href]="menuItemData?.url" [dir]="textDirection">
     <div class="pure-menu-content content level-{{level}}" [ngClass]="{
       'opened': opened,
-      'opened-or-hovering-menu': isOpenedOrHoveringMenu,
-      'no-icon': (!menuItemData && menuItemData.icon && !isMenuOpened) || level !== 0,
-      'fullwidth': isMainFullWidth
+      'no-icon': (!menuItemData && menuItemData.icon && !isMenuOpened) || level !== 0
     }">
       <!-- Icon to replace menu item that doesn't have icon when shrink -->
       <mat-icon class="replace-icon">{{ menuItemData?.icon ? menuItemData?.icon : 'layers' }}</mat-icon>

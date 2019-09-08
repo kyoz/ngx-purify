@@ -109,4 +109,90 @@
       }
     }
   }
+
+  .pure-menu.opened-or-hovering-menu {
+
+    .pure-menu-item {
+      .pure-menu-content {
+        flex-direction: row;
+        padding-right: 10px;
+
+        .icon {
+          margin-right: 12px;
+        }
+      }
+
+      .name,
+      .expand-icon {
+        opacity: 1;
+        margin-right: 12px;
+      }
+
+      .badge {
+        opacity: 1;
+        transition: opacity 200ms ease-in-out;
+      }
+
+      .replace-icon {
+        opacity: 0 !important;
+      }
+
+      .content.level-1, .content.level-2, .content.level-3, .content.level-4 {
+        .icon {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .pure-menu.fullwidth {
+
+    .pure-menu-item {
+      .pure-menu-content {
+        .icon {
+          margin-right: 12px;
+        }
+      }
+    }
+
+  }
+
+
+  /**
+   * RTL SUPPORT
+   */
+
+  .pure-menu[dir="rtl"].opened-or-hovering-menu {
+
+    .pure-menu-item {
+      .pure-menu-content {
+        padding-right: 22px;
+        padding-left: 10px;
+
+        .icon {
+          margin-right: 0px !important;
+          margin-left: 12px !important;
+        }
+
+        .name,
+        .expand-icon {
+          margin-right: auto;
+          margin-left: 12px;
+        }
+      }
+    }
+  }
+
+  .pure-menu[dir="rtl"].fullwidth {
+
+    .pure-menu-item {
+      .pure-menu-content {
+        .icon {
+          margin-right: auto;
+          margin-left: 22px;
+        }
+      }
+    }
+  }
+
 }
