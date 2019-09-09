@@ -3,7 +3,7 @@
    [routerLink]="menuItemData?.url"
    [queryParams]="menuItemData?.params"
    [dir]="textDirection">
-  <div class="pure-menu-content content level-{{level}}" [ngClass]="{
+  <div class="pure-menu-content level-{{level}}" [ngClass]="{
     'active': active,
     'opened': opened,
     'no-icon': (!menuItemData && menuItemData?.icon && !isMenuOpened) || level !== 0
@@ -30,7 +30,7 @@
 <!-- EXTERNAL LINKS -->
 <ng-template #externalLinkMenuItem>
   <a class="pure-menu-item" [href]="menuItemData?.url" [dir]="textDirection">
-    <div class="pure-menu-content content level-{{level}}" [ngClass]="{
+    <div class="pure-menu-content level-{{level}}" [ngClass]="{
       'opened': opened,
       'no-icon': (!menuItemData && menuItemData.icon && !isMenuOpened) || level !== 0
     }">

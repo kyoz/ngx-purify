@@ -11,8 +11,7 @@ import { MenuGroup } from '../../../core/pure-models/menu';
 
 @Component({
   selector: 'pure-menu',
-  templateUrl: './pure-menu.component.html',
-  styleUrls: ['./pure-menu.component.scss']
+  templateUrl: './pure-menu.component.html'
 })
 export class PureMenu implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('PURE_MENU', { static: false }) pureMenuScrollbar?: PerfectScrollbarDirective;
