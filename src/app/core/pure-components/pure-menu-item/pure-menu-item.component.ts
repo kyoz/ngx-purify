@@ -17,9 +17,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   @Input() active: boolean;
   @Input() opened: boolean;
   @Input() parent: PureMenuItem;
-  @Input() isOpenedOrHoveringMenu: boolean;
   @Input() isMenuOpened: boolean;
-  @Input() isMainFullWidth: boolean;
   @Input() textDirection: string;
 
   private _parent: PureMenuItem = this;
