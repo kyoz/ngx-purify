@@ -16,7 +16,7 @@ import { MenuGroup } from '../../../core/pure-models/menu';
 export class PureMenu implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('PURE_MENU', { static: false }) pureMenuScrollbar?: PerfectScrollbarDirective;
 
-  private menuGroups: MenuGroup[] = MENU_CONFIG;
+  public menuGroups: MenuGroup[] = MENU_CONFIG;
   private subscriptions: Map<String, Subscription> = new Map();
 
   constructor(
