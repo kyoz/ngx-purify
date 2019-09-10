@@ -27,13 +27,13 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
     private _menuService: PureMenuService,
     private _route: Router,
     private _changeDetectorRef: ChangeDetectorRef) {
-      this.fixBadgeColor();
-      this.fixMenuLevel();
       this.detectWhenRouteChanged();
   }
 
   ngOnInit() {
     // Set menu item is active when first load
+    this.fixBadgeColor();
+    this.fixMenuLevel();
     this.setActivatingMenu();
   }
 
@@ -211,10 +211,8 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   }
 
   fixBadgeColor() {
-    if (this.menuItemData && (this.menuItemData.badgeColor === 'primary' || this.menuItemData .badgeColor === 'accent')) {
-      return this.menuItemData.badgeColor;
+    if (!(this.menuItemData && (this.menuItemData.badgeColor === 'primary' || this.menuItemData .badgeColor === 'accent'))) {
+      this.menuItemData.badgeColor = 'warn';
     }
-
-    return 'warn';
   }
 }
