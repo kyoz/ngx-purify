@@ -38,8 +38,9 @@
     }
 
     .description {
-      margin-top: 8px;
       text-align: center;
+      max-width: 90vw;
+      margin-top: 8px;
     }
   }
 
@@ -83,3 +84,16 @@
     }
   }
 }
+
+@media only screen and (max-width: 480px) {
+  .container {
+    .header > .title {
+      font-size: 1.8em;
+    }
+
+    .body> .title {
+      font-size: 1.4em;
+    }
+  }
+}
+
