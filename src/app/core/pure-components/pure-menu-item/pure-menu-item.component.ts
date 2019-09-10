@@ -215,4 +215,8 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
       this.menuItemData.badgeColor = 'warn';
     }
   }
+
+  trackByFn(index: number, item: MenuItem) {
+    return `${index}_${item.name}`;
+  }
 }

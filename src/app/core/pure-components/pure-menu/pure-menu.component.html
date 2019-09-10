@@ -12,7 +12,7 @@
       <div class="group-name">{{ group.groupName | translate }}</div>
     </div>
 
-    <pure-menu-item *ngFor="let menuItem of group.menuItems" 
+    <pure-menu-item *ngFor="let menuItem of group.menuItems; trackBy: trackByFn" 
                     [menuItemData]="menuItem"
                     [isMenuOpened]="_menuContainer.isOpened"
                     [textDirection]="_settings.currentTextDir"></pure-menu-item>

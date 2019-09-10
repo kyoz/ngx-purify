@@ -42,7 +42,7 @@
 </ng-template>
 
 <div class="children" *ngIf="hasChildren" [ngStyle]="{ 'height.px': height }">
-  <pure-menu-item *ngFor="let childMenuItem of menuItemData?.children" 
+  <pure-menu-item *ngFor="let childMenuItem of menuItemData?.children; trackBy: trackByFn" 
                   [parent]="_parent"
                   [menuItemData]="childMenuItem"
                   [level]="level+1"

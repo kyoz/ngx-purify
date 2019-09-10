@@ -7,7 +7,7 @@ import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { Subscription } from 'rxjs';
 import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
 import { MENU_CONFIG } from '../../../configs/menu';
-import { MenuGroup } from '../../../core/pure-models/menu';
+import { MenuGroup, MenuItem } from '../../../core/pure-models/menu';
 
 @Component({
   selector: 'pure-menu',
@@ -75,5 +75,9 @@ export class PureMenu implements OnInit, OnDestroy, AfterViewInit {
 
       pureMenu.scrollTop -= centerScreenHeight;
     }
+  }
+
+  trackByFn(index: number, item: MenuItem) {
+    return `${index}_${item.name}`;
   }
 }
