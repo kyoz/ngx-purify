@@ -17,9 +17,8 @@
       "CONTACT": "联系方式",
       "MAIL": "邮件",
       "MESSENGER": "使者",
-      "TODO": "Todo",
-      "SCRUMBOARD": "Scrumboard",
       "FILE_MANAGER": "文件管理器",
+      "EVENT_LOG": "事件簿",
       "SEARCH": "搜索"
     },
     "PAGES": {

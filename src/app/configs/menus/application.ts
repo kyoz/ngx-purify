@@ -25,8 +25,9 @@ export const ApplicationMenu: MenuItem[] = [
   { name: 'MENU.APPLICATIONS.CONTACT', icon: 'account_box', url: '/app/contacts', badge: 3, badgeColor: 'primary' },
   { name: 'MENU.APPLICATIONS.MAIL', icon: 'mail', url: '/app/mail', badge: 15, badgeColor: 'accent' },
   { name: 'MENU.APPLICATIONS.MESSENGER', icon: 'message', url: '/app/messenger' },
-  { name: 'MENU.APPLICATIONS.TODO', icon: 'check_box', url: '/app/todo' },
-  { name: 'MENU.APPLICATIONS.SCRUMBOARD', icon: 'dns', url: '/app/scrumboard' },
+  { name: 'Todo', icon: 'assignment_turned_in', url: '/app/todo' },
+  { name: 'Scrumboard', icon: 'dns', url: '/app/scrumboard' },
   { name: 'MENU.APPLICATIONS.FILE_MANAGER', icon: 'folder', url: '/app/file-manager' },
+  { name: 'MENU.APPLICATIONS.EVENT_LOG', icon: 'view_list', url: '/app/event-log' },
   { name: 'MENU.APPLICATIONS.SEARCH', icon: 'search', url: '/app/search' }
 ];

@@ -17,9 +17,8 @@
       "CONTACT": "Contacto",
       "MAIL": "Correo",
       "MESSENGER": "Mensajero",
-      "TODO": "Todo",
-      "SCRUMBOARD": "Scrumboard",
       "FILE_MANAGER": "Administrador de archivos",
+      "EVENT_LOG": "Registro de eventos",
       "SEARCH": "Buscar"
     },
     "PAGES": {

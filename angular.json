@@ -8,7 +8,9 @@
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {},
+      "schematics": {
+        "styleext": "scss"
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
