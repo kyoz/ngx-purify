@@ -23,8 +23,8 @@ import { PureSideChatboxState } from './pure-stores/chatbox/chatbox.state';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 
 // Translator
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -51,9 +51,9 @@ import typescript from 'highlight.js/lib/languages/typescript';
 
 export function hljsLanguages() {
   return [
-    {name: 'typescript', func: typescript},
-    {name: 'scss', func: scss},
-    {name: 'xml', func: xml}
+    { name: 'typescript', func: typescript },
+    { name: 'scss', func: scss },
+    { name: 'xml', func: xml }
   ];
 }
 

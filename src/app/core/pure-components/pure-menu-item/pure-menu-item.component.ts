@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ViewChildren, QueryList, AfterViewInit, OnDes
 import { Router, NavigationEnd } from '@angular/router';
 import { MenuItem } from '../../pure-models/menu';
 import { PureMenuService } from '../pure-menu/pure-menu.service';
+import { PureGlobalService } from '../../pure-services/pure-global.service';
 import { PureStringUtils } from '../../pure-utils/pure-string-utils';
 import { Subscription } from 'rxjs';
 
@@ -24,8 +25,9 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   private subscriptions: Map<String, Subscription> = new Map();
 
   constructor(
-    private _menuService: PureMenuService,
-    private _route: Router,
+    private _menu: PureMenuService,
+    private _global: PureGlobalService,
+    private _router: Router,
     private _changeDetectorRef: ChangeDetectorRef) {
       this.detectWhenRouteChanged();
   }
@@ -40,7 +42,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   ngAfterViewInit() {
 
     // Expanding menu on load when there is activating menu item
-    if (this._menuService.activatingMenuItem && this._menuService.activatingMenuItem === this) {
+    if (this._menu.activatingMenuItem && this._menu.activatingMenuItem === this) {
       this.expandDropdownOnLoad();
     }
 
@@ -111,7 +113,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
     }
 
     // Subscribe to set menu item is active when change route
-    this.subscriptions.set('detectWhenRouteChanged', this._route.events.subscribe(e => {
+    this.subscriptions.set('detectWhenRouteChanged', this._global.onRouterEventEmit$.subscribe(e => {
       if (e instanceof NavigationEnd) {
         // Deactivate current activating menu item
         this.setActivatingMenu();
@@ -121,8 +123,8 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
 
   setActivatingMenu() {
     if (this.menuItemData && this.menuItemData.url && !this.hasChildren) {
-      if (PureStringUtils.cleanRouteLink(this._route.url) === PureStringUtils.cleanRouteLink(this.menuItemData.url)) {
-        this._menuService.setActivatingMenuItem(this);
+      if (PureStringUtils.cleanRouteLink(this._router.url) === PureStringUtils.cleanRouteLink(this.menuItemData.url)) {
+        this._menu.setActivatingMenuItem(this);
       }
     }
   }
@@ -143,8 +145,8 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
     } else {
       // Collapse expanding menu item to open a new one (Just for root menu item)
       if (this.level === 0) {
-        this._menuService.collapseExpandingMenuItem();
-        this._menuService.setExpandingMenuItem(this); // Set this root menu item as expanding menu item
+        this._menu.collapseExpandingMenuItem();
+        this._menu.setExpandingMenuItem(this); // Set this root menu item as expanding menu item
       }
 
       this.opened = true;
@@ -158,7 +160,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
       window.location.href = this.menuItemData.url;
     } else {
       // Change route
-      this._route.navigate([this.menuItemData.url], { queryParams: this.menuItemData.params }).catch(e => {
+      this._router.navigate([this.menuItemData.url], { queryParams: this.menuItemData.params }).catch(e => {
         console.error(e);
       });
     }
@@ -176,7 +178,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
       });
 
       // Dispatch event to know when the menu is collapse
-      this._menuService.onActivatingMenuItem$.next(new Date);
+      this._menu.onActivatingMenuItem$.next(new Date);
     }
   }
 
@@ -197,7 +199,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
     }
 
     if (rootParent) {
-      this._menuService.setExpandingMenuItem(rootParent);
+      this._menu.setExpandingMenuItem(rootParent);
     }
   }
 

@@ -14,6 +14,7 @@ import { PureMenu } from './pure-menu/pure-menu.component';
 import { PureMenuItem } from './pure-menu-item/pure-menu-item.component';
 
 // Services
+import { PureGlobalService } from '../pure-services/pure-global.service';
 import { PureChatboxService } from './pure-chatbox/pure-chatbox.service';
 import { PureSettingsService } from '../pure-services/pure-settings.service';
 import { PureSettingsStorageService } from '../pure-services/pure-settings.storage';
@@ -43,9 +44,10 @@ import { PureMenuService } from './pure-menu/pure-menu.service';
     PureMenuItem
   ],
   providers: [
-    PureChatboxService,
+    PureGlobalService,
     PureSettingsService,
     PureSettingsStorageService,
+    PureChatboxService,
     PureMenuService
   ],
 })

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, Input, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { RESPONSIVE_BREAKPOINTS } from '../../pure-utils/pure-configs';
-import { Router, Event as RouterEvent, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
+import { Event as RouterEvent, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 
 // Services
 import { PureMenuContainerService } from '../pure-menu-container/pure-menu-container.service';
@@ -8,6 +8,7 @@ import { PureChatboxContainerService } from '../pure-chatbox-container/pure-chat
 import { PureNotificationContainerService } from '../pure-notification-container/pure-notification-container.service';
 import { PureSettingsContainerService } from '../pure-settings-container/pure-settings-container.service';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
+import { PureGlobalService } from '../../pure-services/pure-global.service';
 import { PureMainContainerService } from './pure-main-container.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
@@ -24,10 +25,10 @@ export class PureMainContainer implements OnInit, OnDestroy {
   @Input() minimalMode = false;
   @ViewChild('PURE_MAIN_CONTAINER', { static: false }) pureMainContainer: ElementRef;
 
+  private subscriptions: Map<String, Subscription> = new Map();
+
   isLoading: boolean = false;
   isBackdropVisible: boolean = false;
-
-  subscriptions: Subscription[] = [];
 
   _onWindowResize = this.onWindowResize.bind(this);
   windowResize$: BehaviorSubject<any> = new BehaviorSubject(undefined);
@@ -39,14 +40,14 @@ export class PureMainContainer implements OnInit, OnDestroy {
     public _notificationContainer: PureNotificationContainerService,
     public _settingsContainer: PureSettingsContainerService,
     public _settings: PureSettingsService,
+    private _global: PureGlobalService,
     private _deviceDetection: DeviceDetectorService,
-    private _router: Router,
     private _changeDetectorRef: ChangeDetectorRef
   ) {
     this.initSubscriptionToDetectChange();
 
     // Subscribe for router navigations
-    this._router.events.subscribe((event: RouterEvent) => {
+    this._global.onRouterEventEmit$.subscribe((event: RouterEvent) => {
       this.navigationInterceptor(event);
     });
 
@@ -66,7 +67,7 @@ export class PureMainContainer implements OnInit, OnDestroy {
       }
     });
 
-    this.subscriptions.push(windowResizeSubscription);
+    this.subscriptions.set('onWindowResize', windowResizeSubscription);
    }
 
   ngOnInit() {
@@ -80,11 +81,11 @@ export class PureMainContainer implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    for (const subscription of this.subscriptions) {
+    this.subscriptions.forEach(subscription => {
       if (subscription) {
         subscription.unsubscribe();
       }
-    }
+    });
   }
 
   // To boost perfectly performance, i'v do use OnPush Strategy and just detectChange when necessary
@@ -111,7 +112,7 @@ export class PureMainContainer implements OnInit, OnDestroy {
       }
     });
 
-    this.subscriptions.push(combineSubscription);
+    this.subscriptions.set('combinePureEvents', combineSubscription);
   }
 
   onWindowResize() {
