@@ -26,11 +26,11 @@
     <div class="faqs">
 
       <ng-template [ngIf]="(filteredFaqs$ | async).length > 0" [ngIfElse]="noFaqGroup">
-        <div class="faq-group" *ngFor="let group of filteredFaqs$ | async">
+        <div class="faq-group" *ngFor="let group of filteredFaqs$ | async; trackBy: trackGroupByFn">
           <div class="group-title pure-primary-foreground">{{ group.name }}</div>
 
           <mat-accordion>
-            <mat-expansion-panel *ngFor="let faq of group.faqs">
+            <mat-expansion-panel *ngFor="let faq of group.faqs; trackBy: trackFaqByFn">
               <mat-expansion-panel-header collapsedHeight="64px">
                 <mat-panel-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
                   <mat-icon style="opacity: .72">help_outline</mat-icon>

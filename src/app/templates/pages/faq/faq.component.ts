@@ -44,4 +44,12 @@ export class FaqComponent {
 
     this.filteredFaqs$.next(result);
   }
+
+  trackGroupByFn(index: number, group: any) {
+    return `${group.name}_${index}`;
+  }
+
+  trackFaqByFn(faq: any, index: number) {
+    return index;
+  }
 }
