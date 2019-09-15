@@ -4,7 +4,7 @@
        'opened-or-hovering-menu': _menuContainer.isOpenedOrHoveringMenu,
        'fullwidth': _mainContainer.isFullWidth
      }">
-  <div class="pure-menu-group" *ngFor="let group of menuGroups">
+  <div class="pure-menu-group" *ngFor="let group of menuGroups; trackBy: trackGroupByFn">
     <div class="group-name-wrapper">
       <!--Icon to replace group name when the menu shrink-->
       <mat-icon class="group-name-replace">remove</mat-icon>
@@ -12,7 +12,7 @@
       <div class="group-name">{{ group.groupName | translate }}</div>
     </div>
 
-    <pure-menu-item *ngFor="let menuItem of group.menuItems; trackBy: trackByFn" 
+    <pure-menu-item *ngFor="let menuItem of group.menuItems; trackBy: trackItemByFn" 
                     [menuItemData]="menuItem"
                     [isMenuOpened]="_menuContainer.isOpened"
                     [textDirection]="_settings.currentTextDir"></pure-menu-item>

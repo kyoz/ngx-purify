@@ -77,7 +77,11 @@ export class PureMenu implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  trackByFn(index: number, item: MenuItem) {
+  trackGroupByFn(index: number, group: MenuGroup) {
+    return `${index}_${group.groupName}`;
+  }
+
+  trackItemByFn(index: number, item: MenuItem) {
     return `${index}_${item.name}`;
   }
 }
