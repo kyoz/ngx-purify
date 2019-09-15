@@ -18,6 +18,6 @@ export class PurePerfectScrollbarDirective extends PerfectScrollbarDirective {
     private _deviceDetector: DeviceDetectorService) {
       super(_zone, _differs, _elementRef, _platformId, _defaults);
       this.disabled = !_deviceDetector.isDesktop();
-      this._defaults.wheelSpeed = 10;
+      this._defaults.wheelSpeed = !_deviceDetector.isDesktop() ? 10 : 1;
     }
 }
