@@ -81,7 +81,7 @@ const PURE_CORE_MODULES = [
     NgxsModule.forRoot([
       PureSideChatboxState
     ], {
-      developmentMode: environment.production
+      developmentMode: !environment.production
     }),
 
     // Device Detectors
