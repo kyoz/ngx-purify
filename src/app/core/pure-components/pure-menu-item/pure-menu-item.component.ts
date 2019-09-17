@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChildren, QueryList, AfterViewInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { MenuItem } from '../../pure-models/menu';
+import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { PureMenuService } from '../pure-menu/pure-menu.service';
 import { PureGlobalService } from '../../pure-services/pure-global.service';
 import { PureStringUtils } from '../../pure-utils/pure-string-utils';
@@ -13,18 +14,18 @@ import { Subscription } from 'rxjs';
 export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   @ViewChildren(PureMenuItem) childMenuItems: QueryList<PureMenuItem>;
 
-  @Input() menuItemData: MenuItem;
+  @Input() data: MenuItem;
   @Input() level: number = 0;
-  @Input() active: boolean;
-  @Input() opened: boolean;
   @Input() parent: PureMenuItem;
-  @Input() isMenuOpened: boolean;
-  @Input() textDirection: string;
+
+  public active: boolean;
+  public opened: boolean;
 
   private _parent: PureMenuItem = this;
   private subscriptions: Map<String, Subscription> = new Map();
 
   constructor(
+    public _settings: PureSettingsService,
     private _menu: PureMenuService,
     private _global: PureGlobalService,
     private _router: Router,
@@ -63,10 +64,10 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
    */
 
   get hasChildren(): boolean {
-    if (!this.menuItemData || !this.menuItemData.children) {
+    if (!this.data || !this.data.children) {
       return false;
     }
-    return this.menuItemData.children.length > 0;
+    return this.data.children.length > 0;
   }
 
   get height(): number {
@@ -82,24 +83,24 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
         }
       });
     }
-    return this.menuItemData && this.menuItemData.children ? (this.menuItemData.children.length * 48) + addedHeight : 0;
+    return this.data && this.data.children ? (this.data.children.length * 48) + addedHeight : 0;
   }
 
   get hasLink(): boolean {
-    if (!this.menuItemData || this.hasExternalLink) {
+    if (!this.data || this.hasExternalLink) {
       return false;
     }
-    return !PureStringUtils.isEmpty(this.menuItemData.url);
+    return !PureStringUtils.isEmpty(this.data.url);
   }
 
   get hasExternalLink(): boolean {
-    if (!this.menuItemData) {
+    if (!this.data) {
       return false;
     }
 
-    return !PureStringUtils.isEmpty(this.menuItemData.url) &&
-      (PureStringUtils.startsWith(this.menuItemData.url, 'http://') ||
-       PureStringUtils.startsWith(this.menuItemData.url, 'https://'));
+    return !PureStringUtils.isEmpty(this.data.url) &&
+      (PureStringUtils.startsWith(this.data.url, 'http://') ||
+       PureStringUtils.startsWith(this.data.url, 'https://'));
   }
 
   /**
@@ -122,8 +123,8 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   }
 
   setActivatingMenu() {
-    if (this.menuItemData && this.menuItemData.url && !this.hasChildren) {
-      if (PureStringUtils.cleanRouteLink(this._router.url) === PureStringUtils.cleanRouteLink(this.menuItemData.url)) {
+    if (this.data && this.data.url && !this.hasChildren) {
+      if (PureStringUtils.cleanRouteLink(this._router.url) === PureStringUtils.cleanRouteLink(this.data.url)) {
         this._menu.setActivatingMenuItem(this);
       }
     }
@@ -157,10 +158,10 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
 
     if (this.hasExternalLink) {
       // Navigate to an external Link
-      window.location.href = this.menuItemData.url;
+      window.location.href = this.data.url;
     } else {
       // Change route
-      this._router.navigate([this.menuItemData.url], { queryParams: this.menuItemData.params }).catch(e => {
+      this._router.navigate([this.data.url], { queryParams: this.data.params }).catch(e => {
         console.error(e);
       });
     }
@@ -213,8 +214,8 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   }
 
   fixBadgeColor() {
-    if (!(this.menuItemData && (this.menuItemData.badgeColor === 'primary' || this.menuItemData .badgeColor === 'accent'))) {
-      this.menuItemData.badgeColor = 'warn';
+    if (!(this.data && (this.data.badgeColor === 'primary' || this.data .badgeColor === 'accent'))) {
+      this.data.badgeColor = 'warn';
     }
   }
 
