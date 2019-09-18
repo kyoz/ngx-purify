@@ -3,11 +3,10 @@
    [routerLink]="data?.url"
    [queryParams]="data?.params"
    [dir]="_settings.currentTextDir">
-  <div class="pure-menu-content level-{{level}}" [ngClass]="{
-    'active': active,
-    'opened': opened,
-    'no-icon': (!data && data?.icon) || level !== 0
-  }">
+  <div class="pure-menu-content level-{{level}}"
+       [class.active]="active"
+       [class.opened]="opened"
+       [class.no-icon]="(!data && data?.icon) || level !== 0">
     <!-- Icon to replace menu item that doesn't have icon when shrink -->
     <mat-icon class="replace-icon">{{ data?.icon ? data?.icon : 'layers' }}</mat-icon>
     <!-- Original icon -->
@@ -16,7 +15,7 @@
     <span class="badge" *ngIf="data?.badge" [ngClass]="data?.badgeColor">
       {{ data?.badge }}
     </span>
-    <mat-icon class="expand-icon" [ngClass]="{ 'expanded': opened }" *ngIf="hasChildren">
+    <mat-icon class="expand-icon" [class.expanded]="opened" *ngIf="hasChildren">
       keyboard_arrow_right
     </mat-icon>
   </div>
@@ -25,10 +24,9 @@
 <!-- EXTERNAL LINKS -->
 <ng-template #externalLinkMenuItem>
   <a class="pure-menu-item" [href]="data?.url" [dir]="_settings.currentTextDir">
-    <div class="pure-menu-content level-{{level}}" [ngClass]="{
-      'opened': opened,
-      'no-icon': (!data && data.icon) || level !== 0
-    }">
+    <div class="pure-menu-content level-{{level}}"
+         [class.opened]="opened"
+         [class.no-icon]="(!data && data.icon) || level !== 0">
       <!-- Icon to replace menu item that doesn't have icon when shrink -->
       <mat-icon class="replace-icon">{{ data?.icon ? data?.icon : 'layers' }}</mat-icon>
       <!-- Original icon -->

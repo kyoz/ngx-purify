@@ -1,9 +1,7 @@
 <div #PURE_MENU=purePerfectScrollbar class="pure-menu pure-theme" purePerfectScrollbar
      [dir]="_settings.currentTextDir"
-     [ngClass]="{ 
-       'opened-or-hovering-menu': _menuContainer.isOpenedOrHoveringMenu,
-       'fullwidth': _mainContainer.isFullWidth
-     }">
+     [class.opened-or-hovering-menu]="_menuContainer.isOpenedOrHoveringMenu"
+     [class.fullwidth]="_mainContainer.isFullWidth">
   <div class="pure-menu-group" *ngFor="let group of menuGroups; trackBy: trackGroupByFn">
     <div class="group-name-wrapper">
       <!--Icon to replace group name when the menu shrink-->

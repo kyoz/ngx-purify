@@ -1,11 +1,9 @@
 <div #pure_menu_container class="pure-menu-container"
      [dir]="_settings.currentTextDir"
-     [ngClass]="{
-       'fullwidth' : _mainContainer.isFullWidth,
-       'non-fullwidth' : !_mainContainer.isFullWidth,
-       'opened' : _menuContainer.isOpenedOrHoveringMenu,
-       'disable-animation': _settings.disableAnimation
-     }">
+     [class.fullwidth]="_mainContainer.isFullWidth"
+     [class.non-fullwidth]="!_mainContainer.isFullWidth"
+     [class.opened]="_menuContainer.isOpenedOrHoveringMenu"
+     [class.disable-animation]="_settings.disableAnimation">
   <mat-toolbar color="primary" class="toolbar">
     <img class="logo" src="assets/logo/pure.png" height="28">
     <span style="display: inline-block; width: 12px;"></span>
