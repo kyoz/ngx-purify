@@ -7,12 +7,10 @@
           <img class="contact-image" src="assets/image/avatar/{{contact.avatar}}"
                matTooltip="{{contact.name}}" matTooltipPosition="before">
           <span class="contact-status"
-                [ngClass]="{
-                  'online' : contact.status === 'online',
-                  'offline' : contact.status === 'offline',
-                  'busy' : contact.status === 'busy',
-                  'do-not-disturb' : contact.status === 'do-not-disturb'
-                }">
+                [class.online]="contact.status === 'online'"
+                [class.offline]="contact.status === 'offline'"
+                [class.busy]="contact.status === 'busy'"
+                [class.do-not-disturb]="contact.status === 'do-not-disturb'">
           </span>
           <span class="contact-unread-count" *ngIf="contact.unreadCount > 0">
             {{contact.unreadCount >= 100 ? '99+' : contact.unreadCount}}
@@ -26,9 +24,7 @@
   </div>
 
   <div class="chatbox" fxFlex fxLayoutAlign="center center"
-       [ngClass]="{
-         'chatbox-opened': _chatboxContainer.isOpened
-       }">
+       [class.chatbox-opened]="_chatboxContainer.isOpened">
     <div class="no-conversation-selected" *ngIf="!_chatbox.inConversation && _chatboxContainer.isOpened">
       <div>
         <mat-icon>chat</mat-icon>
@@ -39,13 +35,11 @@
     <div class="have-conversation" fxLayout="column" fxLayoutAlign="space-between stretch"
          [hidden]="!(_chatbox.inConversation && _chatbox.currentConversation.messages.length > 0)">
       <div #messages_content=purePerfectScrollbar class="messages" purePerfectScrollbar>
-        <div class="message-row" *ngFor="let message of _chatbox.currentConversation.messages; trackBy: trackByMessage ;let i = index"
-             [ngClass]="{
-               'mine' : message.sender === 0,
-               'their' : message.sender !== 0,
-               'first-of-group': isFirstOfGroup(i, message, _chatbox.currentConversation.messages), 
-               'last-of-group': isLastOfGroup(i, message, _chatbox.currentConversation.messages)
-             }">
+        <div class="message-row" *ngFor="let message of (_chatbox.currentConversation$ | async).messages; trackBy: trackByMessage ;let i = index"
+             [class.mine]="message.sender === 0"
+             [class.their]="message.sender !== 0"
+             [class.first-of-group]="isFirstOfGroup(i, message, _chatbox.currentConversation.messages)"
+             [class.last-of-group]="isLastOfGroup(i, message, _chatbox.currentConversation.messages)">
           <img class="avatar" *ngIf="message.sender !== 0" 
                src="assets/image/avatar/{{_chatbox.currentConversation.contactInfo.avatar}}" width="36">
           <div class="message">

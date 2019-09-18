@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { PureChatboxService } from './pure-chatbox.service';
 import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { ChatboxContact, ChatboxMessage } from '../../pure-models/chatbox';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'pure-chatbox',
@@ -15,10 +16,9 @@ export class PureChatbox implements OnInit {
   @ViewChild('message_input', { static: false }) messageInputRef: ElementRef;
   @ViewChild('messages_content', { static: false }) messagesContentScrollbar?: PerfectScrollbarDirective;
 
-  messageInput;
+  messageInput: string;
 
   constructor(
-    private _changeDetectorRef: ChangeDetectorRef,
     private _deviceDetector: DeviceDetectorService,
     public _chatbox: PureChatboxService,
     public _chatboxContainer: PureChatboxContainerService,
@@ -27,7 +27,7 @@ export class PureChatbox implements OnInit {
   }
 
   ngOnInit() {
-    this._chatbox.currentConversation$.subscribe(() => {
+    this._chatbox.currentConversation$.pipe(debounceTime(100)).subscribe(() => {
       if (this._chatbox.inConversation) {
         this.scrollChatboxToBottom();
       }
@@ -85,8 +85,6 @@ export class PureChatbox implements OnInit {
   }
 
   scrollChatboxToBottom() {
-    this._changeDetectorRef.detectChanges();
-
     if (this.messagesContentScrollbar) {
       this.messagesContentScrollbar.update();
       this.messagesContentScrollbar.scrollToBottom();

@@ -2,13 +2,11 @@
   <mat-progress-bar class="loader" mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
 
   <div class="content pure-theme"
-       [ngClass]="{
-         'menu-content-small-screen' : !_mainContainer.isFullWidth,
-         'menu-content-opened' : _mainContainer.isFullWidth && _menuContainer.isOpened,
-         'chatbox-content-small-screen' : !_mainContainer.isFullWidth,
-         'disable-animation': _settings.disableAnimation,
-         'minimal-mode': minimalMode
-       }">
+       [class.menu-content-small-screen]="!_mainContainer.isFullWidth"
+       [class.menu-content-opened]="_mainContainer.isFullWidth && _menuContainer.isOpened"
+       [class.chatbox-content-small-screen]="!_mainContainer.isFullWidth"
+       [class.disable-animation]="_settings.disableAnimation"
+       [class.minimal-mode]="minimalMode">
     <ng-content></ng-content>
     <pure-setting-button></pure-setting-button>
   </div>
@@ -23,7 +21,7 @@
 
   <!--Main Backdrop-->
   <div class="pure-main-container-backdrop"
-       [ngClass]="{ 'visible' : isBackdropVisible && !minimalMode }"
+       [class.visible]="isBackdropVisible && !minimalMode"
        (click)="closeBackdrop()"></div>
 
   <!--Setting Backdrop-->
