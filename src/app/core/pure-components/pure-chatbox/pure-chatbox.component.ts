@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { PureChatboxService } from './pure-chatbox.service';
 import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
@@ -19,6 +19,7 @@ export class PureChatbox implements OnInit {
   messageInput: string;
 
   constructor(
+    private _changeDetectorRef: ChangeDetectorRef,
     private _deviceDetector: DeviceDetectorService,
     public _chatbox: PureChatboxService,
     public _chatboxContainer: PureChatboxContainerService,
@@ -27,17 +28,24 @@ export class PureChatbox implements OnInit {
   }
 
   ngOnInit() {
-    this._chatbox.currentConversation$.pipe(debounceTime(100)).subscribe(() => {
+    this._chatbox.currentConversation$.pipe(debounceTime(150)).subscribe(() => {
+      this._changeDetectorRef.detectChanges();
+
       if (this._chatbox.inConversation) {
         this.scrollChatboxToBottom();
       }
     });
   }
 
+  ngAfterViewChecked() {
+    this._changeDetectorRef.detach();
+  }
+
   startConversation(contact: ChatboxContact) {
     this.clearMessageInput();
     this._chatbox.chooseContact(contact.id);
     this.focusMessageInput();
+    this._changeDetectorRef.detectChanges();
   }
 
   sendMessage() {
@@ -55,8 +63,10 @@ export class PureChatbox implements OnInit {
 
   clearMessageInput() {
     this.messageInput = '';
+
     if (this.messageInputRef) {
       this.messageInputRef.nativeElement.style.height = '22px';
+      this.messageInputRef.nativeElement.value = '';
     }
   }
 

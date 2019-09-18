@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
 import { Observable, Subject } from 'rxjs';
-import { GetContacts, GetConversation, ClearConversation, SendMessage } from '../../pure-stores/chatbox/chatbox.actions';
+import { GetContacts, GetConversation, SendMessage } from '../../pure-stores/chatbox/chatbox.actions';
 import { PureSideChatboxState } from '../../pure-stores/chatbox/chatbox.state';
 import { CurrentConversation } from '../../pure-models/chatbox';
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
@@ -48,10 +48,6 @@ export class PureChatboxService {
 
   public chooseContact(contactId: number) {
     this._store.dispatch(new GetConversation(contactId));
-  }
-
-  public clearConversation() {
-    this._store.dispatch(new ClearConversation());
   }
 
   public sendMessage(message: string) {

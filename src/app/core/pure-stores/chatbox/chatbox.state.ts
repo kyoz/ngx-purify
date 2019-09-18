@@ -1,11 +1,10 @@
-import { Action, State, StateContext, Selector } from '@ngxs/store';
+import { Store, Action, State, StateContext, Selector } from '@ngxs/store';
 import { ImmutableSelector, ImmutableContext } from '@ngxs-labs/immer-adapter';
 import { ChatboxContact, ChatboxMessage, CurrentConversation } from '../../../core/pure-models/chatbox';
 import { PureMockApiService } from '../../pure-mock-api/pure-mock-api.service';
 import {
   GetContacts,
   GetConversation,
-  ClearConversation,
   SendMessage
 } from './chatbox.actions';
 
@@ -25,7 +24,10 @@ export class PureSideChatboxStateModel {
   }
 })
 export class PureSideChatboxState {
-  constructor(private _mockApi: PureMockApiService) { }
+  constructor(
+    private _store: Store,
+    private _mockApi: PureMockApiService
+  ) { }
 
   @Selector()
   @ImmutableSelector()
@@ -61,25 +63,17 @@ export class PureSideChatboxState {
     });
   }
 
-  @Action(ClearConversation)
-  @ImmutableContext()
-  clearConversation({ setState }: StateContext<PureSideChatboxStateModel>) {
-    setState((state: PureSideChatboxStateModel) => {
-      state.currentConversation = {
-        contactInfo: undefined,
-        messages: []
-      };
-      return state;
-    });
-  }
-
   @ImmutableContext()
   @Action(SendMessage)
-  sendMessage({ setState }: StateContext<PureSideChatboxStateModel>, { message }: SendMessage) {
-    setState((state: PureSideChatboxStateModel) => {
-      state.currentConversation.messages.push({...message});
-      return state;
+  sendMessage({ getState, setState }: StateContext<PureSideChatboxStateModel>, { message }: SendMessage) {
+    const { sender, message, createAt } = message;
+    const owner = getState().currentConversation.contactInfo.id;
+    const currentMessages = getState().currentConversation.messages;
+
+    this._mockApi.chatbox.sendMessage(owner, sender, message, createAt).subscribe(() => {
+      this._store.dispatch(new GetConversation(owner));
     });
+
   }
 }
 

@@ -9,10 +9,6 @@ export class GetConversation {
   constructor(public contactId: number) {}
 }
 
-export class ClearConversation {
-  static readonly type = '[Side Chatbox] Clear Conversation';
-}
-
 export class SendMessage {
   static readonly type = '[Side Chatbox] Send Message';
   constructor(public message: ChatboxMessage) {}
