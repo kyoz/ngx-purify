@@ -7,7 +7,7 @@ import 'hammerjs';
 
 // This timeout is too make sure all image, translator is done before we hide the loader
 // If your app is small and doesn't have any image, you can try reduce this timeout
-const WAIT_FOR_RENDERING_TIMEOUT = 2000;
+const WAIT_FOR_RENDERING_TIMEOUT = 500;
 
 if (environment.production) {
   enableProdMode();
