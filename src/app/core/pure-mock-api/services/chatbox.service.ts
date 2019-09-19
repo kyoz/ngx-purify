@@ -1,14 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CHATBOX_CONTACTS, CHATBOX_CONVERSASIONS } from '../data/chatbox';
-import { CurrentConversation, ChatboxConversation } from '../../pure-models/chatbox';
+import { ChatboxConversation, CurrentConversation } from '../../pure-models/chatbox';
 
 @Injectable()
 export class ChatBoxMockApiService {
 
   // Assume this is your api endpoint data
   private conversations = Array.from(CHATBOX_CONVERSASIONS);
-  private hihi = [];
+
+  // To generate new unique id so that angular trackBy will work properly
+  // In real app, this id will easily generate by your database
+  private genNewMessageId() {
+    let max = 0;
+
+    for (const conversation of this.conversations) {
+      for (const message of conversation.messages) {
+        if (max < message.id) {
+          max = message.id;
+        }
+      }
+    }
+
+    return max + 1;
+  }
 
   public getChatboxContacts() {
     return new Observable(observer => {
@@ -22,7 +37,7 @@ export class ChatBoxMockApiService {
       const conversation: ChatboxConversation = this.conversations.find(d => d.withContact === contactId);
 
       observer.next({
-        contactInfo: CHATBOX_CONTACTS.find(d => d.id === contactId),
+        contact: CHATBOX_CONTACTS.find(d => d.id === contactId),
         messages: conversation && conversation.messages ? conversation.messages : []
       });
       observer.complete();
@@ -33,10 +48,18 @@ export class ChatBoxMockApiService {
     return new Observable(observer => {
       const conversationIndex = this.conversations.findIndex(d => d.withContact === owner);
       const messages = Array.from(this.conversations[conversationIndex].messages);
+      const newMessage = {
+        id: this.genNewMessageId(),
+        sender,
+        message,
+        createAt
+      };
 
-      messages.push({ sender, message, createAt });
+      messages.push(newMessage);
+
       this.conversations[conversationIndex].messages = messages;
 
+      observer.next(newMessage);
       observer.complete();
     });
   }

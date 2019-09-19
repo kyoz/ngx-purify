@@ -33,15 +33,15 @@
     </div>
 
     <div class="have-conversation" fxLayout="column" fxLayoutAlign="space-between stretch"
-         [hidden]="!(_chatbox.inConversation && _chatbox.currentConversation.messages.length > 0)">
+         [hidden]="!(_chatbox.inConversation && _chatbox.currentMessages.length > 0)">
       <div #messages_content=purePerfectScrollbar class="messages" purePerfectScrollbar>
-        <div class="message-row" *ngFor="let message of (_chatbox.currentConversation$ | async).messages; trackBy: trackByMessage ; let i = index"
+        <div class="message-row" *ngFor="let message of _chatbox.currentMessages; let i = index; trackBy: trackByMessage"
              [class.mine]="message.sender === 0"
              [class.their]="message.sender !== 0"
-             [class.first-of-group]="isFirstOfGroup(i, message, _chatbox.currentConversation.messages)"
-             [class.last-of-group]="isLastOfGroup(i, message, _chatbox.currentConversation.messages)">
+             [class.first-of-group]="isFirstMessageOfGroup(i, message)"
+             [class.last-of-group]="isLastMessageOfGroup(i, message)">
           <img class="avatar" *ngIf="message.sender !== 0" 
-               src="assets/image/avatar/{{_chatbox.currentConversation.contactInfo.avatar}}" width="36">
+               src="assets/image/avatar/{{_chatbox.currentContact.avatar}}" width="36">
           <div class="message">
             {{message.message}}
           </div>
@@ -52,12 +52,12 @@
       </div>
       <div class="no-messages" fxLayout="column" fxLayoutAlign="center center"
            *ngIf="_chatbox.inConversation && 
-                  _chatbox.currentConversation.messages.length === 0 &&
+                  _chatbox.currentMessages.length === 0 &&
                   _chatboxContainer.isOpened">
         <div>
           <mat-icon>chat_bubble_outline</mat-icon>
         </div>
-        You haven't have any message<br> with {{_chatbox.currentConversation.contactInfo.name}}
+        You haven't have any message<br> with {{_chatbox.currentContact.name}}
       </div>
       <div class="message-input-wrapper" purePerfectScrollbar *ngIf="_chatbox.inConversation">
         <textarea #message_input class="message-input" placeholder="Type a message" rows="1"

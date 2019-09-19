@@ -3,26 +3,32 @@ import { Store, Select } from '@ngxs/store';
 import { Observable, Subject } from 'rxjs';
 import { GetContacts, GetConversation, SendMessage } from '../../pure-stores/chatbox/chatbox.actions';
 import { PureSideChatboxState } from '../../pure-stores/chatbox/chatbox.state';
-import { CurrentConversation } from '../../pure-models/chatbox';
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
+import { ChatboxMessage, ChatboxContact } from '../../pure-models/chatbox';
 import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
 
 @Injectable()
 export class PureChatboxService {
-  @Select(PureSideChatboxState.getContacts) contacts$: Observable<any>;
-  @Select(PureSideChatboxState.getCurrentConversation) currentConversation$: Observable<any>;
+  @Select(PureSideChatboxState.getContacts) contacts$: Observable<ChatboxContact>;
+  @Select(PureSideChatboxState.getCurrentContact) currentContact$: Observable<ChatboxContact>;
+  @Select(PureSideChatboxState.getCurrentMessages) currentMessages$: Observable<ChatboxMessage[]>;
 
-  currentConversation: CurrentConversation;
+  currentContact: ChatboxContact;
+  currentMessages: ChatboxMessage[] = [];
 
   // To simulate the other user send message back
   sendMessageBack$ = new Subject<Date>();
 
   constructor(private _store: Store, private _chatboxContainer: PureChatboxContainerService) {
-    this.currentConversation$.subscribe(currentConversation => {
-      this.currentConversation = currentConversation;
+    this.currentContact$.subscribe(currentContact => {
+      this.currentContact = currentContact;
       if (this.inConversation) {
         this._chatboxContainer.open();
       }
+    });
+
+    this.currentMessages$.subscribe((messages: ChatboxMessage[]) => {
+      this.currentMessages = messages;
     });
 
     this.sendMessageBack$.pipe(debounceTime(500), distinctUntilChanged()).subscribe(() => {
@@ -31,11 +37,11 @@ export class PureChatboxService {
   }
 
   public get inConversation() {
-    return this.currentConversation.contactInfo !== undefined;
+    return this.currentContact !== undefined;
   }
 
   public get conversationContact() {
-    return this.currentConversation.contactInfo ? this.currentConversation.contactInfo.id : '';
+    return this.currentContact ? this.currentContact.id : '';
   }
 
   /**
@@ -63,7 +69,7 @@ export class PureChatboxService {
 
   private sendMessageBack() {
     this._store.dispatch(new SendMessage({
-      sender: this.currentConversation.contactInfo.id,
+      sender: this.currentContact.id,
       message: 'I am Grootttt',
       createAt: new Date()
     }));

@@ -13,12 +13,13 @@ export interface ChatboxConversation {
 }
 
 export interface ChatboxMessage {
+  id?: number;
   sender: number;
   message: string;
   createAt: Date;
 }
 
 export interface CurrentConversation {
-  contactInfo: ChatboxContact;
+  contact: ChatboxContact;
   messages: ChatboxMessage[];
 }

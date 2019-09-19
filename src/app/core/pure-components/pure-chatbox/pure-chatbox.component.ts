@@ -1,22 +1,24 @@
-import { Component, OnInit, AfterViewChecked, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewChecked, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { PureChatboxService } from './pure-chatbox.service';
 import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { ChatboxContact, ChatboxMessage } from '../../pure-models/chatbox';
-import { debounceTime } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'pure-chatbox',
   templateUrl: './pure-chatbox.component.html',
   styleUrls: ['./pure-chatbox.component.scss']
 })
-export class PureChatbox implements OnInit, AfterViewChecked {
+export class PureChatbox implements OnInit, OnDestroy, AfterViewChecked {
   @ViewChild('message_input', { static: false }) messageInputRef: ElementRef;
   @ViewChild('messages_content', { static: false }) messagesContentScrollbar?: PerfectScrollbarDirective;
 
   messageInput: string;
+
+  messagesChangeSubscription: Subscription = undefined;
 
   constructor(
     private _changeDetectorRef: ChangeDetectorRef,
@@ -28,14 +30,19 @@ export class PureChatbox implements OnInit, AfterViewChecked {
   }
 
   ngOnInit() {
-    this._chatbox.currentConversation$.subscribe(() => {
-      console.log('sss')
+    this.messagesChangeSubscription = this._chatbox.currentMessages$.subscribe(() => {
       this._changeDetectorRef.detectChanges();
 
       if (this._chatbox.inConversation) {
         this.scrollChatboxToBottom();
       }
     });
+  }
+
+  ngOnDestroy() {
+    if (this.messagesChangeSubscription) {
+      this.messagesChangeSubscription.unsubscribe();
+    }
   }
 
   ngAfterViewChecked() {
@@ -102,24 +109,24 @@ export class PureChatbox implements OnInit, AfterViewChecked {
     }
   }
 
-  isFirstOfGroup(index: number, message: ChatboxMessage, messageList: ChatboxMessage[]) {
+  isFirstMessageOfGroup(index: number, message: ChatboxMessage) {
     if (index === 0) {
       return true;
     }
 
-    if (message.sender !== messageList[index - 1].sender) {
+    if (message.sender !== this._chatbox.currentMessages[index - 1].sender) {
       return true;
     }
 
     return false;
   }
 
-  isLastOfGroup(index: number, message: ChatboxMessage, messageList: ChatboxMessage[]) {
-    if (index === messageList.length - 1) {
+  isLastMessageOfGroup(index: number, message: ChatboxMessage) {
+    if (index === this._chatbox.currentMessages.length - 1) {
       return true;
     }
 
-    if (message.sender !== messageList[index + 1].sender) {
+    if (message.sender !== this._chatbox.currentMessages[index + 1].sender) {
       return true;
     }
 
@@ -130,7 +137,7 @@ export class PureChatbox implements OnInit, AfterViewChecked {
     return contact.id;
   }
 
-  trackByMessage(index: number) {
-    return index;
+  trackByMessage(index: number, message: ChatboxMessage) {
+    return message.id;
   }
 }

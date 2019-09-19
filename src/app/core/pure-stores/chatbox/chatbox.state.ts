@@ -1,33 +1,25 @@
-import { Store, Action, State, StateContext, Selector } from '@ngxs/store';
+import { Action, State, StateContext, Selector } from '@ngxs/store';
 import { ImmutableSelector, ImmutableContext } from '@ngxs-labs/immer-adapter';
 import { ChatboxContact, ChatboxMessage, CurrentConversation } from '../../../core/pure-models/chatbox';
 import { PureMockApiService } from '../../pure-mock-api/pure-mock-api.service';
-import {
-  GetContacts,
-  GetConversation,
-  SendMessage
-} from './chatbox.actions';
+import { GetContacts, GetConversation, SendMessage } from './chatbox.actions';
 
 export class PureSideChatboxStateModel {
   contacts: ChatboxContact[];
-  currentConversation: CurrentConversation;
+  currentContact: ChatboxContact;
+  currentMessages: ChatboxMessage[];
 }
 
 @State<PureSideChatboxStateModel>({
   name: 'pureSideChatbox',
   defaults: {
     contacts: [],
-    currentConversation: {
-      contactInfo: undefined,
-      messages: []
-    }
+    currentContact: undefined,
+    currentMessages: []
   }
 })
 export class PureSideChatboxState {
-  constructor(
-    private _store: Store,
-    private _mockApi: PureMockApiService
-  ) { }
+  constructor(private _mockApi: PureMockApiService) { }
 
   @Selector()
   @ImmutableSelector()
@@ -37,8 +29,14 @@ export class PureSideChatboxState {
 
   @Selector()
   @ImmutableSelector()
-  static getCurrentConversation(state: PureSideChatboxStateModel) {
-    return state.currentConversation;
+  static getCurrentContact(state: PureSideChatboxStateModel) {
+    return state.currentContact;
+  }
+
+  @Selector()
+  @ImmutableSelector()
+  static getCurrentMessages(state: PureSideChatboxStateModel) {
+    return state.currentMessages;
   }
 
   @Action(GetContacts)
@@ -55,9 +53,10 @@ export class PureSideChatboxState {
   @Action(GetConversation)
   @ImmutableContext()
   getConversation({ setState }: StateContext<PureSideChatboxStateModel>, { contactId }: GetConversation) {
-    this._mockApi.chatbox.getConversationByContact(contactId).subscribe((currentConversation: CurrentConversation) => {
+    this._mockApi.chatbox.getConversationByContact(contactId).subscribe((conversation: CurrentConversation) => {
       setState((state: PureSideChatboxStateModel) => {
-        state.currentConversation = currentConversation;
+        state.currentContact = conversation.contact;
+        state.currentMessages = conversation.messages;
         return state;
       });
     });
@@ -67,18 +66,17 @@ export class PureSideChatboxState {
   @Action(SendMessage)
   sendMessage({ getState, setState }: StateContext<PureSideChatboxStateModel>, { chatboxMessage }: SendMessage) {
     const { sender, message, createAt } = chatboxMessage;
-    const owner = getState().currentConversation.contactInfo.id;
-    const currentConversation = getState().currentConversation;
+    const owner = getState().currentContact.id;
+    const currentMessages = [...getState().currentMessages];
 
-    this._mockApi.chatbox.sendMessage(owner, sender, message, createAt).subscribe(() => {
+    this._mockApi.chatbox.sendMessage(owner, sender, message, createAt).subscribe((newMessage: ChatboxMessage) => {
       setState((state: PureSideChatboxStateModel) => {
-        currentConversation.messages.push({ sender, message, createAt });
+        currentMessages.push(newMessage);
 
-        state.currentConversation = currentConversation;
+        state.currentMessages = currentMessages;
         return state;
       });
     });
-
   }
 }
 
