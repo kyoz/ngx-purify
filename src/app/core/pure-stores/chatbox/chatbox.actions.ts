@@ -11,5 +11,5 @@ export class GetConversation {
 
 export class SendMessage {
   static readonly type = '[Side Chatbox] Send Message';
-  constructor(public message: ChatboxMessage) {}
+  constructor(public chatboxMessage: ChatboxMessage) {}
 }

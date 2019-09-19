@@ -65,13 +65,18 @@ export class PureSideChatboxState {
 
   @ImmutableContext()
   @Action(SendMessage)
-  sendMessage({ getState, setState }: StateContext<PureSideChatboxStateModel>, { message }: SendMessage) {
-    const { sender, message, createAt } = message;
+  sendMessage({ getState, setState }: StateContext<PureSideChatboxStateModel>, { chatboxMessage }: SendMessage) {
+    const { sender, message, createAt } = chatboxMessage;
     const owner = getState().currentConversation.contactInfo.id;
-    const currentMessages = getState().currentConversation.messages;
+    const currentConversation = getState().currentConversation;
 
     this._mockApi.chatbox.sendMessage(owner, sender, message, createAt).subscribe(() => {
-      this._store.dispatch(new GetConversation(owner));
+      setState((state: PureSideChatboxStateModel) => {
+        currentConversation.messages.push({ sender, message, createAt });
+
+        state.currentConversation = currentConversation;
+        return state;
+      });
     });
 
   }

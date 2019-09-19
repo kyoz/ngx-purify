@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { PureChatboxService } from './pure-chatbox.service';
 import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
@@ -12,7 +12,7 @@ import { debounceTime } from 'rxjs/operators';
   templateUrl: './pure-chatbox.component.html',
   styleUrls: ['./pure-chatbox.component.scss']
 })
-export class PureChatbox implements OnInit {
+export class PureChatbox implements OnInit, AfterViewChecked {
   @ViewChild('message_input', { static: false }) messageInputRef: ElementRef;
   @ViewChild('messages_content', { static: false }) messagesContentScrollbar?: PerfectScrollbarDirective;
 
@@ -28,7 +28,8 @@ export class PureChatbox implements OnInit {
   }
 
   ngOnInit() {
-    this._chatbox.currentConversation$.pipe(debounceTime(150)).subscribe(() => {
+    this._chatbox.currentConversation$.subscribe(() => {
+      console.log('sss')
       this._changeDetectorRef.detectChanges();
 
       if (this._chatbox.inConversation) {
@@ -45,7 +46,7 @@ export class PureChatbox implements OnInit {
     this.clearMessageInput();
     this._chatbox.chooseContact(contact.id);
     this.focusMessageInput();
-    this._changeDetectorRef.detectChanges();
+      this._changeDetectorRef.detectChanges();
   }
 
   sendMessage() {
