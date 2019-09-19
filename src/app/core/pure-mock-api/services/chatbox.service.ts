@@ -40,6 +40,7 @@ export class ChatBoxMockApiService {
         contact: CHATBOX_CONTACTS.find(d => d.id === contactId),
         messages: conversation && conversation.messages ? conversation.messages : []
       });
+
       observer.complete();
     });
   }

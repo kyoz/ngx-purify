@@ -40,6 +40,14 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
     this.setActivatingMenu();
   }
 
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(subscription => {
+      if (subscription) {
+        subscription.unsubscribe();
+      }
+    });
+  }
+
   ngAfterViewInit() {
 
     // Expanding menu on load when there is activating menu item
@@ -49,14 +57,6 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
 
     // To detect when you change value of a parent components when inside child components
     this._changeDetectorRef.detectChanges();
-  }
-
-  ngOnDestroy(): void {
-    this.subscriptions.forEach(subscription => {
-      if (subscription) {
-        subscription.unsubscribe();
-      }
-    });
   }
 
   /**
@@ -108,11 +108,6 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
    */
 
   detectWhenRouteChanged() {
-
-    if (this.subscriptions.get('detectWhenRouteChanged') !== undefined) {
-      return;
-    }
-
     // Subscribe to set menu item is active when change route
     this.subscriptions.set('detectWhenRouteChanged', this._global.onRouterEventEmit$.subscribe(e => {
       if (e instanceof NavigationEnd) {

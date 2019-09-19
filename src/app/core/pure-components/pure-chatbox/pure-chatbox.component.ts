@@ -18,7 +18,9 @@ export class PureChatbox implements OnInit, OnDestroy, AfterViewChecked {
 
   messageInput: string;
 
-  messagesChangeSubscription: Subscription = undefined;
+  isDetactedChangeDetection = false;
+
+  private subscriptions: Map<String, Subscription> = new Map();
 
   constructor(
     private _changeDetectorRef: ChangeDetectorRef,
@@ -30,23 +32,45 @@ export class PureChatbox implements OnInit, OnDestroy, AfterViewChecked {
   }
 
   ngOnInit() {
-    this.messagesChangeSubscription = this._chatbox.currentMessages$.subscribe(() => {
-      this._changeDetectorRef.detectChanges();
+    this.detectWhenMessagesChanged();
+    this.detectWhenChatboxContainerOpened();
+  }
 
-      if (this._chatbox.inConversation) {
-        this.scrollChatboxToBottom();
+  ngOnDestroy() {
+    this.subscriptions.forEach(subscription => {
+      if (subscription) {
+        subscription.unsubscribe();
       }
     });
   }
 
-  ngOnDestroy() {
-    if (this.messagesChangeSubscription) {
-      this.messagesChangeSubscription.unsubscribe();
+  ngAfterViewChecked() {
+    if (!this.isDetactedChangeDetection) {
+      this._changeDetectorRef.detach();
+      this.isDetactedChangeDetection = true;
     }
   }
 
-  ngAfterViewChecked() {
-    this._changeDetectorRef.detach();
+  detectWhenMessagesChanged() {
+    this.subscriptions.set('detectWhenMessagesChanged',
+      this._chatbox.currentMessages$.subscribe(() => {
+        this._changeDetectorRef.detectChanges();
+
+        if (this._chatbox.inConversation) {
+          this.scrollChatboxToBottom();
+        }
+      })
+    );
+  }
+
+  detectWhenChatboxContainerOpened() {
+    this.subscriptions.set('detectWhenChatboxContainerOpened',
+      this._chatboxContainer.isOpened$.subscribe((isOpened: boolean) => {
+        if (isOpened && !this._chatbox.inConversation) {
+          this._changeDetectorRef.detectChanges();
+        }
+      })
+    );
   }
 
   startConversation(contact: ChatboxContact) {

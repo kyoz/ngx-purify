@@ -90,5 +90,21 @@ export const CHATBOX_CONVERSASIONS: ChatboxConversation[] = [
       { id: 35, sender: 4, message: `Ok bro :)`, createAt: new Date() },
       { id: 36, sender: 0, message: `:)))`, createAt: new Date() }
     ]
-  }
+  },
+  { owner: 0, withContact: 5, messages: [] },
+  { owner: 0, withContact: 6, messages: [] },
+  { owner: 0, withContact: 7, messages: [] },
+  { owner: 0, withContact: 8, messages: [] },
+  { owner: 0, withContact: 9, messages: [] },
+  { owner: 0, withContact: 10, messages: [] },
+  { owner: 0, withContact: 11, messages: [] },
+  { owner: 0, withContact: 12, messages: [] },
+  { owner: 0, withContact: 13, messages: [] },
+  { owner: 0, withContact: 14, messages: [] },
+  { owner: 0, withContact: 15, messages: [] },
+  { owner: 0, withContact: 16, messages: [] },
+  { owner: 0, withContact: 17, messages: [] },
+  { owner: 0, withContact: 18, messages: [] },
+  { owner: 0, withContact: 19, messages: [] },
+  { owner: 0, withContact: 20, messages: [] }
 ];
