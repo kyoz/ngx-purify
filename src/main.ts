@@ -5,6 +5,10 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 import 'hammerjs';
 
+// This timeout is too make sure all image, translator is done before we hide the loader
+// If your app is small and doesn't have any image, you can try reduce this timeout
+const WAIT_FOR_RENDERING_TIMEOUT = 2000;
+
 if (environment.production) {
   enableProdMode();
 }
@@ -16,6 +20,6 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       if (splashScreen && splashScreen.classList) {
         splashScreen.classList.add('pure-splash-screen-loaded');
       }
-    }, 500);
+    }, WAIT_FOR_RENDERING_TIMEOUT);
   })
   .catch(err => console.log(err));
