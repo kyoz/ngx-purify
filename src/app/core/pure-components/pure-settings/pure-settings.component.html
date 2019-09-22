@@ -1,4 +1,4 @@
-<div class="pure-settings" [dir]="_settings.currentTextDir">
+<div class="pure-settings" [dir]="_settings.currentTextDir$ | async">
   <mat-toolbar class="toolbar" color="primary">
     <mat-icon>settings</mat-icon>
     <span class="pure-spacer-8"></span>

@@ -1,19 +1,18 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
-
-// Pure Services
+import { Component, OnInit, OnDestroy, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { PureMenuContainerService } from '../../pure-containers/pure-menu-container/pure-menu-container.service';
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
 import { PureNotificationContainerService } from '../../pure-containers/pure-notification-container/pure-notification-container.service';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { PureMainContainerService } from '../../pure-containers/pure-main-container/pure-main-container.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import { debounceTime } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'pure-toolbar',
   templateUrl: './pure-toolbar.component.html',
-  styleUrls: ['./pure-toolbar.component.scss']
+  styleUrls: ['./pure-toolbar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PureToolbar implements OnInit {
   isSearching = false;
