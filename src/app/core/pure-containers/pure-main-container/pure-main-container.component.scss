@@ -68,7 +68,7 @@
   transition: opacity 200ms ease-in-out;
 }
 
-.pure-settings-backdrop {
+.pure-transparent-backdrop {
   z-index: 9999;
   background: transparent;
   position: absolute;
@@ -91,11 +91,6 @@
   .menu-content-opened {
     left: 64px;
     right: 288px;
-  }
-
-  .chatbox-content-small-screen {
-    left: 0px;
-    right: 0px;
   }
 
   .minimal-mode {

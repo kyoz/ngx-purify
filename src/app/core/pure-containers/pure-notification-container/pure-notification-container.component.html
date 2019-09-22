@@ -1,6 +1,6 @@
 <div #pure_notification_container class="pure-notification-container"
-     [dir]="_settings.currentTextDir"
-     [class.opened]="_notificationContainer.isOpened">
+     [dir]="_settings.currentTextDir$ | async"
+     [class.opened]="_notificationContainer.isOpened$ | async">
   <div class="notification-wrapper">
     <pure-notification></pure-notification>
   </div>

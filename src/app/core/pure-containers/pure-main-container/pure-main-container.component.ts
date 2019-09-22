@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy, Input, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, ViewChild, ElementRef,
+  ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { RESPONSIVE_BREAKPOINTS } from '../../pure-utils/pure-configs';
 import { Event as RouterEvent, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 
@@ -19,7 +20,8 @@ import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
 @Component({
   selector: 'pure-main-container',
   templateUrl: './pure-main-container.component.html',
-  styleUrls: ['./pure-main-container.component.scss']
+  styleUrls: ['./pure-main-container.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PureMainContainer implements OnInit, OnDestroy {
   @Input() minimalMode = false;
@@ -27,8 +29,8 @@ export class PureMainContainer implements OnInit, OnDestroy {
 
   private subscriptions: Map<String, Subscription> = new Map();
 
-  isLoading: boolean = false;
-  isBackdropVisible: boolean = false;
+  isLoading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  isBackdropVisible$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   _onWindowResize = this.onWindowResize.bind(this);
   windowResize$: BehaviorSubject<any> = new BehaviorSubject(undefined);
@@ -106,9 +108,9 @@ export class PureMainContainer implements OnInit, OnDestroy {
     ]) => {
       // Check when backdrop should show
       if (((isMenuOpened || isChatboxOpened) && !isFullWidth) || isNotificationOpened) {
-        this.isBackdropVisible = true;
+        this.isBackdropVisible$.next(true);
       } else {
-        this.isBackdropVisible = false;
+        this.isBackdropVisible$.next(false);
       }
     });
 
@@ -130,20 +132,20 @@ export class PureMainContainer implements OnInit, OnDestroy {
    // Shows and hides the loading spinner during RouterEvent changes
    navigationInterceptor(event: RouterEvent): void {
     if (event instanceof NavigationStart) {
-      this.isLoading = true;
+      this.isLoading$.next(true);
     }
 
     if (event instanceof NavigationEnd) {
-      this.isLoading = false;
+      this.isLoading$.next(false);
     }
 
     // Set loading state to false in both of the below events to hide the spinner in case a request fails
     if (event instanceof NavigationCancel) {
-      this.isLoading = false;
+      this.isLoading$.next(false);
     }
 
     if (event instanceof NavigationError) {
-      this.isLoading = false;
+      this.isLoading$.next(false);
     }
   }
 }
