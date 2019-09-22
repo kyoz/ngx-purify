@@ -1,4 +1,4 @@
-<div class="container" [dir]="_settings.currentTextDir">
+<div class="container" [dir]="_settings.currentTextDir$ | async">
   <div class="header" fxLayoutAlign="center center">
     <div class="header-wrapper" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
       <div class="title">Choose your perfect pricing plan</div>

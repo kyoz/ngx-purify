@@ -1,4 +1,4 @@
-<form [formGroup]="loginForm" [dir]="_settings.currentTextDir">
+<form [formGroup]="loginForm" [dir]="_settings.currentTextDir$ | async">
 
   <mat-form-field appearance="outline" class="input-form-field">
     <mat-label>Email</mat-label>

@@ -1,4 +1,4 @@
-<div class="container" [dir]="_settings.currentTextDir">
+<div class="container" [dir]="_settings.currentTextDir$ | async">
   <div class="content pure-background" purePerfectScrollbar>
     <div class="wrapper" fxLayout="column" fxLayoutAlign="center center">
       <img class="logo" src="/assets/logo/pure.svg" width="84px" *ngIf="showLogo">

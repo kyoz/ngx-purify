@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
 import { PureSettingsService } from '../../../core/pure-services/pure-settings.service';
@@ -7,7 +7,8 @@ import { FAQ_GROUPS } from './faq-data';
 @Component({
   selector: 'faq',
   templateUrl: './faq.component.html',
-  styleUrls: ['./faq.component.scss']
+  styleUrls: ['./faq.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FaqComponent {
 
