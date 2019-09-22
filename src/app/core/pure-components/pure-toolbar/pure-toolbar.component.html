@@ -1,5 +1,5 @@
 <mat-toolbar class="pure-toolbar" color="primary" [dir]="_settings.currentTextDir$ | async">
-  <button mat-button class="button left-side" *ngIf="!_mainContainer.isFullWidth$ | async" (click)="_menuContainer.open()">
+  <button mat-button class="button left-side" *ngIf="!(_mainContainer.isFullWidth$ | async)" (click)="_menuContainer.open()">
     <mat-icon>menu</mat-icon>
   </button> 
 
