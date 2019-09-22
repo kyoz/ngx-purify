@@ -15,27 +15,27 @@ export class PureMenuService {
 
   setExpandingMenuItem(menuItem: PureMenuItem) {
     this.expandingMenuItem = menuItem;
-    this.expandingMenuItem.opened = true;
+    this.expandingMenuItem.opened$.next(true);
 
     // Dispatch event to know when the menu is expand
     this.onActivatingMenuItem$.next(new Date());
   }
 
   collapseExpandingMenuItem() {
-    if (this.expandingMenuItem && this.expandingMenuItem.opened) {
+    if (this.expandingMenuItem && this.expandingMenuItem.opened$.value) {
       this.expandingMenuItem.collapseDropdown();
     }
   }
 
   setActivatingMenuItem(menuItem: PureMenuItem) {
     // Deactivate activating menu
-    if (this.activatingMenuItem && this.activatingMenuItem.active) {
+    if (this.activatingMenuItem && this.activatingMenuItem.active$.value) {
       this.activatingMenuItem.deactivate();
     }
 
     // Activate for new menu item
     this.activatingMenuItem = menuItem;
-    this.activatingMenuItem.active = true;
+    this.activatingMenuItem.active$.next(true);
 
     // Close Menu Container if menu is not pinned and page is not full screen
     if (!this._mainContainer.isFullWidth$.value) {

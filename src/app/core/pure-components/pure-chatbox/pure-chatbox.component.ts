@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewChecked, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { PureChatboxService } from './pure-chatbox.service';
 import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
@@ -10,9 +10,10 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'pure-chatbox',
   templateUrl: './pure-chatbox.component.html',
-  styleUrls: ['./pure-chatbox.component.scss']
+  styleUrls: ['./pure-chatbox.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PureChatbox implements OnInit, OnDestroy, AfterViewChecked {
+export class PureChatbox implements OnInit, OnDestroy {
   @ViewChild('message_input', { static: false }) messageInputRef: ElementRef;
   @ViewChild('messages_content', { static: false }) messagesContentScrollbar?: PerfectScrollbarDirective;
 
@@ -42,13 +43,6 @@ export class PureChatbox implements OnInit, OnDestroy, AfterViewChecked {
         subscription.unsubscribe();
       }
     });
-  }
-
-  ngAfterViewChecked() {
-    if (!this.isDetactedChangeDetection) {
-      this._changeDetectorRef.detach();
-      this.isDetactedChangeDetection = true;
-    }
   }
 
   detectWhenMessagesChanged() {

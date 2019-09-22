@@ -2,10 +2,10 @@
 <a class="pure-menu-item" (click)="onMenuItemClicked()" *ngIf="!hasExternalLink; else externalLinkMenuItem"
    [routerLink]="data?.url"
    [queryParams]="data?.params"
-   [dir]="_settings.currentTextDir">
+   [dir]="_settings.currentTextDir$ | async">
   <div class="pure-menu-content level-{{level}}"
-       [class.active]="active"
-       [class.opened]="opened"
+       [class.active]="active$ | async"
+       [class.opened]="opened$ | async"
        [class.no-icon]="(!data && data?.icon) || level !== 0">
     <!-- Icon to replace menu item that doesn't have icon when shrink -->
     <mat-icon class="replace-icon">{{ data?.icon ? data?.icon : 'layers' }}</mat-icon>
@@ -23,9 +23,9 @@
 
 <!-- EXTERNAL LINKS -->
 <ng-template #externalLinkMenuItem>
-  <a class="pure-menu-item" [href]="data?.url" [dir]="_settings.currentTextDir">
+  <a class="pure-menu-item" [href]="data?.url" [dir]="_settings.currentTextDir$ | async">
     <div class="pure-menu-content level-{{level}}"
-         [class.opened]="opened"
+         [class.opened]="opened$ | async"
          [class.no-icon]="(!data && data.icon) || level !== 0">
       <!-- Icon to replace menu item that doesn't have icon when shrink -->
       <mat-icon class="replace-icon">{{ data?.icon ? data?.icon : 'layers' }}</mat-icon>
@@ -39,7 +39,7 @@
   </a>
 </ng-template>
 
-<div class="children" *ngIf="hasChildren" [ngStyle]="{ 'height.px': height }">
+<div class="children" *ngIf="hasChildren" [style.height.px]="height">
   <pure-menu-item *ngFor="let childMenuItem of data?.children; trackBy: trackByFn" 
                   [parent]="_parent"
                   [data]="childMenuItem"

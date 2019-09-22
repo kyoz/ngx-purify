@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { PureMenuContainerService } from './pure-menu-container.service';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { PureMainContainerService } from '../pure-main-container/pure-main-container.service';
@@ -9,7 +9,8 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'pure-menu-container',
   templateUrl: './pure-menu-container.component.html',
-  styleUrls: ['./pure-menu-container.component.scss']
+  styleUrls: ['./pure-menu-container.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PureMenuContainer implements OnInit, OnDestroy {
   _onMouseEnter = this.onMouseEnter.bind(this);

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
 import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 import { PureMenuService } from './pure-menu.service';
 import { PureMenuContainerService } from '../../pure-containers/pure-menu-container/pure-menu-container.service';
@@ -11,7 +11,8 @@ import { MenuGroup, MenuItem } from '../../../core/pure-models/menu';
 
 @Component({
   selector: 'pure-menu',
-  templateUrl: './pure-menu.component.html'
+  templateUrl: './pure-menu.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PureMenu implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('PURE_MENU', { static: false }) pureMenuScrollbar?: PerfectScrollbarDirective;

@@ -1,9 +1,9 @@
 <div #pure_menu_container class="pure-menu-container"
-     [dir]="_settings.currentTextDir"
-     [class.fullwidth]="_mainContainer.isFullWidth"
-     [class.non-fullwidth]="!_mainContainer.isFullWidth"
-     [class.opened]="_menuContainer.isOpenedOrHoveringMenu"
-     [class.disable-animation]="_settings.disableAnimation">
+     [dir]="_settings.currentTextDir$ | async"
+     [class.fullwidth]="_mainContainer.isFullWidth$ | async"
+     [class.non-fullwidth]="!(_mainContainer.isFullWidth$ | async)"
+     [class.opened]="_menuContainer.isOpenedOrHoveringMenu$ | async"
+     [class.disable-animation]="_settings.disableAnimation$ | async">
   <mat-toolbar color="primary" class="toolbar">
     <img class="logo" src="assets/logo/pure.png" height="28">
     <span style="display: inline-block; width: 12px;"></span>

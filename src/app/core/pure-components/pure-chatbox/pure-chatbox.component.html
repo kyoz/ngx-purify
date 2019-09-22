@@ -1,4 +1,4 @@
-<div class="pure-chatbox" fxLayout="row" fxLayoutAlign="space-between stretch" [dir]="_settings.currentTextDir">
+<div class="pure-chatbox" fxLayout="row" fxLayoutAlign="space-between stretch" [dir]="_settings.currentTextDir$ | async">
   <div class="chatbox-contacts-wrapper">
     <div fxFlex="64px" class="chatbox-contacts" purePerfectScrollbar>
       <div class="contact-item-wrapper" *ngFor="let contact of _chatbox.contacts$ | async; trackBy: trackByContact">
@@ -24,8 +24,8 @@
   </div>
 
   <div class="chatbox" fxFlex fxLayoutAlign="center center"
-       [class.chatbox-opened]="_chatboxContainer.isOpened">
-    <div class="no-conversation-selected" *ngIf="!_chatbox.inConversation && _chatboxContainer.isOpened">
+       [class.chatbox-opened]="_chatboxContainer.isOpened$ | async">
+    <div class="no-conversation-selected" *ngIf="!_chatbox.inConversation && (_chatboxContainer.isOpened$ | async)">
       <div>
         <mat-icon>chat</mat-icon>
       </div>
@@ -53,7 +53,7 @@
       <div class="no-messages" fxLayout="column" fxLayoutAlign="center center"
            *ngIf="_chatbox.inConversation && 
                   _chatbox.currentMessages.length === 0 &&
-                  _chatboxContainer.isOpened">
+                  (_chatboxContainer.isOpened$ | async)">
         <div>
           <mat-icon>chat_bubble_outline</mat-icon>
         </div>
@@ -67,7 +67,7 @@
                   (keyup.enter)="sendMessage()"></textarea>
       </div>
       <button mat-icon-button color="primary" class="message-send-btn" (click)="sendMessage()"
-              *ngIf="_chatbox.inConversation && _chatboxContainer.isOpened">
+              *ngIf="_chatbox.inConversation && (_chatboxContainer.isOpened$ | async)">
         <mat-icon>send</mat-icon>
       </button>
     </div>

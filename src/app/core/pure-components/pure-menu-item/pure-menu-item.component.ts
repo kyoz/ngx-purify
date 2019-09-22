@@ -1,15 +1,17 @@
-import { Component, OnInit, Input, ViewChildren, QueryList, AfterViewInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChildren, QueryList, AfterViewInit,
+  OnDestroy, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { MenuItem } from '../../pure-models/menu';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { PureMenuService } from '../pure-menu/pure-menu.service';
 import { PureGlobalService } from '../../pure-services/pure-global.service';
 import { PureStringUtils } from '../../pure-utils/pure-string-utils';
-import { Subscription } from 'rxjs';
+import { Subscription, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'pure-menu-item',
-  templateUrl: './pure-menu-item.component.html'
+  templateUrl: './pure-menu-item.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   @ViewChildren(PureMenuItem) childMenuItems: QueryList<PureMenuItem>;
@@ -18,8 +20,8 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   @Input() level: number = 0;
   @Input() parent: PureMenuItem;
 
-  public active: boolean;
-  public opened: boolean;
+  public active$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public opened$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   private _parent: PureMenuItem = this;
   private subscriptions: Map<String, Subscription> = new Map();
@@ -71,7 +73,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   }
 
   get height(): number {
-    if (!this.opened) {
+    if (!this.opened$.value) {
       return 0;
     }
 
@@ -126,7 +128,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   }
 
   deactivate() {
-    this.active = false;
+    this.active$.next(false);
   }
 
   onMenuItemClicked() {
@@ -136,7 +138,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   }
 
   toggleDropdown() {
-    if (this.opened) {
+    if (this.opened$.value) {
       this.collapseDropdown();
     } else {
       // Collapse expanding menu item to open a new one (Just for root menu item)
@@ -145,7 +147,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
         this._menu.setExpandingMenuItem(this); // Set this root menu item as expanding menu item
       }
 
-      this.opened = true;
+      this.opened$.next(true);
     }
   }
 
@@ -163,12 +165,12 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   }
 
   collapseDropdown() {
-    this.opened = false;
+    this.opened$.next(false);
 
     // Collapse all child item if possible
-    if (!this.opened && this.childMenuItems) {
+    if (!this.opened$.value && this.childMenuItems) {
       this.childMenuItems.forEach(childComponent => {
-        if (childComponent.opened) {
+        if (childComponent.opened$.value) {
           childComponent.toggleDropdown();
         }
       });
