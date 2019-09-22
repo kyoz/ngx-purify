@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { combineLatest } from 'rxjs';
 
 @Component({
   selector: 'other-route-with-params',
   templateUrl: './route-with-params.component.html',
-  styleUrls: ['./route-with-params.component.scss']
+  styleUrls: ['./route-with-params.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OthersRouteWithParamsComponent {
   params = '';

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { PureSettingsService } from 'src/app/core/pure-services/pure-settings.service';
@@ -6,7 +6,8 @@ import { PureSettingsService } from 'src/app/core/pure-services/pure-settings.se
 @Component({
   selector: 'auth-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AuthLoginComponent implements OnInit {
 

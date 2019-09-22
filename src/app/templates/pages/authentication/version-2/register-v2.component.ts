@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'auth-register-v2',
@@ -6,7 +6,8 @@ import { Component } from '@angular/core';
     <auth-side-layout [title]="'CREATE AN ACCOUNT'">
       <auth-register fxFill></auth-register>
     </auth-side-layout>
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AuthRegisterV2Component {
 }

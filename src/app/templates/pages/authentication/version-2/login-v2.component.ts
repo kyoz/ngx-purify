@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'auth-login-v2',
@@ -6,7 +6,8 @@ import { Component } from '@angular/core';
     <auth-side-layout [title]="'LOGIN TO PURE'">
       <auth-login fxFill></auth-login>
     </auth-side-layout>
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AuthLoginV2Component {
 }

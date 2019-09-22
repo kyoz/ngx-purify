@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'auth-register-v1',
@@ -6,7 +6,8 @@ import { Component } from '@angular/core';
     <auth-center-layout [title]="'CREATE AN ACCOUNT'">
       <auth-register fxFill></auth-register>
     </auth-center-layout>
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AuthRegisterV1Component {
 }
