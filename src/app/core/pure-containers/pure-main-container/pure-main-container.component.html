@@ -3,7 +3,7 @@
   <mat-progress-bar class="loader" mode="indeterminate" *ngIf="isLoading$ | async"></mat-progress-bar>
 
   <div class="content pure-theme"
-       [class.menu-content-opened]="(_mainContainer.isFullWidth$ | async) && (_menuContainer.isOpened$ | async)"
+       [class.menu-content-opened]="isMenuContentOpened$ | async"
        [class.small-screen]="!(_mainContainer.isFullWidth$ | async)"
        [class.disable-animation]="_settings.disableAnimation$ | async"
        [class.minimal-mode]="minimalMode">

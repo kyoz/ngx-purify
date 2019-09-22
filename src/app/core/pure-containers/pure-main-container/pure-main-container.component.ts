@@ -30,6 +30,7 @@ export class PureMainContainer implements OnInit, OnDestroy {
   private subscriptions: Map<String, Subscription> = new Map();
 
   isLoading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  isMenuContentOpened$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isBackdropVisible$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   _onWindowResize = this.onWindowResize.bind(this);
@@ -106,6 +107,13 @@ export class PureMainContainer implements OnInit, OnDestroy {
       isChatboxOpened,
       isNotificationOpened
     ]) => {
+      // Check if menu content is opened
+      if (isFullWidth && isMenuOpened) {
+        this.isMenuContentOpened$.next(true);
+      } else {
+        this.isMenuContentOpened$.next(false);
+      }
+
       // Check when backdrop should show
       if (((isMenuOpened || isChatboxOpened) && !isFullWidth) || isNotificationOpened) {
         this.isBackdropVisible$.next(true);
