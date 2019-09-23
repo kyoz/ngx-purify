@@ -15,7 +15,7 @@
     <span class="badge" *ngIf="data?.badge" [ngClass]="data?.badgeColor">
       {{ data?.badge }}
     </span>
-    <mat-icon class="expand-icon" [class.expanded]="opened" *ngIf="hasChildren">
+    <mat-icon class="expand-icon" [class.expanded]="opened$ | async" *ngIf="hasChildren">
       keyboard_arrow_right
     </mat-icon>
   </div>
