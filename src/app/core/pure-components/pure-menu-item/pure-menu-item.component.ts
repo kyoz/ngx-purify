@@ -123,6 +123,11 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
     if (this.data && this.data.url && !this.hasChildren) {
       if (PureStringUtils.cleanRouteLink(this._router.url) === PureStringUtils.cleanRouteLink(this.data.url)) {
         this._menu.setActivatingMenuItem(this);
+
+        // If current menu is expanding, then collapse it
+        if (this._menu.activatingMenuItem.level === 0) {
+          this._menu.collapseExpandingMenuItem();
+        }
       }
     }
   }
