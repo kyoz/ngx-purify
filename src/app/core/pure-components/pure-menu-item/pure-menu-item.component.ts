@@ -22,6 +22,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
 
   public active$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public opened$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public replaceIcon = 'layers';
 
   private _parent: PureMenuItem = this;
   private subscriptions: Map<String, Subscription> = new Map();
@@ -37,8 +38,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit() {
     // Set menu item is active when first load
-    this.fixBadgeColor();
-    this.fixMenuLevel();
+    this.initData();
     this.setActivatingMenu();
   }
 
@@ -206,18 +206,22 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  fixMenuLevel() {
+  initData() {
     // Menu with so much level with shrink the text. It doens't provide a good UI experience.
     // So i limit it at 5 levels. From 0 (Default level) to 4
     // In this case i recommend create multi groups for menu items
     if (this.level > 4) {
       this.level = 4;
     }
-  }
 
-  fixBadgeColor() {
+    // Fix badge color
     if (!(this.data && (this.data.badgeColor === 'primary' || this.data .badgeColor === 'accent'))) {
       this.data.badgeColor = 'warn';
+    }
+
+    // Replace icon
+    if (this.data.icon) {
+      this.replaceIcon = this.data.icon;
     }
   }
 

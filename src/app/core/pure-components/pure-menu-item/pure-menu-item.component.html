@@ -8,7 +8,7 @@
        [class.opened]="opened$ | async"
        [class.no-icon]="(!data && data?.icon) || level !== 0">
     <!-- Icon to replace menu item that doesn't have icon when shrink -->
-    <mat-icon class="replace-icon">{{ data?.icon ? data?.icon : 'layers' }}</mat-icon>
+    <mat-icon class="replace-icon">{{ replaceIcon }}</mat-icon>
     <!-- Original icon -->
     <mat-icon class="icon" *ngIf="data?.icon">{{ data?.icon }}</mat-icon>
     <span class="name">{{ data?.name | translate }}</span>
@@ -28,7 +28,7 @@
          [class.opened]="opened$ | async"
          [class.no-icon]="(!data && data.icon) || level !== 0">
       <!-- Icon to replace menu item that doesn't have icon when shrink -->
-      <mat-icon class="replace-icon">{{ data?.icon ? data?.icon : 'layers' }}</mat-icon>
+      <mat-icon class="replace-icon">{{ replaceIcon }}</mat-icon>
       <!-- Original icon -->
       <mat-icon class="icon" *ngIf="data?.icon">{{ data?.icon }}</mat-icon>
       <span class="name">{{ data?.name | translate }}</span>
