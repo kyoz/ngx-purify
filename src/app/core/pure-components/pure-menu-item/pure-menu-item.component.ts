@@ -23,6 +23,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   public active$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public opened$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public replaceIcon = 'layers';
+  public hasExternalLink = false;
 
   private _parent: PureMenuItem = this;
   private subscriptions: Map<String, Subscription> = new Map();
@@ -93,16 +94,6 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
       return false;
     }
     return !PureStringUtils.isEmpty(this.data.url);
-  }
-
-  get hasExternalLink(): boolean {
-    if (!this.data) {
-      return false;
-    }
-
-    return !PureStringUtils.isEmpty(this.data.url) &&
-      (PureStringUtils.startsWith(this.data.url, 'http://') ||
-       PureStringUtils.startsWith(this.data.url, 'https://'));
   }
 
   /**
@@ -213,6 +204,15 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
     if (this.level > 4) {
       this.level = 4;
     }
+
+    // Check if menu link is external
+    if (!this.data) {
+      this.hasExternalLink = false;
+    }
+
+    this.hasExternalLink = !PureStringUtils.isEmpty(this.data.url) &&
+      (PureStringUtils.startsWith(this.data.url, 'http://') ||
+       PureStringUtils.startsWith(this.data.url, 'https://'));
 
     // Fix badge color
     if (!(this.data && (this.data.badgeColor === 'primary' || this.data .badgeColor === 'accent'))) {
