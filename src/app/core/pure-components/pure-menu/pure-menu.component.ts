@@ -1,10 +1,11 @@
-import { Component, OnInit, OnDestroy, ViewChild, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnDestroy, ViewChild, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
 import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 import { PureMenuService } from './pure-menu.service';
 import { PureMenuContainerService } from '../../pure-containers/pure-menu-container/pure-menu-container.service';
 import { PureMainContainerService } from '../../pure-containers/pure-main-container/pure-main-container.service';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
-import { Subscription } from 'rxjs';
+import { DeviceDetectorService } from 'ngx-device-detector';
+import { Subscription, BehaviorSubject, combineLatest, of } from 'rxjs';
 import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
 import { MENU_CONFIG } from '../../../configs/menu';
 import { MenuGroup, MenuItem } from '../../../core/pure-models/menu';
@@ -14,21 +15,22 @@ import { MenuGroup, MenuItem } from '../../../core/pure-models/menu';
   templateUrl: './pure-menu.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PureMenu implements OnInit, OnDestroy, AfterViewInit {
+export class PureMenu implements OnDestroy, AfterViewInit {
   @ViewChild('PURE_MENU', { static: false }) pureMenuScrollbar?: PerfectScrollbarDirective;
 
   public menuGroups: MenuGroup[] = MENU_CONFIG;
+  public showDetail$: BehaviorSubject<boolean> = new BehaviorSubject(true);
+
   private subscriptions: Map<String, Subscription> = new Map();
 
   constructor(
     private _menuService: PureMenuService,
+    private _deviceDetector: DeviceDetectorService,
     public _menuContainer: PureMenuContainerService,
     public _mainContainer: PureMainContainerService,
     public _settings: PureSettingsService) {
+      this.detectShowItemDetail();
       this.detectMenuItemActive();
-  }
-
-  ngOnInit() {
   }
 
   ngOnDestroy() {
@@ -41,6 +43,38 @@ export class PureMenu implements OnInit, OnDestroy, AfterViewInit {
 
   ngAfterViewInit() {
     this.focusActiveMenu();
+  }
+
+  detectShowItemDetail() {
+    // This is a technique to only show menu item and it children when menu is open in mobile devices
+    // This will reducing the side of DOM, so improve a lot of performance for this application in mobile devices
+    if (this._deviceDetector.isDesktop()) {
+      return;
+    }
+
+    if (this.subscriptions.get('detectShowItemDetail') !== undefined) {
+      return;
+    }
+
+    const combineBehaviorSubjects = combineLatest(
+      this._mainContainer.isFullWidth$,
+      this._menuContainer.isOpened$
+    ).pipe(distinctUntilChanged());
+
+    const subscription = combineBehaviorSubjects.subscribe(([
+      isFullWidth,
+      isMenuOpened
+    ]) => {
+      if (!isFullWidth && !isMenuOpened) {
+        setTimeout(() => {
+          this.showDetail$.next(false);
+        }, 400);
+      } else {
+        this.showDetail$.next(true);
+      }
+    });
+
+    this.subscriptions.set('detectShowItemDetail', subscription);
   }
 
   detectMenuItemActive() {

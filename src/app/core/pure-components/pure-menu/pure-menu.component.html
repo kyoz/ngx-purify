@@ -11,6 +11,6 @@
     </div>
 
     <pure-menu-item *ngFor="let menuItem of group.menuItems; trackBy: trackItemByFn" 
-                    [data]="menuItem"></pure-menu-item>
+                    [data]="menuItem" [showDetail$]="showDetail$"></pure-menu-item>
   </div>
 </div>

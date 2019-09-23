@@ -19,9 +19,10 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
   @Input() data: MenuItem;
   @Input() level: number = 0;
   @Input() parent: PureMenuItem;
+  @Input() showDetail$: BehaviorSubject<boolean> = new BehaviorSubject(true);
 
-  public active$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  public opened$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public active$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  public opened$: BehaviorSubject<boolean> = new BehaviorSubject(false);
   public replaceIcon = 'layers';
   public hasExternalLink = false;
 
@@ -39,7 +40,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit() {
     // Set menu item is active when first load
-    this.initData();
+    this.initialize();
     this.setActivatingMenu();
   }
 
@@ -197,7 +198,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  initData() {
+  initialize() {
     // Menu with so much level with shrink the text. It doens't provide a good UI experience.
     // So i limit it at 5 levels. From 0 (Default level) to 4
     // In this case i recommend create multi groups for menu items

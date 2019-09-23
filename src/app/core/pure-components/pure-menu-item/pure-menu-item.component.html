@@ -3,30 +3,11 @@
    [routerLink]="data?.url"
    [queryParams]="data?.params"
    [dir]="_settings.currentTextDir$ | async">
-  <div class="pure-menu-content level-{{level}}"
-       [class.active]="active$ | async"
-       [class.opened]="opened$ | async"
-       [class.no-icon]="(!data && data?.icon) || level !== 0">
-    <!-- Icon to replace menu item that doesn't have icon when shrink -->
-    <mat-icon class="replace-icon">{{ replaceIcon }}</mat-icon>
-    <!-- Original icon -->
-    <mat-icon class="icon" *ngIf="data?.icon">{{ data?.icon }}</mat-icon>
-    <span class="name">{{ data?.name | translate }}</span>
-    <span class="badge" *ngIf="data?.badge" [ngClass]="data?.badgeColor">
-      {{ data?.badge }}
-    </span>
-    <mat-icon class="expand-icon" [class.expanded]="opened$ | async" *ngIf="hasChildren">
-      keyboard_arrow_right
-    </mat-icon>
-  </div>
-</a>
-
-<!-- EXTERNAL LINKS -->
-<ng-template #externalLinkMenuItem>
-  <a class="pure-menu-item" [href]="data?.url" [dir]="_settings.currentTextDir$ | async">
+  <ng-template [ngIf]="showDetail$ | async">
     <div class="pure-menu-content level-{{level}}"
+         [class.active]="active$ | async"
          [class.opened]="opened$ | async"
-         [class.no-icon]="(!data && data.icon) || level !== 0">
+         [class.no-icon]="(!data && data?.icon) || level !== 0">
       <!-- Icon to replace menu item that doesn't have icon when shrink -->
       <mat-icon class="replace-icon">{{ replaceIcon }}</mat-icon>
       <!-- Original icon -->
@@ -35,14 +16,40 @@
       <span class="badge" *ngIf="data?.badge" [ngClass]="data?.badgeColor">
         {{ data?.badge }}
       </span>
+      <mat-icon class="expand-icon" [class.expanded]="opened$ | async" *ngIf="hasChildren">
+        keyboard_arrow_right
+      </mat-icon>
     </div>
+  </ng-template>
+</a>
+
+<!-- EXTERNAL LINKS -->
+<ng-template #externalLinkMenuItem>
+  <a class="pure-menu-item" [href]="data?.url" [dir]="_settings.currentTextDir$ | async">
+    <ng-template [ngIf]="showDetail$ | async">
+      <div class="pure-menu-content level-{{level}}"
+           [class.opened]="opened$ | async"
+           [class.no-icon]="(!data && data.icon) || level !== 0">
+        <!-- Icon to replace menu item that doesn't have icon when shrink -->
+        <mat-icon class="replace-icon">{{ replaceIcon }}</mat-icon>
+        <!-- Original icon -->
+        <mat-icon class="icon" *ngIf="data?.icon">{{ data?.icon }}</mat-icon>
+        <span class="name">{{ data?.name | translate }}</span>
+        <span class="badge" *ngIf="data?.badge" [ngClass]="data?.badgeColor">
+          {{ data?.badge }}
+        </span>
+      </div>
+    </ng-template>
   </a>
 </ng-template>
 
-<div class="children" *ngIf="hasChildren" [style.height.px]="height">
-  <pure-menu-item *ngFor="let childMenuItem of data?.children; trackBy: trackByFn" 
-                  [parent]="_parent"
-                  [data]="childMenuItem"
-                  [level]="level+1">
-  </pure-menu-item>
-</div>
+<ng-template [ngIf]="hasChildren">
+  <div class="children" [style.height.px]="height">
+    <pure-menu-item *ngFor="let childMenuItem of data?.children; trackBy: trackByFn" 
+                    [parent]="_parent"
+                    [data]="childMenuItem"
+                    [level]="level+1"
+                    [showDetail$]="showDetail$">
+    </pure-menu-item>
+  </div>
+</ng-template>
