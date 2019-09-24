@@ -3,12 +3,14 @@
      [class.opened-or-hovering-menu]="_menuContainer.isOpenedOrHoveringMenu$ | async"
      [class.fullwidth]="_mainContainer.isFullWidth$ | async">
   <div class="pure-menu-group" *ngFor="let group of menuGroups; trackBy: trackGroupByFn">
-    <div class="group-name-wrapper">
-      <!--Icon to replace group name when the menu shrink-->
-      <mat-icon class="group-name-replace">remove</mat-icon>
-      <!--Group name-->
-      <div class="group-name">{{ group.groupName | translate }}</div>
-    </div>
+    <ng-template [ngIf]="showDetail$ | async">
+      <div class="group-name-wrapper">
+        <!--Icon to replace group name when the menu shrink-->
+        <mat-icon class="group-name-replace">remove</mat-icon>
+        <!--Group name-->
+        <div class="group-name">{{ group.groupName | translate }}</div>
+      </div>
+    </ng-template>
 
     <pure-menu-item *ngFor="let menuItem of group.menuItems; trackBy: trackItemByFn" 
                     [data]="menuItem" [showDetail$]="showDetail$"></pure-menu-item>
