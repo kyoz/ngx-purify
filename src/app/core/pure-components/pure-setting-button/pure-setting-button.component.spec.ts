@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { PureSettingButton } from './pure-setting-button.component';
 import { PureCoreModule } from '../../core.module';
+import { PureSettingButton } from './pure-setting-button.component';
 
 describe('PureSettingButton', () => {
   let component: PureSettingButton;

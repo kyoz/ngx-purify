@@ -1,13 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClient } from '@angular/common/http';
-
-import { PureSettings } from './pure-settings.component';
 import { PureCoreModule } from '../../core.module';
-
-import { DeviceDetectorService } from 'ngx-device-detector';
-
-import { TranslateModule, TranslateService, TranslateLoader } from '@ngx-translate/core';
-import { HttpLoaderFactory } from 'src/app/core/core.module';
+import { PureSettings } from './pure-settings.component';
 
 describe('PureSettings', () => {
   let component: PureSettings;
@@ -15,20 +8,7 @@ describe('PureSettings', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        PureCoreModule,
-        TranslateModule.forRoot({
-          loader: {
-            provide: TranslateLoader,
-            useFactory: HttpLoaderFactory,
-            deps: [HttpClient]
-          }
-        })
-      ],
-      providers: [
-        DeviceDetectorService,
-        TranslateService
-      ]
+      imports: [PureCoreModule]
     })
     .compileComponents();
   }));

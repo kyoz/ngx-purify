@@ -1,17 +1,17 @@
 import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
-import { PureCoreModule } from './core/core.module';
 import { RouterTestingModule } from '@angular/router/testing';
+import { PureCoreModule } from './core/core.module';
+import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule,
+        PureCoreModule
+      ],
       declarations: [
         AppComponent,
-      ],
-      imports: [
-        PureCoreModule,
-        RouterTestingModule
       ]
     }).compileComponents();
   }));

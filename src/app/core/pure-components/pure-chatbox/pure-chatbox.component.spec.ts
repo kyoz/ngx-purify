@@ -1,14 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PureCoreModule } from '../../core.module';
-import { HttpClient } from '@angular/common/http';
-
-import { AppStateModule } from '../../../app-state.module';
-import { PureChatboxEffects } from './pure-chatbox.effect';
 import { PureChatbox } from './pure-chatbox.component';
-
-import { DeviceDetectorService } from 'ngx-device-detector';
-import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
-import { HttpLoaderFactory } from 'src/app/core/core.module';
 
 describe('PureChatbox', () => {
   let component: PureChatbox;
@@ -16,21 +8,7 @@ describe('PureChatbox', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        PureCoreModule,
-        AppStateModule,
-        TranslateModule.forRoot({
-          loader: {
-            provide: TranslateLoader,
-            useFactory: HttpLoaderFactory,
-            deps: [HttpClient]
-          }
-        })
-      ],
-      providers: [
-        DeviceDetectorService,
-        TranslateService
-      ]
+      imports: [PureCoreModule]
     })
     .compileComponents();
   }));
