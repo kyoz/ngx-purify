@@ -16,7 +16,7 @@ export const OtherMenu: MenuItem[] = [
                 children: [
                   {
                     name: 'MENU.OTHERS.MULTI_LEVEL_MENU.LEVEL_5',
-                    url: '/others/multi-level/level-5'
+                    url: '/others/multi-level/level-2/level-3/level-4/level-5'
                   }
                 ]
               }
@@ -45,7 +45,7 @@ export const OtherMenu: MenuItem[] = [
                   {
                     name: 'MENU.OTHERS.MULTI_LEVEL_MENU_WITH_ICON.LEVEL_5',
                     icon: 'list',
-                    url: '/others/multi-level/level-5-with-icon'
+                    url: '/others/multi-level-with-icon/level-2/level-3/level-4/level-5'
                   }
                 ]
               }
