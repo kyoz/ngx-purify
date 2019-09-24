@@ -44,7 +44,7 @@ import {
 } from '@angular/material';
 
 // Components
-import { HeaderComponent } from './header/header.component';
+import { PageHeaderComponent } from './page-header/page-header.component';
 import { MaterialExampleComponent } from './material-example/material-example.component';
 
 // Highlightjs
@@ -104,7 +104,7 @@ const MATERIAL_MODULES = [
   ],
   declarations: [
     // Components
-    HeaderComponent,
+    PageHeaderComponent,
     MaterialExampleComponent
   ],
   exports: [
@@ -118,7 +118,7 @@ const MATERIAL_MODULES = [
     ...MATERIAL_MODULES,
 
     // Components
-    HeaderComponent,
+    PageHeaderComponent,
     MaterialExampleComponent
   ]
 })
