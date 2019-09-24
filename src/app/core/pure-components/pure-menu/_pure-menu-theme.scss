@@ -227,7 +227,7 @@
 
         .pure-menu-content.level-1, .pure-menu-content.level-2, .pure-menu-content.level-3, .pure-menu-content.level-4 {
           @if $is-dark==true {
-            background: rgba(#212121, .6);
+            background: rgba(#242424, .6);
           } @else {
             background: rgba(#bdbdbd, .1);
           }
@@ -235,7 +235,7 @@
           // Hover Effect
           &:hover {
             @if $is-dark==true {
-              background: rgba(#212121, .9);
+              background: rgba(#242424, .9);
             } @else {
               background: rgba(#bdbdbd, .2);
             }
@@ -252,13 +252,13 @@
         position: relative;
 
         @if $is-dark==true {
-          &:before { background: linear-gradient(180deg, rgba(0, 0, 0, .3) 0, transparent); }
-          &:after { background: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, .2)); }
+          &:before { background: linear-gradient(180deg, #171717 0, transparent); }
+          &:after { background: linear-gradient(180deg, transparent 0, #171717); }
         }
 
         @else {
-          &:before { background: linear-gradient(180deg, rgba(0, 0, 0, .2) 0, transparent); }
-          &:after { background: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, .2)); }
+          &:before { background: linear-gradient(180deg, #dedede 0, transparent); }
+          &:after { background: linear-gradient(180deg, transparent 0, #dedede); }
         }
 
         &:before {
