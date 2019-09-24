@@ -71,7 +71,7 @@ export class PureChatbox implements OnInit, OnDestroy {
     this.clearMessageInput();
     this._chatbox.chooseContact(contact.id);
     this.focusMessageInput();
-      this._changeDetectorRef.detectChanges();
+    this._changeDetectorRef.detectChanges();
   }
 
   sendMessage() {
