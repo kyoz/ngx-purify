@@ -13,6 +13,11 @@ import { PureComponentsModule } from './pure-components/pure-components.module';
 import { PureContainersModule } from './pure-containers/pure-containers.module';
 import { PureDirectivesModule } from './pure-directives/pure-directives.module';
 
+// Services
+import { PureGlobalService } from './pure-services/pure-global.service';
+import { PureSettingsService } from './pure-services/pure-settings.service';
+import { PureSettingsStorageService } from './pure-services/pure-settings.storage';
+
 // Store Modules
 import { NgxsModule } from '@ngxs/store';
 
@@ -105,6 +110,10 @@ const PURE_CORE_MODULES = [
     ...PURE_CORE_MODULES
   ],
   providers: [
+    PureGlobalService,
+    PureSettingsService,
+    PureSettingsStorageService,
+
     // Perfect Scrollbar Global Configuration
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
