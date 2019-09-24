@@ -68,6 +68,12 @@ export class PureChatbox implements OnInit, OnDestroy {
   }
 
   startConversation(contact: ChatboxContact) {
+    // Not get new data of current contact conversation, just open the chatbox
+    if (this._chatbox.currentContact && this._chatbox.currentContact.id === contact.id) {
+      this._chatboxContainer.open();
+      return;
+    }
+
     this.clearMessageInput();
     this._chatbox.chooseContact(contact.id);
     this.focusMessageInput();
