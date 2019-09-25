@@ -68,7 +68,7 @@ export class PureMenu implements OnDestroy, AfterViewInit {
       if (!isFullWidth && !isMenuOpened) {
         setTimeout(() => {
           this.showDetail$.next(false);
-        }, 400);
+        }, 150);
       } else {
         this.showDetail$.next(true);
       }
