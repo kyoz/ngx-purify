@@ -35,6 +35,12 @@ const routes: Routes = [
     loadChildren: () => import('./templates/others/others.module')
       .then(module => module.OthersModule)
   },
+  {
+    path: 'document',
+    component: MainContainer,
+    loadChildren: () => import('./templates/documents/documents.module')
+      .then(module => module.DocumentsModule)
+  },
   { path: '', redirectTo: 'app', pathMatch: 'full' },
   { path: '**', redirectTo: 'app', pathMatch: 'full' },
 ];

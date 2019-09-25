@@ -24,5 +24,5 @@ export const DocumentationMenu: MenuItem[] = [
   { name: 'Directives', icon: 'chrome_reader_mode' },
   { name: 'Services', icon: 'chrome_reader_mode' },
   { name: '3rd Party Components', icon: 'chrome_reader_mode' },
-  { name: 'Changelog', icon: 'history' }
+  { name: 'Changelog', icon: 'history', url: '/document/changelog' }
 ];

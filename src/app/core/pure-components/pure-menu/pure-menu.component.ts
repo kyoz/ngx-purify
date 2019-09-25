@@ -97,16 +97,21 @@ export class PureMenu implements OnDestroy, AfterViewInit {
     /**
      * If there is activated memu item, scroll to it and make it is center of the menu
      */
-    const activatingMenuItemRef = document.getElementsByClassName('pure-menu-content active');
+    const pureMenu = this.pureMenuScrollbar.elementRef.nativeElement;
+    const activatingMenuItemRef: Element = document.getElementsByClassName('pure-menu-content active')[0];
+    const windowHeight = window.innerHeight - 64;
+    const scrollHeight = pureMenu.scrollHeight - windowHeight;
 
-    if (activatingMenuItemRef && activatingMenuItemRef[0]) {
-      activatingMenuItemRef[0].scrollIntoView(true);
+    if (activatingMenuItemRef) {
+      activatingMenuItemRef.scrollIntoView(true);
 
-      // Menu has scroll all the way to bottom
-      const pureMenu = this.pureMenuScrollbar.elementRef.nativeElement;
+      // If menu has scroll all the way to bottom, then no need to re-align
+      if (pureMenu.scrollTop + 65 >= scrollHeight) {
+        return;
+      }
 
       // 64 is the height of toolbar, 24 is half of the item height
-      const centerScreenHeight = (window.innerHeight - 64) / 2 - 24;
+      const centerScreenHeight = windowHeight / 2 - 24;
 
       pureMenu.scrollTop -= centerScreenHeight;
     }
