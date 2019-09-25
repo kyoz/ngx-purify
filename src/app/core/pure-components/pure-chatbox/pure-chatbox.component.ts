@@ -72,6 +72,7 @@ export class PureChatbox implements OnInit, OnDestroy {
     if (this._chatbox.inConversation && this._chatbox.currentContact.id === contact.id) {
       this._chatboxContainer.open();
       this.scrollChatboxToBottom();
+      this.focusMessageInput();
       this._changeDetectorRef.detectChanges();
       return;
     }
