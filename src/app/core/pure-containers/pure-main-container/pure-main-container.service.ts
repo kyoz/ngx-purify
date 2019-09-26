@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { RESPONSIVE_BREAKPOINTS } from '../../pure-utils/pure-configs';
+import { RESPONSIVE_BREAKPOINTS } from '../../../configs/sizes';
 import { distinctUntilChanged } from 'rxjs/operators';
 
 @Injectable()

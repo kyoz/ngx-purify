@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, Input, ViewChild, ElementRef,
   ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
-import { RESPONSIVE_BREAKPOINTS } from '../../pure-utils/pure-configs';
+import { RESPONSIVE_BREAKPOINTS } from '../../../configs/sizes';
 import { Event as RouterEvent, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 
 // Services

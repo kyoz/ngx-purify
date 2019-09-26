@@ -4,7 +4,6 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatIconRegistry } from '@angular/material';
-import { environment } from '../../environments/environment';
 
 // Pure Modules
 import { PureSharedModule } from '../shared/shared.module';
@@ -17,12 +16,6 @@ import { PureDirectivesModule } from './pure-directives/pure-directives.module';
 import { PureGlobalService } from './pure-services/pure-global.service';
 import { PureSettingsService } from './pure-services/pure-settings.service';
 import { PureSettingsStorageService } from './pure-services/pure-settings.storage';
-
-// Store Modules
-import { NgxsModule } from '@ngxs/store';
-
-// States
-import { PureSideChatboxState } from './pure-stores/chatbox/chatbox.state';
 
 // Device Detectors
 import { DeviceDetectorModule } from 'ngx-device-detector';
@@ -81,13 +74,6 @@ const PURE_CORE_MODULES = [
     PureSharedModule,
     PureMockApiModule,
     ...PURE_CORE_MODULES,
-
-    // Store Modules
-    NgxsModule.forRoot([
-      PureSideChatboxState
-    ], {
-      developmentMode: !environment.production
-    }),
 
     // Device Detectors
     DeviceDetectorModule.forRoot(),

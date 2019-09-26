@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { environment } from '../environments/environment';
+
+// Store Modules
+import { NgxsModule } from '@ngxs/store';
 
 // App Router
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +18,8 @@ import { AppComponent } from './app.component';
 import { MainContainer } from './containers/main-container/main-container.component';
 import { MinimalContainer } from './containers/minimal-container/minimal-container.component';
 
+// States
+import { PureSideChatboxState } from './stores/chatbox/chatbox.state';
 
 @NgModule({
   declarations: [
@@ -30,7 +36,15 @@ import { MinimalContainer } from './containers/minimal-container/minimal-contain
     AppRoutingModule,
 
     // Pure Modules
-    PureCoreModule
+    PureCoreModule,
+
+    // Store Modules
+    NgxsModule.forRoot([
+      PureSideChatboxState
+    ], {
+      developmentMode: !environment.production
+    }),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

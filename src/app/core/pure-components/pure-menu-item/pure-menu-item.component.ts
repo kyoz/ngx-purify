@@ -5,7 +5,7 @@ import { MenuItem } from '../../pure-models/menu';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { PureMenuService } from '../pure-menu/pure-menu.service';
 import { PureGlobalService } from '../../pure-services/pure-global.service';
-import { PureStringUtils } from '../../pure-utils/pure-string-utils';
+import { PureStringUtils } from '../../pure-utils/string';
 import { Subscription, BehaviorSubject } from 'rxjs';
 
 @Component({

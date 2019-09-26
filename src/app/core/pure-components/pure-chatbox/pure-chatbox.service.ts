@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
 import { Observable, Subject } from 'rxjs';
-import { GetContacts, GetConversation, SendMessage } from '../../pure-stores/chatbox/chatbox.actions';
-import { PureSideChatboxState } from '../../pure-stores/chatbox/chatbox.state';
+import { GetContacts, GetConversation, SendMessage } from '../../../stores/chatbox/chatbox.actions';
+import { PureSideChatboxState } from '../../../stores/chatbox/chatbox.state';
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
 import { ChatboxMessage, ChatboxContact } from '../../pure-models/chatbox';
 import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
