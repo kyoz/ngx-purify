@@ -1,4 +1,4 @@
-import { SearchResult } from '../../pure-models/search';
+import { SearchResult } from '../../../shared/models/search.model';
 
 export const SearchResults: SearchResult[] = [
   { id: 1, url: 'https://yourwebsite/content/lorem-ipsum', title: 'Lorem ipsum dolor', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },

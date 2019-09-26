@@ -1,4 +1,4 @@
-import { ChatboxMessage } from '../../core/pure-models/chatbox';
+import { ChatboxMessage } from '../../shared/models/chatbox.model';
 
 export class GetContacts {
   static readonly type = '[Pure Side Chatbox] Get Contacts';

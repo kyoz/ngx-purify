@@ -1,4 +1,4 @@
-import { MenuItem } from '../../core/pure-models/menu';
+import { MenuItem } from '../../shared/models/menu.model';
 
 export const DocumentationMenu: MenuItem[] = [
   {

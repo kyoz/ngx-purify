@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, ViewChildren, QueryList, AfterViewInit,
   OnDestroy, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { MenuItem } from '../../pure-models/menu';
+import { MenuItem } from '../../../shared/models/menu.model';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { PureMenuService } from '../pure-menu/pure-menu.service';
 import { PureGlobalService } from '../../pure-services/pure-global.service';
-import { PureStringUtils } from '../../pure-utils/string';
+import { PureStringUtils } from '../../../shared/utils/string';
 import { Subscription, BehaviorSubject } from 'rxjs';
 
 @Component({

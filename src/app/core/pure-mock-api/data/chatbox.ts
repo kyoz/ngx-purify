@@ -1,4 +1,4 @@
-import { ChatboxContact, ChatboxConversation } from '../../pure-models/chatbox';
+import { ChatboxContact, ChatboxConversation } from '../../../shared/models/chatbox.model';
 
 /**
  * NOTE

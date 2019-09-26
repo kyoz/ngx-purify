@@ -8,7 +8,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 import { Subscription, BehaviorSubject, combineLatest, of } from 'rxjs';
 import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
 import { MENU_CONFIG } from '../../../configs/menu';
-import { MenuGroup, MenuItem } from '../../../core/pure-models/menu';
+import { MenuGroup, MenuItem } from '../../../shared/models/menu.model';
 
 @Component({
   selector: 'pure-menu',

@@ -1,4 +1,4 @@
-import { PureTheme } from '../core/pure-models/settings';
+import { PureTheme } from '../shared/models/settings.model';
 
 export const THEMES: PureTheme[] = [
   {

@@ -1,5 +1,5 @@
 // Interfaces
-import { MenuGroup } from '../core/pure-models/menu';
+import { MenuGroup } from '../shared/models/menu.model';
 
 // Menus
 import { ApplicationMenu } from './menus/application';

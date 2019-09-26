@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { getToday } from '../../pure-utils/date';
+import { getToday } from '../../../shared/utils/date';
 
 @Component({
   selector: 'pure-notification',

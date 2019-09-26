@@ -1,6 +1,6 @@
 import { Action, State, StateContext, Selector } from '@ngxs/store';
 import { ImmutableSelector, ImmutableContext } from '@ngxs-labs/immer-adapter';
-import { ChatboxContact, ChatboxMessage, CurrentConversation } from '../../core/pure-models/chatbox';
+import { ChatboxContact, ChatboxMessage, CurrentConversation } from '../../shared/models/chatbox.model';
 import { PureMockApiService } from '../../core/pure-mock-api/pure-mock-api.service';
 import { GetContacts, GetConversation, SendMessage } from './chatbox.actions';
 

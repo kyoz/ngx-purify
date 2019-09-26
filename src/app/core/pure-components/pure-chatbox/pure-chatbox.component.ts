@@ -4,7 +4,7 @@ import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import { ChatboxContact, ChatboxMessage } from '../../pure-models/chatbox';
+import { ChatboxContact, ChatboxMessage } from '../../../shared/models/chatbox.model';
 import { Subscription } from 'rxjs';
 
 @Component({

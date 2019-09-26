@@ -4,7 +4,7 @@ import { Observable, Subject } from 'rxjs';
 import { GetContacts, GetConversation, SendMessage } from '../../../stores/chatbox/chatbox.actions';
 import { PureSideChatboxState } from '../../../stores/chatbox/chatbox.state';
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
-import { ChatboxMessage, ChatboxContact } from '../../pure-models/chatbox';
+import { ChatboxMessage, ChatboxContact } from '../../../shared/models/chatbox.model';
 import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
 
 @Injectable()
