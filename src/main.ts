@@ -22,4 +22,4 @@ platformBrowserDynamic().bootstrapModule(AppModule)
       }
     }, WAIT_FOR_RENDERING_TIMEOUT);
   })
-  .catch(err => console.log(err));
+  .catch(err => console.error(err));
