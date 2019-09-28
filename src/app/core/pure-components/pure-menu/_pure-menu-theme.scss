@@ -3,7 +3,7 @@
 // for PureMenu and PureMenuItem
 // It'll prevent angular create a alots of unnecessary css code, thus improve
 // performance too
-@import '../../../../assets/scss/pure-style-functions';
+@import '../../../../assets/scss/theming/pure-theme-functions';
 
 @mixin pure-menu-theme($theme) {
   $primary: map-get($theme, primary);
