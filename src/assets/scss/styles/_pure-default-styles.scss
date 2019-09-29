@@ -15,3 +15,9 @@
   display: inline-block;
   width: 16px;
 }
+
+.pure-truncate-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

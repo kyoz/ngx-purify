@@ -14,7 +14,7 @@ export class SearchMockApiService {
     return new Observable(observer => {
       // setTimeout to simulate request delay time
       setTimeout(() => {
-        observer.next((<SearchResult[]>ArrayUtils.shuffleArray(this.searchResults).slice(0, 10)));
+        observer.next((<SearchResult[]>ArrayUtils.shuffleArray(this.searchResults).slice(0, 20)));
         observer.complete();
       }, 1000);
     });

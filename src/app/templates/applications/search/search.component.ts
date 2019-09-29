@@ -1,9 +1,10 @@
-import { Component, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy, AfterViewChecked } from '@angular/core';
+import { Component, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy, AfterViewChecked } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
 import { SearchAppState } from '../../../stores/search/search.state';
 import { Search as SearchAction } from '../../../stores/search/search.actions';
 import { SearchResult } from '../../../shared/models/search.model';
 import { PureSettingsService } from '../../../core/pure-services/pure-settings.service';
+import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 import { Observable, BehaviorSubject, Subscription } from 'rxjs';
 import { StringUtils } from '../../../shared/utils/string';
 
@@ -14,6 +15,8 @@ import { StringUtils } from '../../../shared/utils/string';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Search implements OnDestroy, AfterViewChecked {
+  @ViewChild('content', { static: false }) contentScrollbar?: PerfectScrollbarDirective;
+
   @Select(SearchAppState.getSearchResults) searchResults$: Observable<SearchResult[]>;
 
   isSearching$: BehaviorSubject<boolean> = new BehaviorSubject(false);
@@ -46,12 +49,16 @@ export class Search implements OnDestroy, AfterViewChecked {
 
   initialize() {
     // Do first search
-    this.search('');
+    this.search('lorem');
 
     // Detect when search result changes
     this.searchResults$.subscribe((searchResults: SearchResult[]) => {
       this.isSearching$.next(false);
-      console.log('ss', searchResults)
+
+      // Scroll to the top to view latest result
+      if (this.contentScrollbar) {
+        this.contentScrollbar.scrollToTop();
+      }
     });
   }
 
@@ -62,5 +69,9 @@ export class Search implements OnDestroy, AfterViewChecked {
 
     this.isSearching$.next(true);
     this._store.dispatch(new SearchAction(searchTerm));
+  }
+
+  trackByFn(index: number, searchResult: SearchResult) {
+    return searchResult.id;
   }
 }

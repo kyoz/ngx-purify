@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+// Modules
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { PureDirectivesModule } from '../../core/pure-directives/pure-directives.module';
 
 // Material Modules
 import {
@@ -92,9 +94,12 @@ const MATERIAL_MODULES = [
   imports: [
     // Angular Module
     CommonModule,
-    FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
+
+    // Useful modules
+    FlexLayoutModule,
+    PureDirectivesModule,
 
     // Highlightjs
     HighlightModule,
@@ -110,9 +115,12 @@ const MATERIAL_MODULES = [
   exports: [
     // Angular Modules
     CommonModule,
-    FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
+
+    // Useful modules
+    FlexLayoutModule,
+    PureDirectivesModule,
 
     // Material Modules
     ...MATERIAL_MODULES,

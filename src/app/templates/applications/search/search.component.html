@@ -8,24 +8,53 @@
       <div class="search" fxLayout="row" fxLayoutAlign="space-between center">
         <div style="width: 20px;"></div>
 
-        <input #searchInput type="text" placeholder="Search for something" fxFlex
-               (keyup.enter)="search(searchInput.value)">
+        <input #searchInput type="text" placeholder="Search for something" value="lorem" fxFlex
+               (keyup.enter)="search(searchInput.value); searchInput.blur()">
 
-        <button mat-icon-button color="primary" (click)="search(searchInput.value)">
+        <button mat-icon-button color="primary" (click)="search(searchInput.value); searchInput.blur()">
           <mat-icon>search</mat-icon>
         </button>
       </div>
     </div>
+
+    <mat-progress-bar class="loading-indicator" mode="indeterminate" color="primary"
+                      *ngIf="isSearching$ | async"></mat-progress-bar>
   </div>
-  <div class="content">
-    <mat-progress-bar mode="indeterminate" color="primary" *ngIf="isSearching$ | async"></mat-progress-bar>
+
+  <mat-divider></mat-divider>
+
+  <div class="content pure-icon-background" #content=purePerfectScrollbar purePerfectScrollbar>
 
     <div class="general-info" fxLayout="row" fxLayoutAlign="start center">
       <span fxFlex="68px"></span>
-      <span>About 200,120 results</span>
+      <span>About 12,340 results</span>
     </div>
-  </div>
-  <div class="footer">
+
+    <div class="search-results">
+      <div class="search-result" *ngFor="let result of searchResults$ | async; trackBy: trackByFn"
+           fxLayout="row" fxLayoutAlign="start center">
+        <div fxFlex="66px"></div>
+
+        <div class="search-result-content">
+          <a class="title pure-link pure-truncate-text">{{ result.title }}</a>
+          <a class="url pure-sub-link pure-truncate-text">{{ result.url }}</a>
+          <div class="description pure-truncate-text">{{ result.description }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="paginator" fxLayout="row" fxLayoutAlign="start center">
+      <div fxFlex=68px></div>
+
+      <button mat-icon-button class="active pure-primary-background">1</button>
+      <button mat-icon-button>2</button>
+      <button mat-icon-button>3</button>
+      <button mat-icon-button>4</button>
+
+      <button mat-icon-button class="next-btn">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+    </div>
 
   </div>
 </div>

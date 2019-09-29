@@ -11,6 +11,7 @@
   $primary: map-get($theme, primary);
   $background: map-get($theme, background);
   $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
 
   // Set both background and force ground with current material theme
   .pure-theme {
@@ -18,9 +19,12 @@
     color: mat-color($foreground, text);
   }
 
-  // Set foreground with current material theme
   .pure-foreground {
     color: mat-color($foreground, text);
+  }
+
+  .pure-background {
+    background: mat-color($background, background);
   }
 
   .pure-icon-foreground {
@@ -35,8 +39,19 @@
     background: mat-color($primary);
   }
 
-  // Set background with current material theme
-  .pure-background {
-    background: mat-color($background, background);
+  .pure-link {
+    @if $is-dark {
+      color: #577bff;
+    } @else {
+      color: #1a0dab;
+    }
+  }
+
+  .pure-sub-link {
+    @if $is-dark {
+      color: #239147;
+    } @else {
+      color: #006621;
+    }
   }
 }
