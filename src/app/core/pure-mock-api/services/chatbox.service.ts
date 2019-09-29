@@ -6,7 +6,7 @@ import { ChatboxConversation, CurrentConversation } from '../../../shared/models
 @Injectable()
 export class ChatBoxMockApiService {
 
-  // Assume this is your api endpoint data
+  // Assume this data that you got from server
   private conversations = Array.from(CHATBOX_CONVERSASIONS);
 
   // To generate new unique id so that angular trackBy will work properly

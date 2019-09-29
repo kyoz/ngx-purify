@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 
 // Components
 import { Search } from './search/search.component';
@@ -8,6 +9,7 @@ import { Todo } from './todo/todo.component';
 
 @NgModule({
   imports: [
+    SharedModule,
     RouterModule.forChild([
       {
         path: 'dashboard',

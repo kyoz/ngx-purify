@@ -20,6 +20,8 @@ import { MinimalContainer } from './containers/minimal-container/minimal-contain
 
 // States
 import { PureSideChatboxState } from './stores/chatbox/chatbox.state';
+// Template App States
+import { SearchAppState } from './stores/search/search.state';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,10 @@ import { PureSideChatboxState } from './stores/chatbox/chatbox.state';
 
     // Store Modules
     NgxsModule.forRoot([
-      PureSideChatboxState
+      PureSideChatboxState,
+
+      // Template App States
+      SearchAppState
     ], {
       developmentMode: !environment.production
     }),

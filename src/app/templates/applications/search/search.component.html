@@ -1,1 +1,32 @@
-<p>search works!</p>
+<div class="container" [dir]="_settings.currentTextDir$ | async">
+  <div class="header" fxLayout="row" fxLayoutAlign="start center">
+    <div class="logo" fxLayoutAlign="center center">
+      <img src="assets/logo/pure.png" alt="logo" width="32px">
+    </div>
+
+    <div fxFlex>
+      <div class="search" fxLayout="row" fxLayoutAlign="space-between center">
+        <div style="width: 20px;"></div>
+
+        <input #searchInput type="text" placeholder="Search for something" fxFlex
+               (keyup.enter)="search(searchInput.value)">
+
+        <button mat-icon-button color="primary" (click)="search(searchInput.value)">
+          <mat-icon>search</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <mat-progress-bar mode="indeterminate" color="primary" *ngIf="isSearching$ | async"></mat-progress-bar>
+
+    <div class="general-info" fxLayout="row" fxLayoutAlign="start center">
+      <span fxFlex="68px"></span>
+      <span>About 200,120 results</span>
+    </div>
+  </div>
+  <div class="footer">
+
+  </div>
+</div>
+

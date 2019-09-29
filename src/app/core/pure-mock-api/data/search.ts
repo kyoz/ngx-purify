@@ -1,6 +1,6 @@
 import { SearchResult } from '../../../shared/models/search.model';
 
-export const SearchResults: SearchResult[] = [
+export const SEARCH_RESULTS: SearchResult[] = [
   { id: 1, url: 'https://yourwebsite/content/lorem-ipsum', title: 'Lorem ipsum dolor', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
   { id: 2, url: 'https://yourwebsite/content/morbi-eu-lorem', title: 'Morbi eu lorem', description: 'Morbi eu lorem ut dolor convallis consectetur sit amet consequat nunc.' },
   { id: 3, url: 'https://yourwebsite/content/maecenas-mollis', title: 'Maecenas mollis', description: 'Maecenas mollis libero varius odio dictum convallis.' },
