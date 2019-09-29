@@ -98,7 +98,6 @@
       margin-bottom: 24px;
 
       button {
-        margin-right: 12px;
         border-radius: 50%;
       }
 
@@ -111,6 +110,6 @@
 
 .container[dir="rtl"] {
   .content > .paginator > .next-btn {
-    transform: rotate(180);
+    transform: rotate(180deg);
   }
 }

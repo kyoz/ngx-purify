@@ -1,4 +1,5 @@
-import { Component, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy, AfterViewChecked } from '@angular/core';
+import { Component, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef, OnInit,
+  OnDestroy, AfterViewChecked } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
 import { SearchAppState } from '../../../stores/search/search.state';
 import { Search as SearchAction } from '../../../stores/search/search.actions';
@@ -14,7 +15,7 @@ import { StringUtils } from '../../../shared/utils/string';
   styleUrls: ['./search.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class Search implements OnDestroy, AfterViewChecked {
+export class Search implements OnInit, OnDestroy, AfterViewChecked {
   @ViewChild('content', { static: false }) contentScrollbar?: PerfectScrollbarDirective;
 
   @Select(SearchAppState.getSearchResults) searchResults$: Observable<SearchResult[]>;
@@ -28,7 +29,9 @@ export class Search implements OnDestroy, AfterViewChecked {
     private _store: Store,
     private _changeDetectorRef: ChangeDetectorRef,
     public _settings: PureSettingsService
-  ) {
+  ) { }
+
+  ngOnInit() {
     this.initialize();
   }
 
@@ -48,11 +51,14 @@ export class Search implements OnDestroy, AfterViewChecked {
   }
 
   initialize() {
-    // Do first search
-    this.search('lorem');
-
     // Detect when search result changes
     this.searchResults$.subscribe((searchResults: SearchResult[]) => {
+      if (searchResults.length === 0) {
+        // Do first search if there no data
+        this.search('lorem');
+        return;
+      }
+
       this.isSearching$.next(false);
 
       // Scroll to the top to view latest result
@@ -68,6 +74,7 @@ export class Search implements OnDestroy, AfterViewChecked {
     }
 
     this.isSearching$.next(true);
+    this._changeDetectorRef.detectChanges();
     this._store.dispatch(new SearchAction(searchTerm));
   }
 

@@ -25,7 +25,8 @@
 
   <div class="content pure-icon-background" #content=purePerfectScrollbar purePerfectScrollbar>
 
-    <div class="general-info" fxLayout="row" fxLayoutAlign="start center">
+    <div class="general-info" fxLayout="row" fxLayoutAlign="start center"
+         *ngIf="(searchResults$ | async).length > 0">
       <span fxFlex="68px"></span>
       <span>About 12,340 results</span>
     </div>
@@ -43,8 +44,9 @@
       </div>
     </div>
 
-    <div class="paginator" fxLayout="row" fxLayoutAlign="start center">
-      <div fxFlex=68px></div>
+    <div class="paginator" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px"
+         *ngIf="(searchResults$ | async).length > 0">
+      <div fxFlex=56px></div>
 
       <button mat-icon-button class="active pure-primary-background">1</button>
       <button mat-icon-button>2</button>
