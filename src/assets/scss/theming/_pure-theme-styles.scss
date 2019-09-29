@@ -4,14 +4,16 @@
  * we don't have so much styling that need a seperate theme file.
  *
  * In that case, i using this method. With this global classes, you can set styling the most basic
- * (background, color, icon color...) for your components with out create a theme file for those components
+ * (background, color, icon color...) for your components without create a theme file for all components
  */
 
 @mixin pure-style-theme($theme) {
-  $primary: map-get($theme, primary);
+  $is-dark: map-get($theme, is-dark);
   $background: map-get($theme, background);
   $foreground: map-get($theme, foreground);
-  $is-dark: map-get($theme, is-dark);
+  $primary: map-get($theme, primary);
+  $warn: map-get($theme, warn);
+  $error: map-get($theme, error);
 
   // Set both background and force ground with current material theme
   .pure-theme {
@@ -19,26 +21,57 @@
     color: mat-color($foreground, text);
   }
 
+  // Set foreground with current material theme default foreground
   .pure-foreground {
     color: mat-color($foreground, text);
   }
 
+  // Set background with current material theme default background
   .pure-background {
     background: mat-color($background, background);
   }
 
+  // Set foreground with current material theme icon foreground
   .pure-icon-foreground {
     color: mat-color($foreground, icon);
   }
 
+  // Set background with current material theme icon background
+  .pure-icon-background {
+    color: mat-color($background, icon);
+  }
+
+  // Set foreground with current material theme primary color
   .pure-primary-foreground {
     color: mat-color($primary);
   }
 
+  // Set background with current material theme primary color
   .pure-primary-background {
     background: mat-color($primary);
   }
 
+  // Set foreground with current material theme accent color
+  .pure-accent-foreground {
+    color: mat-color($accent);
+  }
+
+  // Set background with current material theme accent color
+  .pure-accent-background {
+    background: mat-color($accent);
+  }
+
+  // Set foreground with current material theme warn color
+  .pure-warn-foreground {
+    color: mat-color($warn);
+  }
+
+  // Set background with current material theme warn color
+  .pure-warn-background {
+    background: mat-color($warn);
+  }
+
+  // Set properly link color for light & dark theme
   .pure-link {
     @if $is-dark {
       color: #577bff;
@@ -47,6 +80,7 @@
     }
   }
 
+  // Set properly sub link color for light & dark theme
   .pure-sub-link {
     @if $is-dark {
       color: #239147;
