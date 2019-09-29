@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SearchResult } from '../../../shared/models/search.model';
-import { shuffleArray } from '../../../shared/utils/array';
 import { Observable } from 'rxjs';
+import { ArrayUtils } from '../../../shared/utils/array';
 import { SEARCH_RESULTS } from '../data/search';
 
 @Injectable()
@@ -14,7 +14,7 @@ export class SearchMockApiService {
     return new Observable(observer => {
       // setTimeout to simulate request delay time
       setTimeout(() => {
-        observer.next((<SearchResult[]>shuffleArray(this.searchResults).slice(0, 10)));
+        observer.next((<SearchResult[]>ArrayUtils.shuffleArray(this.searchResults).slice(0, 10)));
         observer.complete();
       }, 1000);
     });

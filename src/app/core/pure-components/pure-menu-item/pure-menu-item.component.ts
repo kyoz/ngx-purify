@@ -5,7 +5,7 @@ import { MenuItem } from '../../../shared/models/menu.model';
 import { PureSettingsService } from '../../pure-services/pure-settings.service';
 import { PureMenuService } from '../pure-menu/pure-menu.service';
 import { PureGlobalService } from '../../pure-services/pure-global.service';
-import { PureStringUtils } from '../../../shared/utils/string';
+import { StringUtils } from '../../../shared/utils/string';
 import { Subscription, BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -94,7 +94,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
     if (!this.data || this.hasExternalLink) {
       return false;
     }
-    return !PureStringUtils.isEmpty(this.data.url);
+    return !StringUtils.isEmpty(this.data.url);
   }
 
   /**
@@ -113,7 +113,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
 
   setActivatingMenu() {
     if (this.data && this.data.url && !this.hasChildren) {
-      if (PureStringUtils.cleanRouteLink(this._router.url) === PureStringUtils.cleanRouteLink(this.data.url)) {
+      if (StringUtils.cleanRouteLink(this._router.url) === StringUtils.cleanRouteLink(this.data.url)) {
         this._menu.setActivatingMenuItem(this);
 
         // If current menu is expanding, then collapse it
@@ -211,9 +211,9 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
       this.hasExternalLink = false;
     }
 
-    this.hasExternalLink = !PureStringUtils.isEmpty(this.data.url) &&
-      (PureStringUtils.startsWith(this.data.url, 'http://') ||
-       PureStringUtils.startsWith(this.data.url, 'https://'));
+    this.hasExternalLink = !StringUtils.isEmpty(this.data.url) &&
+      (StringUtils.startsWith(this.data.url, 'http://') ||
+       StringUtils.startsWith(this.data.url, 'https://'));
 
     // Fix badge color
     if (!(this.data && (this.data.badgeColor === 'primary' || this.data .badgeColor === 'accent'))) {

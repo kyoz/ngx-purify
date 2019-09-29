@@ -1,5 +1,7 @@
+export class ArrayUtils {
+
   // Suffle search result arraUsing Durstenfeld shuffle algorithm.
-  export function shuffleArray(arrayToShuffle: any[]) {
+  public static shuffleArray(arrayToShuffle: any[]) {
     const array = [...arrayToShuffle];
 
     for (let i = array.length - 1; i > 0; i--) {
@@ -9,3 +11,5 @@
 
     return array;
   }
+}
+

@@ -5,7 +5,7 @@ import { Search as SearchAction } from '../../../stores/search/search.actions';
 import { SearchResult } from '../../../shared/models/search.model';
 import { PureSettingsService } from '../../../core/pure-services/pure-settings.service';
 import { Observable, BehaviorSubject, Subscription } from 'rxjs';
-import { PureStringUtils } from '../../../shared/utils/string';
+import { StringUtils } from '../../../shared/utils/string';
 
 @Component({
   selector: 'app-search',
@@ -56,7 +56,7 @@ export class Search implements OnDestroy, AfterViewChecked {
   }
 
   search(searchTerm: string) {
-    if (PureStringUtils.isEmpty(searchTerm)) {
+    if (StringUtils.isEmpty(searchTerm)) {
       return;
     }
 

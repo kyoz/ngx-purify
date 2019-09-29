@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { getToday } from '../../../shared/utils/date';
+import { DateUtils } from '../../../shared/utils/date';
 
 @Component({
   selector: 'pure-notification',
@@ -38,7 +38,7 @@ export class PureNotification {
     }
   ];
 
-  today = getToday();
+  today = DateUtils.getToday();
 
   constructor() { }
 }

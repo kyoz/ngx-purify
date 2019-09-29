@@ -1,7 +1,7 @@
-export class PureStringUtils {
+export class StringUtils {
 
   public static isEmpty(str: string): boolean {
-    return PureStringUtils.isNull(str) || str === '';
+    return StringUtils.isNull(str) || str === '';
   }
 
   public static isNull(str: any): boolean {
@@ -9,7 +9,7 @@ export class PureStringUtils {
   }
 
   public static startsWith(sourceString: string, startWith: string): boolean {
-    if (PureStringUtils.isNull(sourceString) || PureStringUtils.isNull(startWith)) {
+    if (StringUtils.isNull(sourceString) || StringUtils.isNull(startWith)) {
       return false;
     }
     if (startWith.length > sourceString.length) {
@@ -19,7 +19,7 @@ export class PureStringUtils {
   }
 
   public static cleanRouteLink(link: string) {
-    if (PureStringUtils.isEmpty(link)) {
+    if (StringUtils.isEmpty(link)) {
       return '';
     }
 
