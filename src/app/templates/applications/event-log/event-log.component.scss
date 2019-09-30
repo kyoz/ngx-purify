@@ -1,0 +1,19 @@
+.container {
+
+  .header {
+    height: 98px;
+    margin: 0 24px;
+    
+    .left {
+      .type-selector {
+        transform: translateY(10px);
+      }
+    }
+
+    .right {
+      .date-selector {
+        transform: translateY(10px);
+      }
+    }
+  }
+}

@@ -1,1 +1,25 @@
-<p>event-log works!</p>
+<div class="container">
+  <div class="header" fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="left">
+      <mat-form-field appearance="outline" class="type-selector">
+        <mat-label>All type</mat-label>
+        <mat-select placeholder="All type">
+          <mat-option *ngFor="let type of ['Create', 'Update', 'Delete']" [value]="type">
+            {{ type }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="right">
+      <mat-form-field appearance="outline" class="date-selector">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="datePicker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+        <mat-datepicker #datePicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <mat-divider></mat-divider>
+</div>

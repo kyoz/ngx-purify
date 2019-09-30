@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-event-log',
   templateUrl: './event-log.component.html',
-  styleUrls: ['./event-log.component.scss']
+  styleUrls: ['./event-log.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EventLog implements OnInit {
 
-  constructor() { }
+  constructor(private _changeDetectorRef: ChangeDetectorRef) {
+    // this._changeDetectorRef.detectChanges();
+  }
 
   ngOnInit() {
   }
