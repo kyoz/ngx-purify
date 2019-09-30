@@ -1,18 +1,22 @@
 .container {
 
   .header {
-    height: 98px;
+    height: 84px;
     margin: 0 24px;
     
     .left {
       .type-selector {
-        transform: translateY(10px);
+        transform: translateY(12px);
+        min-width: 100px;
+        width: 164px;
       }
     }
 
     .right {
       .date-selector {
-        transform: translateY(10px);
+        transform: translateY(12px);
+        min-width: 128px;
+        width: 184px;
       }
     }
   }

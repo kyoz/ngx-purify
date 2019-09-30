@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PureMockApiService } from './pure-mock-api.service';
 import { ChatBoxMockApiService } from './services/chatbox.service';
 import { SearchMockApiService } from './services/search.service';
+import { EventLogMockApiService } from './services/event-logs.service';
 
 @NgModule({
   declarations: [],
@@ -11,7 +12,8 @@ import { SearchMockApiService } from './services/search.service';
   providers: [
     PureMockApiService,
     ChatBoxMockApiService,
-    SearchMockApiService
+    SearchMockApiService,
+    EventLogMockApiService
   ],
 })
 export class PureMockApiModule {}

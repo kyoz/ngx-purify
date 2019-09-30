@@ -22,6 +22,7 @@ import { MinimalContainer } from './containers/minimal-container/minimal-contain
 import { PureSideChatboxState } from './stores/chatbox/chatbox.state';
 // Template App States
 import { SearchAppState } from './stores/search/search.state';
+import { EventLogAppState } from './stores/event-log/event-log.state';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { SearchAppState } from './stores/search/search.state';
       PureSideChatboxState,
 
       // Template App States
-      SearchAppState
+      SearchAppState,
+      EventLogAppState
     ], {
       developmentMode: !environment.production
     }),

@@ -15,7 +15,7 @@ import { StringUtils } from '../../../shared/utils/string';
   styleUrls: ['./search.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class Search implements OnInit, OnDestroy, AfterViewChecked {
+export class SearchApp implements OnInit, OnDestroy, AfterViewChecked {
   @ViewChild('content', { static: false }) contentScrollbar?: PerfectScrollbarDirective;
 
   @Select(SearchAppState.getSearchResults) searchResults$: Observable<SearchResult[]>;
@@ -52,7 +52,7 @@ export class Search implements OnInit, OnDestroy, AfterViewChecked {
 
   initialize() {
     // Detect when search result changes
-    this.searchResults$.subscribe((searchResults: SearchResult[]) => {
+    const subscription = this.searchResults$.subscribe((searchResults: SearchResult[]) => {
       if (searchResults.length === 0) {
         // Do first search if there no data
         this.search('lorem');
@@ -66,6 +66,8 @@ export class Search implements OnInit, OnDestroy, AfterViewChecked {
         this.contentScrollbar.scrollToTop();
       }
     });
+
+    this.subscriptions.set('search', subscription);
   }
 
   search(searchTerm: string) {

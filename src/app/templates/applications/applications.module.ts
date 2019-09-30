@@ -3,9 +3,9 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 
 // Components
-import { Search } from './search/search.component';
-import { EventLog } from './event-log/event-log.component';
-import { Todo } from './todo/todo.component';
+import { SearchApp } from './search/search.component';
+import { EventLogApp } from './event-log/event-log.component';
+import { TodoApp } from './todo/todo.component';
 
 @NgModule({
   imports: [
@@ -15,17 +15,17 @@ import { Todo } from './todo/todo.component';
         path: 'dashboard',
         loadChildren: () => import('./dashboard/dashboard.module').then(module => module.DashboardModule)
       },
-      { path: 'search', component: Search },
-      { path: 'event-log', component: EventLog },
-      { path: 'todo', component: Todo },
+      { path: 'search', component: SearchApp },
+      { path: 'event-log', component: EventLogApp },
+      { path: 'todo', component: TodoApp },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
     ])
   ],
   declarations: [
-    Search,
-    EventLog,
-    Todo
+    SearchApp,
+    EventLogApp,
+    TodoApp
   ]
 })
 export class ApplicationsModule {}
