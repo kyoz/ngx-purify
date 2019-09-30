@@ -53,20 +53,20 @@
   left: 0px;
   right: 0px;
   opacity: 0;
-  z-index: 8900;
+  z-index: 890;
   pointer-events: none;
   transition: opacity 200ms ease-in-out;
 }
 
 .pure-main-container-backdrop.visible {
   opacity: 1;
-  z-index: 8900;
+  z-index: 890;
   pointer-events: auto;
   transition: opacity 200ms ease-in-out;
 }
 
 .pure-transparent-backdrop {
-  z-index: 9999;
+  z-index: 999;
   background: transparent;
   position: absolute;
   left: 0px;

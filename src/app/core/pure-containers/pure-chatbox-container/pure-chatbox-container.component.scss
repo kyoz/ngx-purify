@@ -10,11 +10,11 @@
   box-sizing: border-box;
   transition: transform 350ms;
   transition-timing-function: cubic-bezier(.25,.8,.25,1);
-  z-index: 9000;
+  z-index: 900;
 
   .toolbar {
     position: relative;
-    z-index: 9001;
+    z-index: 901;
     box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.15), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
 
     .chatbox-icon {
@@ -50,7 +50,7 @@
 
   .chatbox-wrapper {
     position: absolute;
-    z-index: 9000;
+    z-index: 900;
     top: 64px;
     right: 0px;
     left: 0px;
