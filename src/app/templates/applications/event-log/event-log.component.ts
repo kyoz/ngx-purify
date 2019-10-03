@@ -55,6 +55,7 @@ export class EventLogApp implements OnInit, OnDestroy, AfterViewChecked {
     this._store.dispatch(new GetEventLogTypes());
 
     const subscription = this.eventLogs$.subscribe((logs: EventLog[]) => {
+      console.log(logs);
       if (logs.length === 0) {
         // Do first search if there no data
         this.search('lorem', new Date());

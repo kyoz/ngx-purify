@@ -11,6 +11,8 @@
       </mat-form-field>
     </div>
 
+    <div class="center"></div>
+
     <div class="right">
       <mat-form-field appearance="outline" class="date-selector">
         <mat-label>Choose a date</mat-label>
@@ -23,4 +25,24 @@
   </div>
 
   <mat-divider></mat-divider>
+
+  <div class="content" purePerfectScrollbar>
+
+    <div class="log" *ngFor="let log of eventLogs$ | async" fxLayout="row">
+      <div class="tree" fxFlex="84px">
+        <div class="circle-wrapper" fxLayoutAlign="center center">
+          <div class="circle" [ngClass]="log.type" [ngSwitch]="log.type" fxLayoutAlign="center center">
+            <mat-icon *ngSwitchCase="'create'">add</mat-icon>
+            <mat-icon *ngSwitchCase="'update'">edit</mat-icon>
+            <mat-icon *ngSwitchCase="'delete'">delete</mat-icon>
+          </div>
+        </div>
+      </div>
+      <mat-card class="log-detail" fxLayout="column" fxLayoutAlign="space-between stretch" fxLayoutGap="16px" fxFlex>
+        <div class="description">{{ log.description }}</div>
+        <div class="user">{{ log.timestamp | date: 'MM/dd/yy - hh:mm aa' }}</div>
+      </mat-card>
+    </div>
+
+  </div>
 </div>
