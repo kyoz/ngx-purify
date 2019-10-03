@@ -173,7 +173,7 @@ export class PureMenuItem implements OnInit, OnDestroy, AfterViewInit {
       });
 
       // Dispatch event to know when the menu is collapse
-      this._menu.onActivatingMenuItem$.next(new Date);
+      this._menu.onActivatingMenuItem$.next(new Date());
     }
   }
 
