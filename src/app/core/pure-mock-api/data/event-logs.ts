@@ -1,6 +1,6 @@
 import { EventLog, EventLogType } from '../../../shared/models/event-log.model';
 
-const today = new Date();
+const today = (new Date()).setHours(0,0,0,0);
 
 export const EVENT_LOG_TYPES: EventLogType[] = [
   { value: 'create', display: 'Create' },

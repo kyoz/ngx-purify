@@ -17,9 +17,17 @@ export class EventLogMockApiService {
     });
   }
 
-  public search(type: string, date: Date): Observable<EventLog[]> {
+  public search(type: string, date: number): Observable<EventLog[]> {
     return new Observable(observer => {
-      observer.next(this.eventLogs);
+      const logs = this.eventLogs.filter((log: EventLog) => {
+        const matchType = type === undefined ? true : log.type === type;
+        const matchTime = log.timestamp === date;
+
+
+        return matchType && matchTime;
+      });
+
+      observer.next(logs);
       observer.complete();
     });
   }

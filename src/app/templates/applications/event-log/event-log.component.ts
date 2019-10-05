@@ -19,6 +19,7 @@ export class EventLogApp implements OnInit, OnDestroy, AfterViewChecked {
   @Select(EventLogAppState.getEventLogs) eventLogs$: Observable<EventLog[]>;
 
   isSearching$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  isFirstLoad = true;
 
   model = {
     type: undefined,
@@ -59,10 +60,10 @@ export class EventLogApp implements OnInit, OnDestroy, AfterViewChecked {
     this._store.dispatch(new GetEventLogTypes());
 
     const subscription = this.eventLogs$.subscribe((logs: EventLog[]) => {
-      console.log(logs);
-      if (logs.length === 0) {
+      if (logs.length === 0 && this.isFirstLoad) {
         // Do first search if there no data
-        this.search('lorem', new Date());
+        this.search();
+        this.isFirstLoad = false;
         return;
       }
 
@@ -77,8 +78,25 @@ export class EventLogApp implements OnInit, OnDestroy, AfterViewChecked {
     this.subscriptions.set('searchLog', subscription);
   }
 
-  search(type: string, timestamp: Date) {
+  search() {
     this.isSearching$.next(true);
-    this._store.dispatch(new Search(type, timestamp));
+    this._store.dispatch(new Search(
+      this.model.type,
+      this.model.timestamp.setHours(0,0,0,0)
+    ));
+  }
+
+  onTypeChanged(e) {
+    this.model.type = e.value
+    this.search();
+  }
+
+  onDateChanged(e) {
+    if (!e.value) {
+      return;
+    }
+
+    this.model.timestamp = e.value;
+    this.search();
   }
 }

@@ -4,7 +4,8 @@
     <div class="left">
       <mat-form-field appearance="outline" class="type-selector">
         <mat-label>All type</mat-label>
-        <mat-select placeholder="All type" [(value)]="model.type">
+        <mat-select placeholder="All type" [(value)]="model.type" (selectionChange)="onTypeChanged($event)">
+          <mat-option [value]="undefined">All type</mat-option>
           <mat-option *ngFor="let type of eventLogTypes$ | async" [value]="type.value">
             {{ type.display }}
           </mat-option>
@@ -18,7 +19,8 @@
       <mat-form-field appearance="outline" class="date-selector">
         <mat-label>Choose a date</mat-label>
         <input matInput [matDatepicker]="datePicker" placeholder="Choose a date"
-               [(ngModel)]="model.timestamp">
+               [(ngModel)]="model.timestamp"
+               (dateChange)="onDateChanged($event)">
         <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
         <mat-datepicker #datePicker></mat-datepicker>
       </mat-form-field>

@@ -6,6 +6,6 @@ export class Search {
   static readonly type = '[Event Log App] Search';
   constructor(
     public type: string,
-    public timestamp: Date
+    public timestamp: number
   ) {}
 }

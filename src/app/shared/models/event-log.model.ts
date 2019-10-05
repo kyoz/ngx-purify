@@ -5,7 +5,7 @@ export interface EventLogType {
 
 export interface EventLog {
   id: number;
-  timestamp: Date;
+  timestamp: number;
   type: string;
   description: string;
 }
