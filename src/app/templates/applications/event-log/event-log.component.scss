@@ -100,4 +100,38 @@
       }
     }
   }
+
+  // Hide the last tree line, 3 here cause perfect scrollbar have 2 div at last
+  .content > div:nth-last-child(3) > .tree:before {
+    display: none;
+  }
+}
+
+.container.fullwidth {
+  .content {
+    padding-left: 48px;
+  }
+}
+
+/**
+ * RTL Support
+ */
+.container[dir="rtl"] {
+  .content {
+    .log {
+      .tree {
+        &:before {
+          left: unset;
+          right: 30px;
+        }
+      }
+    }
+  }
+}
+
+.container[dir="rtl"].fullwidth {
+  .content {
+    padding-right: 48px;
+    padding-left: 16px;
+  }
 }

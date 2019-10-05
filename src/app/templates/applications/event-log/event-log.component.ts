@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy, AfterViewChecked, ChangeDetectionStrategy
   ChangeDetectorRef } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
 import { EventLogAppState } from '../../../stores/event-log/event-log.state';
+import { PureSettingsService } from '../../../core/pure-services/pure-settings.service';
+import { PureMainContainerService } from '../../../core/pure-containers/pure-main-container/pure-main-container.service';
 import { GetEventLogTypes, Search } from '../../../stores/event-log/event-log.actions';
 import { Observable, Subscription, BehaviorSubject } from 'rxjs';
 import { EventLog, EventLogType } from '../../../shared/models/event-log.model';
@@ -29,6 +31,8 @@ export class EventLogApp implements OnInit, OnDestroy, AfterViewChecked {
   constructor(
     private _store: Store,
     private _changeDetectorRef: ChangeDetectorRef,
+    public _settings: PureSettingsService,
+    public _container: PureMainContainerService
   ) {
   }
 
