@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy, AfterViewChecked, ChangeDetectionStrategy,
-  ChangeDetectorRef } from '@angular/core';
+import { Component, ViewChild,  OnInit, OnDestroy, AfterViewChecked, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
 import { EventLogAppState } from '../../../stores/event-log/event-log.state';
 import { PureSettingsService } from '../../../core/pure-services/pure-settings.service';
 import { PureMainContainerService } from '../../../core/pure-containers/pure-main-container/pure-main-container.service';
+import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 import { GetEventLogTypes, Search } from '../../../stores/event-log/event-log.actions';
 import { Observable, Subscription, BehaviorSubject } from 'rxjs';
 import { EventLog, EventLogType } from '../../../shared/models/event-log.model';
@@ -15,6 +15,8 @@ import { EventLog, EventLogType } from '../../../shared/models/event-log.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EventLogApp implements OnInit, OnDestroy, AfterViewChecked {
+  @ViewChild('content', { static: false }) contentScrollbar?: PerfectScrollbarDirective;
+
   @Select(EventLogAppState.getEventLogTypes) eventLogTypes$: Observable<EventLogType[]>;
   @Select(EventLogAppState.getEventLogs) eventLogs$: Observable<EventLog[]>;
 
@@ -70,9 +72,9 @@ export class EventLogApp implements OnInit, OnDestroy, AfterViewChecked {
       this.isSearching$.next(false);
 
       // Scroll to the top to view latest result
-      // if (this.contentScrollbar) {
-      //   this.contentScrollbar.scrollToTop();
-      // }
+      if (this.contentScrollbar) {
+        this.contentScrollbar.scrollToTop();
+      }
     });
 
     this.subscriptions.set('searchLog', subscription);

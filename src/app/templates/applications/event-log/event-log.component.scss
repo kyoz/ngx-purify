@@ -105,15 +105,15 @@
       }
     }
 
+    // Hide the last tree line, 3 here cause perfect scrollbar have 2 div at last
+    .log.last > .tree:before {
+      display: none;
+    }
+
     .no-data {
       font-size: 2em;
       opacity: .32;
     }
-  }
-
-  // Hide the last tree line, 3 here cause perfect scrollbar have 2 div at last
-  .content > div:nth-last-child(3) > .tree:before {
-    display: none;
   }
 }
 

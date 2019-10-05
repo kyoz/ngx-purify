@@ -33,9 +33,11 @@
 
   <mat-divider style="position:relative; z-index: 10"></mat-divider>
 
-  <div class="content" purePerfectScrollbar *ngIf="(eventLogs$ | async).length > 0; else noData">
+  <div class="content" #content=purePerfectScrollbar purePerfectScrollbar
+       *ngIf="(eventLogs$ | async).length > 0; else noData">
 
-    <div class="log" *ngFor="let log of eventLogs$ | async" fxLayout="row">
+    <div class="log" *ngFor="let log of eventLogs$ | async; let last=last" fxLayout="row"
+        [class.last]="last">
       <div class="tree" fxFlex="84px">
         <div class="circle-wrapper" fxLayoutAlign="center center">
           <div class="circle" [ngClass]="log.type" [ngSwitch]="log.type" fxLayoutAlign="center center">
