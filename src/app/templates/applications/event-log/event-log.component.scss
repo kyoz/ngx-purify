@@ -7,7 +7,7 @@
   overflow: hidden;
 
   .header {
-    top: 0px;
+    position: relative;
     height: 84px;
     padding: 0 16px;
     
@@ -30,6 +30,13 @@
         min-width: 128px;
         width: 184px;
       }
+    }
+
+    .loader {
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
     }
   }
 
@@ -96,6 +103,11 @@
           text-align: right;
         }
       }
+    }
+
+    .no-data {
+      font-size: 2em;
+      opacity: .32;
     }
   }
 

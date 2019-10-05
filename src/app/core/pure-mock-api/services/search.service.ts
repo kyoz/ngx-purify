@@ -16,7 +16,7 @@ export class SearchMockApiService {
       setTimeout(() => {
         observer.next((<SearchResult[]>ArrayUtils.shuffleArray(this.searchResults).slice(0, 20)));
         observer.complete();
-      }, 1000);
+      }, 500);
     });
   }
 }

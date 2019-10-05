@@ -23,12 +23,14 @@ export class EventLogMockApiService {
         const matchType = type === undefined ? true : log.type === type;
         const matchTime = log.timestamp === date;
 
-
         return matchType && matchTime;
       });
 
-      observer.next(logs);
-      observer.complete();
+      // setTimeout to simulate request delay time
+      setTimeout(() => {
+        observer.next(logs);
+        observer.complete();
+      }, 500);
     });
   }
 }
