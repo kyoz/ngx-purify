@@ -1,0 +1,27 @@
+@mixin template-event-log-theme($theme) {
+  $is-dark: map-get($theme, is-dark);
+
+  .template-event-log {
+    .content {
+      .log {
+        .tree {
+          .circle-wrapper {
+            @if $is-dark {
+              background: #262626;
+            } @else {
+              background: #e6e6e6;
+            }
+          }
+
+          &:before {
+            @if $is-dark {
+              background: #262626;
+            } @else {
+              background: #e6e6e6;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,8 +1,11 @@
 @import './pure-theme-styles';
 
-  // Theming for components
+// Theming for components
 @import '../../../app/core/pure-components/pure-chatbox/pure-chatbox-theme';
 @import '../../../app/core/pure-components/pure-menu/pure-menu-theme';
+
+// Theming for template components
+@import '../../../app/templates/applications/event-log/event-log-theme';
 
 // Highlightjs themes
 @import '../highlightjs/highlightjs-theme';
@@ -14,6 +17,9 @@
   // Theming for components
   @include pure-chatbox-theme($theme);
   @include pure-menu-theme($theme);
+
+  // Theming for template components
+  @include template-event-log-theme($theme);
 
   // Highlightjs themes
   @include highlightjs-theme($theme);

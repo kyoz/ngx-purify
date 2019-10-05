@@ -1,4 +1,4 @@
-.container {
+.template-event-log {
   position: absolute;
   top: 0px;
   right: 0px;
@@ -50,7 +50,6 @@
           width: 64px;
           height: 64px;
           border-radius: 50%;
-          background: rgba(0,0,0,.12);
           
           .circle {
             width: 54px;
@@ -83,7 +82,6 @@
           top: 0px;
           bottom: 0px;
           left: 30px;
-          background: rgba(0,0,0,.12);
           z-index: 0;
         }
       }
@@ -107,7 +105,7 @@
   }
 }
 
-.container.fullwidth {
+.template-event-log.fullwidth {
   .content {
     padding-left: 48px;
   }
@@ -116,7 +114,7 @@
 /**
  * RTL Support
  */
-.container[dir="rtl"] {
+.template-event-log[dir="rtl"] {
   .content {
     .log {
       .tree {
@@ -129,7 +127,7 @@
   }
 }
 
-.container[dir="rtl"].fullwidth {
+.template-event-log[dir="rtl"].fullwidth {
   .content {
     padding-right: 48px;
     padding-left: 16px;
