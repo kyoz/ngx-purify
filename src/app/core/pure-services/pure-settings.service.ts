@@ -10,14 +10,16 @@ export const SETTING_STORAGE_KEYS = {
   theme: 'pure-current-theme',
   language: 'pure-current-language',
   textDirection: 'pure-current-text-direction',
-  widthLayout: 'pure-current-width-layout'
+  widthLayout: 'pure-current-width-layout',
+  scrollbarStyle: 'pure-current-scrollbar-style'
 };
 
 export const SETTINGS = {
   THEMES: THEMES,
   LANGUAGES: LANGUAGES,
   TEXT_DIRECTIONS: ['ltr', 'rtl'],
-  WIDTH_LAYOUTS: ['Fullwidth', 'Boxed']
+  WIDTH_LAYOUTS: ['fullwidth', 'boxed'],
+  SCROLLBAR_STYLES: ['perfect', 'default']
 };
 
 @Injectable()
@@ -27,13 +29,8 @@ export class PureSettingsService {
   currentLang$: BehaviorSubject<string> = new BehaviorSubject('');
   currentTextDir$: BehaviorSubject<string> = new BehaviorSubject('');
   currentWidthLayout$: BehaviorSubject<string> = new BehaviorSubject('');
+  currentScrollbarStyle$: BehaviorSubject<string> = new BehaviorSubject('');
   disableAnimation$: BehaviorSubject<boolean> = new BehaviorSubject(false);
-
-  currentTheme;
-  currentLang;
-  currentTextDir;
-  currentWidthLayout;
-  disableAnimation;
 
   constructor(
     private _storage: PureSettingsStorageService,
@@ -47,26 +44,6 @@ export class PureSettingsService {
           }, 300);
         }
       });
-
-      this.initSupscription();
-  }
-
-  initSupscription() {
-    this.currentTheme$.pipe(distinctUntilChanged()).subscribe(currentTheme => {
-      this.currentTheme = currentTheme;
-    });
-    this.currentLang$.pipe(distinctUntilChanged()).subscribe(currentLang => {
-      this.currentLang = currentLang;
-    });
-    this.currentTextDir$.pipe(distinctUntilChanged()).subscribe(currentTextDir => {
-      this.currentTextDir = currentTextDir;
-    });
-    this.currentWidthLayout$.pipe(distinctUntilChanged()).subscribe(currentWidthLayout => {
-      this.currentWidthLayout = currentWidthLayout;
-    });
-    this.disableAnimation$.pipe(distinctUntilChanged()).subscribe(disableAnimation => {
-      this.disableAnimation = disableAnimation;
-    });
   }
 
   /**
@@ -97,6 +74,12 @@ export class PureSettingsService {
     this.updateWidthLayout(widthLayout);
   }
 
+  public saveScrollbarStyleSetting(scrollbarStyle: string) {
+    this._storage.storeSetting(SETTING_STORAGE_KEYS.scrollbarStyle, scrollbarStyle);
+    this.currentScrollbarStyle$.next(scrollbarStyle);
+    this.updateScrollbarStyle(scrollbarStyle);
+  }
+
   /**
    * INIT FUNCTION
    */
@@ -107,18 +90,21 @@ export class PureSettingsService {
     let storedLanguage = this._storage.getStoredSetting(SETTING_STORAGE_KEYS.language);
     let storedTextDirection = this._storage.getStoredSetting(SETTING_STORAGE_KEYS.textDirection);
     let storedWidthLayout = this._storage.getStoredSetting(SETTING_STORAGE_KEYS.widthLayout);
+    let storedScrollbarStyle = this._storage.getStoredSetting(SETTING_STORAGE_KEYS.scrollbarStyle);
 
     // Set default settings
     storedTheme = storedTheme ? storedTheme : THEMES[0].class;
     storedLanguage = storedLanguage ? storedLanguage : LANGUAGES[0].key;
-    storedTextDirection = storedTextDirection ? storedTextDirection : 'ltr';
-    storedWidthLayout = storedWidthLayout ? storedWidthLayout : 'Fullwidth';
+    storedTextDirection = storedTextDirection || 'ltr';
+    storedWidthLayout = storedWidthLayout || 'fullwidth';
+    storedScrollbarStyle = storedScrollbarStyle || 'perfect';
 
     // Update settings to view
     this.updateTheme(storedTheme);
     this.updateLanguage(storedLanguage);
     this.updateTextDirection(storedTextDirection);
     this.updateWidthLayout(storedWidthLayout);
+    this.updateScrollbarStyle(storedScrollbarStyle);
   }
 
   /**
@@ -186,13 +172,24 @@ export class PureSettingsService {
     }
 
     switch (widthLayout) {
-      case 'Boxed':
+      case 'boxed':
         document.getElementById('PURE_MAIN_CONTAINER').classList.add('boxed');
-        this.currentWidthLayout$.next('Boxed');
+        this.currentWidthLayout$.next('boxed');
         break;
       default:
         document.getElementById('PURE_MAIN_CONTAINER').classList.remove('boxed');
-        this.currentWidthLayout$.next('Fullwidth');
+        this.currentWidthLayout$.next('fullwidth');
+    }
+  }
+
+  updateScrollbarStyle(scrollbarStyle: string) {
+    switch (scrollbarStyle) {
+      case 'default':
+        this.currentScrollbarStyle$.next('default');
+        break;
+      default:
+        this.currentScrollbarStyle$.next('perfect');
     }
   }
 }
+

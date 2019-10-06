@@ -13,7 +13,7 @@
 
     <button mat-icon-button class="menu-button" (click)="_menuContainer.toggle()">
       <mat-icon>
-        {{!_menuContainer.isOpened ? 'menu' : _settings.currentTextDir === 'ltr' ? 'arrow_back' : 'arrow_forward'}}
+        {{!_menuContainer.isOpened ? 'menu' : _settings.currentTextDir$.value === 'ltr' ? 'arrow_back' : 'arrow_forward'}}
       </mat-icon>
     </button>
   </mat-toolbar>

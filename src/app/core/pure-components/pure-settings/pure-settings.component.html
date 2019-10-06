@@ -12,7 +12,7 @@
   <div class="content pure-theme" purePerfectScrollbar>
     <mat-list class="setting-list">
       <h3 mat-subheader class="title">Themes</h3>
-      <mat-radio-group (change)="onChangeTheme($event)" [ngModel]="_settings.currentTheme">
+      <mat-radio-group (change)="onChangeTheme($event)" [ngModel]="_settings.currentTheme$ | async">
         <mat-list-item class="setting" *ngFor="let theme of SETTINGS.THEMES">
           <span class="pure-spacer-16"></span>
           <mat-radio-button [value]="theme.class">
@@ -26,11 +26,11 @@
 
     <mat-list class="setting-list">
       <h3 mat-subheader class="title">Width Layout</h3>
-      <mat-radio-group (change)="onChangeWidthLayout($event)" [ngModel]="_settings.currentWidthLayout">
+      <mat-radio-group (change)="onChangeWidthLayout($event)" [ngModel]="_settings.currentWidthLayout$ | async">
         <mat-list-item class="setting" *ngFor="let widthLayout of SETTINGS.WIDTH_LAYOUTS">
           <span class="pure-spacer-16"></span>
           <mat-radio-button [value]="widthLayout">
-            {{ widthLayout }}
+            {{ widthLayout | titlecase }}
           </mat-radio-button>
         </mat-list-item>
       </mat-radio-group>
@@ -40,7 +40,7 @@
 
     <mat-list class="setting-list">
       <h3 mat-subheader class="title">Text direction</h3>
-      <mat-radio-group (change)="onChangeTextDirection($event)" [ngModel]="_settings.currentTextDir">
+      <mat-radio-group (change)="onChangeTextDirection($event)" [ngModel]="_settings.currentTextDir$ | async">
         <mat-list-item class="setting" *ngFor="let dir of SETTINGS.TEXT_DIRECTIONS">
           <span class="pure-spacer-16"></span>
           <mat-radio-button [value]="dir">
@@ -59,6 +59,20 @@
           <span class="pure-spacer-16"></span>
           <mat-radio-button [value]="lang.key">
             {{ lang.name }}
+          </mat-radio-button>
+        </mat-list-item>
+      </mat-radio-group>
+    </mat-list>
+
+    <mat-divider></mat-divider>
+
+    <mat-list class="setting-list">
+      <h3 mat-subheader class="title">Scrollbar style</h3>
+      <mat-radio-group (change)="onScrollbarStyleChange($event)" [ngModel]="_settings.currentScrollbarStyle$ | async">
+        <mat-list-item class="setting" *ngFor="let style of SETTINGS.SCROLLBAR_STYLES">
+          <span class="pure-spacer-16"></span>
+          <mat-radio-button [value]="style">
+            {{ style | titlecase }}
           </mat-radio-button>
         </mat-list-item>
       </mat-radio-group>

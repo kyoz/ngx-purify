@@ -32,4 +32,8 @@ export class PureSettings {
   onChangeLanguage(e) {
     this._settings.saveLanguageSetting(e.value);
   }
+
+  onScrollbarStyleChange(e) {
+    this._settings.saveScrollbarStyleSetting(e.value);
+  }
 }
