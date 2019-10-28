@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pure-admin-dashboard": {
+    "ngx-pure-admin-template": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -15,7 +15,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/pure-admin-dashboard",
+            "outputPath": "dist/ngx-pure-admin-template",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -52,18 +52,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "pure-admin-dashboard:build"
+            "browserTarget": "ngx-pure-admin-template:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "pure-admin-dashboard:build:production"
+              "browserTarget": "ngx-pure-admin-template:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pure-admin-dashboard:build"
+            "browserTarget": "ngx-pure-admin-template:build"
           }
         },
         "test": {
@@ -97,7 +97,7 @@
         }
       }
     },
-    "pure-admin-dashboard-e2e": {
+    "ngx-pure-admin-template-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -105,11 +105,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "pure-admin-dashboard:serve"
+            "devServerTarget": "ngx-pure-admin-template:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "pure-admin-dashboard:serve:production"
+              "devServerTarget": "ngx-pure-admin-template:serve:production"
             }
           }
         },
@@ -125,5 +125,5 @@
       }
     }
   },
-  "defaultProject": "pure-admin-dashboard"
+  "defaultProject": "ngx-pure-admin-template"
 }
