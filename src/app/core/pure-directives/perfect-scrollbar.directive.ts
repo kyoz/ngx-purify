@@ -2,7 +2,7 @@ import { Directive, Input, OnDestroy, NgZone, Optional, Inject, PLATFORM_ID, Key
 import { PerfectScrollbarDirective, PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { PureSettingsService } from '../pure-services/pure-settings.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import { Subject, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
 
 @Directive({
@@ -10,9 +10,7 @@ import { distinctUntilChanged } from 'rxjs/operators';
   exportAs: 'purePerfectScrollbar'
 })
 export class PurePerfectScrollbarDirective extends PerfectScrollbarDirective implements OnDestroy {
-  @Input() disabled;
-
-  private readonly ngDestroy: Subject<void> = new Subject();
+  @Input() disabled: boolean;
 
   private scrollbarStyleSubscription: Subscription;
   private cleanSubscription = true;
