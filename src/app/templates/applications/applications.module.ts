@@ -6,6 +6,9 @@ import { SharedModule } from '../shared/shared.module';
 import { SearchApp } from './search/search.component';
 import { EventLogApp } from './event-log/event-log.component';
 import { TodoApp } from './todo/todo.component';
+import { MessengerApp } from './messenger/messenger.component';
+
+// Imports
 
 @NgModule({
   imports: [
@@ -15,6 +18,7 @@ import { TodoApp } from './todo/todo.component';
         path: 'dashboard',
         loadChildren: () => import('./dashboard/dashboard.module').then(module => module.DashboardModule)
       },
+      { path: 'messenger', component: MessengerApp },
       { path: 'search', component: SearchApp },
       { path: 'event-log', component: EventLogApp },
       { path: 'todo', component: TodoApp },
@@ -23,6 +27,7 @@ import { TodoApp } from './todo/todo.component';
     ])
   ],
   declarations: [
+    MessengerApp,
     SearchApp,
     EventLogApp,
     TodoApp

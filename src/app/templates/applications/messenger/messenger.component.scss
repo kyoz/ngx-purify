@@ -1,0 +1,163 @@
+.container {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+
+  .avatar {
+    border-radius: 50%;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.35);
+  }
+
+  .contacts-wrapper {
+    width: 348px;
+    min-width: 348px;
+    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.8), 0 1px 1px 0 rgba(0, 0, 0, 0.48), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+
+    .user-info {
+      height: 40px;
+      margin: 16px;
+
+      .avatar {
+        border-radius: 50%;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.35);
+      }
+    }
+
+    .search {
+      box-sizing: border-box;
+      height: 42px;
+      margin: 8px 16px;
+      border-radius: 24px;
+      border: 1px solid rgba(0,0,0,.28);
+      background: #ffffff;
+      
+      input {
+        font-size: 1em;
+        outline: none;
+        border: none;
+      }
+      
+      input::placeholder, mat-icon {
+        color: rgba(0,0,0,.36);
+      }
+    }
+  }
+
+  .conversation-wrapper {
+    .header {
+      border-bottom: 1px solid rgba(0,0,0,.14);
+      padding: 0 12px;
+
+      .user {
+        font-size: 1.3em;
+      }
+
+      .status {
+        font-size: .95em;
+        opacity: .56;
+      }
+    }
+
+    .messages-wrapper {
+      .messages-assets {
+        width: 348px;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.8), 0 1px 1px 0 rgba(0, 0, 0, 0.48), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+
+        .user-info {
+          height: 200px;
+          border-bottom: 1px solid rgba(0,0,0,.14);
+
+          .user {
+            font-size: 1.5em;
+            margin-top: 16px;
+          }
+
+          .status {
+            font-size: .95em;
+            opacity: .56;
+          }
+        }
+
+        .asset-wrapper {
+          border-bottom: 1px solid rgba(0,0,0,.14);
+
+          .asset-header {
+            height: 56px;
+          }
+
+          .photos {
+            padding: 0 4px 8px 12px;
+
+            img {
+              border-radius: 4px;
+              box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.35);
+              margin-right: 12px;
+              margin-bottom: 12px;
+              height: 72px;
+              cursor: pointer;
+            }
+          }
+
+          .files {
+            padding: 8px;
+
+            .file {
+              margin-bottom: 16px;
+
+              .icon {
+                font-size: 42px;
+                min-width: 42px;
+                max-width: 42px;
+                min-height: 42px;
+                max-height: 42px;
+              }
+
+              .file-name {
+                font-size: 1.1em;
+                font-weight: 400;
+              }
+
+              .file-size {
+                font-size: .8em;
+                opacity: .72;
+              }
+            }
+          }
+
+          .links {
+            padding: 8px;
+
+            .link {
+              margin-bottom: 16px;
+              cursor: pointer;
+              text-decoration: none;
+
+              .icon {
+                font-size: 42px;
+                min-width: 42px;
+                max-width: 42px;
+                min-height: 42px;
+                max-height: 42px;
+              }
+
+              .link-name {
+                font-size: 1.1em;
+                font-weight: 400;
+              }
+
+              .link-url {
+                font-size: .8em;
+                opacity: .72;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

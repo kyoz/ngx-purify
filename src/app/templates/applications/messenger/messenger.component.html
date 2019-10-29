@@ -1,0 +1,136 @@
+<div class="container" fxLayoutAlign="space-between stretch" [dir]="_settings.currentTextDir$ | async">
+  <div class="contacts-wrapper">
+    <div class="user-info" fxLayoutAlign="space-between center">
+      <div fxLayoutAlign="start center" fxLayoutGap="12px">
+        <img class="avatar" src="assets/image/avatar/kyoz.jpg" width="48px">
+        <span class="pure-primary-foreground" style="font-size: 1.2em;">
+          Messenger
+        </span>
+      </div>
+
+      <button mat-icon-button>
+        <mat-icon class="pure-icon-foreground" matTooltip="Settings">settings</mat-icon>
+      </button>
+    </div>
+
+    <div class="search" fxLayoutAlign="space-between center" fxLayoutGap="6px">
+      <div style="width: 8px"><!-- Spacer --></div>
+
+      <mat-icon>search</mat-icon>
+
+      <input type="text" fxFlex placeholder="Search messenger" />
+
+      <button mat-icon-button>
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="conversation-wrapper" fxLayout="column" fxLayoutAlign="space-between stretch" fxFlex>
+    <div class="header" fxLayout="row" fxLayoutAlign="space-between center" fxFlex="84px">
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px">
+        <img class="avatar" src="assets/image/avatar/kyoz.jpg" width="58px">
+        <div fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="4px">
+          <span class="user">User Name</span>
+          <span class="status">active</span>
+        </div>
+      </div>
+
+      <div fxLayoutGap="24px">
+        <button mat-icon-button matTooltip="Audio Call">
+          <mat-icon class="pure-icon-foreground">phone</mat-icon>
+        </button>
+
+        <button mat-icon-button matTooltip="Video Call">
+          <mat-icon class="pure-icon-foreground">videocam</mat-icon>
+        </button>
+
+        <button mat-icon-button matTooltip="Toggle Shared Assets">
+          <mat-icon class="pure-icon-foreground">flip</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="messages-wrapper" fxLayout="row" fxLayoutAlign="space-between stretch" fxFlex>
+      <div class="messages" fxFlex>Left</div>
+      <div class="messages-assets">
+        <div class="user-info" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="4px">
+          <img class="avatar" src="assets/image/avatar/kyoz.jpg" width="84px">
+          <span class="user">User Name</span>
+          <span class="status">active</span>
+        </div>
+
+        <!-- PHOTOS -->
+        <div class="asset-wrapper">
+          <div class="asset-header" fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+              <div style="width: 2px"><!-- Spacer --></div>
+              <mat-icon class="pure-icon-foreground">photo</mat-icon>
+              <span>Photos</span>
+            </div>
+
+            <button mat-button color="primary">View all</button>
+          </div>
+
+          <div class="photos" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="grid">
+            <img *ngFor="let photo of photos" [src]="'assets/image/avatar/' + photo"
+                 fxFlex="calc(25% - 16px)" />
+          </div>
+        </div>
+
+        <!-- FILES -->
+        <div class="asset-wrapper">
+          <div class="asset-header" fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+              <div style="width: 2px"><!-- Spacer --></div>
+              <mat-icon class="pure-icon-foreground">insert_drive_file</mat-icon>
+              <span>Files</span>
+            </div>
+
+            <button mat-button color="primary">View all</button>
+          </div>
+
+          <div class="files">
+            <div class="file" *ngFor="let file of files" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+              <mat-icon class="icon" color="primary">insert_drive_file</mat-icon>
+
+              <div fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap="4px" fxFlex>
+                <div class="file-name pure-truncate-text">{{ file.name }}</div>
+                <div class="file-size pure-truncate-text">{{ file.size }}</div>
+              </div>
+
+              <button mat-icon-button>
+                <mat-icon class="pure-icon-foreground">save_alt</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- LINKS -->
+        <div class="asset-wrapper">
+          <div class="asset-header" fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+              <div style="width: 2px"><!-- Spacer --></div>
+              <mat-icon class="pure-icon-foreground">link</mat-icon>
+              <span>Links</span>
+            </div>
+
+            <button mat-button color="primary">View all</button>
+          </div>
+
+          <div class="links">
+            <a class="link" *ngFor="let link of links" [href]="link.url" target="_blank"
+               fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+              <mat-icon class="icon" color="primary">link</mat-icon>
+
+              <div fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap="4px" fxFlex>
+                <div class="link-name pure-foreground pure-truncate-text">{{ link.name }}</div>
+                <div class="link-url pure-foreground pure-truncate-text">{{ link.url }}</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
