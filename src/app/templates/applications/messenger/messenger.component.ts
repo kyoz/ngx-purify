@@ -1,5 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { PureSettingsService } from '../../../core/pure-services/pure-settings.service';
+import { PureMenuContainerService } from '../../../core/pure-containers/pure-menu-container/pure-menu-container.service';
+import { MessengerAppService } from './messenger.service';
 
 @Component({
   selector: 'app-messenger',
@@ -22,7 +24,9 @@ export class MessengerApp implements OnInit {
   ];
 
   constructor(
-    public _settings: PureSettingsService) {
+    public _settings: PureSettingsService,
+    public _menuContainer: PureMenuContainerService,
+    public _messenger: MessengerAppService) {
   }
 
   ngOnInit() {

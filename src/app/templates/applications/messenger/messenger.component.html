@@ -1,8 +1,9 @@
-<div class="container" fxLayoutAlign="space-between stretch" [dir]="_settings.currentTextDir$ | async">
+<div class="container" fxLayoutAlign="space-between stretch"
+     [class.menu-opened]="_menuContainer.isOpened$ | async"
+     [dir]="_settings.currentTextDir$ | async">
   <div class="contacts-wrapper">
     <div class="user-info" fxLayoutAlign="space-between center">
       <div fxLayoutAlign="start center" fxLayoutGap="12px">
-        <img class="avatar" src="assets/image/avatar/kyoz.jpg" width="48px">
         <span class="pure-primary-foreground" style="font-size: 1.2em;">
           Messenger
         </span>
@@ -26,13 +27,14 @@
     </div>
   </div>
 
-  <div class="conversation-wrapper" fxLayout="column" fxLayoutAlign="space-between stretch" fxFlex>
+  <div class="conversation-wrapper" *ngIf="_messenger.currentContact$ | async; else notSelectedContact"
+       fxLayout="column" fxLayoutAlign="space-between stretch" fxFlex>
     <div class="header" fxLayout="row" fxLayoutAlign="space-between center" fxFlex="84px">
       <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px">
         <img class="avatar" src="assets/image/avatar/kyoz.jpg" width="58px">
         <div fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="4px">
-          <span class="user">User Name</span>
-          <span class="status">active</span>
+          <span class="user">{{ (_messenger.currentContact$ | async)?.name }}</span>
+          <app-messenger-status [status]="(_messenger.currentContact$ | async)?.status"></app-messenger-status>
         </div>
       </div>
 
@@ -56,8 +58,8 @@
       <div class="messages-assets">
         <div class="user-info" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="4px">
           <img class="avatar" src="assets/image/avatar/kyoz.jpg" width="84px">
-          <span class="user">User Name</span>
-          <span class="status">active</span>
+          <span class="user">{{ (_messenger.currentContact$ | async)?.name }}</span>
+          <app-messenger-status [status]="(_messenger.currentContact$ | async)?.status"></app-messenger-status>
         </div>
 
         <!-- PHOTOS -->
@@ -133,4 +135,13 @@
       </div>
     </div>
   </div>
+
+  <ng-template #notSelectedContact>
+    <div class="conversation-wrapper no-conversation-selected"
+         fxLayout="column" fxLayoutAlign="center center" fxFlex>
+
+      <mat-icon>chat</mat-icon>
+      <span class="pure-truncate-text">Select a contact to start a conversation</span>
+    </div>
+  </ng-template>
 </div>

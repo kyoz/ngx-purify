@@ -6,7 +6,10 @@ import { SharedModule } from '../shared/shared.module';
 import { SearchApp } from './search/search.component';
 import { EventLogApp } from './event-log/event-log.component';
 import { TodoApp } from './todo/todo.component';
-import { MessengerApp } from './messenger/messenger.component';
+import { MessengerApp, MessengerAppStatus } from './messenger';
+
+// Services
+import { MessengerAppService } from '../applications/messenger/messenger.service';
 
 // Imports
 
@@ -27,10 +30,13 @@ import { MessengerApp } from './messenger/messenger.component';
     ])
   ],
   declarations: [
-    MessengerApp,
+    MessengerApp, MessengerAppStatus,
     SearchApp,
     EventLogApp,
     TodoApp
+  ],
+  providers: [
+    MessengerAppService
   ]
 })
 export class ApplicationsModule {}

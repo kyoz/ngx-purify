@@ -1,6 +1,7 @@
 /**
  * This messenger app do use the same action and data from PureChatboxComponent
  * If you want you can create a separate actions, states for it in stores folder
+ * Or use same service for both side chatbox and chatbox app
  */
 
 import { Injectable } from '@angular/core';
