@@ -11,21 +11,31 @@ import { GetContacts, GetConversation, SendMessage } from '../../../stores/chatb
 import { PureSideChatboxState } from '../../../stores/chatbox/chatbox.state';
 import { PureChatboxContainerService } from '../../../core/pure-containers/pure-chatbox-container/pure-chatbox-container.service';
 import { ChatboxMessage, ChatboxContact } from '../../../shared/models/chatbox.model';
-import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
+import { distinctUntilChanged, debounceTime, skip } from 'rxjs/operators';
 
 @Injectable()
 export class MessengerAppService {
-  @Select(PureSideChatboxState.getContacts) contacts$: Observable<ChatboxContact>;
+  @Select(PureSideChatboxState.getContacts) contacts$: Observable<ChatboxContact[]>;
   @Select(PureSideChatboxState.getCurrentContact) currentContact$: Observable<ChatboxContact>;
   @Select(PureSideChatboxState.getCurrentMessages) currentMessages$: Observable<ChatboxMessage[]>;
 
+  filteredContacts$: BehaviorSubject<ChatboxContact[]> = new BehaviorSubject([]);
+
+  contacts: ChatboxContact[] = [];
   currentContact: ChatboxContact;
   currentMessages: ChatboxMessage[] = [];
 
+  searchContact$ = new BehaviorSubject('');
   // To simulate the other user send message back
   sendMessageBack$ = new Subject<Date>();
 
   constructor(private _store: Store, private _chatboxContainer: PureChatboxContainerService) {
+    this.contacts$.subscribe(contacts => {
+      this.contacts = contacts;
+      this.filteredContacts$.next(contacts);
+    });
+
     this.currentContact$.subscribe(currentContact => {
       this.currentContact = currentContact;
       if (this.inConversation) {
@@ -35,6 +45,13 @@ export class MessengerAppService {
 
     this.currentMessages$.subscribe((messages: ChatboxMessage[]) => {
       this.currentMessages = messages;
+    });
+
+    this.searchContact$.pipe(skip(1), distinctUntilChanged(), debounceTime(200)).subscribe(searchTerm => {
+      this.filteredContacts$.next(
+        this.contacts.filter(d => d.name.trim().toLowerCase()
+          .indexOf(searchTerm.trim().toLowerCase()) !== -1)
+      );
     });
 
     this.sendMessageBack$.pipe(debounceTime(500), distinctUntilChanged()).subscribe(() => {

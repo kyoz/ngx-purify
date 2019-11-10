@@ -1,7 +1,7 @@
 <div class="container" fxLayoutAlign="space-between stretch"
      [class.menu-opened]="_menuContainer.isOpened$ | async"
      [dir]="_settings.currentTextDir$ | async">
-  <div class="contacts-wrapper">
+  <div class="contacts-wrapper" fxLayout="column">
     <div class="user-info" fxLayoutAlign="space-between center">
       <div fxLayoutAlign="start center" fxLayoutGap="12px">
         <span class="pure-primary-foreground" style="font-size: 1.2em;">
@@ -19,10 +19,17 @@
 
       <mat-icon>search</mat-icon>
 
-      <input type="text" fxFlex placeholder="Search messenger" />
+      <input #searchContact type="text" fxFlex placeholder="Search messenger"
+            (keyup)="_messenger.searchContact$.next(searchContact.value)"/>
 
       <button mat-icon-button>
         <mat-icon>close</mat-icon>
+      </button>
+    </div>
+
+    <div class="contacts" purePerfectScrollbar fxFlex>
+      <button class="contact-item" mat-button color="primary" *ngFor="let contact of _messenger.filteredContacts$ | async; trackBy: trackByContact">
+        {{ contact.name }}
       </button>
     </div>
   </div>

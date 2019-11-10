@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { PureSettingsService } from '../../../core/pure-services/pure-settings.service';
 import { PureMenuContainerService } from '../../../core/pure-containers/pure-menu-container/pure-menu-container.service';
 import { MessengerAppService } from './messenger.service';
+import { ChatboxContact, ChatboxMessage } from '../../../shared/models/chatbox.model';
 
 @Component({
   selector: 'app-messenger',
@@ -32,4 +33,11 @@ export class MessengerApp implements OnInit {
   ngOnInit() {
   }
 
+  trackByContact(index: number, contact: ChatboxContact) {
+    return contact.id;
+  }
+
+  trackByMessage(index: number, message: ChatboxMessage) {
+    return message.id;
+  }
 }
