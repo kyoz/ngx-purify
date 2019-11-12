@@ -1,10 +1,10 @@
-<div class="container" fxLayoutAlign="space-between stretch"
+<div class="pure-messenger-app" fxLayoutAlign="space-between stretch"
      [class.menu-opened]="_menuContainer.isOpened$ | async"
      [dir]="_settings.currentTextDir$ | async">
   <div class="contacts-wrapper" fxLayout="column">
     <div class="user-info" fxLayoutAlign="space-between center">
       <div fxLayoutAlign="start center" fxLayoutGap="12px">
-        <span class="pure-primary-foreground" style="font-size: 1.2em;">
+        <span class="pure-primary-foreground" style="font-size: 1.2em">
           Messenger
         </span>
       </div>
@@ -22,14 +22,45 @@
       <input #searchContact type="text" fxFlex placeholder="Search messenger"
             (keyup)="_messenger.searchContact$.next(searchContact.value)"/>
 
-      <button mat-icon-button>
+      <button mat-icon-button (click)="_messenger.searchContact$.next(''); searchContact.value=''">
         <mat-icon>close</mat-icon>
       </button>
     </div>
 
     <div class="contacts" purePerfectScrollbar fxFlex>
-      <button class="contact-item" mat-button color="primary" *ngFor="let contact of _messenger.filteredContacts$ | async; trackBy: trackByContact">
-        {{ contact.name }}
+      <button class="contact-item" mat-button color="primary"
+              [class.contact-item-selected]="contact.id === _messenger.conversationContact"
+              *ngFor="let contact of _messenger.filteredContacts$ | async; trackBy: trackByContact">
+        <div class="contact-wrapper" fxLayout="row" fxLayoutAlign="space-between center">
+          <div class="contact-avatar-wrapper" fxFlex="78px" fxLayoutAlign="center center">
+            <img class="contact-avatar" src="assets/image/avatar/{{contact.avatar}}" width="40">
+            <span class="contact-status"
+                 [class.online]="contact.status === 'online'"
+                 [class.offline]="contact.status === 'offline'"
+                 [class.busy]="contact.status === 'busy'"
+                 [class.do-not-disturb]="contact.status === 'do-not-disturb'"></span>
+          </div>
+
+          <div fxFlex fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="8px">
+            <span class="contact-name pure-foreground pure-truncate-text">
+              {{ contact.name }}
+            </span>
+            <span class="contact-message pure-foreground pure-truncate-text">
+              {{ (_messenger.getLatestMessage(contact.id) | async) || 'No message' }}
+            </span>
+          </div>
+
+          <div class="contact-message-info" fxFlex="64px" fxLayout="column" fxLayoutAlign="end center" fxLayoutGap="8px">
+            <div class="contact-unread-count" *ngIf="contact.unreadCount > 0">
+              {{contact.unreadCount >= 100 ? '99+' : contact.unreadCount}}
+            </div>
+            <div class="contact-last-received-time pure-foreground " *ngIf="_messenger.getLatestMessage(contact.id) | async">
+              Nov 2
+            </div>
+          </div>
+        </div>
+
+        <span class="indicator"></span>
       </button>
     </div>
   </div>

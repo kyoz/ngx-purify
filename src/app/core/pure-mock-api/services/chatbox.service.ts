@@ -45,6 +45,17 @@ export class ChatBoxMockApiService {
     });
   }
 
+  public getLatestMessageByContact(contactId: number) {
+    return new Observable(observer => {
+      const conversation: ChatboxConversation = this.conversations.find(d => d.withContact === contactId);
+
+      observer.next(conversation && conversation.messages && conversation.messages[conversation.messages.length - 1] ?
+        conversation.messages[conversation.messages.length - 1].message : '');
+
+      observer.complete();
+    });
+  }
+
   public sendMessage(owner: number, sender: number, message: string, createAt: Date) {
     return new Observable(observer => {
       const conversationIndex = this.conversations.findIndex(d => d.withContact === owner);

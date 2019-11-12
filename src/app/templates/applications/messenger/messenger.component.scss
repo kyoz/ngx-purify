@@ -1,4 +1,4 @@
-.container {
+.pure-messenger-app {
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -49,7 +49,97 @@
 
       .contact-item {
         width: 100%;
-        height: 64px;
+        height: 72px;
+
+        .contact-wrapper {
+          position: absolute;
+          top: 0px;
+          bottom: 0px;
+          left: 0px;
+          right: 0px;
+
+          .contact-avatar-wrapper {
+            position: relative;
+
+            .contact-avatar {
+              border-radius: 20px;
+              box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .35);
+            }
+
+            .contact-status {
+              position: absolute;
+              height: 10px;
+              width: 10px;
+              border-radius: 8px;
+              border: 2px solid;
+              right: 14px;
+              bottom: -1px;
+            }
+
+            .online {
+              background: #00E676;
+            }
+
+            .offline {
+              background: #E0E0E0;
+            }
+
+            .busy {
+              background: #FFD600;
+            }
+
+            .do-not-disturb {
+              background: #F44336;
+            }
+          }
+
+          .contact-name {
+            font-size: 1.1em;
+            font-weight: normal;
+            line-height: 1em;
+          }
+
+          .contact-message {
+            opacity: .5;
+            font-weight: normal;
+            line-height: 1em;
+          }
+
+          .contact-unread-count {
+            padding: 2px 8px;
+            font-size: 12px;
+            font-weight: normal;
+            color: #fff;
+            line-height: 16px;
+            height: 18px;
+            width: auto;
+            min-width: 5px;
+            border-radius: 12px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .35)
+          }
+
+          .contact-last-received-time {
+            opacity: .5;
+            font-weight: normal;
+            line-height: 1em;
+          }
+        }
+      }
+
+      .contact-item-selected {
+        .indicator {
+          position: absolute;
+          top: 14px;
+          bottom: 12px;
+          left: 0px;
+          width: 6px;
+          border-top-right-radius: 8px;
+          border-bottom-right-radius: 8px;
+        }
       }
     }
   }
@@ -191,11 +281,28 @@
 }
 
 /**
+ * RTL Support
+ */
+
+.pure-messenger-app[dir="rtl"] {
+  .contacts-wrapper > .contacts > .contact-item-selected {
+    .indicator {
+      left: auto;
+      right: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+  } 
+}
+
+/**
  * Responsive Support
  */
 
 @media only screen and (max-width: 1400px) {
-  .container.menu-opened {
+  .pure-messenger-app.menu-opened {
     .conversation-wrapper {
       .messages-assets {
         display: none;
@@ -205,7 +312,7 @@
 }
 
 @media only screen and (max-width: 1000px) {
-  .container {
+  .pure-messenger-app {
     .conversation-wrapper {
       .messages-assets {
         display: none;

@@ -10,6 +10,7 @@ import { Observable, Subject } from 'rxjs';
 import { GetContacts, GetConversation, SendMessage } from '../../../stores/chatbox/chatbox.actions';
 import { PureSideChatboxState } from '../../../stores/chatbox/chatbox.state';
 import { PureChatboxContainerService } from '../../../core/pure-containers/pure-chatbox-container/pure-chatbox-container.service';
+import { PureMockApiService } from '../../../core/pure-mock-api/pure-mock-api.service';
 import { ChatboxMessage, ChatboxContact } from '../../../shared/models/chatbox.model';
 import { BehaviorSubject } from 'rxjs';
 import { distinctUntilChanged, debounceTime, skip } from 'rxjs/operators';
@@ -30,7 +31,11 @@ export class MessengerAppService {
   // To simulate the other user send message back
   sendMessageBack$ = new Subject<Date>();
 
-  constructor(private _store: Store, private _chatboxContainer: PureChatboxContainerService) {
+  constructor(
+    private _store: Store,
+    private _api: PureMockApiService,
+    private _chatboxContainer: PureChatboxContainerService
+  ) {
     this.contacts$.subscribe(contacts => {
       this.contacts = contacts;
       this.filteredContacts$.next(contacts);
@@ -88,6 +93,10 @@ export class MessengerAppService {
 
     // To simulate the other user send message back
     this.sendMessageBack$.next(new Date());
+  }
+
+  public getLatestMessage(contactId: number) {
+    return this._api.chatbox.getLatestMessageByContact(contactId);
   }
 
   private sendMessageBack() {
