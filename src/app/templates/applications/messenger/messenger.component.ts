@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ChangeDetectionStrategy, ChangeDetectorRe
 import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 import { PureSettingsService } from '../../../core/pure-services/pure-settings.service';
 import { PureMenuContainerService } from '../../../core/pure-containers/pure-menu-container/pure-menu-container.service';
+import { PureChatboxService } from '../../../core/pure-components/pure-chatbox/pure-chatbox.service';
 import { MessengerAppService } from './messenger.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { ChatboxContact, ChatboxMessage } from '../../../shared/models/chatbox.model';
@@ -39,6 +40,7 @@ export class MessengerApp implements OnInit {
   constructor(
     private _changeDetectorRef: ChangeDetectorRef,
     private _deviceDetector: DeviceDetectorService,
+    private _pureChatbox: PureChatboxService,
     public _settings: PureSettingsService,
     public _menuContainer: PureMenuContainerService,
     public _messenger: MessengerAppService) {
@@ -76,9 +78,13 @@ export class MessengerApp implements OnInit {
       return;
     }
 
+    // This prevent side chatbox to open
+    this._pureChatbox.allowOpenChatboxContainer = false;
+
     this.clearMessageInput();
     this._messenger.chooseContact(contact.id);
     this.focusMessageInput();
+
     this._changeDetectorRef.detectChanges();
   }
 
@@ -88,6 +94,9 @@ export class MessengerApp implements OnInit {
     }
 
     const message = this.messageInput.trim();
+
+    // This prevent side chatbox to open
+    this._pureChatbox.allowOpenChatboxContainer = false;
 
     this.clearMessageInput();
     this.focusMessageInput();

@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Store, Select } from '@ngxs/store';
 import { Observable, Subject } from 'rxjs';
 import { GetContacts, GetConversation, SendMessage } from '../../../stores/chatbox/chatbox.actions';
 import { PureSideChatboxState } from '../../../stores/chatbox/chatbox.state';
 import { PureChatboxContainerService } from '../../pure-containers/pure-chatbox-container/pure-chatbox-container.service';
 import { ChatboxMessage, ChatboxContact } from '../../../shared/models/chatbox.model';
-import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
+import { distinctUntilChanged, filter, debounceTime } from 'rxjs/operators';
 
 @Injectable()
 export class PureChatboxService {
@@ -20,24 +19,28 @@ export class PureChatboxService {
   // To simulate the other user send message back
   sendMessageBack$ = new Subject<Date>();
 
+  allowOpenChatboxContainer = true;
+
   constructor(
     private _store: Store,
-    private _router: Router,
     private _chatboxContainer: PureChatboxContainerService
   ) {
-    this.currentContact$.pipe().subscribe(currentContact => {
+    this.currentContact$.pipe(distinctUntilChanged(), filter(d => d !== undefined)).subscribe(currentContact => {
       this.currentContact = currentContact;
 
-      // Just auto open side chatbox if current app is not messenger
-      // Because side chatbox and messenger app share the same state
-      // You can't create different state for both, the template is just
-      // an example how messages sync among views
-      if (this._router.url === '/app/messenger') {
+      // Just allow open side chatbox if user change contact by click on side chatbox (not from messenger app)
+      // Because side chatbox and messenger app share the same state (This is an example to show how states sync amongs views)
+      // You can create different state for both, the template is just
+      if (!this.allowOpenChatboxContainer) {
+        this.allowOpenChatboxContainer = true;
+        this._chatboxContainer.close();
         return;
       }
 
       if (this.inConversation) {
         this._chatboxContainer.open();
+      } else {
+        this._chatboxContainer.close();
       }
     });
 

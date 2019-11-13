@@ -10,6 +10,7 @@ import { Observable, Subject } from 'rxjs';
 import { GetContacts, GetConversation, SendMessage } from '../../../stores/chatbox/chatbox.actions';
 import { PureSideChatboxState } from '../../../stores/chatbox/chatbox.state';
 import { PureMockApiService } from '../../../core/pure-mock-api/pure-mock-api.service';
+import { PureChatboxService } from '../../../core/pure-components/pure-chatbox/pure-chatbox.service';
 import { ChatboxMessage, ChatboxContact } from '../../../shared/models/chatbox.model';
 import { BehaviorSubject } from 'rxjs';
 import { distinctUntilChanged, debounceTime, skip } from 'rxjs/operators';
@@ -32,7 +33,8 @@ export class MessengerAppService {
 
   constructor(
     private _store: Store,
-    private _api: PureMockApiService
+    private _api: PureMockApiService,
+    private _pureChatbox: PureChatboxService
   ) {
     this.contacts$.subscribe(contacts => {
       this.contacts = contacts;
@@ -95,6 +97,9 @@ export class MessengerAppService {
   }
 
   private sendMessageBack() {
+    // This prevent side chatbox to open
+    this._pureChatbox.allowOpenChatboxContainer = false;
+
     this._store.dispatch(new SendMessage({
       sender: this.currentContact.id,
       message: 'I am Grootttt',
