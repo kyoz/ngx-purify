@@ -29,20 +29,18 @@
       background: mat-color($primary);
     }
 
-    // .chatbox > .have-conversation > .messages > .message-row > {
-    //   .message {
-    //     background: mat-color($primary);
-    //     color: mat-color($primary, default-contrast);
-    //   }
-    //   .time {
-    //     color: mat-color($foreground, hint-text)
-    //   }
-    // }
+    .have-conversation > .messages > .message-row > {
+      .message {
+        background: mat-color($primary);
+        color: mat-color($primary, default-contrast);
+      }
+      .time {
+        color: mat-color($foreground, hint-text)
+      }
+    }
 
-    // .chatbox {
-    //   .no-conversation-selected, .no-messages {
-    //     color: mat-color($foreground, hint-text);
-    //   }
-    // }
+      // .no-conversation-selected, .no-messages {
+      //   color: mat-color($foreground, hint-text);
+      // }
   }
 }

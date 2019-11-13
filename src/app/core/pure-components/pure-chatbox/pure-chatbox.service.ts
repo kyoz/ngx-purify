@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store, Select } from '@ngxs/store';
 import { Observable, Subject } from 'rxjs';
 import { GetContacts, GetConversation, SendMessage } from '../../../stores/chatbox/chatbox.actions';
@@ -19,9 +20,22 @@ export class PureChatboxService {
   // To simulate the other user send message back
   sendMessageBack$ = new Subject<Date>();
 
-  constructor(private _store: Store, private _chatboxContainer: PureChatboxContainerService) {
-    this.currentContact$.subscribe(currentContact => {
+  constructor(
+    private _store: Store,
+    private _router: Router,
+    private _chatboxContainer: PureChatboxContainerService
+  ) {
+    this.currentContact$.pipe().subscribe(currentContact => {
       this.currentContact = currentContact;
+
+      // Just auto open side chatbox if current app is not messenger
+      // Because side chatbox and messenger app share the same state
+      // You can't create different state for both, the template is just
+      // an example how messages sync among views
+      if (this._router.url === '/app/messenger') {
+        return;
+      }
+
       if (this.inConversation) {
         this._chatboxContainer.open();
       }

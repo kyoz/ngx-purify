@@ -30,7 +30,8 @@
     <div class="contacts" purePerfectScrollbar fxFlex>
       <button class="contact-item" mat-button color="primary"
               [class.contact-item-selected]="contact.id === _messenger.conversationContact"
-              *ngFor="let contact of _messenger.filteredContacts$ | async; trackBy: trackByContact">
+              *ngFor="let contact of _messenger.filteredContacts$ | async; trackBy: trackByContact"
+              (click)="startConversation(contact)">
         <div class="contact-wrapper" fxLayout="row" fxLayoutAlign="space-between center">
           <div class="contact-avatar-wrapper" fxFlex="78px" fxLayoutAlign="center center">
             <img class="contact-avatar" src="assets/image/avatar/{{contact.avatar}}" width="40">
@@ -92,7 +93,48 @@
     </div>
 
     <div class="messages-wrapper" fxLayout="row" fxLayoutAlign="space-between stretch" fxFlex>
-      <div class="messages" fxFlex>Left</div>
+      <div class="messages" fxFlex>
+        <div class="have-conversation" fxLayout="column" fxLayoutAlign="space-between stretch">
+          <div #messages_content=purePerfectScrollbar class="messages" purePerfectScrollbar>
+            <div class="message-row" *ngFor="let message of _messenger.currentMessages; let i = index; trackBy: trackByMessage"
+                 [class.mine]="message.sender === 0"
+                 [class.their]="message.sender !== 0"
+                 [class.first-of-group]="isFirstMessageOfGroup(i, message)"
+                 [class.last-of-group]="isLastMessageOfGroup(i, message)">
+              <img class="avatar" *ngIf="message.sender !== 0" 
+                   src="assets/image/avatar/{{_messenger.currentContact.avatar}}" width="36">
+              <div class="message">
+                {{message.message}}
+              </div>
+              <div class="time">
+                {{message.createAt | date: 'MM/dd/yy - hh:mm aa'}}
+              </div>
+            </div>
+          </div>
+
+          <div class="no-messages" fxLayout="column" fxLayoutAlign="center center" fxFlex
+               *ngIf="_messenger.inConversation && 
+                      _messenger.currentMessages.length === 0">
+            <div>
+              <mat-icon>chat_bubble_outline</mat-icon>
+            </div>
+            You haven't have any message<br> with {{_messenger.currentContact.name}}
+          </div>
+
+          <div class="message-input-wrapper" purePerfectScrollbar *ngIf="_messenger.inConversation">
+            <textarea #message_input class="message-input" placeholder="Type a message" rows="1"
+                      [(ngModel)]="messageInput"
+                      (ngModelChange)="resizeMessageInput()"
+                      (keydown.enter)="preventEnterKey($event)"
+                      (keyup.enter)="sendMessage()"></textarea>
+          </div>
+          <button mat-icon-button color="primary" class="message-send-btn" (click)="sendMessage()"
+                  *ngIf="_messenger.inConversation">
+            <mat-icon>send</mat-icon>
+          </button>
+        </div>
+      </div>
+
       <div class="messages-assets">
         <div class="user-info" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="4px">
           <img class="avatar" src="assets/image/avatar/kyoz.jpg" width="84px">

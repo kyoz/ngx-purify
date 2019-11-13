@@ -9,7 +9,6 @@ import { Store, Select } from '@ngxs/store';
 import { Observable, Subject } from 'rxjs';
 import { GetContacts, GetConversation, SendMessage } from '../../../stores/chatbox/chatbox.actions';
 import { PureSideChatboxState } from '../../../stores/chatbox/chatbox.state';
-import { PureChatboxContainerService } from '../../../core/pure-containers/pure-chatbox-container/pure-chatbox-container.service';
 import { PureMockApiService } from '../../../core/pure-mock-api/pure-mock-api.service';
 import { ChatboxMessage, ChatboxContact } from '../../../shared/models/chatbox.model';
 import { BehaviorSubject } from 'rxjs';
@@ -33,8 +32,7 @@ export class MessengerAppService {
 
   constructor(
     private _store: Store,
-    private _api: PureMockApiService,
-    private _chatboxContainer: PureChatboxContainerService
+    private _api: PureMockApiService
   ) {
     this.contacts$.subscribe(contacts => {
       this.contacts = contacts;
@@ -43,9 +41,6 @@ export class MessengerAppService {
 
     this.currentContact$.subscribe(currentContact => {
       this.currentContact = currentContact;
-      if (this.inConversation) {
-        this._chatboxContainer.open();
-      }
     });
 
     this.currentMessages$.subscribe((messages: ChatboxMessage[]) => {

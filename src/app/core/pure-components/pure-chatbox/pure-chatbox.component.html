@@ -50,7 +50,8 @@
           </div>
         </div>
       </div>
-      <div class="no-messages" fxLayout="column" fxLayoutAlign="center center"
+
+      <div class="no-messages" fxLayout="column" fxLayoutAlign="center center" fxFlex
            *ngIf="_chatbox.inConversation && 
                   _chatbox.currentMessages.length === 0 &&
                   (_chatboxContainer.isOpened$ | async)">
@@ -59,6 +60,7 @@
         </div>
         You haven't have any message<br> with {{_chatbox.currentContact.name}}
       </div>
+
       <div class="message-input-wrapper" purePerfectScrollbar *ngIf="_chatbox.inConversation">
         <textarea #message_input class="message-input" placeholder="Type a message" rows="1"
                   [(ngModel)]="messageInput"
