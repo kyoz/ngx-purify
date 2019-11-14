@@ -27,14 +27,14 @@
       </button>
     </div>
 
-    <div class="contacts" purePerfectScrollbar fxFlex>
+    <div class="contacts" purePerfectScrollbar>
       <button class="contact-item" mat-button color="primary"
               [class.contact-item-selected]="contact.id === _messenger.conversationContact"
               *ngFor="let contact of _messenger.filteredContacts$ | async; trackBy: trackByContact"
               (click)="startConversation(contact)">
         <div class="contact-wrapper" fxLayout="row" fxLayoutAlign="space-between center">
-          <div class="contact-avatar-wrapper" fxFlex="78px" fxLayoutAlign="center center">
-            <img class="contact-avatar" src="assets/image/avatar/{{contact.avatar}}" width="40">
+          <div class="contact-avatar-wrapper" fxLayoutAlign="center center">
+            <img class="contact-avatar" src="assets/image/avatar/{{contact.avatar}}">
             <span class="contact-status"
                  [class.online]="contact.status === 'online'"
                  [class.offline]="contact.status === 'offline'"
@@ -77,7 +77,7 @@
         </div>
       </div>
 
-      <div fxLayoutGap="24px">
+      <div class="functions" fxLayoutGap="24px">
         <button mat-icon-button matTooltip="Audio Call">
           <mat-icon class="pure-icon-foreground">phone</mat-icon>
         </button>
