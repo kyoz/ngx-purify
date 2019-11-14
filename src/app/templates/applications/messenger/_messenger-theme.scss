@@ -29,13 +29,33 @@
       background: mat-color($primary);
     }
 
-    .have-conversation > .messages > .message-row > {
-      .message {
-        background: mat-color($primary);
-        color: mat-color($primary, default-contrast);
+    .conversation-wrapper {
+      @if $is-dark {
+        background: #212121;
+      } @else {
+        background: #EEEEEE;
       }
-      .time {
-        color: mat-color($foreground, hint-text)
+
+      .have-conversation {
+        @if $is-dark {
+          background: #212121;
+        } @else {
+          background: #EEEEEE;
+        }
+
+        .messages > .message-row {
+          .message {
+            background: mat-color($primary);
+            color: mat-color($primary, default-contrast);
+          }
+          .time {
+            color: mat-color($foreground, hint-text)
+          }
+        }
+      }
+
+      .header, .messages-assets {
+        background: mat-color($background, background);
       }
     }
   }
