@@ -516,6 +516,12 @@
         .contact-item {
           height: 64px;
         }
+
+        .contact-item-selected {
+          .indicator {
+            width: 4px;
+          }
+        }
       }
     }
 
