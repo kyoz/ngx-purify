@@ -1,0 +1,94 @@
+<mat-sidenav-container class="pure-contact-app" [dir]="_settings.currentTextDir$ | async">
+  <mat-sidenav class="mobile-sidenav" mode="over" [(opened)]="isOpenedSidenav">
+    <app-contact-menu></app-contact-menu>
+  </mat-sidenav>
+
+  <mat-sidenav-content fxLayout="column" fxLayoutAlign="space-between stretch">
+    <div class="toolbar" fxFlex="72px" fxLayout="row" fxLayoutAlign="space-between center">
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+        <button mat-icon-button (click)="toggleSidenav()">
+          <mat-icon>menu</mat-icon>
+        </button>
+
+        <span class="title">Contact</span>
+      </div>
+
+      <div class="search" fxFlex="40%" fxLayout="row" fxLayoutAlign="space-between center">
+        <mat-icon class="pure-icon-foreground" fxFlex="38px">search</mat-icon>
+        <input type="text" placeholder="Search" fxFlex />
+
+        <button mat-icon-button fxFlex="40px">
+          <mat-icon class="pure-icon-foreground">close</mat-icon>
+        </button>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="24px">
+        <button mat-icon-button matTooltip="Help">
+          <mat-icon class="pure-icon-foreground">help</mat-icon>
+        </button>
+
+        <button mat-icon-button matTooltip="Settings">
+          <mat-icon class="pure-icon-foreground">settings</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="content" fxFlex>
+      <mat-sidenav-container class="content-wrapper" fxFlex hasBackdrop="false">
+        <mat-sidenav class="content-sidenav" mode="side" [(opened)]="isOpenedSidenav">
+          <div fxLayoutAlign="start center" style="margin: 0px 0px 24px 20px">
+            <button mat-raised-button color="primary" style="height: 40px; width: 100%">
+              <mat-icon>add</mat-icon>
+              <span>&nbsp;&nbsp;Create Contact</span>
+            </button>
+          </div>
+
+          <app-contact-menu></app-contact-menu>
+        </mat-sidenav>
+
+        <mat-sidenav-content style="overflow: hidden; position: relative">
+          <div class="contacts-wrapper">
+            <div class="contacts" purePerfectScrollbar>
+              <table mat-table [dataSource]="dataSource" matSort>
+                <!-- Checkbox Column -->
+                <ng-container matColumnDef="select">
+                  <th mat-header-cell *matHeaderCellDef>
+                    <mat-checkbox (change)="$event ? masterToggle() : null"
+                                  [checked]="selection.hasValue() && isAllSelected()"
+                                  [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                  [aria-label]="checkboxLabel()">
+                    </mat-checkbox>
+                  </th>
+                  <td mat-cell *matCellDef="let row">
+                    <mat-checkbox (click)="$event.stopPropagation()"
+                                  (change)="$event ? selection.toggle(row) : null"
+                                  [checked]="selection.isSelected(row)"
+                                  [aria-label]="checkboxLabel(row)">
+                    </mat-checkbox>
+                  </td>
+                </ng-container>
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="position">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+                  <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+
+              </table>
+            </div>
+          </div>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

@@ -23,6 +23,7 @@ import { PureSideChatboxState } from './stores/chatbox/chatbox.state';
 // Template App States
 import { SearchAppState } from './stores/search/search.state';
 import { EventLogAppState } from './stores/event-log/event-log.state';
+import { ContactAppState } from './stores/contact/contact.state';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { EventLogAppState } from './stores/event-log/event-log.state';
 
       // Template App States
       SearchAppState,
-      EventLogAppState
+      EventLogAppState,
+      ContactAppState
     ], {
       developmentMode: !environment.production
     }),

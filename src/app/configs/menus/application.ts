@@ -21,13 +21,13 @@ export const ApplicationMenu: MenuItem[] = [
      { name: 'MENU.APPLICATIONS.E_COMMERCE.MANAGEMENT', url: '/app/e-commerce/management' }
     ]
   },
-  { name: 'MENU.APPLICATIONS.CALENDER', icon: 'today', url: '/app/calender', badge: 2 },
-  { name: 'MENU.APPLICATIONS.CONTACT', icon: 'account_box', url: '/app/contacts', badge: 3, badgeColor: 'primary' },
-  { name: 'MENU.APPLICATIONS.MAIL', icon: 'mail', url: '/app/mail', badge: 15, badgeColor: 'accent' },
+  { name: 'MENU.APPLICATIONS.CALENDER', icon: 'today', url: '/app/calender', badge: 2, badgeColor: 'primary' },
+  { name: 'MENU.APPLICATIONS.CONTACT', icon: 'account_box', url: '/app/contact' },
+  { name: 'MENU.APPLICATIONS.MAIL', icon: 'mail', url: '/app/mail', badge: 15 },
   { name: 'MENU.APPLICATIONS.MESSENGER', icon: 'message', url: '/app/messenger' },
   { name: 'Todo', icon: 'assignment_turned_in', url: '/app/todo' },
   { name: 'Scrumboard', icon: 'dns', url: '/app/scrumboard' },
   { name: 'MENU.APPLICATIONS.FILE_MANAGER', icon: 'folder', url: '/app/file-manager' },
-  { name: 'MENU.APPLICATIONS.EVENT_LOG', icon: 'view_list', url: '/app/event-log' },
+  { name: 'MENU.APPLICATIONS.EVENT_LOG', icon: 'view_list', url: '/app/event-log', badge: 6, badgeColor: 'accent' },
   { name: 'MENU.APPLICATIONS.SEARCH', icon: 'search', url: '/app/search' }
 ];

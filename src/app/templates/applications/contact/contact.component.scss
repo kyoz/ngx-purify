@@ -1,0 +1,91 @@
+.pure-contact-app {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  overflow: hidden;
+
+  .mobile-sidenav {
+    width: 300px;
+    max-width: 90vw;
+    box-shadow: none;
+  }
+
+  .toolbar {
+    padding: 0 12px;
+
+    .title {
+      font-size: 1.35em;
+      opacity: .68;
+    }
+
+    .search {
+      height:  48px;
+      border-radius: 4px;
+      padding: 0 4px 0 16px;
+
+      input {
+        border: none;
+        height: 40px;
+        background: transparent;
+        outline: none;
+        font-size: 1em;
+      }
+    }
+  }
+
+  .content {
+    overflow: hidden;
+
+    .content-sidenav {
+      width: 300px;
+      background: transparent;
+      box-shadow: none;
+      border: none;
+    }
+
+    .contacts-wrapper {
+      position: relative;
+      height: calc(100vh - 64px - 72px);
+      box-sizing: border-box;
+      overflow: hidden;
+
+      .contacts {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+
+        table {
+          width: calc(100% - 32px);
+          margin: 0 16px 16px 16px;
+          box-sizing: border-box;
+          border: 1px solid rgba(0,0,0,.18);
+
+          th {
+            border-top: 1px solid rgba(0,0,0,.18);
+            font-size: .9em;
+          }
+
+          tr {
+            height: 64px;
+          }
+        }
+      }
+    }
+  }
+
+  @media only screen and (min-width: 1000px) {
+    .mobile-sidenav, div.mat-drawer-backdrop {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .content-sidenav {
+      display: none;
+    }
+  }
+}

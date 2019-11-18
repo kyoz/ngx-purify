@@ -7,6 +7,7 @@
 // Theming for template components
 @import '../../../app/templates/applications/event-log/event-log-theme';
 @import '../../../app/templates/applications/messenger/messenger-theme';
+@import '../../../app/templates/applications/contact/contact-theme';
 
 // Highlightjs themes
 @import '../highlightjs/highlightjs-theme';
@@ -22,6 +23,7 @@
   // Theming for template components
   @include template-event-log-theme($theme);
   @include template-messenger-app-theme($theme);
+  @include template-contact-app-theme($theme);
 
   // Highlightjs themes
   @include highlightjs-theme($theme);

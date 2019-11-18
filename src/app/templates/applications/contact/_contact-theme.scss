@@ -1,0 +1,79 @@
+@mixin template-contact-app-theme($theme) {
+  $primary: map-get($theme, primary);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  .pure-contact-app {
+    .mat-drawer-backdrop {
+      background: rgba(0,0,0,.6);
+    }
+
+    .toolbar {
+      .search {
+        @if $is-dark {
+          background: white;
+
+          .mat-icon {
+            color: rgba(0,0,0,.56);
+          }
+        } @else {
+          background: rgba(0,0,0,.05);
+        }
+      }
+    }
+
+    .menu-item.active {
+      position: relative;
+      @if $is-dark {
+        background: rgba(0,0,0,.08);
+      } @else {
+        background: rgba(0,0,0,.04);
+      }
+
+      &:hover {
+        @if $is-dark {
+          background: rgba(0,0,0,.08);
+        } @else {
+          background: rgba(0,0,0,.04);
+        }
+      }
+
+      .indicator {
+        background: mat-color($primary);
+      }
+    }
+
+    .menu-item:hover {
+      @if $is-dark {
+        background: rgba(0,0,0,.08);
+      } @else {
+        background: rgba(0,0,0,.03);
+      }
+    }
+
+    /**
+     * Responsive Support
+     */
+    @media only screen and (min-width: 1000px) {
+      .mat-drawer-backdrop {
+        display: none;
+      }
+    }
+  }
+
+  /**
+   * RTL Support
+   */
+  .pure-contact-app[dir="rtl"] {
+    .menu-item.active > .indicator {
+      left: unset;
+      right: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+  }
+
+}

@@ -3,15 +3,15 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 
 // Components
-import { SearchApp } from './search/search.component';
+import { ContactApp, ContactAppMenu } from './contact';
 import { EventLogApp } from './event-log/event-log.component';
-import { TodoApp } from './todo/todo.component';
+import { SearchApp } from './search/search.component';
 import { MessengerApp, MessengerAppStatus } from './messenger';
+import { TodoApp } from './todo/todo.component';
 
 // Services
 import { MessengerAppService } from '../applications/messenger/messenger.service';
-
-// Imports
+import { ContactAppService } from '../applications/contact/contact.service';
 
 @NgModule({
   imports: [
@@ -21,22 +21,25 @@ import { MessengerAppService } from '../applications/messenger/messenger.service
         path: 'dashboard',
         loadChildren: () => import('./dashboard/dashboard.module').then(module => module.DashboardModule)
       },
+      { path: 'contact', component: ContactApp },
+      { path: 'event-log', component: EventLogApp },
       { path: 'messenger', component: MessengerApp },
       { path: 'search', component: SearchApp },
-      { path: 'event-log', component: EventLogApp },
       { path: 'todo', component: TodoApp },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
     ])
   ],
   declarations: [
+    ContactApp, ContactAppMenu,
+    EventLogApp,
     MessengerApp, MessengerAppStatus,
     SearchApp,
-    EventLogApp,
     TodoApp
   ],
   providers: [
-    MessengerAppService
+    MessengerAppService,
+    ContactAppService
   ]
 })
 export class ApplicationsModule {}

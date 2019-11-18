@@ -4,6 +4,7 @@ import { PureMockApiService } from './pure-mock-api.service';
 import { ChatBoxMockApiService } from './services/chatbox.service';
 import { SearchMockApiService } from './services/search.service';
 import { EventLogMockApiService } from './services/event-logs.service';
+import { ContactMockApiService } from './services/contact.service';
 
 @NgModule({
   declarations: [],
@@ -13,7 +14,8 @@ import { EventLogMockApiService } from './services/event-logs.service';
     PureMockApiService,
     ChatBoxMockApiService,
     SearchMockApiService,
-    EventLogMockApiService
+    EventLogMockApiService,
+    ContactMockApiService
   ],
 })
 export class PureMockApiModule {}
