@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClient } from '@angular/common/http';
+import { NgxsModule } from '@ngxs/store';
 
 import { RouterTestingModule } from '@angular/router/testing';
 import { PureCoreModule } from '../../core/core.module';
@@ -18,6 +19,7 @@ describe('MainContainer', () => {
     TestBed.configureTestingModule({
       declarations: [MainContainer],
       imports: [
+        NgxsModule.forRoot([]),
         PureCoreModule,
         RouterTestingModule,
         TranslateModule.forRoot({

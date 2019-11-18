@@ -1,6 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PureCoreModule } from '../../core.module';
+import { NgxsModule } from '@ngxs/store';
+
+// Components
 import { PureChatbox } from './pure-chatbox.component';
+
+// Services
+import { PureChatboxService } from './pure-chatbox.service';
 
 describe('PureChatbox', () => {
   let component: PureChatbox;
@@ -8,7 +14,13 @@ describe('PureChatbox', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [PureCoreModule]
+      imports: [
+        NgxsModule.forRoot([]),
+        PureCoreModule
+      ],
+      providers: [
+        PureChatboxService
+      ]
     })
     .compileComponents();
   }));
