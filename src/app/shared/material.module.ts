@@ -5,6 +5,7 @@ import {
   MatAutocompleteModule,
   MatBadgeModule,
   MatButtonModule,
+  MatCheckboxModule,
   MatDividerModule,
   MatExpansionModule,
   MatFormFieldModule,
@@ -19,6 +20,8 @@ import {
   MatSelectModule,
   MatSidenavModule,
   MatSlideToggleModule,
+  MatSortModule,
+  MatTableModule,
   MatToolbarModule,
   MatTooltipModule
 } from '@angular/material';
@@ -27,6 +30,7 @@ const MATERIAL_MODULES = [
   MatAutocompleteModule,
   MatBadgeModule,
   MatButtonModule,
+  MatCheckboxModule,
   MatDividerModule,
   MatExpansionModule,
   MatFormFieldModule,
@@ -41,6 +45,8 @@ const MATERIAL_MODULES = [
   MatSelectModule,
   MatSidenavModule,
   MatSlideToggleModule,
+  MatSortModule,
+  MatTableModule,
   MatToolbarModule,
   MatTooltipModule
 ];

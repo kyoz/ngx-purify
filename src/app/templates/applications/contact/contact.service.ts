@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
 import { GetContacts } from '../../../stores/contact/contact.actions';
 import { ContactAppState } from '../../../stores/contact/contact.state';
+import { Contact } from '../../../shared/models/contact.model';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class ContactAppService {

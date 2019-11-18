@@ -37,7 +37,7 @@ export class ContactAppState {
         break;
 
       case 'frequently':
-        this._mockApi.contact.getFrequentlyContact().subscribe((contacts: Contact[]) => {
+        this._mockApi.contact.getFrequentlyContacts().subscribe((contacts: Contact[]) => {
           setState((state: ContactAppStateModel) => {
             state.contacts = contacts;
             return state;
