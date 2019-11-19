@@ -1,16 +1,19 @@
 <mat-sidenav-container class="template-contact-app" [dir]="_settings.currentTextDir$ | async">
-  <mat-sidenav class="mobile-sidenav" mode="over" [(opened)]="isOpenedSidenav">
+  <mat-sidenav class="mobile-sidenav" mode="over" [(opened)]="isOpenedMobileSidenav">
+    <div class="title pure-primary-foreground">Contacts</div>
+    <mat-divider style="margin-bottom: 16px;"></mat-divider>
     <app-contact-menu></app-contact-menu>
   </mat-sidenav>
 
   <mat-sidenav-content fxLayout="column" fxLayoutAlign="space-between stretch">
-    <div class="toolbar" fxFlex="72px" fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="toolbar" *ngIf="!isMobileSearching; else mobileSearch"
+         fxFlex="72px" fxLayout="row" fxLayoutAlign="space-between center">
       <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
         <button mat-icon-button (click)="toggleSidenav()">
           <mat-icon>menu</mat-icon>
         </button>
 
-        <span class="title">Contact</span>
+        <span class="title">Contacts</span>
       </div>
 
       <div class="search" fxFlex="40%" fxLayout="row" fxLayoutAlign="space-between center">
@@ -18,23 +21,48 @@
 
         <div fxFlex="8px"><!-- Spacer --></div>
 
-        <input type="text" placeholder="Search" fxFlex />
+        <input #searchInput type="text" placeholder="Search" fxFlex
+               (keyup)="searchTerm$.next(searchInput.value)" />
 
-        <button mat-icon-button fxFlex="40px">
+        <button mat-icon-button fxFlex="40px" *ngIf="searchInput.value.length > 0"
+                (click)="searchInput.value=''; searchTerm$.next('')">
           <mat-icon class="pure-icon-foreground">close</mat-icon>
         </button>
       </div>
 
-      <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="24px">
+      <div fxLayout="row" fxLayoutAlign="end center">
+        <button mat-icon-button matTooltip="Search" class="mobile-search-btn"
+                (click)="toggleMobileSearch()">
+          <mat-icon class="pure-icon-foreground">search</mat-icon>
+        </button>
+
+        <div class="seperator"></div>
+
         <button mat-icon-button matTooltip="Help">
           <mat-icon class="pure-icon-foreground">help</mat-icon>
         </button>
+
+        <div class="seperator"></div>
 
         <button mat-icon-button matTooltip="Settings">
           <mat-icon class="pure-icon-foreground">settings</mat-icon>
         </button>
       </div>
     </div>
+
+    <ng-template #mobileSearch>
+      <div class="toolbar" fxFlex="72px" fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxFlex="8px"><!-- Spacer --></div>
+
+        <input #searchInput type="text" placeholder="Search" fxFlex
+               (keyup)="searchTerm$.next(searchInput.value)"
+               style="font-size: 1.3em" />
+        
+        <button mat-icon-button (click)="toggleMobileSearch()">
+          <mat-icon class="pure-icon-foreground">close</mat-icon>
+        </button>
+      </div>
+    </ng-template>
 
     <div class="content" fxFlex>
       <mat-sidenav-container class="content-wrapper" fxFlex hasBackdrop="false">
@@ -53,16 +81,16 @@
         <mat-sidenav-content style="overflow: hidden; position: relative">
           <div class="contacts-wrapper">
             <div class="contacts" purePerfectScrollbar>
-              <table mat-table [dataSource]="dataSource" matSort>
-                <!-- Checkbox Column -->
+              <table mat-table [dataSource]="dataSource" [trackBy]="trackById" matSort>
+                <!-- Checkbox -->
                 <ng-container matColumnDef="select">
-                  <th mat-header-cell *matHeaderCellDef>
+                  <th mat-header-cell *matHeaderCellDef style="width: 40px; min-width: 40px; max-width: 40px">
                     <mat-checkbox (change)="$event ? masterToggle() : null"
                                   [checked]="selection.hasValue() && isAllSelected()"
                                   [indeterminate]="selection.hasValue() && !isAllSelected()">
                     </mat-checkbox>
                   </th>
-                  <td mat-cell *matCellDef="let row">
+                  <td mat-cell *matCellDef="let row" style="width: 40px; min-width: 40px; max-width: 40px">
                     <mat-checkbox (click)="$event.stopPropagation()"
                                   (change)="$event ? selection.toggle(row) : null"
                                   [checked]="selection.isSelected(row)">
@@ -70,16 +98,55 @@
                   </td>
                 </ng-container>
 
-                <!-- Position Column -->
-                <ng-container matColumnDef="position">
-                  <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
-                  <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                <!-- Avatar -->
+                <ng-container matColumnDef="avatar">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 64px; min-width: 64px; max-width: 64px"></th>
+                  <td mat-cell *matCellDef="let element" style="width: 64px; min-width: 64px; max-width: 64px">
+                    <img class="avatar" *ngIf="element.avatar; else numberAvatar"
+                         [src]="'assets/image/avatar/' + element.avatar" width="40px" />
+
+                    <ng-template #numberAvatar>
+                      <div class="avatar number-avatar" fxLayoutAlign="center center">
+                        <span *ngIf="element.firstName; else noFirstName">{{ element.firstName.charAt(0) }}</span>
+                        <ng-template #noFirstName>
+                          <span>{{ element.lastName.charAt(0) }}</span>
+                        </ng-template>
+                      </div>
+                    </ng-template>
+                  </td>
                 </ng-container>
 
-                <!-- Name Column -->
+                <!-- Name -->
                 <ng-container matColumnDef="name">
                   <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                  <td mat-cell *matCellDef="let element">
+                    {{element.firstName}} {{element.lastName ? ' ' + element.lastName: ''}}
+                    {{element.nickName ? ' (' + element.nickName + ')' : ''}}
+                  </td>
+                </ng-container>
+
+                <!-- Email -->
+                <ng-container matColumnDef="email">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+                  <td mat-cell *matCellDef="let element">
+                    {{element.email}}
+                  </td>
+                </ng-container>
+
+                <!-- Phone -->
+                <ng-container matColumnDef="phone">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone </th>
+                  <td mat-cell *matCellDef="let element">
+                    {{element.phone}}
+                  </td>
+                </ng-container>
+
+                <!-- Job & Company -->
+                <ng-container matColumnDef="job">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Job </th>
+                  <td mat-cell *matCellDef="let element">
+                    {{element.job}} {{element.company ? ' at ' + element.company : ''}}
+                  </td>
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayColumns; sticky: true"></tr>
@@ -87,6 +154,10 @@
 
               </table>
             </div>
+
+            <button mat-fab class="mobile-add-btn" color="primary">
+              <mat-icon>add</mat-icon>
+            </button>
           </div>
         </mat-sidenav-content>
       </mat-sidenav-container>

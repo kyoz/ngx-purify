@@ -2,10 +2,11 @@ import { Action, State, StateContext, Selector } from '@ngxs/store';
 import { ImmutableSelector, ImmutableContext } from '@ngxs-labs/immer-adapter';
 import { PureMockApiService } from '../../core/pure-mock-api/pure-mock-api.service';
 import { Contact } from '../../shared/models/contact.model';
-import { GetContacts } from './contact.actions';
+import { GetContacts, SearchContacts } from './contact.actions';
 
 export class ContactAppStateModel {
   contacts: Contact[];
+  filteredContacts: Contact[];
 }
 
 @State<ContactAppStateModel>({
@@ -25,7 +26,7 @@ export class ContactAppState {
 
   @ImmutableContext()
   @Action(GetContacts)
-  search({ setState }: StateContext<ContactAppStateModel>, { type }: GetContacts) {
+  getContacts({ setState }: StateContext<ContactAppStateModel>, { type }: GetContacts) {
     switch (type) {
       case 'favorite':
         this._mockApi.contact.getFavoriteContacts().subscribe((contacts: Contact[]) => {
@@ -53,7 +54,6 @@ export class ContactAppState {
           });
         });
     }
-
   }
 }
 

@@ -10,10 +10,23 @@
     width: 300px;
     max-width: 90vw;
     box-shadow: none;
+
+    .title {
+      margin: 24px;
+      font-size: 1.4em;
+    }
   }
 
   .toolbar {
     padding: 0 12px;
+
+    input {
+      border: none;
+      height: 40px;
+      background: transparent;
+      outline: none;
+      font-size: 1em;
+    }
 
     .title {
       font-size: 1.35em;
@@ -24,14 +37,14 @@
       height:  48px;
       border-radius: 4px;
       padding: 0 4px 0 16px;
+    }
 
-      input {
-        border: none;
-        height: 40px;
-        background: transparent;
-        outline: none;
-        font-size: 1em;
-      }
+    .seperator {
+      width: 24px;
+    }
+
+    .mobile-search-btn {
+      display: none;
     }
   }
 
@@ -71,8 +84,30 @@
 
           tr {
             height: 64px;
+            cursor: pointer;
+          }
+
+          .avatar {
+            border-radius: 50%;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.35);
+            margin-top: 4px;
+          }
+
+          .number-avatar {
+            width: 40px;
+            height: 40px;
+            background: #bdbdbd;
+            font-size: 1.6em;
+            color: white;
           }
         }
+      }
+
+      .mobile-add-btn {
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+        display: none;
       }
     }
   }
@@ -86,9 +121,51 @@
     }
   }
 
+  @media only screen and (max-width: 1600px) {
+    // Show less column when the screen is smaller
+    table {
+      th:nth-child(5), td:nth-child(5), th:nth-child(6), td:nth-child(6) {
+        display: none;
+      }
+    }
+  }
+
   @media only screen and (max-width: 1000px) {
     .content-sidenav {
       display: none;
+    }
+
+    .mobile-add-btn {
+      display: block !important;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    .toolbar {
+      .search {
+        display: none !important;
+      }
+
+      .mobile-search-btn {
+        display: block !important;
+      }
+    }
+
+    // Show less column when the screen is smaller
+    table {
+      th:nth-child(4), td:nth-child(4) {
+        display: none;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .toolbar {
+      padding: 0 8px;
+
+      .seperator {
+        width: 16px;
+      }
     }
   }
 }

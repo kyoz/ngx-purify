@@ -52,6 +52,12 @@
       }
     }
 
+    table {
+      tr:hover {
+        background: mat-color($primary, .1);
+      }
+    }
+
     /**
      * Responsive Support
      */

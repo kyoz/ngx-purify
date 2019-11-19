@@ -1,17 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
-import { GetContacts } from '../../../stores/contact/contact.actions';
 import { ContactAppState } from '../../../stores/contact/contact.state';
+import { GetContacts, SearchContacts } from '../../../stores/contact/contact.actions';
 import { Contact } from '../../../shared/models/contact.model';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Injectable()
 export class ContactAppService {
   @Select(ContactAppState.getContacts) contacts$: Observable<Contact[]>;
 
-  constructor(private _store: Store) { }
+  dataType$ = new BehaviorSubject<'all' | 'favorite' | 'frequently'>('all');
 
-  public getContacts(type) {
+  constructor(private _store: Store) {
+    this.dataType$.subscribe(dataType => {
+      this.getContacts(dataType);
+    });
+  }
+
+  public getContacts(type: 'all' | 'favorite' | 'frequently') {
     this._store.dispatch(new GetContacts(type));
   }
 }

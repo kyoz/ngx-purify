@@ -1,10 +1,11 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { ContactAppService } from './contact.service';
 
 @Component({
   selector: 'app-contact-menu',
   template: `
     <button class="menu-item active" mat-ripple fxLayoutAlign="start center" fxLayoutGap="16px"
-            [class.active]="currentDataFilter === 'all'"
+            [class.active]="(_contact.dataType$ | async) === 'all'"
             (click)="changeFilter('all')">
       <mat-icon class="pure-icon-foreground">account_circle</mat-icon>
       <span class="pure-foreground">Contacts</span>
@@ -12,7 +13,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
     </button>
 
     <button class="menu-item" mat-ripple fxLayoutAlign="start center" fxLayoutGap="16px"
-            [class.active]="currentDataFilter === 'favorite'"
+            [class.active]="(_contact.dataType$ | async) === 'favorite'"
             (click)="changeFilter('favorite')">
       <mat-icon class="pure-icon-foreground">star</mat-icon>
       <span class="pure-foreground">Favorite Contacts</span>
@@ -20,7 +21,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
     </button>
 
     <button class="menu-item" mat-ripple fxLayoutAlign="start center" fxLayoutGap="16px"
-            [class.active]="currentDataFilter === 'frequently'"
+            [class.active]="(_contact.dataType$ | async) === 'frequently'"
             (click)="changeFilter('frequently')">
       <mat-icon class="pure-icon-foreground">restore</mat-icon>
       <span class="pure-foreground">Frequently Contacts</span>
@@ -69,9 +70,9 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactAppMenu {
-  currentDataFilter: 'all' | 'favorite' | 'frequently' = 'all';
+  constructor(public _contact: ContactAppService) {}
 
   changeFilter(filterType) {
-    this.currentDataFilter = filterType;
+    this._contact.dataType$.next(filterType);
   }
 }
