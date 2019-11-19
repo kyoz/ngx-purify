@@ -4,7 +4,7 @@
   $foreground: map-get($theme, foreground);
   $is-dark: map-get($theme, is-dark);
 
-  .pure-contact-app {
+  .template-contact-app {
     .mat-drawer-backdrop {
       background: rgba(0,0,0,.6);
     }
@@ -65,7 +65,7 @@
   /**
    * RTL Support
    */
-  .pure-contact-app[dir="rtl"] {
+  .template-contact-app[dir="rtl"] {
     .menu-item.active > .indicator {
       left: unset;
       right: 0px;

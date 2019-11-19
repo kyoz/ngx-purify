@@ -4,7 +4,7 @@
   $foreground: map-get($theme, foreground);
   $is-dark: map-get($theme, is-dark);
 
-  .pure-messenger-app {
+  .template-messenger-app {
     color: mat-color($foreground, text);
     background: mat-color($background, background);
 

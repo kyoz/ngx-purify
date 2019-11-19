@@ -1,4 +1,4 @@
-.template-event-log {
+.template-event-log-app {
   position: absolute;
   top: 0px;
   right: 0px;
@@ -117,7 +117,7 @@
   }
 }
 
-.template-event-log.fullwidth {
+.template-event-log-app.fullwidth {
   .content {
     padding-left: 48px;
   }
@@ -126,7 +126,7 @@
 /**
  * RTL Support
  */
-.template-event-log[dir="rtl"] {
+.template-event-log-app[dir="rtl"] {
   .content {
     .log {
       .tree {
@@ -139,7 +139,7 @@
   }
 }
 
-.template-event-log[dir="rtl"].fullwidth {
+.template-event-log-app[dir="rtl"].fullwidth {
   .content {
     padding-right: 48px;
     padding-left: 24px;

@@ -1,4 +1,4 @@
-<mat-sidenav-container class="pure-contact-app" [dir]="_settings.currentTextDir$ | async">
+<mat-sidenav-container class="template-contact-app" [dir]="_settings.currentTextDir$ | async">
   <mat-sidenav class="mobile-sidenav" mode="over" [(opened)]="isOpenedSidenav">
     <app-contact-menu></app-contact-menu>
   </mat-sidenav>
@@ -14,7 +14,10 @@
       </div>
 
       <div class="search" fxFlex="40%" fxLayout="row" fxLayoutAlign="space-between center">
-        <mat-icon class="pure-icon-foreground" fxFlex="38px">search</mat-icon>
+        <mat-icon class="pure-icon-foreground" fxFlex="24px">search</mat-icon>
+
+        <div fxFlex="8px"><!-- Spacer --></div>
+
         <input type="text" placeholder="Search" fxFlex />
 
         <button mat-icon-button fxFlex="40px">
@@ -36,7 +39,8 @@
     <div class="content" fxFlex>
       <mat-sidenav-container class="content-wrapper" fxFlex hasBackdrop="false">
         <mat-sidenav class="content-sidenav" mode="side" [(opened)]="isOpenedSidenav">
-          <div fxLayoutAlign="start center" style="margin: 0px 0px 24px 20px">
+          <div fxLayoutAlign="start center" style="margin-bottom: 24px">
+            <div style="width: 24px"><!-- Spacer --></div>
             <button mat-raised-button color="primary" style="height: 40px; width: 100%">
               <mat-icon>add</mat-icon>
               <span>&nbsp;&nbsp;Create Contact</span>

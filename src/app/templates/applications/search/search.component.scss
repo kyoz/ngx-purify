@@ -1,4 +1,4 @@
-.template-search {
+.template-search-app {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -108,7 +108,7 @@
   }
 }
 
-.template-search[dir="rtl"] {
+.template-search-app[dir="rtl"] {
   .content > .paginator > .next-btn {
     transform: rotate(180deg);
   }

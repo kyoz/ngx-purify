@@ -1,4 +1,4 @@
-.pure-messenger-app {
+.template-messenger-app {
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -458,7 +458,7 @@
  * RTL Support
  */
 
-.pure-messenger-app[dir="rtl"] {
+.template-messenger-app[dir="rtl"] {
   .contacts-wrapper > .contacts > .contact-item-selected {
     .indicator {
       left: auto;
@@ -481,7 +481,7 @@
  */
 
 @media only screen and (max-width: 1400px) {
-  .pure-messenger-app.menu-opened {
+  .template-messenger-app.menu-opened {
     .conversation-wrapper {
       .messages-assets {
         display: none;
@@ -491,7 +491,7 @@
 }
 
 @media only screen and (max-width: 1200px) {
-  .pure-messenger-app {
+  .template-messenger-app {
     .conversation-wrapper {
       .messages-assets {
         display: none;
@@ -501,7 +501,7 @@
 }
 
 @media only screen and (max-width: 680px) {
-  .pure-messenger-app {
+  .template-messenger-app {
     .contacts-wrapper {
       width: 64px;
       min-width: 64px;

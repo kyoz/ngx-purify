@@ -1,7 +1,7 @@
 @mixin template-event-log-theme($theme) {
   $is-dark: map-get($theme, is-dark);
 
-  .template-event-log {
+  .template-event-log-app {
     .content {
       .log {
         .tree {
