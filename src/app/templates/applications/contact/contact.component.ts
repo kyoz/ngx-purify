@@ -51,20 +51,20 @@ export class ContactApp implements OnInit {
     });
   }
 
-  removeContact(id: number) {
-    alert(id);
+  removeContact(contactId: number) {
+    this._contact.removeContact(contactId);
   }
 
   removeSelectedContact() {
-
+    this._contact.removeContacts(this.selection.selected);
   }
 
-  favoriteContact(id: number) {
-
-  }
-
-  unfavoriteContact(id: number) {
-
+  toggleFavorite(contact: Contact) {
+    if (contact.favorite) {
+      this._contact.unfavoriteContact(contact.id);
+    } else {
+      this._contact.favoriteContact(contact.id);
+    }
   }
 
   toggleSidenav() {
