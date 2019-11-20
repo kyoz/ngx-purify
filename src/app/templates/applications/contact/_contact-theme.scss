@@ -62,8 +62,19 @@
         background: mat-color($primary, .1);
       }
 
-      thead > tr > th {
-        border-top: none !important;
+      thead {
+        z-index: 100;
+
+        tr {
+
+          &:hover {
+            background: mat-color($background, card);
+          }
+
+          th {
+            border-top: none !important;
+          }
+        }
       }
     }
 

@@ -24,7 +24,7 @@ export class ContactApp implements OnInit {
   isOpenedMobileSidenav = false;
   isMobileSearching = false;
 
-  displayColumns = ['select', 'avatar', 'name', 'email', 'phone', 'job', 'functions'];
+  displayColumns = ['select', 'avatar', 'firstName', 'email', 'phone', 'job', 'functions'];
   selection = new SelectionModel<Contact>(true, []);
   dataSource = new MatTableDataSource([]);
 
