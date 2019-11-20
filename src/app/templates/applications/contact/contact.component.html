@@ -80,6 +80,31 @@
 
         <mat-sidenav-content style="overflow: hidden; position: relative">
           <div class="contacts-wrapper">
+            <div class="selected-contacts-header pure-background" *ngIf="selection.hasValue()"
+                 fxLayoutAlign="space-between center">
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <button mat-icon-button (click)="deselectAll()">
+                  <mat-icon class="pure-icon-foreground">close</mat-icon>
+                </button>
+
+                <button mat-button color="primary" [matMenuTriggerFor]="headerFunctionsMenu">
+                  <span>Selected {{ selection.selected.length }} contacts</span>
+                  <mat-icon>arrow_drop_down</mat-icon>
+                </button>
+              </div>
+
+              <button mat-button color="warn" (click)="removeSelectedContact()">
+                <mat-icon style="padding: 0 8px">delete</mat-icon>
+                <span>Remove selected</span>
+              </button>
+            </div>
+
+            <!-- Header functions menu -->
+            <mat-menu #headerFunctionsMenu="matMenu">
+              <button mat-menu-item (click)="selectAll()">Select all</button>
+              <button mat-menu-item (click)="deselectAll()">Deselect all</button>
+            </mat-menu>
+
             <div class="contacts" purePerfectScrollbar>
               <table mat-table [dataSource]="dataSource" [trackBy]="trackById" matSort>
                 <!-- Checkbox -->
@@ -146,6 +171,46 @@
                   <th mat-header-cell *matHeaderCellDef mat-sort-header> Job </th>
                   <td mat-cell *matCellDef="let element">
                     {{element.job}} {{element.company ? ' at ' + element.company : ''}}
+                  </td>
+                </ng-container>
+
+                <!-- Functions -->
+                <ng-container matColumnDef="functions">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 64px; min-width: 64px; max-width: 64px"></th>
+                  <td mat-cell *matCellDef="let element" style="width: 64px; min-width: 64px; max-width: 64px">
+                    <div fxLayoutAlign="end center">
+                      <button mat-icon-button>
+                        <mat-icon *ngIf="element.favorite; else notFavorite" style="color: #FFD600">star</mat-icon>
+
+                        <ng-template #notFavorite>
+                          <mat-icon class="pure-icon-foreground">star_border</mat-icon>
+                        </ng-template>
+                      </button>
+
+                      <button mat-icon-button [matMenuTriggerFor]="functionMenu">
+                        <mat-icon class="pure-icon-foreground">more_vert</mat-icon>
+                      </button>
+                    </div>
+
+                    <!-- Functions Menu -->
+                    <mat-menu #functionMenu="matMenu">
+                      <button mat-menu-item (click)="removeContact(element.id)">
+                        <mat-icon>delete</mat-icon>
+                        <span>Remove</span>
+                      </button>
+
+                      <button mat-menu-item (click)="unfavoriteContact(element.id)" *ngIf="element.favorite; else notFavoriteMenuBtn">
+                        <mat-icon class="pure-icon-foreground">star_border</mat-icon>
+                        <span>Unfavorite</span>
+                      </button>
+
+                      <ng-template #notFavoriteMenuBtn>
+                        <button mat-menu-item (click)="favoriteContact(element.id)">
+                          <mat-icon style="color: #FFD600">star</mat-icon>
+                          <span>Favorite</span>
+                        </button>
+                      </ng-template>
+                    </mat-menu>
                   </td>
                 </ng-container>
 

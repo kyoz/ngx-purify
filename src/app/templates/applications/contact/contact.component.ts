@@ -24,7 +24,7 @@ export class ContactApp implements OnInit {
   isOpenedMobileSidenav = false;
   isMobileSearching = false;
 
-  displayColumns = ['select', 'avatar', 'name', 'email', 'phone', 'job'];
+  displayColumns = ['select', 'avatar', 'name', 'email', 'phone', 'job', 'functions'];
   selection = new SelectionModel<Contact>(true, []);
   dataSource = new MatTableDataSource([]);
 
@@ -49,6 +49,22 @@ export class ContactApp implements OnInit {
     this.searchTerm$.pipe(distinctUntilChanged()).subscribe((searchTerm: string) => {
       this.dataSource.filter = searchTerm ? searchTerm.trim().toLowerCase() : '';
     });
+  }
+
+  removeContact(id: number) {
+    alert(id);
+  }
+
+  removeSelectedContact() {
+
+  }
+
+  favoriteContact(id: number) {
+
+  }
+
+  unfavoriteContact(id: number) {
+
   }
 
   toggleSidenav() {
@@ -82,6 +98,14 @@ export class ContactApp implements OnInit {
     this.isAllSelected() ?
         this.selection.clear() :
         this.dataSource.data.forEach(row => this.selection.select(row));
+  }
+
+  selectAll() {
+    this.dataSource.data.forEach(row => this.selection.select(row));
+  }
+
+  deselectAll() {
+    this.selection.clear();
   }
 
   trackById(index: number, contact: Contact) {

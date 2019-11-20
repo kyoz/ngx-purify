@@ -64,18 +64,29 @@
       box-sizing: border-box;
       overflow: hidden;
 
+      .selected-contacts-header {
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        top: 1px;
+        height: 62px;
+        z-index: 10;
+        padding: 0 12px;
+      }
+
       .contacts {
         position: absolute;
         top: 0px;
-        right: 0px;
+        right: 16px;
         bottom: 0px;
-        left: 0px;
+        left: 16px;
+        border: 1px solid rgba(0,0,0,.18);
+        z-index: 9;
 
+        // Custom styles for mat-table
         table {
-          width: calc(100% - 32px);
-          margin: 0 16px 16px 16px;
+          width: 100%;
           box-sizing: border-box;
-          border: 1px solid rgba(0,0,0,.18);
 
           th {
             border-top: 1px solid rgba(0,0,0,.18);

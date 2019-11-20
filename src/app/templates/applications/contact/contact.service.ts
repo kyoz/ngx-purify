@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
 import { ContactAppState } from '../../../stores/contact/contact.state';
-import { GetContacts, SearchContacts } from '../../../stores/contact/contact.actions';
+import { GetContacts } from '../../../stores/contact/contact.actions';
 import { Contact } from '../../../shared/models/contact.model';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { distinctUntilChanged } from 'rxjs/operators';
 
 @Injectable()
 export class ContactAppService {

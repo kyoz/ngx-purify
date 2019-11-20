@@ -2,11 +2,10 @@ import { Action, State, StateContext, Selector } from '@ngxs/store';
 import { ImmutableSelector, ImmutableContext } from '@ngxs-labs/immer-adapter';
 import { PureMockApiService } from '../../core/pure-mock-api/pure-mock-api.service';
 import { Contact } from '../../shared/models/contact.model';
-import { GetContacts, SearchContacts } from './contact.actions';
+import { GetContacts } from './contact.actions';
 
 export class ContactAppStateModel {
   contacts: Contact[];
-  filteredContacts: Contact[];
 }
 
 @State<ContactAppStateModel>({
