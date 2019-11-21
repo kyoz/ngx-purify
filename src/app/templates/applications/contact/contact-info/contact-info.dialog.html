@@ -1,0 +1,107 @@
+<div class="container" fxLayout="column" fxLayoutAlign="space-between stretch"
+     [dir]="_settings.currentTextDir$ | async">
+  <mat-toolbar class="header" color="primary"
+               fxLayout="column" fxLayoutAlign="space-between stretch" fxFlex="148px">
+    <div fxFlex="56px" fxLayoutAlign="space-between center">
+      <div style="padding: 0 8px">Create new contact</div>
+
+      <button mat-icon-button (click)="close()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div fxFlex fxLayoutAlign="center center">
+      <div class="avatar-wrapper" (click)="changeAvatar()">
+        <img class="avatar" fxLayoutAlign="center center" [src]="'assets/image/avatar/default.png'" />
+        <div class="capture" fxLayoutAlign="center center">
+          <mat-icon>photo_camera</mat-icon>
+        </div>
+      </div>
+      <input #avatarFile type="file" style="display: none">
+    </div>
+
+  </mat-toolbar>
+
+  <div class="body" fxFlex>
+    <form class="content" purePerfectScrollbar>
+      <mat-form-field appearance="outline">
+        <mat-label>First name</mat-label>
+        <input matInput placeholder="First name">
+        <mat-icon matSuffix class="pure-icon-foreground" svgIcon="account-circle"></mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Last name</mat-label>
+        <input matInput placeholder="Last name">
+        <mat-icon matSuffix class="pure-icon-foreground" svgIcon="account-circle"></mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Nick name</mat-label>
+        <input matInput placeholder="Nick name">
+        <mat-icon matSuffix class="pure-icon-foreground">face</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Gender</mat-label>
+        <mat-select placeholder="Gender">
+          <mat-option [value]="1">Male</mat-option>
+          <mat-option [value]="0">Female</mat-option>
+        </mat-select>
+        <mat-icon matSuffix class="pure-icon-foreground" svgIcon="gender-male"></mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Birthday</mat-label>
+        <input matInput [matDatepicker]="picker" placeholder="Birthday">
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-icon matSuffix class="pure-icon-foreground"(click)="picker.open()" style="cursor: pointer">cake</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" type="email">
+        <mat-icon matSuffix class="pure-icon-foreground">mail</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Phone</mat-label>
+        <input matInput placeholder="Phone" type="tel">
+        <mat-icon matSuffix class="pure-icon-foreground">local_phone</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Job</mat-label>
+        <input matInput placeholder="Job">
+        <mat-icon matSuffix class="pure-icon-foreground">work</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Company</mat-label>
+        <input matInput placeholder="Company">
+        <mat-icon matSuffix class="pure-icon-foreground">apartment</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Address</mat-label>
+        <textarea matInput placeholder="Address" style="height: 48px"></textarea>
+        <mat-icon matSuffix class="pure-icon-foreground">house</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea matInput placeholder="Description" style="height: 48px"></textarea>
+        <mat-icon matSuffix class="pure-icon-foreground">notes</mat-icon>
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div class="buttons" fxLayoutAlign="space-between center" fxFlex="64px">
+    <div>
+      <button mat-button color="warn">REMOVE</button>
+    </div>
+
+    <div>
+      <button mat-button color="primary">CREATE</button>
+    </div>
+  </div>
+</div>

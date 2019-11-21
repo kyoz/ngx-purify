@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 
 // Components
-import { ContactApp, ContactAppMenu } from './contact';
+import { ContactApp, ContactAppMenu, ContactAppInfoDialog } from './contact';
 import { EventLogApp } from './event-log/event-log.component';
 import { SearchApp } from './search/search.component';
 import { MessengerApp, MessengerAppStatus } from './messenger';
@@ -31,7 +31,7 @@ import { ContactAppService } from '../applications/contact/contact.service';
     ])
   ],
   declarations: [
-    ContactApp, ContactAppMenu,
+    ContactApp, ContactAppMenu, ContactAppInfoDialog,
     EventLogApp,
     MessengerApp, MessengerAppStatus,
     SearchApp,
@@ -40,6 +40,9 @@ import { ContactAppService } from '../applications/contact/contact.service';
   providers: [
     MessengerAppService,
     ContactAppService
+  ],
+  entryComponents: [
+    ContactAppInfoDialog
   ]
 })
 export class ApplicationsModule {}

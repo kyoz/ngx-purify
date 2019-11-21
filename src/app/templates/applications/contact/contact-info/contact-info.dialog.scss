@@ -1,0 +1,69 @@
+.container {
+  width: 100%;
+  height: 100%;
+
+  .header {
+    font-weight: normal;
+    padding: 0 8px;
+
+    .avatar-wrapper {
+      position: relative;
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.35);
+      transform: translateY(-12px);
+      cursor: pointer;
+
+      .avatar {
+        width: 78px;
+        height: 78px;
+        border-radius: 50%;
+        background: #FFF;
+        z-index: 1;
+      }
+
+      .capture {
+        position: absolute;
+        top: 4px;
+        bottom: 4px;
+        left: 4px;
+        right: 4px;
+        border-radius: 50%;
+        visibility: hidden;
+        z-index: 2;
+        background: rgba(0,0,0,.24);
+      }
+
+      &:hover {
+        .capture {
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  .body {
+    position: relative;
+    overflow: hidden;
+
+    .content {
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      padding: 24px;
+      box-sizing: border-box;
+      overflow: hidden;
+
+      mat-form-field {
+        width: 100%;
+      }
+    }
+  }
+
+  .buttons {
+    padding: 0 8px;
+  }
+}

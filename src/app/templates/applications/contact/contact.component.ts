@@ -1,10 +1,12 @@
 import { Component, OnInit, ViewChild, ChangeDetectionStrategy, ElementRef } from '@angular/core';
 import { PureSettingsService } from '../../../core/pure-services/pure-settings.service';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatSort } from '@angular/material/sort';
 import { ContactAppService } from './contact.service';
 import { Contact } from '../../../shared/models/contact.model';
+import { ContactAppInfoDialog } from './contact-info/contact-info.dialog';
 import { BehaviorSubject } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
 
@@ -30,7 +32,8 @@ export class ContactApp implements OnInit {
 
   constructor(
     public _settings: PureSettingsService,
-    public _contact: ContactAppService
+    public _contact: ContactAppService,
+    private _dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -48,6 +51,26 @@ export class ContactApp implements OnInit {
 
     this.searchTerm$.pipe(distinctUntilChanged()).subscribe((searchTerm: string) => {
       this.dataSource.filter = searchTerm ? searchTerm.trim().toLowerCase() : '';
+    });
+  }
+
+  onTableRowClick(contact: Contact) {
+    this.openInfoDialog('update', contact);
+  }
+
+  createNewContact() {
+    this.openInfoDialog('create');
+  }
+
+  openInfoDialog(type: 'create' | 'update', contact: Contact = null) {
+    this._dialog.open(ContactAppInfoDialog, {
+      autoFocus: false,
+      width: '480px',
+      height: '860px',
+      maxWidth: '90vw',
+      maxHeight: '90vh',
+      panelClass: 'mat-dialog-no-padding',
+      data: { type, contact }
     });
   }
 

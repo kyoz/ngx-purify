@@ -80,13 +80,14 @@
         right: 16px;
         bottom: 0px;
         left: 16px;
-        border: 1px solid rgba(0,0,0,.18);
         z-index: 9;
 
         // Custom styles for mat-table
         table {
           width: 100%;
           box-sizing: border-box;
+          margin-bottom: 24px;
+          border: 1px solid rgba(0,0,0,.18);
 
           th {
             border-top: 1px solid rgba(0,0,0,.18);

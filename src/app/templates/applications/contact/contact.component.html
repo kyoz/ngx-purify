@@ -69,7 +69,8 @@
         <mat-sidenav class="content-sidenav" mode="side" [(opened)]="isOpenedSidenav">
           <div fxLayoutAlign="start center" style="margin-bottom: 24px">
             <div style="width: 24px"><!-- Spacer --></div>
-            <button mat-raised-button color="primary" style="height: 40px; width: 100%">
+            <button mat-raised-button color="primary" (click)="createNewContact()"
+                    style="height: 40px; width: 100%">
               <mat-icon>add</mat-icon>
               <span>&nbsp;&nbsp;Create Contact</span>
             </button>
@@ -79,7 +80,7 @@
         </mat-sidenav>
 
         <mat-sidenav-content style="overflow: hidden; position: relative">
-          <div class="contacts-wrapper">
+          <div class="contacts-wrapper" purePerfectScrollbar>
             <div class="selected-contacts-header pure-background" *ngIf="selection.hasValue()"
                  fxLayoutAlign="space-between center">
               <div fxLayout="row" fxLayoutAlign="start center">
@@ -105,7 +106,7 @@
               <button mat-menu-item (click)="deselectAll()">Deselect all</button>
             </mat-menu>
 
-            <div class="contacts" purePerfectScrollbar>
+            <div class="contacts">
               <table mat-table [dataSource]="dataSource" [trackBy]="trackById" matSort>
                 <!-- Checkbox -->
                 <ng-container matColumnDef="select">
@@ -215,12 +216,12 @@
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayColumns; sticky: true"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayColumns;" (click)="onTableRowClick(row)"></tr>
 
               </table>
             </div>
 
-            <button mat-fab class="mobile-add-btn" color="primary">
+            <button mat-fab class="mobile-add-btn" color="primary" (click)="createNewContact()" style="z-index: 100">
               <mat-icon>add</mat-icon>
             </button>
           </div>

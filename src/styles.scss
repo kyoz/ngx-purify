@@ -52,3 +52,12 @@ h1, h2 {
   -webkit-overflow-scrolling: touch; // Momentum Scrolling Support
   pointer-events: auto; // Fix something Scrollbar not showing on mobile devices
 }
+
+/* Material Component overwrite styles */
+
+// Add this panel class to dialog config to remove dialog padding
+.mat-dialog-no-padding {
+  .mat-dialog-container {
+    padding: 0;
+  }
+}
