@@ -5,6 +5,16 @@ export class GetContacts {
   constructor(public type: 'all' | 'favorite' | 'frequently') { }
 }
 
+export class CreateContact {
+  static readonly type = '[Contact App] Create Contact';
+  constructor(public contact: Contact) { }
+}
+
+export class UpdateContact {
+  static readonly type = '[Contact App] Update Contact';
+  constructor(public contact: Contact) { }
+}
+
 export class RemoveContact {
   static readonly type = '[Contact App] Remove Contact';
   constructor(public contactId: number) { }
@@ -23,4 +33,9 @@ export class FavoriteContact {
 export class UnfavoriteContact {
   static readonly type = '[Contact App] Unfavorite Contact';
   constructor(public contactId: number) { }
+}
+
+export class Notify {
+  static readonly type = '[Contact App] Notify';
+  constructor(public message: string) { }
 }

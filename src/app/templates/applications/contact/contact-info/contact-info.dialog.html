@@ -3,7 +3,7 @@
   <mat-toolbar class="header" color="primary"
                fxLayout="column" fxLayoutAlign="space-between stretch" fxFlex="148px">
     <div fxFlex="56px" fxLayoutAlign="space-between center">
-      <div style="padding: 0 8px">Create new contact</div>
+      <div style="padding: 0 8px">{{ isCreating ? 'Create new contact' : 'Contact detail' }}</div>
 
       <button mat-icon-button (click)="close()">
         <mat-icon>close</mat-icon>
@@ -11,7 +11,13 @@
     </div>
     <div fxFlex fxLayoutAlign="center center">
       <div class="avatar-wrapper" (click)="changeAvatar()">
-        <img class="avatar" fxLayoutAlign="center center" [src]="'assets/image/avatar/default.png'" />
+        <img class="avatar" fxLayoutAlign="center center" *ngIf="avatar && avatar.length > 0; else noAvatar"
+             [src]="'assets/image/avatar/' + avatar" />
+
+        <ng-template #noAvatar>
+          <img class="avatar" fxLayoutAlign="center center" [src]="'assets/image/avatar/default.png'" />
+        </ng-template>
+
         <div class="capture" fxLayoutAlign="center center">
           <mat-icon>photo_camera</mat-icon>
         </div>
@@ -22,28 +28,29 @@
   </mat-toolbar>
 
   <div class="body" fxFlex>
-    <form class="content" purePerfectScrollbar>
+    <form class="content" [formGroup]="form" purePerfectScrollbar>
       <mat-form-field appearance="outline">
         <mat-label>First name</mat-label>
-        <input matInput placeholder="First name">
+        <input matInput placeholder="First name" formControlName="firstName" required>
         <mat-icon matSuffix class="pure-icon-foreground" svgIcon="account-circle"></mat-icon>
+        <mat-error *ngIf="form.get('firstName').invalid" align="end">First name is required</mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Last name</mat-label>
-        <input matInput placeholder="Last name">
+        <input matInput placeholder="Last name" formControlName="lastName">
         <mat-icon matSuffix class="pure-icon-foreground" svgIcon="account-circle"></mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Nick name</mat-label>
-        <input matInput placeholder="Nick name">
+        <input matInput placeholder="Nick name" formControlName="nickName">
         <mat-icon matSuffix class="pure-icon-foreground">face</mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Gender</mat-label>
-        <mat-select placeholder="Gender">
+        <mat-select placeholder="Gender" formControlName="gender">
           <mat-option [value]="1">Male</mat-option>
           <mat-option [value]="0">Female</mat-option>
         </mat-select>
@@ -52,44 +59,44 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Birthday</mat-label>
-        <input matInput [matDatepicker]="picker" placeholder="Birthday">
+        <input matInput [matDatepicker]="picker" placeholder="Birthday" formControlName="birthday">
         <mat-datepicker #picker></mat-datepicker>
         <mat-icon matSuffix class="pure-icon-foreground"(click)="picker.open()" style="cursor: pointer">cake</mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
-        <input matInput placeholder="Email" type="email">
+        <input matInput placeholder="Email" type="email" formControlName="email">
         <mat-icon matSuffix class="pure-icon-foreground">mail</mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Phone</mat-label>
-        <input matInput placeholder="Phone" type="tel">
+        <input matInput placeholder="Phone" type="tel" formControlName="phone">
         <mat-icon matSuffix class="pure-icon-foreground">local_phone</mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Job</mat-label>
-        <input matInput placeholder="Job">
+        <input matInput placeholder="Job" formControlName="job">
         <mat-icon matSuffix class="pure-icon-foreground">work</mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Company</mat-label>
-        <input matInput placeholder="Company">
+        <input matInput placeholder="Company" formControlName="company">
         <mat-icon matSuffix class="pure-icon-foreground">apartment</mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Address</mat-label>
-        <textarea matInput placeholder="Address" style="height: 48px"></textarea>
+        <textarea matInput placeholder="Address" style="height: 48px" formControlName="address"></textarea>
         <mat-icon matSuffix class="pure-icon-foreground">house</mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Description</mat-label>
-        <textarea matInput placeholder="Description" style="height: 48px"></textarea>
+        <textarea matInput placeholder="Description" style="height: 48px" formControlName="description"></textarea>
         <mat-icon matSuffix class="pure-icon-foreground">notes</mat-icon>
       </mat-form-field>
     </form>
@@ -97,11 +104,17 @@
 
   <div class="buttons" fxLayoutAlign="space-between center" fxFlex="64px">
     <div>
-      <button mat-button color="warn">REMOVE</button>
+      <button mat-button color="warn" *ngIf="!isCreating"
+              (click)="remove()">REMOVE</button>
     </div>
 
     <div>
-      <button mat-button color="primary">CREATE</button>
+      <button mat-button color="primary" *ngIf="isCreating; else updating"
+              (click)="create()">CREATE</button>
+
+      <ng-template #updating>
+        <button mat-button color="primary" (click)="update()">UPDATE</button>
+      </ng-template>
     </div>
   </div>
 </div>

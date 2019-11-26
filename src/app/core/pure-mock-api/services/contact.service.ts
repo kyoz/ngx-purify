@@ -12,6 +12,18 @@ export class ContactMockApiService {
   // Assume this data that you got from server
   private contacts: Contact[] = Array.from(CONTACTS);
 
+  private generateNewId() {
+    let maxId = 0;
+
+    for (const contact of this.contacts) {
+      if (maxId < contact.id) {
+        maxId = contact.id;
+      }
+    }
+
+    return ++maxId;
+  }
+
   public getContacts(): Observable<Contact[]> {
     return new Observable(observer => {
       observer.next(this.contacts);
@@ -29,6 +41,57 @@ export class ContactMockApiService {
   public getFrequentlyContacts(): Observable<Contact[]> {
     return new Observable(observer => {
       observer.next(this.contacts.filter(contact => FREQUENTLY_CONTACT_IDS.indexOf(contact.id) !== -1));
+      observer.complete();
+    });
+  }
+
+  public createContact(newContact: Contact) {
+    const newId = this.generateNewId();
+    const contacts = [...this.contacts];
+
+    newContact.id = newId;
+
+    return new Observable(observer => {
+
+      contacts.push(newContact);
+
+      this.contacts = contacts;
+
+      observer.next();
+      observer.complete();
+    });
+  }
+
+  public updateContact(updatedContact: Contact) {
+    return new Observable(observer => {
+      const updatedContacts = [];
+
+      for (const contact of this.contacts) {
+        if (contact.id === updatedContact.id) {
+          const newContact = Object.assign({}, contact);
+
+          newContact.firstName = updatedContact.firstName;
+          newContact.lastName = updatedContact.lastName;
+          newContact.nickName = updatedContact.nickName;
+          newContact.gender = updatedContact.gender;
+          newContact.birthday = updatedContact.birthday;
+          newContact.address = updatedContact.address;
+          newContact.email = updatedContact.email;
+          newContact.phone = updatedContact.phone;
+          newContact.company = updatedContact.company;
+          newContact.job = updatedContact.job;
+          newContact.description = updatedContact.description;
+          newContact.favorite = contact.favorite;
+
+          updatedContacts.push(newContact);
+        } else {
+          updatedContacts.push(contact);
+        }
+      }
+
+      this.contacts = updatedContacts;
+
+      observer.next();
       observer.complete();
     });
   }

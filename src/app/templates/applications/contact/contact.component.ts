@@ -1,7 +1,9 @@
-import { Component, OnInit, ViewChild, ChangeDetectionStrategy, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
 import { PureSettingsService } from '../../../core/pure-services/pure-settings.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatSort } from '@angular/material/sort';
 import { ContactAppService } from './contact.service';
@@ -19,6 +21,7 @@ import { distinctUntilChanged } from 'rxjs/operators';
 export class ContactApp implements OnInit {
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild('searchInput', {static: false}) searchInput: ElementRef;
+  @ViewChild('contactsWrapper', { static: false }) contactContentScrollbar?: PerfectScrollbarDirective;
 
   searchTerm$ = new BehaviorSubject<string>('');
 
@@ -33,12 +36,14 @@ export class ContactApp implements OnInit {
   constructor(
     public _settings: PureSettingsService,
     public _contact: ContactAppService,
-    private _dialog: MatDialog
+    private _dialog: MatDialog,
+    private _snackBar: MatSnackBar,
+    private _changeDetectorRef: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
     this._contact.contacts$.subscribe(res => {
-      this.dataSource = new MatTableDataSource(res ? res : []);
+      this.dataSource.data = res ? [...res] : [];
       this.dataSource.sort = this.sort;
 
       // Reset search input & selections
@@ -46,7 +51,25 @@ export class ContactApp implements OnInit {
         this.searchInput.nativeElement.value = '';
       }
 
+      // Clear selection
       this.selection.clear();
+
+      this._changeDetectorRef.detectChanges();
+    });
+
+    this._contact.dataType$.subscribe(() => {
+      // Scroll table to top when user change data list. This is just for example purpose
+      // For real application, this must base on your real api response
+      // You can adjust Notify Action for your need
+      setTimeout(() => {
+        this.scrollTableToTop();
+      }, 100);
+    });
+
+    this._contact.notify$.subscribe(notify => {
+      if (notify && notify.message && notify.message.length > 0) {
+        this._snackBar.open(notify.message, 'OK', { duration: 3000 });
+      }
     });
 
     this.searchTerm$.pipe(distinctUntilChanged()).subscribe((searchTerm: string) => {
@@ -63,7 +86,7 @@ export class ContactApp implements OnInit {
   }
 
   openInfoDialog(type: 'create' | 'update', contact: Contact = null) {
-    this._dialog.open(ContactAppInfoDialog, {
+    const dialogRef = this._dialog.open(ContactAppInfoDialog, {
       autoFocus: false,
       width: '480px',
       height: '860px',
@@ -71,6 +94,22 @@ export class ContactApp implements OnInit {
       maxHeight: '90vh',
       panelClass: 'mat-dialog-no-padding',
       data: { type, contact }
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      const action = res && res.action || '';
+
+      switch (action) {
+        case 'create':
+          this._contact.createContact(res.contact);
+          break;
+        case 'update':
+          this._contact.updateContact(res.contact);
+          break;
+        case 'remove':
+          this._contact.removeContact(res.contact.id);
+          break;
+      }
     });
   }
 
@@ -129,6 +168,18 @@ export class ContactApp implements OnInit {
 
   deselectAll() {
     this.selection.clear();
+  }
+
+  scrollTableToTop() {
+    if (this.contactContentScrollbar) {
+      this.contactContentScrollbar.update();
+      this.contactContentScrollbar.scrollToTop();
+    }
+  }
+
+  preventClick(event) {
+    event.preventDefault();
+    event.stopPropagation();
   }
 
   trackById(index: number, contact: Contact) {
