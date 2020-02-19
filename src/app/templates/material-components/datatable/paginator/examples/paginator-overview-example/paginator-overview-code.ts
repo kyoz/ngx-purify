@@ -31,7 +31,7 @@ export const html = `
 
 export const ts = `
 import { Component } from '@angular/core';
-import { PageEvent } from '@angular/material';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'paginator-overview-example',

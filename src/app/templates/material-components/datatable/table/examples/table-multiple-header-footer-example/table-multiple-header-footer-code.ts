@@ -46,7 +46,6 @@ export const html = `
 
 export const ts = `
 import { Component } from '@angular/core';
-import { Transaction } from '../table-footer-row-example/table-footer-row-example';
 
 export interface Transaction {
   item: string;

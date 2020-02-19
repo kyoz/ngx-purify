@@ -3,7 +3,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { MatIconRegistry } from '@angular/material';
+import { MatIconRegistry } from '@angular/material/icon';
 
 // Pure Modules
 import { PureSharedModule } from '../shared/shared.module';
@@ -41,18 +41,14 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
 
 // Highlightjs
-import { HighlightModule } from 'ngx-highlightjs';
+import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 
-import xml from 'highlight.js/lib/languages/xml';
-import scss from 'highlight.js/lib/languages/scss';
-import typescript from 'highlight.js/lib/languages/typescript';
-
-export function hljsLanguages() {
-  return [
-    { name: 'typescript', func: typescript },
-    { name: 'scss', func: scss },
-    { name: 'xml', func: xml }
-  ];
+export function getHighlightLanguages() {
+  return {
+    typescript: () => import('highlight.js/lib/languages/typescript'),
+    scss: () => import('highlight.js/lib/languages/scss'),
+    xml: () => import('highlight.js/lib/languages/xml')
+  };
 }
 
 const PURE_CORE_MODULES = [
@@ -88,9 +84,7 @@ const PURE_CORE_MODULES = [
     }),
 
     // Highlightjs
-    HighlightModule.forRoot({
-      languages: hljsLanguages
-    })
+    HighlightModule
   ],
   exports: [
     ...PURE_CORE_MODULES
@@ -99,6 +93,14 @@ const PURE_CORE_MODULES = [
     PureGlobalService,
     PureSettingsService,
     PureSettingsStorageService,
+
+    // Highlightjs Global Configuration
+    {
+      provide: HIGHLIGHT_OPTIONS,
+      useValue: {
+        languages: getHighlightLanguages()
+      }
+    },
 
     // Perfect Scrollbar Global Configuration
     {

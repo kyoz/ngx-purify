@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core';
 import { Action, State, StateContext, Selector } from '@ngxs/store';
 import { ImmutableSelector, ImmutableContext } from '@ngxs-labs/immer-adapter';
 import { ChatboxContact, ChatboxMessage, CurrentConversation } from '../../shared/models/chatbox.model';
@@ -18,6 +19,7 @@ export class PureSideChatboxStateModel {
     currentMessages: []
   }
 })
+@Injectable()
 export class PureSideChatboxState {
   constructor(private _mockApi: PureMockApiService) { }
 

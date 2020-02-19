@@ -7,7 +7,7 @@ export const html = `
 
 export const ts = `
 import { Component } from '@angular/core';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'snackbar-overview-example',

@@ -9,7 +9,7 @@ import { distinctUntilChanged, filter, debounceTime } from 'rxjs/operators';
 
 @Injectable()
 export class PureChatboxService {
-  @Select(PureSideChatboxState.getContacts) contacts$: Observable<ChatboxContact>;
+  @Select(PureSideChatboxState.getContacts) contacts$: Observable<ChatboxContact[]>;
   @Select(PureSideChatboxState.getCurrentContact) currentContact$: Observable<ChatboxContact>;
   @Select(PureSideChatboxState.getCurrentMessages) currentMessages$: Observable<ChatboxMessage[]>;
 

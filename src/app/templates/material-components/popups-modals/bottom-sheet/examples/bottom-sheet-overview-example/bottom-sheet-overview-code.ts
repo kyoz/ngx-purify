@@ -7,7 +7,7 @@ export const html = `
 
 export const ts = `
 import { Component } from '@angular/core';
-import { MatBottomSheet, MatBottomSheetRef } from '@angular/material';
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 
 @Component({
   selector: 'bottom-sheet-overview-example',

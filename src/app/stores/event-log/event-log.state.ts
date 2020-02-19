@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core';
 import { Action, State, StateContext, Selector } from '@ngxs/store';
 import { ImmutableSelector, ImmutableContext } from '@ngxs-labs/immer-adapter';
 import { PureMockApiService } from '../../core/pure-mock-api/pure-mock-api.service';
@@ -16,6 +17,7 @@ export class EventLogAppStateModel {
     eventLogs: []
   }
 })
+@Injectable()
 export class EventLogAppState {
   constructor(private _mockApi: PureMockApiService) { }
 

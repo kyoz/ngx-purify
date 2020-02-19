@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core';
 import { Store, Action, State, StateContext, Selector } from '@ngxs/store';
 import { ImmutableSelector, ImmutableContext } from '@ngxs-labs/immer-adapter';
 import { PureMockApiService } from '../../core/pure-mock-api/pure-mock-api.service';
@@ -30,6 +31,7 @@ export class ContactAppStateModel {
     notify: undefined
   }
 })
+@Injectable()
 export class ContactAppState {
   constructor(
     private _store: Store,

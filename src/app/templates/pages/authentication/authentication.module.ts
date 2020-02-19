@@ -4,14 +4,12 @@ import { NgModule } from '@angular/core';
 import { AuthenticationRoutingModule } from './authentication-routing.module';
 
 // Material Modules
-import {
-  MatInputModule,
-  MatIconModule,
-  MatButtonModule,
-  MatCardModule,
-  MatCheckboxModule,
-  MatTooltipModule
-} from '@angular/material';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 // Other Modules
 import { PureSharedModule } from '../../../shared/shared.module';
