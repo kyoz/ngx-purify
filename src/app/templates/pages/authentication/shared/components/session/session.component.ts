@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { PureSettingsService } from 'src/app/core/pure-services/pure-settings.service';
 
 @Component({
   selector: 'auth-session',
@@ -7,4 +8,5 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AuthSessionComponent {
+  constructor(public _settings: PureSettingsService) { }
 }

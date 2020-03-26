@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { PureSettingsService } from 'src/app/core/pure-services/pure-settings.service';
 
 @Component({
   selector: 'auth-verify-with-code',
@@ -8,4 +9,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 })
 export class AuthVerifyWithCodeComponent {
   verifyCode: string;
+
+  constructor(public _settings: PureSettingsService) { }
 }

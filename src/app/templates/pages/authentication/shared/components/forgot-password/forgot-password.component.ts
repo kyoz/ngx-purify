@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { PureSettingsService } from 'src/app/core/pure-services/pure-settings.service';
 
 @Component({
   selector: 'auth-forgot-password',
@@ -16,6 +17,7 @@ export class AuthForgotPasswordComponent implements OnInit {
   versionSuffix: string = '';
 
   constructor(
+    public _settings: PureSettingsService,
     private _router: Router
   ) {}
 

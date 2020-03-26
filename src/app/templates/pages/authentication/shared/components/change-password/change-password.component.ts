@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormBuilder, FormGroupDirective, NgForm } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { PureSettingsService } from 'src/app/core/pure-services/pure-settings.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -21,7 +22,14 @@ export class AuthChangePasswordComponent {
   changePasswordForm: FormGroup;
   errorStateMatcher: ErrorStateMatcher = new MyErrorStateMatcher();
 
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(
+    public _settings: PureSettingsService,
+    private _formBuilder: FormBuilder
+  ) {
+    this.init();
+  }
+
+  init() {
     this.changePasswordForm = this._formBuilder.group({
       currentPassword: ['', [Validators.required]],
       newPassword: this._formBuilder.group({

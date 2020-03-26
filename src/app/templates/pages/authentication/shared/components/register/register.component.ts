@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, Validators, FormGroup, FormBuilder, FormGroupDirective, NgForm } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { PureSettingsService } from 'src/app/core/pure-services/pure-settings.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -26,6 +27,7 @@ export class AuthRegisterComponent implements OnInit {
   versionSuffix: string = '';
 
   constructor(
+    public _settings: PureSettingsService,
     private _formBuilder: FormBuilder,
     private _router: Router
   ) {
