@@ -17,9 +17,6 @@ import { PureGlobalService } from './pure-services/pure-global.service';
 import { PureSettingsService } from './pure-services/pure-settings.service';
 import { PureSettingsStorageService } from './pure-services/pure-settings.storage';
 
-// Device Detectors
-import { DeviceDetectorModule } from 'ngx-device-detector';
-
 // Translator
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -71,9 +68,6 @@ const PURE_CORE_MODULES = [
     PureMockApiModule,
     ...PURE_CORE_MODULES,
 
-    // Device Detectors
-    DeviceDetectorModule.forRoot(),
-
     // Translator
     TranslateModule.forRoot({
       loader: {
@@ -98,6 +92,7 @@ const PURE_CORE_MODULES = [
     {
       provide: HIGHLIGHT_OPTIONS,
       useValue: {
+        coreLibraryLoader: () => import('highlight.js/lib/core'),
         languages: getHighlightLanguages()
       }
     },

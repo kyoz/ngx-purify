@@ -69,10 +69,10 @@ export class PureSideChatboxState {
   sendMessage({ getState, setState }: StateContext<PureSideChatboxStateModel>, { chatboxMessage }: SendMessage) {
     const { sender, message, createAt } = chatboxMessage;
     const owner = getState().currentContact.id;
-    const currentMessages = [...getState().currentMessages];
 
     this._mockApi.chatbox.sendMessage(owner, sender, message, createAt).subscribe((newMessage: ChatboxMessage) => {
       setState((state: PureSideChatboxStateModel) => {
+        const currentMessages = state.currentMessages;
         currentMessages.push(newMessage);
 
         state.currentMessages = currentMessages;
